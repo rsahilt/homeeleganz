@@ -52,7 +52,65 @@ In the Web App:
 - Regular Security Audits: Conducting periodic reviews and audits of the web application to identify and rectify potential    security issues.
 
 9. Database
-
+    The database is planned to consist of the following tables:
+    1. Products
+        * Product Id - PK
+        * Name
+        * Summary
+        * Price
+        * Description
+        * Quantity
+        * Weight
+        * Dimensions
+        * Category Id - FK
+    2. Categories
+        * Category Id - PK
+        * Name
+        * Product Id - FK
+    3. Customers
+        * Customer Id - PK
+        * First Name
+        * Last Name
+        * email
+        * password
+        * address
+        * phone number
+    4. Orders
+        * Order Id - PK
+        * Date 
+        * Amount
+        * Customer id - FK
+    5. Line Items
+        * Line items id
+        * Order Id - FK
+        * Product Id
+        * Quantity
+        * Unit price
+        * Subtotal
+    6. Taxes
+        * Tax ID
+        * PST
+        * GST
+        * Province
+    7. Shipping
+        * Shipping Id
+        * Method of Shipping
+        * Shipping Time
+        * Estimated Cost
+    8. Transactions
+        * Transaction Id
+        * Order Id
+        * Timestamp
+        * Amount
+        * Payment Method
+        * Status of Transaction
+    9. Payments
+        * Payment Id
+        * Transaction Id
+        * Date
+        * Amount
+        * Method of Payment
+        * Card Details
 
 10. Value Adds
 - Email functionality.
