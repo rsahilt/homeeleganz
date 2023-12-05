@@ -2,6 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
+/* For list-view */
+
+.category {
+    display: flex;
+    align-items: center;
+    /* To center the images horizontally */
+    justify-content: center;
+    /* To align images to the top */
+    margin-bottom: 70px;
+
+}
+
+.category img {
+    width: 26rem;
+    height: 33rem;
+    display: flex;
+    margin: 0 20px;
+}
+
+.list-view{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    
+}
+
+.list-view img{
+    margin: 20px;
+}
+
+
+.home-h1{
+    font-size: 30px;
+    padding-left: 360px;
+}
+
+
 
 footer{
     width: 100vw;

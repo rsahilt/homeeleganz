@@ -18,7 +18,7 @@
 <body>
     @include('partials.header')
 
-    Home
+    
 
     @include('partials.footer')
 
