@@ -1,0 +1,208 @@
+body {
+    font-family: 'Lato', sans-serif;
+    /* Lato font */
+    margin: 0;
+}
+
+header {
+    background-color: #FFF;
+    /* Choose a background color that suits your logo */
+    padding: 5px 0;
+    text-align: center;
+    position: relative;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header svg {
+    width: 150px;
+    /* Adjust as needed */
+    height: auto;
+    margin: 0 auto;
+}
+
+.logo {
+    width: 150px;
+    /* Adjust as needed */
+    height: auto;
+    margin: 0 auto;
+}
+
+nav {
+    background-color: #d7d5dc;
+    /* background: linear-gradient(#FFA07A, #cc8061); */
+    padding: 10px;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.container {
+    padding: 20px;
+}
+
+/* .hero button { 
+    background-color: red; 
+    color: white; 
+    padding: 10px 20px; 
+    border: none; 
+    cursor: pointer; 
+} */
+h2 {
+
+    color: black;
+}
+
+.slider {
+    width: 100%;
+    background: red;
+}
+
+.slider img {
+    width: 100%;
+    height: 600px;
+}
+
+.products-cont {
+    padding: 50px;
+    /* Adjust padding as needed */
+    color: black;
+    /* If you want white text */
+    text-align: center;
+    /* If you want centered text */
+}
+
+.products-cont h1 {
+    font-size: 2em;
+    /* Adjust the font size as needed */
+    margin-bottom: 20px;
+    /* Adjust the space below the heading */
+}
+
+/* If you have a button in your .products-cont, style it like this: */
+.products-cont button {
+    background-color: #f2f2f2;
+    /* Adjust button color as needed */
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    /* Adjust the font size as needed */
+    cursor: pointer;
+    border-radius: 5px;
+    /* If you want rounded corners */
+    text-transform: uppercase;
+    /* If you want uppercase text */
+    outline: none;
+    /* Removes the outline to make it look cleaner */
+    margin-top: 20px;
+    /* Adds space above the button */
+}
+
+.category {
+    display: flex;
+    align-items: center;
+    /* To center the images horizontally */
+    justify-content: center;
+    /* To align images to the top */
+    margin-bottom: 70px;
+
+}
+
+.category img {
+    width: 400px;
+    height: 400px;
+    display: flex;
+    margin: 0 20px;
+}
+
+.home-h1{
+    font-size: 30px;
+    padding-left: 20px;
+}
+
+
+footer {
+    background: linear-gradient(#555161, #3d3a45);
+    color: white;
+    padding: 20px 0;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 10%;
+}
+
+.footer-column {
+    flex: 1;
+}
+
+.footer-column h4 {
+    margin-bottom: 15px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li a {
+    color: white;
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.footer-column ul li a:hover {
+    opacity: 1;
+}
+
+.footer-credits {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.search-form {
+    position: absolute;
+    left: 30px;
+    top: 40px;
+}
+
+.login-link {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 5px 10px;
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #333;
+}
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .nav ul li {
+        display: block;
+        /* Stacking nav items vertically on smaller screens */
+        text-align: left;
+    }
+
+
+    .footer-container {
+        flex-direction: column;
+        /* Stacking footer columns vertically on smaller screens */
+    }
+}
