@@ -2,7 +2,7 @@
 * Home Eleganz
 * From: Team 1 (Sahil, Shishir, Medha, Navraj, Arshdeep)
 * To: Steve George
-* Date: 05 Dec 2023
+* Date: 06 December 2023
 
 # 1. Description of your project
  Home Eleganz is a website that typically serves as a comprehensive online platform for both homeowners and interior design enthusiasts. The website will be optimized for a smooth shopping experience, with a responsive design that works well on both desktop and mobile devices. Payment gateway integration is crucial, offering secure and diverse payment options.
@@ -33,7 +33,7 @@
 ## Product Details
 ![Home Page](product_view_design.png)
 
-# 5. Guest
+# 5. Users
 - Guest: Can browse products and read blog content without registration but cannot make purchases.
 - User: Registered users can make purchases, track orders, save favorites, and access exclusive content.
 - Admin: Can manage product listings, process orders, update website content, and access analytics.
