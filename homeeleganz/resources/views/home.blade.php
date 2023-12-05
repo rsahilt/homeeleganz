@@ -20,6 +20,7 @@
 
     Home
 
+    @include('partials.footer')
 
 </body>
 
