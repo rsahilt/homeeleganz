@@ -18,7 +18,7 @@
 <body>
     @include('partials.header')
 
-    Home
+    
 
 
 </body>
