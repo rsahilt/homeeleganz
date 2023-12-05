@@ -15,8 +15,8 @@
 }
 
 .category img {
-    width: 260px;
-    height: 330px;
+    width: 26rem;
+    height: 33rem;
     display: flex;
     margin: 0 20px;
 }
@@ -39,3 +39,9 @@
 }
 
 
+
+footer{
+    width: 100vw;
+    background: linear-gradient(#555161, #3d3a45);
+    color: white;
+}
