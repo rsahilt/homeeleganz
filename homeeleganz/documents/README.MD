@@ -1,6 +1,6 @@
 * Proposal Outline
 * Home Eleganz
-* From: Team 1
+* From: Team 1 (Sahil, Shishir, Medha, Navraj, Arshdeep)
 * To: Steve George
 * Date: 05 Dec 2023
 
@@ -31,6 +31,12 @@
 
 6. Sitemaps
 
+a. Front End Sitempap
+![Front End Sitemap](front-end-sitemap.jpg)
+
+a. Back End Sitempap
+![Back End Sitemap](front-end-sitemap.jpg)
+
 7. Server
 
 
@@ -52,6 +58,8 @@ In the Web App:
 - Regular Security Audits: Conducting periodic reviews and audits of the web application to identify and rectify potential    security issues.
 
 9. Database
+
+    ![ERD](ERD-MainTables.png)
     The database is planned to consist of the following tables:
     1. Products
         * Product Id - PK
@@ -122,9 +130,10 @@ In the Web App:
 - Comment section.
 
 11. Revised ERD for Value Adds
+![Revised ERD for value adds](ERD-MainTables.png)
 
 12. Our Team
-A skilled team of web developers, designers, content creators, and marketing professionals.
+We are a skilled team of web developers, designers, content creators, and marketing professionals.
 Each member brings expertise in their respective fields to ensure the success of the project.
 
 
