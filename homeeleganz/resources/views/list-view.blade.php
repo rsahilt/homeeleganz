@@ -36,6 +36,7 @@
         <img src="images/pexels-tiana-2995012.jpg" alt="Description of Image 4">
     </div>
 
+    @include('partials.footer')
 
 
 </body>
