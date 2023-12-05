@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+footer{
+    width: 100vw;
+    background: linear-gradient(#555161, #3d3a45);
+    color: white;
+}
