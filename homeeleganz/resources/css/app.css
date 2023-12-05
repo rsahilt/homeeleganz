@@ -15,8 +15,8 @@
 }
 
 .category img {
-    width: 26rem;
-    height: 33rem;
+    width: 270px;
+    height: 330px;
     display: flex;
     margin: 0 20px;
 }
@@ -24,7 +24,7 @@
 .list-view{
     display: flex;
     flex-wrap: wrap;
-    justify-content: left;
+    justify-content: center;
     
 }
 
