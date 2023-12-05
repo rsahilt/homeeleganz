@@ -4,7 +4,7 @@
 * To: Steve George
 * Date: 06 December 2023
 
-# 1. Description of your project
+# 1. Project Description
  Home Eleganz is a website that typically serves as a comprehensive online platform for both homeowners and interior design enthusiasts. The website will be optimized for a smooth shopping experience, with a responsive design that works well on both desktop and mobile devices. Payment gateway integration is crucial, offering secure and diverse payment options.
 
 # 2. Target audiences
