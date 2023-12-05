@@ -72,13 +72,24 @@ In the Web App:
         * First Name
         * Last Name
         * email
-        * password
-        * address
+        * Password
+        * Address
+        * City
+        * Province
+        * Postal Code
         * phone number
     4. Orders
         * Order Id - PK
         * Date 
-        * Amount
+        * Sub Total
+        * PST
+        * GST
+        * HST
+        * Total
+        * Address
+        * City
+        * Province
+        * Postal Code
         * Customer id - FK
     5. Line Items
         * Line items id
@@ -89,28 +100,22 @@ In the Web App:
         * Subtotal
     6. Taxes
         * Tax ID
-        * PST
-        * GST
+        * PST rate
+        * GST rate
+        * HST rate
+        * VAT rate
         * Province
-    7. Shipping
-        * Shipping Id
-        * Method of Shipping
-        * Shipping Time
-        * Estimated Cost
     8. Transactions
         * Transaction Id
         * Order Id
-        * Timestamp
-        * Amount
-        * Payment Method
-        * Status of Transaction
-    9. Payments
-        * Payment Id
-        * Transaction Id
-        * Date
-        * Amount
-        * Method of Payment
-        * Card Details
+        * Status
+        * Transaction
+    Added value: 9. Reviews
+    * Review Id (PK)
+    * Product Id (FK)
+    * Customer Id (FK)
+    * Comment
+  
 
 10. Value Adds
 - Email functionality.
