@@ -47,7 +47,30 @@
 ![Back End Sitemap](back-end-sitemap.jpg)
 
 # 8. Server
+ The server implemented for this project is based on an Ubuntu environment and was set up following standard procedures for web hosting:
 
+**Type of Server Installed: Ubuntu Server (Version...)
+
+**Hosting Details: 
+
+   **Software Installed:
+   - Operating System: Ubuntu Server (Version...)
+   - Web Server: Apache HTTP Server (Version...)
+   - Programming Language: PHP (Version...)
+   - Database Management System: MySQL
+
+   **Steps Followed:
+   1. Downloaded the necessary security keys (PEM file) into the `.ssh` folder for secure access.
+   2. Configured the `.ssh` folder, specifying the host details for the designated team/server.
+   3. Accessed the server via SSH using the command `ssh ubuntu@team1`.
+   4. Executed standard system updates and upgrades using the commands `sudo apt update` and `sudo apt upgrade`.
+   5. Installed and configured the required server software components:
+      - Apache HTTP Server for web hosting
+      - PHP and its necessary extensions for server-side scripting
+      - MySQL Server for database management
+      - Restarted the Apache service for the changes to take effect.
+**SSL Certification:
+   - SSL certification will be a vital part of this server setup to ensure secure connections. The process will involve obtaining and configuring SSL certificates using Certbot to secure communications over HTTPS.
 
 
 # 9. Security
