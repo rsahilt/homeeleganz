@@ -6,11 +6,11 @@
     </div>
     <nav id="navigation" class="h-[2rem] w-[100%] bg-primary">
         <ul class="h-[inherit] flex justify-around items-center uppercase tracking-wide">
-            <li>Categories</li>
-            <li>Offers</li>
-            <li>Brands</li>
-            <li>Home services</li>
-            <li>About</li>
+            <li class="hover:cursor-pointer">Products</li>
+            <li class="hover:cursor-pointer">Offers</li>
+            <li class="hover:cursor-pointer">Brands</li>
+            <li class="hover:cursor-pointer">Home services</li>
+            <li class="hover:cursor-pointer">About</li>
         </ul>
 
     </nav>
