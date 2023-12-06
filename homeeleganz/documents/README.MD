@@ -49,29 +49,32 @@
 # 8. Server
  The server implemented for this project is based on an Ubuntu environment and was set up following standard procedures for web hosting:
 
-**Type of Server Installed: Ubuntu Server (Version...)
+**Type of Server Installed: Ubuntu Server (Version 2.14)
 
 **Hosting Details: 
-    ** Host: team1.uwpace.ca
-    ** IP: 107.22.103.23
-    **Software Installed:
-    - Operating System: Ubuntu Server ()
-    - Web Server: Apache HTTP Server (Apache/2.4.52 (Ubuntu))
-    - Programming Language: PHP (Version...)
-    - Database Management System: MySQL
 
-    **Steps Followed:
-    1. Downloaded the necessary security keys (PEM file) into the `.ssh` folder for secure access.
-    2. Configured the `.ssh` folder, specifying the host details for the designated team/server.
-    3. Accessed the server via SSH using the command `ssh ubuntu@team1`.
-    4. Executed standard system updates and upgrades using the commands `sudo apt update` and `sudo apt upgrade`.
-    5. Installed and configured the required server software components:
-        - Apache HTTP Server for web hosting
-        - PHP and its necessary extensions for server-side scripting
-        - MySQL Server for database management
-        - Restarted the Apache service for the changes to take effect.
-    **SSL Certification:
-    - SSL certification will be a vital part of this server setup to ensure secure connections. The process will involve obtaining and configuring SSL certificates using Certbot to secure communications over HTTPS.
+   **Software Installed:
+   - Operating System: Ubuntu Server (Version 2.14)
+   - Web Server: Apache HTTP Server (Version 2.4.52)
+   - Programming Language: PHP (Version 8.2.0)
+   - Database Management System: MySQL(MySQL PDO Driver)
+
+   **Steps Followed:
+   1. Security Key Setup: Downloaded the necessary security keys (PEM file) into the `.ssh` folder for secure access.
+   2. SSH Configuration: Configured the `.ssh` folder, specifying the host details for the designated team/server.
+   3. SSH Connection: Accessed the server via SSH using the command `ssh ubuntu@team1`.
+   4. System Updates: Executed standard system updates and upgrades using the commands `sudo apt update` and `sudo apt upgrade`.
+   5. Installed and configured the required server software components:
+      - Apache HTTP Server for web hosting
+      - PHP and its necessary extensions for server-side scripting
+      - MySQL Server for database management
+      - Restarted the Apache service for the changes to take effect.
+    6. Website Directory Setup:
+      - Created directories /var/www/mysites/homeeleganz/public for website hosting.
+      - Created an index.html file in /var/www/mysites/homeeleganz/public to test the server configuration.
+    7. SSL Certification Setup:
+      - Installed Certbot and the Certbot Apache plugin using 'sudo apt install certbot python3-certbot-apache'.
+      - Obtained SSL certificates using 'sudo certbot --apache -d team1.uwpace.ca' to secure communications over HTTPS.
 
 
 # 9. Security
