@@ -20,3 +20,7 @@ Route::get('/', function () {
 Route::get('/list-view', function () {
     return view('list-view');
 });
+
+Route::get('/checkout', function () {
+    return view('checkout');
+});
