@@ -57,7 +57,7 @@
    - Operating System: Ubuntu Server (Version...)
    - Web Server: Apache HTTP Server (Version...)
    - Programming Language: PHP (Version...)
-   - Database Management System: MySQL or SQLite??
+   - Database Management System: MySQL
 
    **Steps Followed:
    1. Downloaded the necessary security keys (PEM file) into the `.ssh` folder for secure access.
