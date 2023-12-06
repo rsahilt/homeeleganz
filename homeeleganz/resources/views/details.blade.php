@@ -49,10 +49,41 @@
 
     <div class="review">
         <h3>Product Reviews</h3>
-        <div class="review-box">
-            <div class="user-img"></div>
+        <div class="review-box flex justify-center">
+            <div class="user-img">
+                <div class="w-[70px] h-[70px] bg-black rounded-[50%]"></div>
+            </div>
+
             <div class="user-contents">
-                
+                <strong><p>Firstname Lastname</p></strong>
+                <p class="cat-text date-text">Posted on: 12/01/2023</p>
+                <p>mollit anim id est laborum.  esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>mollit anim id est laborum.  esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>mollit anim id est laborum.  esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+        </div>
+
+        <div class="review-box flex justify-center items-center">
+            <div class="user-img">
+                <div class="w-[70px] h-[70px] bg-black rounded-[50%]"></div>
+            </div>
+
+            <div class="user-contents">
+                <strong><p>Firstname Lastname</p></strong>
+                <p class="cat-text date-text">Posted on: 12/01/2023</p>
+                <p>mollit anim id est laborum.  esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+        </div>
+
+        <div class="review-box flex justify-center items-center">
+            <div class="user-img">
+                <div class="w-[70px] h-[70px] bg-black rounded-[50%]"></div>
+            </div>
+
+            <div class="user-contents">
+                <strong><p>Firstname Lastname</p></strong>
+                <p class="cat-text date-text">Posted on: 12/01/2023</p>
+                <p>mollit anim id est laborum.  esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
         </div>
     </div>

@@ -239,7 +239,6 @@ footer{
     margin: 40px auto;
     display: flex;
     flex-direction: column;
-    background-color: red;
 }
 
 .review h3{
@@ -247,22 +246,20 @@ footer{
 }
 
 .review-box{
+    margin-top: 10px;
     width: 98%;
-    background-color: blue;
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    margin-bottom: 20px;
+    border-bottom: 1px solid gray;
+    padding-bottom: 20px;
 }
 
-.user-img{
-    width: 100px;
-    height: 100px;
-    background-color: green;
+.date-text{
+    font-size: 15px;
+    color: gray;
 }
 
-.user-img img{
-    width: 100%;
-    height: 100%;
-}
 
 
 
