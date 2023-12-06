@@ -49,9 +49,9 @@
 # 8. Server
  The server implemented for this project is based on an Ubuntu environment and was set up following standard procedures for web hosting:
 
-**Type of Server Installed: Ubuntu Server (Version 2.14)
+* Type of Server Installed: Ubuntu Server (Version 2.14)
 
-**Hosting Details: 
+* Hosting Details: 
 
    **Software Installed:
    - Operating System: Ubuntu Server (Version 2.14)
@@ -112,7 +112,7 @@ The database is planned to consist of the following tables:
     * Category Id - PK
     * Name
     * Product Id - FK
-3. Customers
+3. Users
     * Customer Id - PK
     * First Name
     * Last Name
@@ -148,7 +148,6 @@ The database is planned to consist of the following tables:
     * PST rate
     * GST rate
     * HST rate
-    * VAT rate
     * Province
 8. Transactions
     * Transaction Id
