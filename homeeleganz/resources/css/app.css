@@ -48,14 +48,16 @@ footer{
 
 /* For Cart */
 .main-container {
-    max-width: 1200px;
+    width: 100%;
     margin: auto;
     
 }
 
 .cart-title {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 50px;
 }
 
 
@@ -109,8 +111,12 @@ justify-content: space-between;
 }
 .summary-items{
     text-align: center;
+    margin-left: 90px;
 }
-
+.summary-total{
+    margin-right: 20px;
+    margin-bottom: 40px;
+}
 .summary-checkout {
     background-color: #000;
     color: #fff;
@@ -118,8 +124,16 @@ justify-content: space-between;
     border-radius: 20px;
     padding: 10px 20px;
     cursor: pointer;
+    margin-right: 10px;
+    
 }
 
+footer{
+    width: 100vw;
+    background: linear-gradient(#555161, #3d3a45);
+    color: white;
+    margin-top: 20px;
+}
 
 
 
