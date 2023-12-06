@@ -17,3 +17,18 @@
 
 <body class="font-lato overflow-x-hidden">
     @include('partials.header')
+
+    <div class="prod-details-container">
+        <div class="prod-desc-image">
+            <div class="main-img">
+
+            </div>
+            <div class="small-img">
+                <div class="img1"></div>
+                <div class="img2"></div>
+            </div>
+        </div>
+        <div class="details">
+
+        </div>
+    </div>
