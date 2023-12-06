@@ -31,4 +31,4 @@ Route::get('/cart', function () {
 
 Route::get('/prod-details', function(){
     return view('details');
-})
+});
