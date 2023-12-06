@@ -29,6 +29,9 @@ Route::get('/cart', function () {
     return view('cart');
 });
 
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/prod-details', function(){
     return view('details');
 });
