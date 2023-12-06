@@ -95,7 +95,7 @@
 - Regular Security Audits: Conducting periodic reviews and audits of the web application to identify and rectify potential security issues.
 
 # 10. Database
-![Revised ERD for value adds](ERD-MainTables.png)
+![ERD](ERD-MainTables.png)
 
 The database is planned to consist of the following tables:
 1. Products
@@ -167,7 +167,7 @@ Added value: 9. Reviews
 - Comment section.
 
 # 12. Revised ERD for Value Adds
-![Revised ERD for value adds](ERD-MainTables.png)
+![Revised ERD for value adds](ERD-withreviews.png)
 
 # 13. Our Team
 We are a skilled team of web developers, designers, content creators, and marketing professionals.Each member brings expertise in their respective fields to ensure the success of the project. Our team members are:

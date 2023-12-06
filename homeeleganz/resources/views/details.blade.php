@@ -49,7 +49,7 @@
 
     <div class="review">
         <h3>Product Reviews</h3>
-        <div class="review-box flex justify-center">
+        <div class="review-box">
             <div class="user-img">
                 <div class="w-[70px] h-[70px] bg-black rounded-[50%]"></div>
             </div>
@@ -63,7 +63,7 @@
             </div>
         </div>
 
-        <div class="review-box flex justify-center items-center">
+        <div class="review-box">
             <div class="user-img">
                 <div class="w-[70px] h-[70px] bg-black rounded-[50%]"></div>
             </div>
@@ -75,7 +75,7 @@
             </div>
         </div>
 
-        <div class="review-box flex justify-center items-center">
+        <div class="review-box">
             <div class="user-img">
                 <div class="w-[70px] h-[70px] bg-black rounded-[50%]"></div>
             </div>
@@ -87,5 +87,10 @@
             </div>
         </div>
     </div>
+
+    @include('partials.footer')
+</body>
+
+</html>
 
     
