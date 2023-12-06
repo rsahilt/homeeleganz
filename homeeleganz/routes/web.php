@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/list-view', function () {
+Route::get('/products', function () {
     return view('list-view');
 });
 
@@ -32,3 +32,6 @@ Route::get('/cart', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/prod-details', function(){
+    return view('details');
+});

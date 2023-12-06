@@ -23,6 +23,8 @@
 
     </div>
 
+
+
     <div id=" hero-image" class="w-[100%] mt-[1rem]">
         <img src="/images/hero-image.png" class="mx-auto">
     </div>
@@ -33,37 +35,21 @@
         <div id="shop-by-category">
             <h1 class="text-[1.5em] my-[1rem] ml-[1rem] tracking-wider">Shop by category</h1>
             <div class="flex justify-around">
-                <div class="card w-[270px] h-[330px] bg-gray-500">
+                @include('components.card')
+                @include('components.card')
+                @include('components.card')
 
-                </div>
-                <div class="card w-[270px] h-[330px] bg-gray-500">
-
-                </div>
-                <div class="card w-[270px] h-[330px] bg-gray-500">
-
-                </div>
-
-                <div class="card w-[270px] h-[330px] bg-gray-500">
-
-                </div>
+                @include('components.card')
             </div>
         </div>
         <div id="shop-by-brand">
             <h1 class="text-[1.5em] my-[1rem] ml-[1rem] tracking-wide">Shop by brand</h1>
             <div class="flex justify-around">
-                <div class="card w-[270px] h-[330px] bg-gray-500">
+                @include('components.card')
+                @include('components.card')
+                @include('components.card')
 
-                </div>
-                <div class="card w-[270px] h-[330px] bg-gray-500">
-
-                </div>
-                <div class="card w-[270px] h-[330px] bg-gray-500">
-
-                </div>
-
-                <div class="card w-[270px] h-[330px] bg-gray-500">
-
-                </div>
+                @include('components.card')
             </div>
         </div>
     </div>
