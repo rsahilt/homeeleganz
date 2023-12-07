@@ -23,8 +23,18 @@ class Product extends Model
         'catgeory_id'
     ];
 
-    public function review()
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function reviews()
     {
         return $this->hasMany(Review::class);
+    }
+
+    public function lineItems()
+    {
+        return $this->hasMany(LineItem::class);
     }
 }

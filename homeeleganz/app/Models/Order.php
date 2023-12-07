@@ -15,7 +15,7 @@ class Order extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function lineItem()
+    public function lineItems()
     {
         return $this->hasMany(LineItem::class);
     }
@@ -25,7 +25,7 @@ class Order extends Model
         return $this->belongsTo(Tax::class);
     }
 
-    public function transaction()
+    public function transactions()
     {
         return $this->hasMany(Transaction::class);
     }
