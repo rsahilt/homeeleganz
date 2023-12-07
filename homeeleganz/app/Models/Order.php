@@ -15,14 +15,19 @@ class Order extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function lineItems()
+    public function lineItem()
     {
         return $this->hasMany(LineItem::class);
     }
 
-    public function taxes()
+    public function tax()
     {
-        return $this->belongsTo(Taxes::class);
+        return $this->belongsTo(Tax::class);
+    }
+
+    public function transaction()
+    {
+        return $this->hasMany(Transaction::class);
     }
 
 

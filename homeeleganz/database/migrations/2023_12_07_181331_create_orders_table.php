@@ -18,7 +18,7 @@ return new class extends Migration
             $table->decimal('pst', 10, 2);
             $table->decimal('gst', 10, 2);
             $table->decimal('hst', 10, 2);
-            $table->bigInteger('taxes_id')->nullable();
+            $table->bigInteger('tax_id')->nullable();
             $table->decimal('total', 10, 2);
             $table->string('address');
             $table->string('city');

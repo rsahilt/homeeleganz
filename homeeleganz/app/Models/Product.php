@@ -21,4 +21,9 @@ class Product extends Model
         'dimensions',
         'catgeory_id'
     ];
+
+    public function review()
+    {
+        return $this->hasMany(Review::class);
+    }
 }
