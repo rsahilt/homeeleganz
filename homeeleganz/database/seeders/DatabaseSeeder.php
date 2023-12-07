@@ -22,5 +22,9 @@ class DatabaseSeeder extends Seeder
         $this->call([
             CategoriesSeeder::class
         ]);
+
+        $this->call([
+            TaxesSeeder::class
+        ]);
     }
 }
