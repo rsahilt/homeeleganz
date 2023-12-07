@@ -15,15 +15,15 @@
 
 </head>
 
-<body class="bg-gray-100 font-lato overflow-x-hidden">
+<body class="font-lato overflow-x-hidden">
 
     @include('partials.header')
 
-    <section class="text-gray-600 body-font">
-        <div class="container px-5 py-24 mx-auto">
+    <section class="text-gray-600 body-font bg-gray-100 mt-6">
+        <div class="container px-5 py-24 mx-auto ">
             <div class="flex flex-col text-center w-full mb-20 mt-[-55px]">
                 <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">About Us</h1>
-                <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Welcome to Home Eleganz, where every brush stroke
+                <p class="lg:w-2/3 mx-auto leading-relaxed text-base"><span class="bigtext">W</span>elcome to Home Eleganz, where every brush stroke
                     matters, and every cushion, curtain, or coffee table tells a story – your story. Our journey began
                     with a simple yet passionate idea: to turn homes into havens of inspiration, comfort, and memories.
                     From humble beginnings as a small boutique to becoming a beacon of home decor, Home Eleganz has
@@ -32,9 +32,9 @@
         </div>
     </section>
 
-    <div class="flex flex-wrap -m-4 mt-[-100px]">
+    <div class="flex flex-wrap -m-4 mt-[-100px] mb-4 ml-4 mr-4 mt-2">
         <div class="p-4 lg:w-1/2 md:w-full">
-            <div class="flex h-full border-2 rounded-lg border-gray-200 border-opacity-50 p-8 sm:flex-row flex-col">
+            <div class="flex h-full border-2 rounded-lg border-gray-200 border-opacity-100 p-8 sm:flex-row flex-col">
                 <div
                     class="w-16 h-16 sm:mr-8 sm:mb-0 mb-4 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 flex-shrink-0">
                     <!-- SVG for Our Mission -->
@@ -47,7 +47,7 @@
             </div>
         </div>
         <div class="p-4 lg:w-1/2 md:w-full">
-            <div class="flex h-full border-2 rounded-lg border-gray-200 border-opacity-50 p-8 sm:flex-row flex-col">
+            <div class="flex h-full border-2 rounded-lg border-gray-200 border-opacity-100 p-8 sm:flex-row flex-col">
                 <div
                     class="w-16 h-16 sm:mr-8 sm:mb-0 mb-4 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 flex-shrink-0">
                     <!-- SVG for Our Vision -->
@@ -62,11 +62,11 @@
     </div>
 
 
-    <section class="bg-white body-font">
-        <div class="container px-5 py-24 mx-auto">
+    <section class="bg-gray-100 body-font ">
+        <div class="container px-5 py-24 mx-auto bg-gray-100">
             <div class="flex flex-col text-center w-full mb-12">
                 <h2 class="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">THE TEAM</h2>
-                <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900">Meet Our Team</h1>
+                <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900">Developers</h1>
             </div>
             <div class="flex flex-wrap -m-4">
                 @php
@@ -81,7 +81,7 @@
 
                 @foreach ($teamMembers as $member)
                 <div class="p-4 lg:w-1/5 md:w-1/2 sm:w-full">
-                    <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
+                    <div class="h-full flex items-center border-gray-500 border p-4 rounded-lg">
                         <img src="/images/{{ $member['image'] }}"
                             class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4"
                             alt="{{ $member['name'] }}-img">
@@ -97,7 +97,7 @@
         </div>
 
         </div>
-        <div class="bg-gray-100 p-6">
+        <div class="bg-white p-6">
 
             <div class="container mx-auto">
 
@@ -116,8 +116,8 @@
                                 </svg>
                                 </span>
                             </div>
-                            <p class="mt-4 mb-2 text-3xl font-bold text-gray-900">2097</p>
-                            <h2 class="text-sm text-gray-600">Projects and Plans</h2>
+                            <p class="mt-4 mb-2 text-3xl font-bold text-gray-900">200097</p>
+                            <h2 class="text-sm text-gray-600">Inventory</h2>
                         </div>
                     </div>
 
@@ -135,8 +135,8 @@
                                 </svg>
 
                             </div>
-                            <p class="mt-4 mb-2 text-3xl font-bold text-gray-900">3,590</p>
-                            <h2 class="text-sm text-gray-600">Helped People</h2>
+                            <p class="mt-4 mb-2 text-3xl font-bold text-gray-900">31,590</p>
+                            <h2 class="text-sm text-gray-600">Happy Customers</h2>
                         </div>
                     </div>
 
@@ -152,7 +152,7 @@
 
                             </div>
                             <p class="mt-4 mb-2 text-3xl font-bold text-gray-900">74</p>
-                            <h2 class="text-sm text-gray-600">Volunteers</h2>
+                            <h2 class="text-sm text-gray-600">Warehouse Experts</h2>
                         </div>
                     </div>
 
@@ -167,8 +167,8 @@
                                 </svg>
 
                             </div>
-                            <p class="mt-4 mb-2 text-3xl font-bold text-gray-900">100</p>
-                            <h2 class="text-sm text-gray-600">Timing</h2>
+                            <p class="mt-4 mb-2 text-3xl font-bold text-gray-900">3 Days</p>
+                            <h2 class="text-sm text-gray-600">Unbeatable Delivery Time</h2>
                         </div>
                     </div>
                 </div>
