@@ -15,7 +15,7 @@
 
 </head>
 
-<body class="font-lato overflow-x-hidden">
+<body class="bg-gray-100 font-lato overflow-x-hidden">
 
     @include('partials.header')
 
@@ -32,7 +32,7 @@
         </div>
     </section>
 
-    <div class="flex flex-wrap -m-4 mt-[-100px] mb-4 ml-4 mr-4 mt-2">
+    <div class="flex flex-wrap -m-4 mt-[-100px] mb-4 ml-4 mr-4 mt-2 bg-gray-100">
         <div class="p-4 lg:w-1/2 md:w-full">
             <div class="flex h-full border-2 rounded-lg border-gray-200 border-opacity-100 p-8 sm:flex-row flex-col">
                 <div
@@ -97,7 +97,7 @@
         </div>
 
         </div>
-        <div class="bg-white p-6">
+        <div class="bg-gray-100 p-6">
 
             <div class="container mx-auto">
 
