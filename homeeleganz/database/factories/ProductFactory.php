@@ -22,6 +22,7 @@ class ProductFactory extends Factory
             'name' => fake()->name(),
             'image' => 'default.jpg',
             'color' => fake()->safeColorName(),
+            'summary' => fake()->sentence(),
             'material' => fake()->word(),
             'unit_price' => fake()->randomFloat(2, 10, 1000),
             'description' => fake()->realText($maxNbChars = 200, $indexSize = 2),

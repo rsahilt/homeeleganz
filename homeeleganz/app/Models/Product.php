@@ -12,6 +12,7 @@ class Product extends Model
     protected $fillable = [
         'name',
         'image',
+        'summary',
         'color',
         'material',
         'unit_price',
@@ -21,4 +22,9 @@ class Product extends Model
         'dimensions',
         'catgeory_id'
     ];
+
+    public function review()
+    {
+        return $this->hasMany(Review::class);
+    }
 }

@@ -11,20 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->date('order_date');
+            $table->decimal('sub_total', 10, 2);
+            $table->decimal('pst', 10, 2);
+            $table->decimal('gst', 10, 2);
+            $table->decimal('hst', 10, 2);
+            $table->bigInteger('tax_id')->nullable();
+            $table->decimal('total', 10, 2);
             $table->string('address');
             $table->string('city');
             $table->string('province');
             $table->string('postal_code');
-            $table->string('phone_number');
-            $table->string('password');
-            $table->rememberToken();
-            $table->boolean('is_admin')->default(false);
+            $table->bigInteger('user_id');
             $table->timestamps();
         });
     }
@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('orders');
     }
 };
