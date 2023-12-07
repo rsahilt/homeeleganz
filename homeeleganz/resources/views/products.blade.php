@@ -21,19 +21,20 @@
 
     <div id="title" class="font-lato text-center text-[1.5em] my-[1rem] tracking-wider uppercase">
         <h1>{{ $title }}</h1>
-
     </div>
 
-    <nav id="navigation" class="h-[2rem] w-[100%] mb-[1rem]-">
-        <ul class="h-[inherit] flex justify-around items-center tracking-wide">
-            <li class="hover:cursor-pointer">Dining room</li>
-            <li class="hover:cursor-pointer">Bedroom</li>
-            <li class="hover:cursor-pointer">Living room</li>
-            <li class="hover:cursor-pointer">Home office</li>
-            <li class="hover:cursor-pointer">Garden</li>
+    <div class="categories-list mb-10">
+        <ul class="h-[inherit]">
+            <li class="hover:cursor-pointer">
+                <a href="#">All Furnitures</a>
+            </li>
+            @foreach($categories as $category)
+                <li class="hover:cursor-pointer">
+                    <a href="#">{{ $category->name }}</a>
+                </li>
+            @endforeach
         </ul>
-
-    </nav>
+    </div>
 
     <div class="grid lg:grid-cols-4 md:grid-cols-3   gap-9">
 
