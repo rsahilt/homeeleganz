@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,19 +13,40 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+
+        //Regular User Login
+        \App\Models\User::factory()->create([
+            'first_name' => 'Regular',
+            'last_name' => 'User',
+            'email' => 'user@sample.com',
+            'address' => 'PACE, UofW',
+            'city' => 'Winnipeg',
+            'province' => 'Manitoba',
+            'postal_code' => 'R3B 2P7',
+            'phone_number' => '1234562345',
+            'password' => Hash::make('password')
+        ]);
+
+        //Admin User Login
+        \App\Models\User::factory()->create([
+            'first_name' => 'Admin',
+            'last_name' => 'User',
+            'email' => 'admin@sample.com',
+            'address' => 'Admin Address',
+            'city' => 'Admin City',
+            'province' => 'Admin Province',
+            'postal_code' => 'Admin Postal Code',
+            'phone_number' => '1234567890',
+            'password' => Hash::make('admin'),
+            'is_admin' => true
+        ]);
+
         \App\Models\Product::factory(50)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
-
         $this->call([
-            CategoriesSeeder::class
-        ]);
-
-        $this->call([
+            CategoriesSeeder::class,
             TaxesSeeder::class
         ]);
+
     }
 }
