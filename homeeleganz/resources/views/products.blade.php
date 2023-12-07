@@ -59,10 +59,14 @@
         </div>
         @endforeach
 
+        
+
     </div>
 
-    @include('partials.footer')
+    <div class="pagination">{{ $products->links() }}</div>
+    
 
+    @include('partials.footer')
 
 </body>
 
