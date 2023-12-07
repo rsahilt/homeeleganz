@@ -48,9 +48,7 @@
                 </div>
                 <p class="text-[.8em] my-1 text-[#8A8A8A]">{{ $product->dimensions }}</p>
                 <p class="text-[.8em] my-1 text-[#8A8A8A]">{{ $product->catgeory_id }}</p>
-                <p class=" text-[.8em] my-1 mx-auto">Lorem Ipsum is simply dummy text of the printing
-                    and typesetting industry. Lorem Ipsum is simply dummy text of the printing
-                    and typesetting industry. </p>
+                <p class=" text-[.8em] my-1 mx-auto">{{ $product->description }}</p>
             </div>
             <div class=" absolute bottom-1 right-0 left-0 flex justify-center">
                 <button class="bg-black text-white text-[.7em] py-2 px-5 rounded-[20px] my-2 tracking-wider">ADD TO
