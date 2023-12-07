@@ -20,7 +20,7 @@
 
 
     <div id="title" class="font-lato text-center text-[1.5em] my-[1rem] tracking-wider uppercase">
-        <h1>All products</h1>
+        <h1>{{ $title }}</h1>
 
     </div>
 
@@ -34,32 +34,31 @@
         </ul>
 
     </nav>
-    `
 
     <div class="grid lg:grid-cols-4 md:grid-cols-3   gap-9">
-        @include('components.card')
-        @include('components.card')
-        @include('components.card')
-        @include('components.card')
-        @include('components.card')
-        @include('components.card')
-        @include('components.card')
-        @include('components.card')
-        @include('components.card')
-        @include('components.card')
 
-        <!-- <img src="images/img-1.jpg" alt="Description of Image 1">
-        <img src="images/img-2.jpg" alt="Description of Image 2">
-        <img src="images/pexels-pew-nguyen-244133.jpg" alt="Description of Image 3">
-        <img src="images/pexels-tiana-2995012.jpg" alt="Description of Image 4">
-        <img src="images/img-1.jpg" alt="Description of Image 1">
-        <img src="images/img-2.jpg" alt="Description of Image 2">
-        <img src="images/pexels-pew-nguyen-244133.jpg" alt="Description of Image 3">
-        <img src="images/pexels-tiana-2995012.jpg" alt="Description of Image 4">
-        <img src="images/pexels-tiana-2995012.jpg" alt="Description of Image 4">
-        <img src="images/pexels-tiana-2995012.jpg" alt="Description of Image 4">
-        <img src="images/pexels-tiana-2995012.jpg" alt="Description of Image 4">
-        <img src="images/pexels-tiana-2995012.jpg" alt="Description of Image 4"> -->
+        @foreach($products as $product)
+        <div class="w-[250px] min-h-[400px] border-[1px] rounded-[35px] mx-auto relative">
+
+            <img src="/images/sofa.jpeg" class="flex flex-col rounded-t-[35px]" />
+            <div class="px-2 my-2 ">
+                <div class="w-[100%] flex justify-between items-center text-[1.1em]">
+                    <span><b>{{ $product->name }}</b></span>
+                    <span class="text-red-600">${{ $product->unit_price }}</span>
+                </div>
+                <p class="text-[.8em] my-1 text-[#8A8A8A]">{{ $product->dimensions }}</p>
+                <p class="text-[.8em] my-1 text-[#8A8A8A]">{{ $product->catgeory_id }}</p>
+                <p class=" text-[.8em] my-1 mx-auto">Lorem Ipsum is simply dummy text of the printing
+                    and typesetting industry. Lorem Ipsum is simply dummy text of the printing
+                    and typesetting industry. </p>
+            </div>
+            <div class=" absolute bottom-1 right-0 left-0 flex justify-center">
+                <button class="bg-black text-white text-[.7em] py-2 px-5 rounded-[20px] my-2 tracking-wider">ADD TO
+                    CART</button>
+            </div>
+        </div>
+        @endforeach
+
     </div>
 
     @include('partials.footer')
