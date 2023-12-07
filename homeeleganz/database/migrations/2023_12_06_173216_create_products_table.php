@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('image');
+            $table->text('summary');
             $table->string('color');
             $table->string('material');
             $table->decimal('unit_price', 8, 2);
