@@ -327,3 +327,47 @@ footer{
     padding: 0 20px;
 }
 
+/* categories-list */
+.categories-list{
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}
+
+.categories-list ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.categories-list ul li a
+{
+    margin: 0 20px;
+    position: relative;
+    color: black;
+    font-weight: 500;
+    font-size: 16px;
+    -webkit-transition: background-color 1000ms linear;
+    transition: background-color 1000ms linear;
+}
+.categories-list ul li a::after{
+	content: '';
+	position: absolute;
+	bottom: -2px;
+	width: 0;
+	left: 50%;
+	height: 2px;
+	background: red;
+    -webkit-transition: 0.4s ease-out;
+	transition: 0.4s ease-out;
+	margin-top: 10px;
+}
+.categories-list ul li a:hover::after{
+	left: 0;
+	width: 100%;
+}
+
+.categories-list ul li a:hover
+{
+    color: red;
+}
