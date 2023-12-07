@@ -275,6 +275,38 @@ footer{
     font-weight: bold;
 }
 
+/* navbar */
+#navbar-default ul li
+{
+    transition: all 0.3s ease-in-out;
+}
 
+#navbar-default ul li a
+{
+    position: relative;
+    color: black;
+    font-weight: 500;
+    font-size: 16px;
+    -webkit-transition: background-color 1000ms linear;
+    transition: background-color 1000ms linear;
+}
+#navbar-default ul li a::after{
+	content: '';
+	position: absolute;
+	bottom: -2px;
+	width: 0;
+	left: 50%;
+	height: 2px;
+	background: red;
+	transition: 0.4s ease-out;
+	margin-top: 10px;
+}
+#navbar-default ul li a:hover::after{
+	left: 0;
+	width: 100%;
+}
 
-
+#navbar-default ul li a:hover
+{
+    color: red;
+}
