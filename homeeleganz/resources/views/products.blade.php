@@ -26,11 +26,13 @@
 
     <nav id="navigation" class="h-[2rem] w-[100%] mb-[1rem]-">
         <ul class="h-[inherit] flex justify-around items-center tracking-wide">
-            <li class="hover:cursor-pointer">Dining room</li>
-            <li class="hover:cursor-pointer">Bedroom</li>
+            @foreach($categories as $category)
+                <li class="hover:cursor-pointer">{{ $category->name }}</li>
+            @endforeach
+            <!-- <li class="hover:cursor-pointer">Bedroom</li>
             <li class="hover:cursor-pointer">Living room</li>
             <li class="hover:cursor-pointer">Home office</li>
-            <li class="hover:cursor-pointer">Garden</li>
+            <li class="hover:cursor-pointer">Garden</li> -->
         </ul>
 
     </nav>
