@@ -16,7 +16,7 @@ use App\Http\Controllers\ProductController;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('index');
 });
 
 Route::get('/products', [ProductController::class, 'index']);
@@ -47,7 +47,7 @@ Route::get('/contact', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
 Route::get('/details', function(){
     return view('details');
 });
