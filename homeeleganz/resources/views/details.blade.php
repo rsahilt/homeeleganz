@@ -19,6 +19,12 @@
     @include('partials.header')
 
     <div class="prod-details-container">
+    <!-- flash message -->
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
         <div class="prod-desc-image">
             <div class="main-img box-shadow-details">
                 <!-- <img src="/images/{{ $information->image }}" alt="sofa image"> -->
@@ -57,42 +63,39 @@
         <h3>Product Reviews</h3>
         <div class="review-box">
             @if(count($reviews) > 0)
-            @foreach($reviews as $review)
-                <div class="user-img">
-                    <div class="w-[70px] h-[70px] bg-black rounded-[50%]"></div>
-                </div>
-
-                <div class="user-contents">
-                    <strong><p>{{ $review->user->firstname }} {{ $review->user->lastname }}</p></strong>
-                    <p class="cat-text date-text">Posted on: {{ $review->created_at->format('m/d/Y') }}</p>
-                    <p>{{ $review->comment }}</p>
-                </div>
-            @endforeach
-            @else
-                <p>There are no reviews for this product.</p>
-            @endif
-
-            <!-- Review form -->
-            @guest
-                <p>Please <a href="/login"><u>login</u></a> to leave a review.</p>
-            @else
-                <h2 class="reviewh2">Leave a Review</h2>
-                <form class="mb-6" novalidate>
-                    @csrf
-                    <div class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
-                        <label for="comment" class="sr-only">Your comment</label>
-                        <textarea id="comment" rows="6"
-                            class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none dark:text-white dark:placeholder-gray-400 dark:bg-gray-800"
-                            placeholder="Leave your review..." ></textarea>
+                @foreach($reviews as $review)
+                    <div class="user-img">
+                        <div class="w-[70px] h-[70px] bg-black rounded-[50%]"></div>
                     </div>
-                    <button type="submit" class="text-white bg-blue-500 hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
-                        Post Review
-                    </button>
-                </form>
-            @endguest
+
+                    <div class="user-contents">
+                        <strong><p>{{ $review->user->firstname }} {{ $review->user->lastname }}</p></strong>
+                        <p class="cat-text date-text">Posted on: {{ $review->created_at->format('m/d/Y') }}</p>
+                        <p>{{ $review->comment }}</p>
+                    </div>
+                @endforeach
+            @else
+                <span>No reviews yet.</span>
+            @endif
         </div>
 
-        
+        @guest
+        <p>Please <a href="/login"><u>login</u></a> to leave a review.</p>
+        @else
+        <h2 class="reviewh2">Leave a Review</h2>
+        <form action="{{ route('product.postReview', ['id' => $information->id]) }}" method="POST" class="mb-6" novalidate>
+            @csrf
+            <div class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+                <label for="comment" class="sr-only">Your comment</label>
+                <textarea id="comment" rows="6"
+                    class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none dark:text-white dark:placeholder-gray-400 dark:bg-gray-800"
+                    placeholder="Leave your review..." ></textarea>
+            </div>
+            <button type="submit" class="text-white bg-blue-500 hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+                Post Review
+            </button>
+        </form>
+        @endguest
     </div>
 
     @include('partials.footer')
