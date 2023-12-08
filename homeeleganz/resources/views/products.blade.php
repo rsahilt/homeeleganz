@@ -28,9 +28,10 @@
             <li class="hover:cursor-pointer">
                 <a href="#">All Furnitures</a>
             </li>
-            @foreach($categories as $category)
+       
+             @foreach($categories as $category)
                 <li class="hover:cursor-pointer">
-                    <a href="#">{{ $category->name }}</a>
+                    <a href="{{ route('category.view', ['categoryName' => $category->name]) }}">{{ $category->name }}</a>
                 </li>
             @endforeach
         </ul>

@@ -23,6 +23,10 @@ Route::get('/products', [ProductController::class, 'index']);
 
 Route::get('/products/{id}', [ProductController::class, 'show'])->name('product.details');;
 
+Route::get('/category/{categoryName}', [ProductController::class, 'category'])->name('category.view');
+
+
+
 Route::get('/checkout', function () {
     return view('checkout');
 });
@@ -38,6 +42,8 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
+
+
 
 Auth::routes();
 
