@@ -311,6 +311,29 @@ footer{
     color: red;
 }
 
+/* active category */
+.category-link {
+    position: relative;
+    text-decoration: none;
+}
+
+.category-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    width: 0;
+    left: 50%;
+    height: 2px;
+    background: transparent;
+    transition: 0.4s ease-out;
+}
+
+.active-category .category-link::after {
+    left: 0;
+    width: 100%;
+    background: red;
+}
+
 /*about*/
 .bigtext{
     font-size: 30px;

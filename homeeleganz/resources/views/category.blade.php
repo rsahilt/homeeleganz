@@ -27,10 +27,10 @@
             <li class="hover:cursor-pointer">
                 <a href="/products">All Furnitures</a>
             </li>
-       
-             @foreach($allCategories as $allcategory)
-                <li class="hover:cursor-pointer">
-                    <a href="{{ route('category.view', ['categoryName' => $allcategory->name]) }}">{{ $allcategory->name }}</a>
+
+            @foreach($allCategories as $allcategory)
+                <li class="hover:cursor-pointer @if($categoryName === $allcategory->name) active-category @endif">
+                    <a href="{{ route('category.view', ['categoryName' => $allcategory->name]) }}" class="category-link">{{ $allcategory->name }}</a>
                 </li>
             @endforeach
         </ul>
