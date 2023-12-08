@@ -52,8 +52,9 @@
                 <p class=" text-[.8em] my-1 mx-auto">{{ $product->description }}</p>
             </div>
             <div class=" absolute bottom-1 right-0 left-0 flex justify-center">
-                <button class="bg-black text-white text-[.7em] py-2 px-5 rounded-[20px] my-2 tracking-wider">ADD TO
-                    CART</button>
+                <button class="bg-black text-white text-[.7em] py-2 px-5 rounded-[20px] my-2 tracking-wider">
+                    <a href="/products/{{ $product->id }}">View Product</a>
+                </button>
             </div>
         </div>
         @endforeach

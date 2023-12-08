@@ -20,7 +20,7 @@ class Product extends Model
         'brand',
         'weight',
         'dimensions',
-        'catgeory_id'
+        'category_id'
     ];
 
     public function category()

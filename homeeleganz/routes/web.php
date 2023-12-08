@@ -21,6 +21,8 @@ Route::get('/', function () {
 
 Route::get('/products', [ProductController::class, 'index']);
 
+Route::get('/products/{id}', [ProductController::class, 'show']);
+
 Route::get('/checkout', function () {
     return view('checkout');
 });
@@ -36,6 +38,6 @@ Route::get('/about', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/prod-details', function(){
+Route::get('/details', function(){
     return view('details');
 });
