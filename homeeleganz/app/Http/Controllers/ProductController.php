@@ -30,5 +30,19 @@ class ProductController extends Controller
         return view('details', compact('information', 'title'));
     }
 
+    public function category($categoryName)
+    {
+        $category = Category::where('name', $categoryName)->firstOrFail();
+        $products = Product::where('category_id', $category->id)->paginate(10);
+        $title = 'All Collection';
+
+        // Retrieve all categories
+        $allCategories = Category::all();
+
+        // Pass all categories to the view
+        return view('category', compact('category', 'products', 'categoryName', 'allCategories', 'title'));
+    }
+    
+
     
 }
