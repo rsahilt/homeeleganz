@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Review;
 
 class ProductController extends Controller
 {
@@ -42,7 +44,5 @@ class ProductController extends Controller
         // Pass all categories to the view
         return view('category', compact('category', 'products', 'categoryName', 'allCategories', 'title'));
     }
-    
-
     
 }
