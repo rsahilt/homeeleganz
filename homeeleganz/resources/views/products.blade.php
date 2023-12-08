@@ -19,7 +19,7 @@
     @include('partials.header')
 
 
-    <div id="title" class="font-lato text-center text-[1.5em] my-[1rem] tracking-wider uppercase">
+    <div id="title" class="mt-10 font-lato text-center text-[1.5em] my-[1rem] tracking-wider uppercase">
         <h1>{{ $title }}</h1>
     </div>
 
