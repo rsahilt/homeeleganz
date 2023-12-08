@@ -69,33 +69,12 @@
             </div>
         </div>
 
-        <div class="review-box">
-            <div class="user-img">
-                <div class="w-[70px] h-[70px] bg-black rounded-[50%]"></div>
-            </div>
-
-            <div class="user-contents">
-                <strong><p>Firstname Lastname</p></strong>
-                <p class="cat-text date-text">Posted on: 12/01/2023</p>
-                <p>mollit anim id est laborum.  esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-        </div>
-
-        <div class="review-box">
-            <div class="user-img">
-                <div class="w-[70px] h-[70px] bg-black rounded-[50%]"></div>
-            </div>
-
-            <div class="user-contents">
-                <strong><p>Firstname Lastname</p></strong>
-                <p class="cat-text date-text">Posted on: 12/01/2023</p>
-                <p>mollit anim id est laborum.  esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-        </div>
-
+        @guest
         <p>Please <a href="#"><u>login</u></a> to leave a review.</p>
+        @else
         <h2 class="reviewh2">Leave a Review</h2>
-        <form class="mb-6">
+        <form class="mb-6" novalidate>
+            @csrf
             <div class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
                 <label for="comment" class="sr-only">Your comment</label>
                 <textarea id="comment" rows="6"
@@ -106,6 +85,7 @@
                 Post Review
             </button>
         </form>
+        @endguest
     </div>
 
     @include('partials.footer')
