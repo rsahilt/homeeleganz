@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>Category</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -18,25 +18,26 @@
 <body class="font-lato overflow-x-hidden">
     @include('partials.header')
 
-
     <div id="title" class="font-lato text-center text-[1.5em] my-[1rem] tracking-wider uppercase">
         <h1>{{ $title }}</h1>
     </div>
-
+    
     <div class="categories-list mb-10">
         <ul class="h-[inherit]">
             <li class="hover:cursor-pointer">
                 <a href="#">All Furnitures</a>
             </li>
        
-             @foreach($categories as $category)
+             @foreach($allCategories as $allcategory)
                 <li class="hover:cursor-pointer">
-                    <a href="{{ route('category.view', ['categoryName' => $category->name]) }}">{{ $category->name }}</a>
+                    <a href="{{ route('category.view', ['categoryName' => $allcategory->name]) }}">{{ $allcategory->name }}</a>
                 </li>
             @endforeach
         </ul>
     </div>
 
+    
+    
     <div class="grid lg:grid-cols-4 md:grid-cols-3   gap-9">
 
         @foreach($products as $product)
@@ -60,14 +61,12 @@
         </div>
         @endforeach
 
-        
+        </div>
 
-    </div>
+<div class="pagination">{{ $products->links() }}</div>
 
-    <div class="pagination">{{ $products->links() }}</div>
-    
 
-    @include('partials.footer')
+@include('partials.footer')
 
 </body>
 

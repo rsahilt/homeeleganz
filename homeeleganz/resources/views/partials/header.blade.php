@@ -88,5 +88,9 @@
             </div>
         </div>
     </nav>
+<!-- This is an example; adjust the HTML structure to fit your design -->
+
+
+</div>
 
 </header>
