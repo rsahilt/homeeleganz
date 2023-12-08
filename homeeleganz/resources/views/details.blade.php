@@ -33,13 +33,14 @@
             </div>
         </div>
         <div class="details">
-            <h1>Product Name</h1>
-            <p class="cat-text">Category Name</p>
-            <p class="cat-text">Top Rated in Living Room</p>
+            <h1>{{ $information->name }}</h1>
+            <p class="cat-text">Category Name: {{ $information->category_id }}</p>
             <hr>
-            <p class="prod-info"><strong>Price:</strong> $599.99 </p>
-            <p class="prod-info"><strong>Brand:</strong> Ciello</p>
-            <p class="prod-info"><strong>Colour:</strong> Blue</p>
+            <p class="prod-info"><strong>Price:</strong> ${{ $information->unit_price }} </p>
+            <p class="prod-info"><strong>Brand:</strong> {{ $information->brand }}</p>
+            <p class="prod-info"><strong>Colour:</strong> {{ $information->color }}</p>
+            <p class="prod-info"><strong>Material:</strong> {{ $information->material }}</p>
+            <p class="prod-info"><strong>Weight:</strong> {{ $information->weight }}</p>
             <p class="prod-info"><strong>Description:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             <hr>
             <strong><h2>About This Item</h2></strong>
