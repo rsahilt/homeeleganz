@@ -20,7 +20,6 @@
 
     <div id="title" class="font-lato text-center text-[1.5em] mt-[1rem] tracking-wider">
         <h1>Transform Your Space, Click by Click: Where Style Meets Convenience!</h1>
-
     </div>
 
 
@@ -28,6 +27,7 @@
     <div id=" hero-image" class="w-[100%] mt-[1rem]">
         <img src="/images/hero-image.png" class="mx-auto">
     </div>
+    
 
     <div id="shop" class="mb-[1rem]">
 
@@ -48,7 +48,6 @@
                 @include('components.card')
                 @include('components.card')
                 @include('components.card')
-
                 @include('components.card')
             </div>
         </div>
