@@ -21,6 +21,7 @@
     <div class="prod-details-container">
         <div class="prod-desc-image">
             <div class="main-img box-shadow-details">
+                <!-- <img src="/images/{{ $information->image }}" alt="sofa image"> -->
                 <img src="/images/sofa.jpeg" alt="sofa image">
             </div>
             <div class="small-img">
@@ -41,13 +42,14 @@
             <p class="prod-info"><strong>Colour:</strong> {{ $information->color }}</p>
             <p class="prod-info"><strong>Material:</strong> {{ $information->material }}</p>
             <p class="prod-info"><strong>Weight:</strong> {{ $information->weight }}</p>
-            <p class="prod-info"><strong>Description:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p class="prod-info"><strong>Summary:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             <hr>
             <strong><h2>About This Item</h2></strong>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.  esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>{!! $information->description !!}</p>
             <br>
-            <button type="button" class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Add to Cart</button>
-
+            <button type="button" class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+                Add to Cart
+            </button>
         </div>
     </div>
 
