@@ -34,13 +34,34 @@
 
         <div id="login" class="flex pr-10">
             <ul class="flex space-x-2">
-                <li><a href="#">Login</a></li>
-                <li>|</li>
-                <li><a href="#">Register</a></li>
-                <li>|</li>
-                <li>
-                    <a href="#"><i class="fas fa-shopping-cart"></i></a>
-                </li>
+                @guest
+                    @if (Route::has('login'))
+                        <li><a href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                    @endif
+
+                    <li>|</li>
+
+                    @if (Route::has('register'))
+                    <li><a href="{{ route('register') }}">{{ __('Register') }}</a></li>
+                    @endif
+
+                @elseif (Auth::check())
+                    <li><a href="#"> {{ Auth::user()->name }}</a></li>
+                    <li>|</li>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                    <a href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                    </a>
+                    <li>|</li>
+                    <li>
+                        <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                    </li>
+                @endguest
             </ul>
         </div>
 
