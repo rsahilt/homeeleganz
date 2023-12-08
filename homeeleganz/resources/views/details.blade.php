@@ -77,11 +77,13 @@
                 <p>Please <a href="/login"><u>login</u></a> to leave a review.</p>
             @else
                 <h2 class="reviewh2">Leave a Review</h2>
-                <form method="POST" action="{{ route('post.review', ['id' => $information->id]) }}" class="mb-6" novalidate>
+                <form class="mb-6" novalidate>
                     @csrf
                     <div class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
                         <label for="comment" class="sr-only">Your comment</label>
-                        <textarea id="comment" name="comment" rows="6" class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none dark:text-white dark:placeholder-gray-400 dark:bg-gray-800" placeholder="Leave your review..."></textarea>
+                        <textarea id="comment" rows="6"
+                            class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none dark:text-white dark:placeholder-gray-400 dark:bg-gray-800"
+                            placeholder="Leave your review..." ></textarea>
                     </div>
                     <button type="submit" class="text-white bg-blue-500 hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
                         Post Review
@@ -90,23 +92,7 @@
             @endguest
         </div>
 
-        @guest
-        <p>Please <a href="/login"><u>login</u></a> to leave a review.</p>
-        @else
-        <h2 class="reviewh2">Leave a Review</h2>
-        <form class="mb-6" novalidate>
-            @csrf
-            <div class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
-                <label for="comment" class="sr-only">Your comment</label>
-                <textarea id="comment" rows="6"
-                    class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none dark:text-white dark:placeholder-gray-400 dark:bg-gray-800"
-                    placeholder="Leave your review..." ></textarea>
-            </div>
-            <button type="submit" class="text-white bg-blue-500 hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
-                Post Review
-            </button>
-        </form>
-        @endguest
+        
     </div>
 
     @include('partials.footer')
