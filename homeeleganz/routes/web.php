@@ -21,7 +21,9 @@ Route::get('/', function () {
 
 Route::get('/products', [ProductController::class, 'index']);
 
-Route::get('/products/{id}', [ProductController::class, 'show']);
+Route::get('/products/{id}', [ProductController::class, 'show'])->name('product.details');;
+
+Route::post('/products/{id}/reviews', [ProductController::class, 'postReview'])->name('post.review');
 
 Route::get('/checkout', function () {
     return view('checkout');
