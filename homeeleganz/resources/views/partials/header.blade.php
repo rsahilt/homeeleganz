@@ -46,7 +46,7 @@
                     @endif
 
                 @elseif (Auth::check())
-                    <li><a href="#"> {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</a></li>
+                    <li><a href="/home"> {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</a></li>
                     <li>|</li>
 
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
