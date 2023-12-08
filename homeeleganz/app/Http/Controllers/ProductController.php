@@ -45,6 +45,4 @@ class ProductController extends Controller
         return view('category', compact('category', 'products', 'categoryName', 'allCategories', 'title'));
     }
     
-
-    
 }
