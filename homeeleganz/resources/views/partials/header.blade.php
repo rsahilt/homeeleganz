@@ -57,11 +57,11 @@
                             document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
                     </a>
-                    <li>|</li>
-                    <li>
-                        <a href="#"><i class="fas fa-shopping-cart"></i></a>
-                    </li>
                 @endguest
+                <li>|</li>
+                <li>
+                    <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                </li>
             </ul>
         </div>
 
