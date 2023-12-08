@@ -35,14 +35,14 @@
         </div>
         <div class="details">
             <h1>{{ $information->name }}</h1>
-            <p class="cat-text">Category Name: {{ $information->category_id }}</p>
+            <p class="cat-text">Category: {{ $information->category->name }}</p>
             <hr>
             <p class="prod-info"><strong>Price:</strong> ${{ $information->unit_price }} </p>
             <p class="prod-info"><strong>Brand:</strong> {{ $information->brand }}</p>
             <p class="prod-info"><strong>Colour:</strong> {{ $information->color }}</p>
             <p class="prod-info"><strong>Material:</strong> {{ $information->material }}</p>
             <p class="prod-info"><strong>Weight:</strong> {{ $information->weight }}</p>
-            <p class="prod-info"><strong>Summary:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p class="prod-info"><strong>Summary:</strong> {!! $information->summary !!}</p>
             <hr>
             <strong><h2>About This Item</h2></strong>
             <p>{!! $information->description !!}</p>
