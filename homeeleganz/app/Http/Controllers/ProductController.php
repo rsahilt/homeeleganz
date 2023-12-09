@@ -60,8 +60,9 @@ class ProductController extends Controller
 }
 public function brands()
 {
-    $brands = ['Elegant Interiors', 'Modern Home', 'Classic Comfort', 'Urban Designs', 'Nature Touch'];
-    return view('brands', compact('brands'));
+    $brands = ['Molteni&C', 'Palliser', 'Dufresne', 'Us & Coutumes', 'Mobilia'];
+    $title = 'Our Partner Brands';
+    return view('brands', compact('brands','title'));
 }
     
 }
