@@ -25,6 +25,10 @@ Route::get('/products/{id}', [ProductController::class, 'show'])->name('product.
 
 Route::get('/category/{categoryName}', [ProductController::class, 'category'])->name('category.view');
 
+Route::get('/brands', [ProductController::class, 'brands'])->name('brands');
+
+
+
 
 
 Route::get('/checkout', function () {

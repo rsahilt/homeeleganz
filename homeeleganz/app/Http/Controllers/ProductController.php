@@ -58,5 +58,10 @@ class ProductController extends Controller
     // Pass active category and all categories to the view
     return view('category', compact('category', 'products', 'categoryName', 'allCategories', 'title'));
 }
+public function brands()
+{
+    $brands = ['Elegant Interiors', 'Modern Home', 'Classic Comfort', 'Urban Designs', 'Nature Touch'];
+    return view('brands', compact('brands'));
+}
     
 }
