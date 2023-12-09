@@ -18,19 +18,8 @@
                 @include('components.card')
             </div>
         </div>
-        <!-- <div id="shop-by-brand">
-            <h1 class="text-[1.5em] my-[1rem] ml-[1rem] tracking-wide">Shop by brand</h1>
-            <div class="flex justify-around">
-                @include('components.card')
-                @include('components.card')
-                @include('components.card')
-                @include('components.card')
-            </div>
-        </div> -->
-        
        
-
-
+       
         <!-- Container for the Testimonials -->
         <div class="grid gap-6 text-center md:grid-cols-3 lg:gap-12 bg-gray-100 py-10 px-5 mt-6" data-aos="slide-up" data-aos-duration="1000">
             <!-- First Testimonial -->
