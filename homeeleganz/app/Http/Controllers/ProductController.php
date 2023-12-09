@@ -58,7 +58,7 @@ class ProductController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|string|min:1|max:255',
             'email' => 'required|email',
-            'message' => 'requiredstring|min:2|max:400',
+            'message' => 'required|string|min:2|max:400',
         ]);
 
         Message::create($validatedData);

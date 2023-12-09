@@ -33,7 +33,7 @@
                 <form action="{{ route('submit.message') }}" method="POST" novalidate>
                     @csrf
                     <div class="relative mb-6" data-te-input-wrapper-init>
-                    <input type="text"
+                    <input type="text" name="name" 
                         class="peer block min-h-[auto] w-full rounded border-2 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none "
                         id="exampleInput90"/>
                     <label
@@ -42,7 +42,7 @@
                         </label>
                     </div>
                     <div class="relative mb-6" data-te-input-wrapper-init>
-                    <input type="email"
+                    <input type="email" name="email" 
                         class="peer block min-h-[auto] w-full rounded border-2 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none "
                         id="exampleInput91" />
                     <label
@@ -51,7 +51,7 @@
                         </label>
                     </div>
                     <div class="relative mb-6" data-te-input-wrapper-init>
-                    <textarea
+                    <textarea name="message" 
                         class="peer block min-h-[auto] w-full rounded border-2 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none "
                         id="exampleFormControlTextarea1" rows="3"></textarea>
                     <label for="exampleFormControlTextarea1"
