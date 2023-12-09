@@ -29,6 +29,8 @@ Route::get('/brands', [ProductController::class, 'brands'])->name('brands');
 
 Route::post('/submit-message', [ProductController::class, 'store'])->name('submit.message');
 
+Route::post('/submit-review', [ProductController::class, 'storeReview'])->name('submit.review');
+
 
 Route::get('/checkout', function () {
     return view('checkout');

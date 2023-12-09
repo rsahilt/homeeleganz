@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Models\Product;
 use App\Models\Category;
-use App\Models\Review;
+use App\Models\Review as Review;
 use App\Models\Message;
 
 class ProductController extends Controller
@@ -18,7 +18,7 @@ class ProductController extends Controller
     public function index()
     {
         $categories = Category::latest()->get();
-        $products = Product::latest()->paginate(10);
+        $products = Product::latest()->paginate(12);
         $title = "All Collection";
         return view('products', compact('products', 'title', 'categories')); 
     }
@@ -36,7 +36,7 @@ class ProductController extends Controller
     public function category($categoryName)
     {
         $category = Category::where('name', $categoryName)->firstOrFail();
-        $products = Product::where('category_id', $category->id)->paginate(10);
+        $products = Product::where('category_id', $category->id)->paginate(12);
         $title = 'All Collection';
 
         // Retrieve all categories
@@ -64,6 +64,22 @@ class ProductController extends Controller
         Message::create($validatedData);
 
         return redirect()->back()->with('success', 'Message sent successfully!');
+    }
+
+    public function storeReview(Request $request)
+    {
+        $validatedData = $request->validate([
+            'comment' => 'required|string|min:2|max:400',
+        ]);
+
+        $review = new Review;
+        $review->user_id = \Auth::user()->id;
+        $review->product_id = $request->prod_id;
+        $review->comment = $request->comment;
+        
+        $review->save();
+
+        return redirect()->back()->with('success', 'Review successfully submitted!');
     }
     
 }

@@ -63,9 +63,11 @@
         <p>Please <a href="/login"><u>login</u></a> to leave a review.</p>
         @else
         <h2 class="reviewh2">Leave a Review</h2>
-        <form action="" class="mb-6" novalidate>
+        <form action="{{ route('submit.review') }}" class="mb-6" method="POST" novalidate>
             @csrf
+
             <div class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+                <input type="hidden" name="prod_id" value="{{ $information->id }}">
                 <label for="comment" class="sr-only">Your comment</label>
                 <textarea name="comment" id="comment" rows="6"
                     class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none dark:text-white dark:placeholder-gray-400 dark:bg-gray-800"
