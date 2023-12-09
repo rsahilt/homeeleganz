@@ -26,9 +26,15 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
+    // public function show(string $id)
+    // {
+    //     $information = Product::find($id);
+    //     $title = 'About the Product';
+    //     return view('details', compact('information', 'title'));
+    // }
     public function show(string $id)
     {
-        $information = Product::find($id);
+        $information = Product::with('reviews.user')->find($id);
         $title = 'About the Product';
         return view('details', compact('information', 'title'));
     }

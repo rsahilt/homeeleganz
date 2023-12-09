@@ -44,20 +44,27 @@
 
     <div class="review">
         <h3>Product Reviews</h3>
+        
         <!-- if no reviews -->
-        <span>No reviews yet.</span>
+        
         <!-- if reviews -->
+        @if($information->reviews->count() > 0)
+        @foreach($information->reviews as $review)
         <div class="review-box">
             <div class="user-img">
                 <div class="w-[70px] h-[70px] bg-black rounded-[50%]"></div>
             </div>
 
             <div class="user-contents">
-                <strong><p>Firstname Lastname</p></strong>
-                <p class="cat-text date-text">Posted on: 12/8/2023</p>
-                <p>This is a review of the product</p>
+                <strong><p>{{ $review->user->first_name }}  {{ $review->user->last_name }}</p></strong>
+                <p class="cat-text date-text">Posted on: {{ $review->created_at->format('m/d/Y') }}</p>
+                <p>{{ $review->comment }}</p>
             </div>
         </div>
+        @endforeach
+        @else
+        <span>No reviews yet.</span>
+        @endif
 
         @guest
         <p>Please <a href="/login"><u>login</u></a> to leave a review.</p>
