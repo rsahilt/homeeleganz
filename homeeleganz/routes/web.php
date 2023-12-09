@@ -27,6 +27,8 @@ Route::get('/category/{categoryName}', [ProductController::class, 'category'])->
 
 Route::get('/brands', [ProductController::class, 'brands'])->name('brands');
 
+Route::post('/submit-message', [MessageController::class, 'store'])->name('submit.message');
+
 
 
 

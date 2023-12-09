@@ -32,37 +32,37 @@ class ProductController extends Controller
         return view('details', compact('information', 'title'));
     }
 
-    // public function category($categoryName)
-    // {
-    //     $category = Category::where('name', $categoryName)->firstOrFail();
-    //     $products = Product::where('category_id', $category->id)->paginate(10);
-    //     $title = 'All Collection';
-    //     $slug = 'activecategory';
-
-    //     // Retrieve all categories
-    //     $allCategories = Category::all();
-
-    //     // Pass all categories to the view
-    //     return view('category', compact('category', 'products', 'categoryName', 'allCategories', 'title', 'slug'));
-    // }
-
     public function category($categoryName)
-{
-    $category = Category::where('name', $categoryName)->firstOrFail();
-    $products = Product::where('category_id', $category->id)->paginate(10);
-    $title = 'All Collection';
+    {
+        $category = Category::where('name', $categoryName)->firstOrFail();
+        $products = Product::where('category_id', $category->id)->paginate(10);
+        $title = 'All Collection';
 
-    // Retrieve all categories
-    $allCategories = Category::all();
+        // Retrieve all categories
+        $allCategories = Category::all();
 
-    // Pass active category and all categories to the view
-    return view('category', compact('category', 'products', 'categoryName', 'allCategories', 'title'));
-}
-public function brands()
-{
-    $brands = ['Molteni&C', 'Palliser', 'Dufresne', 'Us & Coutumes', 'Mobilia'];
-    $title = 'Our Partner Brands';
-    return view('brands', compact('brands','title'));
-}
+        // Pass active category and all categories to the view
+        return view('category', compact('category', 'products', 'categoryName', 'allCategories', 'title'));
+    }
+
+    public function brands()
+    {
+        $brands = ['Molteni&C', 'Palliser', 'Dufresne', 'Us & Coutumes', 'Mobilia'];
+        $title = 'Our Partner Brands';
+        return view('brands', compact('brands','title'));
+    }
+
+    public function store(Request $request)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required|string|min:1|max:255',
+            'email' => 'required|email',
+            'message' => 'requiredstring|min:2|max:400',
+        ]);
+
+        Message::create($validatedData);
+
+        return redirect()->back()->with('success', 'Message sent successfully!');
+    }
     
 }
