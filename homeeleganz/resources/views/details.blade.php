@@ -2,12 +2,6 @@
 @section('content')
 
     <div class="prod-details-container">
-    <!-- flash message -->
-    @if (session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-    @endif
         <div class="prod-desc-image">
             <div class="main-img box-shadow-details">
                 <!-- <img src="/images/{{ $information->image }}" alt="sofa image"> -->

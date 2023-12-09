@@ -28,6 +28,12 @@
 
 <body class="font-lato overflow-x-hidden" data-aos-easing="ease" data-aos-duration="400" data-aos-delay="0">
     @include('partials.header')
+    <!-- flash message -->
+    @if (session('success'))
+        <div class="alert alert-success mt-7 rounded-lg bg-green-200">
+            {{ session('success') }}
+        </div>
+    @endif
 
     @yield('content')
 
@@ -35,6 +41,22 @@
   	<script>
     	AOS.init();
   	</script>
+
+    <script>
+        // Wait for the document to be ready
+        document.addEventListener("DOMContentLoaded", function() {
+            // Select the flash message element
+            var flashMessage = document.querySelector('.alert');
+
+            // Check if the flash message exists
+            if (flashMessage) {
+                // Set a timeout to hide the flash message after 4 seconds
+                setTimeout(function() {
+                    flashMessage.style.display = 'none';
+                }, 3000);
+            }
+        });
+    </script>
 
 </body>
 

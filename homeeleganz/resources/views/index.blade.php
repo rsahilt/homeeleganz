@@ -76,6 +76,7 @@
                         src="https://tecdn.b-cdn.net/img/Photos/Avatars/img%20(1).jpg"
                         class="w-32 rounded-full shadow-lg dark:shadow-black/30" />
                 </div>
+                
                 <h5 class="mb-2 text-xl font-semibold">Victor Balogun</h5>
                 <h6 class="mb-2 font-semibold text-primary dark:text-primary-500">
                 Alberta
