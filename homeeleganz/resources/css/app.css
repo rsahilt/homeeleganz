@@ -264,8 +264,9 @@ footer{
     flex-direction: row;
 }
 #logo h1{
-    font-size: 35px;
+    font-size: 2.6em;
     font-weight: bold;
+    font-family: 'Caveat', cursive;
     color: #0c4d66 !important;
 }
 
