@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Review;
+use App\Models\Message;
 
 class ProductController extends Controller
 {
