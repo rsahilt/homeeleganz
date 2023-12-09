@@ -450,3 +450,10 @@ footer{
     from {opacity: .7}
     to {opacity: 1}
   }
+
+  /* flash message */
+  .alert-success{
+    text-align: center;
+    padding: 10px 0;
+    margin:2% auto;
+  }

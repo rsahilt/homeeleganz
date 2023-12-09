@@ -2,12 +2,6 @@
 @section('content')
 
     <div class="prod-details-container">
-    <!-- flash message -->
-    @if (session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-    @endif
         <div class="prod-desc-image">
             <div class="main-img box-shadow-details">
                 <!-- <img src="/images/{{ $information->image }}" alt="sofa image"> -->
@@ -44,28 +38,37 @@
 
     <div class="review">
         <h3>Product Reviews</h3>
+        
         <!-- if no reviews -->
-        <span>No reviews yet.</span>
+        
         <!-- if reviews -->
+        @if($information->reviews->count() > 0)
+        @foreach($information->reviews as $review)
         <div class="review-box">
             <div class="user-img">
                 <div class="w-[70px] h-[70px] bg-black rounded-[50%]"></div>
             </div>
 
             <div class="user-contents">
-                <strong><p>Firstname Lastname</p></strong>
-                <p class="cat-text date-text">Posted on: 12/8/2023</p>
-                <p>This is a review of the product</p>
+                <strong><p>{{ $review->user->first_name }}  {{ $review->user->last_name }}</p></strong>
+                <p class="cat-text date-text">Posted on: {{ $review->created_at->format('m/d/Y') }}</p>
+                <p>{{ $review->comment }}</p>
             </div>
         </div>
+        @endforeach
+        @else
+        <span>No reviews yet.</span>
+        @endif
 
         @guest
         <p>Please <a href="/login"><u>login</u></a> to leave a review.</p>
         @else
         <h2 class="reviewh2">Leave a Review</h2>
-        <form action="" class="mb-6" novalidate>
+        <form action="{{ route('submit.review') }}" class="mb-6" method="POST" novalidate>
             @csrf
+
             <div class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+                <input type="hidden" name="prod_id" value="{{ $information->id }}">
                 <label for="comment" class="sr-only">Your comment</label>
                 <textarea name="comment" id="comment" rows="6"
                     class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none dark:text-white dark:placeholder-gray-400 dark:bg-gray-800"
