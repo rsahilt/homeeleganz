@@ -1,5 +1,10 @@
 <header class="w-[100%] h-[8rem] border-b bg-white">
     <div id="utilities" class="flex justify-between items-center h-[6rem]">
+
+        <div id="logo" class="pl-5">
+            <img src="/images/logo.png" alt="" width="60px" height="50px">
+            <h1><span>Home</span>Eleganz</h1>
+        </div>
         <!-- TW Elements is free under AGPL, with commercial license required for specific uses. See more details: https://tw-elements.com/license/ and contact us for queries at tailwind@mdbootstrap.com --> 
         <div class="mb-3">
             <div class="relative mb-4 flex w-full flex-wrap items-stretch pl-10">
@@ -28,9 +33,7 @@
             </div>
         </div>
 
-        <div id="logo">
-            <h1><span>Home</span>Eleganz</h1>
-        </div>
+        
 
         <div id="login" class="flex pr-10">
             <ul class="flex space-x-2">
@@ -76,14 +79,15 @@
             <li class="hover:cursor-pointer px-8 py-2"><a href="#">About</a></li>
         </ul>
     </nav> -->
-    <nav id="navigation" class="w-full bg-primary">
-        <div class="max-w-screen-xl flex items-center justify-between mx-auto p-4">
-            <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+    <nav id="navigation" class="w-full">
+        <!-- <div class="max-w-screen-xl flex items-center justify-between mx-auto p-4"> -->
+        <div class="max-w-screen-xl flex items-center justify-between mx-auto nav-container">
+            <!-- <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
                 <span class="sr-only">Open main menu</span>
                 <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
                 </svg>
-            </button>
+            </button> -->
             <div class="w-full md:w-auto" id="navbar-default">
                 <ul class="navbar font-medium flex flex-col md:flex-row md:justify-center md:space-x-8 mt-4 md:mt-0">
                     <li>
