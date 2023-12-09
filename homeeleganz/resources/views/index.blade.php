@@ -3,8 +3,22 @@
 
    
 
-    <div id=" hero-image" class="w-[100%] mt-[1rem]">
-        <img src="/images/hero-image.png" class="mx-auto">
+    <div id=" hero-image" class="w-[100%] h-650 mt-[1rem]">
+        <!-- <img src="/images/hero-image.png" class="mx-auto"> -->
+        <div class="slideshow-container">
+  			<div class="mySlides fade">
+   				<img src="/images/slide1.jpeg" class="slides">
+    		</div>
+    		<div class="mySlides fade">
+   				<img src="/images/slide2.jpeg" class="slides">
+    		</div>
+    		<div class="mySlides fade">
+   				<img src="/images/slide3.jpeg" class="slides">
+    		</div>
+    		<div class="mySlides fade">
+   				<img src="/images/slide4.jpeg" class="slides">
+    		</div>
+		</div>
     </div>
     
     <div id="shop" class="mb-[1rem]">
