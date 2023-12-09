@@ -1,27 +1,5 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Home Eleganz</title>
-
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
-    @vite('resources/css/app.css')
-
-</head>
-
-
-<body class="font-lato overflow-x-hidden">
-    @include('partials.header')
-
-
+@extends('layouts.main')
+@section('content')
 
     <div class="p-16">
         <div class="p-8 bg-white shadow mt-24">
@@ -79,6 +57,4 @@
 
     @include('partials.footer')
 
-</body>
-
-</html>
+@endsection

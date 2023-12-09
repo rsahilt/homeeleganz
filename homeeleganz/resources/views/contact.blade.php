@@ -1,28 +1,6 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Home Eleganz</title>
-
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet">
-
-    <!-- Styles -->
-    @vite(['resources/css/app.css'])
-
-</head>
-
-<body class="bg-gray-100 font-lato overflow-x-hidden">
-
-    @include('partials.header')
+@extends('layouts.main')
+@section('content')
     
-
     <section class="mb-32 mt-6">
         <div id="map" class="relative h-[300px] overflow-hidden bg-cover bg-[50%] bg-no-repeat">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2570.4779458237267!2d-97.1512015!3d49.8898297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52ea7302dc8259df%3A0x66fbf14d0de948d0!2sBuhler%20Center%20-%20Lot%20%23385!5e0!3m2!1sen!2sca!4v1702102680123!5m2!1sen!2sca" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -146,6 +124,4 @@
     </section>
 
     @include('partials.footer')
-</body>
-
-</html>
+@endsection

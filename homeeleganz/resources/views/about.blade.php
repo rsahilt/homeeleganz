@@ -1,24 +1,5 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Home Eleganz</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet">
-
-    <!-- Styles -->
-    @vite(['resources/css/app.css'])
-
-</head>
-
-<body class="bg-gray-100 font-lato overflow-x-hidden">
-
-    @include('partials.header')
+@extends('layouts.main')
+@section('content')
 
     <section class="text-gray-600 body-font bg-gray-100 mt-6">
         <div class="container px-5 py-24 mx-auto ">
@@ -181,7 +162,4 @@
 
 
     @include('partials.footer')
-
-</body>
-
-</html>
+@endsection
