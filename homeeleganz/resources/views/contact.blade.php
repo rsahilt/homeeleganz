@@ -32,37 +32,19 @@
                 <div class="mb-12 w-full shrink-0 grow-0 basis-auto md:px-3 lg:mb-0 lg:w-5/12 lg:px-6">
                 <form action="{{ route('submit.message') }}" method="POST" novalidate>
                     @csrf
-                    <div class="relative mb-6" data-te-input-wrapper-init>
-                    <input type="text" name="name" 
-                        class="peer block min-h-[auto] w-full rounded border-2 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none "
-                        id="exampleInput90"/>
-                    <label
-                        class="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none "
-                        for="exampleInput90">Name
-                        </label>
+                    <div class="relative mb-6">
+                        <input type="text" name="name" class="block min-h-[auto] w-full rounded border-2 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100" id="exampleInput90" placeholder="Your Name"/>
                     </div>
-                    <div class="relative mb-6" data-te-input-wrapper-init>
-                    <input type="email" name="email" 
-                        class="peer block min-h-[auto] w-full rounded border-2 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none "
-                        id="exampleInput91" />
-                    <label
-                        class="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none "
-                        for="exampleInput91">Email address
-                        </label>
+                    <div class="relative mb-6">
+                        <input type="email" name="email" class="block min-h-[auto] w-full rounded border-2 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100" id="exampleInput91" placeholder="example@email.com"/>
                     </div>
-                    <div class="relative mb-6" data-te-input-wrapper-init>
-                    <textarea name="message" 
-                        class="peer block min-h-[auto] w-full rounded border-2 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none "
-                        id="exampleFormControlTextarea1" rows="3"></textarea>
-                    <label for="exampleFormControlTextarea1"
-                        class="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none ">Feedback</label>
+                    <div class="relative mb-6">
+                        <textarea name="message" class="block min-h-[auto] w-full rounded border-2 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100" id="exampleFormControlTextarea1" rows="3" placeholder="Feedback"></textarea>
                     </div>
-                    
-                    <button type="submit"
-                        class="mb-6 w-full rounded bg-sky-500 text-white px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal   lg:mb-0">
-                        Send Feedback
-                    </button>
+                                    
+                    <button type="submit" class="mb-6 w-full rounded bg-sky-500 text-white px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal lg:mb-0">Send Feedback</button>
                 </form>
+
                 </div>
                 <div class="w-full shrink-0 grow-0 basis-auto lg:w-7/12">
                 <div class="flex flex-wrap">
