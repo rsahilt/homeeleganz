@@ -100,4 +100,46 @@ class ProductController extends Controller
             return redirect('/admin/products/')->with(['flash' => $flash]);
         }
     }
+
+    /**
+     * Update the specified cartoon in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function update(Request $request, $id)
+    {
+        $product = Product::find($id);
+
+        if ($product) {
+            $validatedData = $request->validate([
+                'name'=>'required|string|min:1|max:255',
+                'summary'=>'required|string|min:10',
+                'color'=>'required|string|min:1|max:255',
+                // 'image' => 'required|image|mimes:jpeg,png,gif',
+                'image' => 'image|mimes:jpeg,png,gif',
+                'material'=>'required|string|min:1|max:255',
+                'unit_price'=>'required|integer|min:20|max:5000',
+                'description'=>'required|string|min:10',
+                'brand'=>'required|integer|min:1930|max:2050',
+                'weight'=>'required|integer|min:10|max:5000',
+                'dimensions'=>'required|string|min:1|max:255',
+                'category_id'=>'required|string|min:1|max:255',
+            ]);
+
+            // if($file = $request->file('image')){
+            //     $filename = uniqid() . '_' . $file->getClientOriginalName();
+            //     Storage::disk('images')->put($filename,File::get($file));
+            //     $cartoon->image=$filename;
+            //     // $cartoon->save();
+            //     $cartoon->update($validatedData);
+
+            // }
+            $product->update($validatedData);
+            return redirect('/admin/products/');
+        } else {
+            return redirect('/admin/products/edit');
+        }
+    }
 }
