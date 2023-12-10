@@ -80,4 +80,22 @@ class ProductController extends Controller
 
         return redirect('/admin/products/index')->with(['flash' => $flash]);
     }
+
+    /**
+     * Show the form for editing the specified cartoon.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Contracts\View\View
+     */
+    public function edit($id)
+    {
+        $product = Product::find($id);
+        $title = 'Edit Product';
+        if ($product) {
+            return view('admin/products/edit', compact('cartoon', 'title'));
+            
+        } else {
+            return redirect('/admin/products/')->with(['flash' => $flash]);
+        }
+    }
 }
