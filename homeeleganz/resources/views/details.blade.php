@@ -18,7 +18,7 @@
         </div>
         <div class="details">
             <h1>{{ $information->name }}</h1>
-            <p class="cat-text">Category: {{ $information->category->name }}</p>
+            <p class="cat-text">Category: {{ $information->category_id }}</p>
             <hr>
             <p class="prod-info"><strong>Price:</strong> ${{ $information->unit_price }} </p>
             <p class="prod-info"><strong>Brand:</strong> {{ $information->brand }}</p>
