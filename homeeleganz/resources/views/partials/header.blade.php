@@ -49,7 +49,13 @@
                     @endif
 
                 @elseif (Auth::check())
-                    <li><a href="/home"> {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</a></li>
+
+                    @if(Auth::user()->is_admin)
+                        <li><a href="/admin">Admin Dashboard</a></li>
+                    @else
+                        <li><a href="/home"> {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</a></li>
+                    @endif
+
                     <li>|</li>
 
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -113,7 +119,7 @@
             </div>
         </div>
     </nav>
-<!-- This is an example; adjust the HTML structure to fit your design -->
+
 
 
 </div>
