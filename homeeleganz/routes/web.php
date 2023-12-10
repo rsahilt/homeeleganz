@@ -44,6 +44,9 @@ Route::get('/admin/products/create', [AdminController::class, 'create'])
 Route::get('/admin/products/{id}/edit', [AdminController::class, 'edit'])
         ->name('editproduct')->middleware('auth');
 
+Route::put('/admin/products/{id}', [AdminController::class, 'update'])
+        ->name('update')->middleware('auth');
+
 
 Route::get('/checkout', function () {
     return view('checkout');

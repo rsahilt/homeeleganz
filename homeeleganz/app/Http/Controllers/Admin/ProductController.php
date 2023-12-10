@@ -45,15 +45,15 @@ class ProductController extends Controller
     {
         $valid = $request->validate([
             'name'=>'required|string|min:1|max:255',
-            'summary'=>'required|string|min:10',
+            'summary'=>'string|min:1|max:255',
             'color'=>'required|string|min:1|max:255',
             // 'image' => 'required|image|mimes:jpeg,png,gif',
-            'image' => 'image|mimes:jpeg,png,gif',
+            'image' => 'nullable|string',
             'material'=>'required|string|min:1|max:255',
-            'unit_price'=>'required|integer|min:20|max:5000',
-            'description'=>'required|string|min:10',
-            'brand'=>'required|integer|min:1930|max:2050',
-            'weight'=>'required|integer|min:10|max:5000',
+            'unit_price'=>'required|numeric|min:20|max:100000',
+            'description'=>'string|min:10',
+            'brand'=>'required|string|min:1|max:255',
+            'weight'=>'required|numeric|min:5|max:5000',
             'dimensions'=>'required|string|min:1|max:255',
             'category_id'=>'required|string|min:1|max:255',
         ]);
@@ -72,14 +72,16 @@ class ProductController extends Controller
                 'type'=>'success',
                 'message'=>'New product succesfully added'
             ];
+            return redirect('/admin/products/index')->with(['flash' => $flash]);
         }else{
             $flash = [
                 'type'=>'danger',
                 'message'=>'Failed to add the product! Try Again'
             ];
+            return redirect('/admin/products/index')->with(['flash' => $flash]);
         }
 
-        return redirect('/admin/products/index')->with(['flash' => $flash]);
+        
     }
 
     /**
@@ -95,9 +97,50 @@ class ProductController extends Controller
         $categories = Category::all();
         if ($product) {
             return view('admin/products/edit', compact('product', 'title', 'categories'));
-            
         } else {
-            return redirect('/admin/products/')->with(['flash' => $flash]);
+            return redirect('/admin/products/index');
+        }
+    }
+
+    /**
+     * Update the specified cartoon in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function update(Request $request, $id)
+    {
+        $product = Product::find($id);
+
+        if ($product) {
+            $validatedData = $request->validate([
+                'name'=>'required|string|min:1|max:255',
+                'summary'=>'string|min:1|max:255',
+                'color'=>'required|string|min:1|max:255',
+                // 'image' => 'required|image|mimes:jpeg,png,gif',
+                'image' => 'required|string',
+                'material'=>'required|string|min:1|max:255',
+                'unit_price'=>'required|numeric|min:20|max:100000',
+                'description'=>'string|min:10',
+                'brand'=>'required|string|min:1|max:255',
+                'weight'=>'required|numeric|min:5|max:5000',
+                'dimensions'=>'required|string|min:1|max:255',
+                'category_id'=>'string|min:1|max:255',
+            ]);
+
+            // if($file = $request->file('image')){
+            //     $filename = uniqid() . '_' . $file->getClientOriginalName();
+            //     Storage::disk('images')->put($filename,File::get($file));
+            //     $cartoon->image=$filename;
+            //     // $cartoon->save();
+            //     $cartoon->update($validatedData);
+
+            // }
+            $product->update($validatedData);
+            return redirect()->route('productlist');
+        } else {
+            return redirect('/admin/product/edit');
         }
     }
 }

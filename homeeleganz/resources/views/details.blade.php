@@ -1,4 +1,3 @@
-@extends('layouts.main')
 @section('content')
 
     <div class="prod-details-container">
