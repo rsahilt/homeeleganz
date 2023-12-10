@@ -45,13 +45,13 @@ class ProductController extends Controller
     {
         $valid = $request->validate([
             'name'=>'required|string|min:1|max:255',
-            'summary'=>'required|string|min:1|max:255',
+            'summary'=>'string|min:1|max:255',
             'color'=>'required|string|min:1|max:255',
             // 'image' => 'required|image|mimes:jpeg,png,gif',
             'image' => 'string|nullable',
             'material'=>'required|string|min:1|max:255',
             'unit_price'=>'required|numeric|min:20|max:100000',
-            'description'=>'required|string|min:10',
+            'description'=>'string|min:10',
             'brand'=>'required|string|min:1|max:255',
             'weight'=>'required|numeric|min:5|max:5000',
             'dimensions'=>'required|string|min:1|max:255',
@@ -126,7 +126,7 @@ class ProductController extends Controller
                 'brand'=>'required|string|min:1|max:255',
                 'weight'=>'required|numeric|min:5|max:5000',
                 'dimensions'=>'required|string|min:1|max:255',
-                'category_id'=>'required|string|min:1|max:255',
+                'category_id'=>'string|min:1|max:255',
             ]);
 
             // if($file = $request->file('image')){
@@ -138,7 +138,7 @@ class ProductController extends Controller
 
             // }
             $product->update($validatedData);
-            return redirect('/admin/products/index');
+            return redirect()->route('productlist');
         } else {
             return redirect('/admin/product/edit');
         }
