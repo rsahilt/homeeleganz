@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ProductController;
 
+use App\Http\Controllers\Admin\ProductController as AdminController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,6 +32,10 @@ Route::get('/brands', [ProductController::class, 'brands'])->name('brands');
 Route::post('/submit-message', [ProductController::class, 'store'])->name('submit.message');
 
 Route::post('/submit-review', [ProductController::class, 'storeReview'])->name('submit.review');
+
+//CRUD FOR PRODUCTS TABLE
+Route::get('/admin/products/create', [AdminController::class, 'create'])
+        ->name('create')->middleware('auth');
 
 
 Route::get('/checkout', function () {
