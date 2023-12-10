@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\ProductController;
 
 use App\Http\Controllers\Admin\ProductController as AdminController;
@@ -67,7 +67,8 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
-
+Route::get('/admin', [AdminController::class, 'dashboard'])->name('admin.dashboard')
+        ->middleware('auth','admin'); //Route to Admin Dashboard
 
 Auth::routes();
 

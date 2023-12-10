@@ -457,3 +457,12 @@ footer{
     padding: 10px 0;
     margin:2% auto;
   }
+
+  /*AdminDashboard*/
+  .bg-dark {
+    background-color: #152e4d;
+    }
+
+    .text-white {
+    color: white;
+    }
