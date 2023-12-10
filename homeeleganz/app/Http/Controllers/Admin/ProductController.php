@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
@@ -91,8 +92,9 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         $title = 'Edit Product';
+        $categories = Category::all();
         if ($product) {
-            return view('admin/products/edit', compact('cartoon', 'title'));
+            return view('admin/products/edit', compact('product', 'title', 'categories'));
             
         } else {
             return redirect('/admin/products/')->with(['flash' => $flash]);
