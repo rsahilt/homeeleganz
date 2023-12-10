@@ -1,7 +1,12 @@
 @extends('layouts.main')
 @section('content')   
 
-   
+@if(session('error'))
+    <div class="bg-red-500 text-white text-center py-2" style="margin-top: 15px;">
+        <div class="mx-auto w-full max-w-xl">{{ session('error') }}</div> 
+    </div>
+@endif
+
 
     <div id=" hero-image" class="w-[100%] h-650 mt-[1rem]">
         <!-- <img src="/images/hero-image.png" class="mx-auto"> -->

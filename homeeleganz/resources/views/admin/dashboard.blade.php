@@ -1,8 +1,12 @@
 @extends('layouts.main')
 @section('content')
-    <div>
-    <p>This is the Admin Dashboard</p>
+    <div class="flex flex-col  min-h-screen overflow-x-hidden overflow-y-auto bg-dark text-white" style="margin-top: 20px;">
+        <div class="flex items-center justify-center flex-1 h-full p-4">
+            <main>
+                <h1 class="text-3xl font-semibold">Admin Dashboard</h1>
+            </main>
+        </div>
     </div>
+
     
-    @include('partials.footer')
 @endsection
