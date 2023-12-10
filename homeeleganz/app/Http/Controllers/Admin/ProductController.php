@@ -4,9 +4,25 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use App\Models\Product;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
+    /**
+     * Display a listing of all cartoons.
+     *
+     * @return \Illuminate\Contracts\View\View
+     */
+    public function index()
+    {
+        $products = Product::latest()->get();
+        $title = "List of all products";
+        return view('/admin/products/index', compact('products', 'title'));
+    }
+
+
      /**
      * Show the form for creating a new cartoon.
      *

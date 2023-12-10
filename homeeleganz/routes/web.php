@@ -34,6 +34,10 @@ Route::post('/submit-message', [ProductController::class, 'store'])->name('submi
 Route::post('/submit-review', [ProductController::class, 'storeReview'])->name('submit.review');
 
 //CRUD FOR PRODUCTS TABLE
+
+Route::get('/admin/products/', [AdminController::class, 'index'])
+        ->name('productlist')->middleware('auth');
+
 Route::get('/admin/products/create', [AdminController::class, 'create'])
         ->name('create')->middleware('auth');
 
