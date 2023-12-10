@@ -30,7 +30,7 @@
                     <span><b>{{ $product->name }}</b></span>
                     <span class="text-red-600">${{ $product->unit_price }}</span>
                 </div>
-                <p class="text-[.9em] my-1 text-[#8A8A8A]">{{ $product->category->name }}</p>
+                <p class="text-[.9em] my-1 text-[#8A8A8A]">{{ $product->category_id }}</p>
                 <p class="text-[.8em] my-1 text-[#8A8A8A]">{{ $product->dimensions }}</p>
                 <p class="text-[.8em] my-1 text-[#8A8A8A]">{{ $product->catgeory_id }}</p>
                 <p class=" text-[.8em] my-1 mx-auto">{{ $product->summary }}</p>
