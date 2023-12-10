@@ -25,7 +25,7 @@
 
 </head>
 
-<body>
+<body style="background-color: #152e4d;">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">

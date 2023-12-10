@@ -13,41 +13,7 @@
         </div>
     </div> -->
     <div class="dashboard w-full">
-    <aside>
-        <ul class="pl-5 pt-5">
-            <li class="bg-red-500 mb-2 mr-5 rounded">
-                <a href="#" class="block py-3 px-4 text-white text-lg">Dashboard</a>
-            </li>
-
-            <li class="bg-red-500 mb-2 mr-5 rounded">
-                <a href="#" class="block py-3 px-4 text-white text-lg">Inbox</a>
-            </li>
-
-            <li class="bg-red-500 mb-2 mr-5 rounded">
-                <a href="#" class="block py-3 px-4 text-white text-lg">Users</a>
-            </li>
-
-            <li class="bg-red-500 mb-2 mr-5 rounded">
-                <a href="#" class="block py-3 px-4 text-white text-lg">Products</a>
-            </li>
-
-            <li class="bg-red-500 mb-2 mr-5 rounded">
-                <a href="#" class="block py-3 px-4 text-white text-lg">Taxes</a>
-            </li>
-
-            <li class="bg-red-500 mb-2 mr-5 rounded">
-                <a href="#" class="block py-3 px-4 text-white text-lg">Categories</a>
-            </li>
-
-            <li class="bg-red-500 mb-2 mr-5 rounded">
-                <a href="#" class="block py-3 px-4 text-white text-lg">Reviews</a>
-            </li>
-
-            <li class="bg-red-500 mb-2 mr-5 rounded">
-                <a href="#" class="block py-3 px-4 text-white text-lg">Orders</a>
-            </li>
-        </ul>
-    </aside>
+        @include('partials.aside')
         <main>
             content goes here
         </main>
