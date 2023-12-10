@@ -50,6 +50,9 @@ Route::get('/admin/products/{id}/edit', [AdminController::class, 'edit'])
 Route::put('/admin/products/{id}', [AdminController::class, 'update'])
         ->name('update')->middleware('auth');
 
+Route::delete('/admin/products/{id}', [AdminController::class, 'destroy'])
+        ->name('delete')->middleware('auth');
+
 
 Route::get('/checkout', function () {
     return view('checkout');

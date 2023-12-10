@@ -144,4 +144,33 @@ class ProductController extends Controller
             return redirect('/admin/product/edit');
         }
     }
+
+    /**
+     * Remove the specified cartoon from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function destroy($id)
+    {
+        $product = Product::find($id);
+
+        // if id exists
+        if($product){
+            $product->delete();
+            //set success flash message
+            $flash = [
+                'type'=>'success',
+                'message'=>'Cartoon succesfully deleted!'
+            ];
+            return redirect('/admin/products/')->with(['flash' => $flash]);
+        }else{
+            //set error flash message
+            $flash = [
+                'type'=>'danger',
+                'message'=>'No matching record to delete!'
+            ];
+            return redirect('/admin/products')->with(['flash' => $flash]);
+        }
+    }
 }
