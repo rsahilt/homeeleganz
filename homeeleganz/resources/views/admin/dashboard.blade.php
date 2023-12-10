@@ -4,6 +4,11 @@
         <div class="flex items-center justify-center flex-1 h-full p-4">
             <main>
                 <h1 class="text-3xl font-semibold">Admin Dashboard</h1>
+                @foreach($messages as $message)
+                name: {{ $message->name }}
+                email: {{ $message->email }}
+                message: {{ $message->message }}
+                @endforeach
             </main>
         </div>
     </div>
