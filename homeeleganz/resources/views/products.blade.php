@@ -22,7 +22,7 @@
     <div class="grid lg:grid-cols-4 md:grid-cols-3   gap-9">
 
         @foreach($products as $product)
-        <div class="w-[250px] min-h-[400px] border-[1px] rounded-[35px] mx-auto relative">
+        <div class="w-[250px] min-h-[400px] border-[1px] rounded-[35px] mx-auto relative" data-aos="slide-up" data-aos-duration="1000">
 
             <img src="/images/sofa.jpeg" class="flex flex-col rounded-t-[35px]" />
             <div class="px-2 my-2 ">
