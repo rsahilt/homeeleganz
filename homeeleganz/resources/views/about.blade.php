@@ -14,7 +14,7 @@
         </div>
     </section>
 
-    <div class="flex flex-wrap -m-4 mt-[-100px] mb-4 ml-4 mr-4 mt-2 bg-gray-100">
+    <div class="flex flex-wrap -m-4 mt-[-100px] mb-4 ml-4 mr-4 mt-2 bg-gray-100" >
         <div class="p-4 lg:w-1/2 md:w-full">
             <div class="flex h-full border-2 rounded-lg border-gray-200 border-opacity-100 p-8 sm:flex-row flex-col">
                 <div
@@ -28,7 +28,7 @@
                 </div>
             </div>
         </div>
-        <div class="p-4 lg:w-1/2 md:w-full">
+        <div class="p-4 lg:w-1/2 md:w-full" >
             <div class="flex h-full border-2 rounded-lg border-gray-200 border-opacity-100 p-8 sm:flex-row flex-col">
                 <div
                     class="w-16 h-16 sm:mr-8 sm:mb-0 mb-4 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 flex-shrink-0">
@@ -44,8 +44,8 @@
     </div>
 
 
-    <section class="bg-gray-100 body-font ">
-        <div class="container px-5 py-24 mx-auto bg-gray-100">
+    <section class="bg-gray-100 body-font" data-aos="slide-up" data-aos-duration="1000">
+        <div class="container px-5 py-24 mx-auto bg-gray-100" data-aos="slide-up" data-aos-duration="1000">
             <div class="flex flex-col text-center w-full mb-12">
                 <h2 class="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">THE TEAM</h2>
                 <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900">Developers</h1>
@@ -79,7 +79,7 @@
         </div>
 
         </div>
-        <div class="bg-gray-100 p-6">
+        <div class="bg-gray-100 p-6" data-aos="slide-up" data-aos-duration="1000">
 
             <div class="container mx-auto">
 
