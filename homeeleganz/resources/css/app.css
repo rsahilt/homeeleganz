@@ -458,11 +458,32 @@ footer{
     margin:2% auto;
   }
 
-  /*AdminDashboard*/
-  .bg-dark {
-    background-color: #152e4d;
-    }
+/*AdminDashboard*/
+.bg-dark {
+background-color: #152e4d;
+}
 
-    .text-white {
-    color: white;
-    }
+.text-white {
+color: white;
+}
+
+/* dashboard */
+.dashboard-main{
+    width: 100vw;
+}
+.dashboard{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+aside{
+    width: 20%;
+    height: 100vh;
+    background-color: #152e4d;;
+}
+
+main{
+    width: 80%;
+    height: 100vh;
+    background-color: #e8e8f2;
+}
