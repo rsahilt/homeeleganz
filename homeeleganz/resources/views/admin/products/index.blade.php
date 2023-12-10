@@ -42,7 +42,7 @@
                     {{ $product->brand }}
                 </td>
                 <td class="px-6 py-4">
-                    {{ $product->category->name }}
+                    {{ $product->category_id }}
                 </td>
                 <td class="px-6 py-4">
                     {{ $product->created_at->format('m/d/Y') }}
