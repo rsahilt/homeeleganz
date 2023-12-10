@@ -24,7 +24,7 @@ class ProductController extends Controller
     }
 
 
-     /**
+    /**
      * Show the form for creating a new cartoon.
      *
      * @return \Illuminate\Contracts\View\View
@@ -32,7 +32,8 @@ class ProductController extends Controller
     public function create()
     {
         $title = "Upload New Cartoon";
-        return view('/admin/products/create', compact('title'));
+        $categories = Category::all();
+        return view('/admin/products/create', compact('title','categories'));
     }
 
     /**
@@ -44,18 +45,18 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $valid = $request->validate([
-            'name'=>'required|string|min:1|max:255',
-            'summary'=>'string|min:1|max:255',
-            'color'=>'required|string|min:1|max:255',
+            'name' => 'required|string|min:1|max:255',
+            'summary' => 'required|string|min:1|max:255',
+            'color' => 'required|string|min:1|max:255',
             // 'image' => 'required|image|mimes:jpeg,png,gif',
-            'image' => 'nullable|string',
-            'material'=>'required|string|min:1|max:255',
-            'unit_price'=>'required|numeric|min:20|max:100000',
-            'description'=>'string|min:10',
-            'brand'=>'required|string|min:1|max:255',
-            'weight'=>'required|numeric|min:5|max:5000',
-            'dimensions'=>'required|string|min:1|max:255',
-            'category_id'=>'required|string|min:1|max:255',
+            'image' => 'required|string',
+            'material' => 'required|string|min:1|max:255',
+            'unit_price' => 'required|numeric|min:20|max:100000',
+            'description' => 'string|min:10',
+            'brand' => 'required|string|min:1|max:255',
+            'weight' => 'required|numeric|min:5|max:5000',
+            'dimensions' => 'required|string|min:1|max:255',
+            'category_id' => 'string|min:1|max:255',
         ]);
         $product = Product::create($valid);
         // if($file = $request->file('image')){
@@ -65,23 +66,23 @@ class ProductController extends Controller
         //     $cartoon->save();
         // }
         $product->save();
-        
-        if($product){
+
+        if ($product) {
             //set success flash message
             $flash = [
-                'type'=>'success',
-                'message'=>'New product succesfully added'
+                'type' => 'success',
+                'message' => 'New product succesfully added'
             ];
-            return redirect('/admin/products/index')->with(['flash' => $flash]);
-        }else{
+            return redirect()->route('storeproducts');
+        } else {
             $flash = [
-                'type'=>'danger',
-                'message'=>'Failed to add the product! Try Again'
+                'type' => 'danger',
+                'message' => 'Failed to add the product! Try Again'
             ];
-            return redirect('/admin/products/index')->with(['flash' => $flash]);
+            return redirect('/admin/products/create')->with(['flash' => $flash]);
         }
 
-        
+
     }
 
     /**
@@ -115,18 +116,18 @@ class ProductController extends Controller
 
         if ($product) {
             $validatedData = $request->validate([
-                'name'=>'required|string|min:1|max:255',
-                'summary'=>'string|min:1|max:255',
-                'color'=>'required|string|min:1|max:255',
+                'name' => 'required|string|min:1|max:255',
+                'summary' => 'string|min:1|max:255',
+                'color' => 'required|string|min:1|max:255',
                 // 'image' => 'required|image|mimes:jpeg,png,gif',
                 'image' => 'required|string',
-                'material'=>'required|string|min:1|max:255',
-                'unit_price'=>'required|numeric|min:20|max:100000',
-                'description'=>'string|min:10',
-                'brand'=>'required|string|min:1|max:255',
-                'weight'=>'required|numeric|min:5|max:5000',
-                'dimensions'=>'required|string|min:1|max:255',
-                'category_id'=>'string|min:1|max:255',
+                'material' => 'required|string|min:1|max:255',
+                'unit_price' => 'required|numeric|min:20|max:100000',
+                'description' => 'string|min:10',
+                'brand' => 'required|string|min:1|max:255',
+                'weight' => 'required|numeric|min:5|max:5000',
+                'dimensions' => 'required|string|min:1|max:255',
+                'category_id' => 'string|min:1|max:255',
             ]);
 
             // if($file = $request->file('image')){
