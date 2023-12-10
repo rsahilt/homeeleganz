@@ -45,14 +45,14 @@ class ProductController extends Controller
     {
         $valid = $request->validate([
             'name'=>'required|string|min:1|max:255',
-            'summary'=>'required|string|min:10',
+            'summary'=>'required|string|min:1|max:255',
             'color'=>'required|string|min:1|max:255',
             // 'image' => 'required|image|mimes:jpeg,png,gif',
-            'image' => 'image|mimes:jpeg,jpg,png,gif',
+            'image' => 'string|nullable',
             'material'=>'required|string|min:1|max:255',
             'unit_price'=>'required|numeric|min:20|max:100000',
             'description'=>'required|string|min:10',
-            'brand'=>'required|string|min:1|max:255',,
+            'brand'=>'required|string|min:1|max:255',
             'weight'=>'required|numeric|min:5|max:5000',
             'dimensions'=>'required|string|min:1|max:255',
             'category_id'=>'required|string|min:1|max:255',
@@ -72,14 +72,16 @@ class ProductController extends Controller
                 'type'=>'success',
                 'message'=>'New product succesfully added'
             ];
+            return redirect('/admin/products/index')->with(['flash' => $flash]);
         }else{
             $flash = [
                 'type'=>'danger',
                 'message'=>'Failed to add the product! Try Again'
             ];
+            return redirect('/admin/products/index')->with(['flash' => $flash]);
         }
 
-        return redirect('/admin/products/index')->with(['flash' => $flash]);
+        
     }
 
     /**
@@ -95,9 +97,8 @@ class ProductController extends Controller
         $categories = Category::all();
         if ($product) {
             return view('admin/products/edit', compact('product', 'title', 'categories'));
-            
         } else {
-            return redirect('/admin/products/')->with(['flash' => $flash]);
+            return redirect('/admin/products/index');
         }
     }
 
@@ -115,14 +116,14 @@ class ProductController extends Controller
         if ($product) {
             $validatedData = $request->validate([
                 'name'=>'required|string|min:1|max:255',
-                'summary'=>'required|string|min:10',
+                'summary'=>'string|min:1|max:255',
                 'color'=>'required|string|min:1|max:255',
                 // 'image' => 'required|image|mimes:jpeg,png,gif',
-                'image' => 'image|mimes:jpeg,jpg,png,gif',
+                'image' => 'string|nullable',
                 'material'=>'required|string|min:1|max:255',
                 'unit_price'=>'required|numeric|min:20|max:100000',
-                'description'=>'required|string|min:10',
-                'brand'=>'required|string|min:1|max:255',,
+                'description'=>'string|min:10',
+                'brand'=>'required|string|min:1|max:255',
                 'weight'=>'required|numeric|min:5|max:5000',
                 'dimensions'=>'required|string|min:1|max:255',
                 'category_id'=>'required|string|min:1|max:255',
@@ -137,9 +138,9 @@ class ProductController extends Controller
 
             // }
             $product->update($validatedData);
-            return redirect('/admin/products/');
+            return redirect('/admin/products/index');
         } else {
-            return redirect('/admin/products/edit');
+            return redirect('/admin/product/edit');
         }
     }
 }
