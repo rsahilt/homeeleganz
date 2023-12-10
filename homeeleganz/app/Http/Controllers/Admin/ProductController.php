@@ -46,7 +46,7 @@ class ProductController extends Controller
     {
         $valid = $request->validate([
             'name' => 'required|string|min:1|max:255',
-            'summary' => 'string|min:1|max:255',
+            'summary' => 'required|string|min:1|max:255',
             'color' => 'required|string|min:1|max:255',
             // 'image' => 'required|image|mimes:jpeg,png,gif',
             'image' => 'required|string',
@@ -73,13 +73,13 @@ class ProductController extends Controller
                 'type' => 'success',
                 'message' => 'New product succesfully added'
             ];
-            return redirect('/admin/products/index')->with(['flash' => $flash]);
+            return redirect()->route('storeproducts');
         } else {
             $flash = [
                 'type' => 'danger',
                 'message' => 'Failed to add the product! Try Again'
             ];
-            return redirect('/admin/products/index')->with(['flash' => $flash]);
+            return redirect('/admin/products/create')->with(['flash' => $flash]);
         }
 
 
