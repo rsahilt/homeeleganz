@@ -51,7 +51,12 @@
                             {{ $product->brand }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ $product->category_id }}
+                            @foreach ($product->categories as $category)
+                                {{ $category->name }}
+                                @if (!$loop->last)
+                                    ,
+                                @endif
+                            @endforeach
                         </td>
                         <td class="px-6 py-4">
                             {{ $product->created_at->format('m/d/Y') }}
