@@ -39,7 +39,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($products as $index => $product)
+                    @foreach($products as $product)
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                         <td class="px-6 py-4">
                             {{ $product->id }}
@@ -51,7 +51,12 @@
                             {{ $product->brand }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ $product->category_id }}
+                            @foreach ($product->categories as $category)
+                                {{ $category->name }}
+                                @if (!$loop->last)
+                                    ,
+                                @endif
+                            @endforeach
                         </td>
                         <td class="px-6 py-4">
                             {{ $product->created_at->format('m/d/Y') }}
@@ -68,13 +73,10 @@
                                 </form>
                             </div>
                         </td>
-
-                        
                     </tr>
                     @endforeach
-                    
-                    
                 </tbody>
+                {{ $products->links() }}
             </table>
         </div>
     </main>
