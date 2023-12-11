@@ -19,7 +19,7 @@ class ControllerAdmin extends Controller
         $messages = Message::latest()->get();
         $messagecount = Message::count();
         $reviews = Review::latest()->get();
-        $reviewcount = Review::count();
-        return view('admin.dashboard', compact('title', 'messages'));
+        $reviewcount = Review::count();s
+        return view('admin.dashboard', compact('title', 'messages', 'usercount', 'messagecount', 'reviewcount'));
     }
 }

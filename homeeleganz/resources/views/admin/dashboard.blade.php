@@ -13,7 +13,7 @@
                         </svg></div>
                     <div class="px-4 text-gray-700">
                         <h3 class="text-sm tracking-wider">Registered Users</h3>
-                        <p class="text-3xl">12,768</p>
+                        <p class="text-3xl">{{ $usercount }}</p>
                     </div>
                 </div>
                 <div class="flex items-center bg-white border rounded-sm overflow-hidden shadow">
@@ -25,7 +25,7 @@
                         </svg></div>
                     <div class="px-4 text-gray-700">
                         <h3 class="text-sm tracking-wider">Total Reviews</h3>
-                        <p class="text-3xl">39,265</p>
+                        <p class="text-3xl">{{ $reviewcount }}</p>
                     </div>
                 </div>
                 <div class="flex items-center bg-white border rounded-sm overflow-hidden shadow">
@@ -37,7 +37,7 @@
                         </svg></div>
                     <div class="px-4 text-gray-700">
                         <h3 class="text-sm tracking-wider">Feedbacks</h3>
-                        <p class="text-3xl">142,334</p>
+                        <p class="text-3xl">{{ $messagecount }}</p>
                     </div>
                 </div>
             </div>

@@ -39,7 +39,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($products as $index => $product)
+                    @foreach($products as $product)
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                         <td class="px-6 py-4">
                             {{ $product->id }}
@@ -68,13 +68,10 @@
                                 </form>
                             </div>
                         </td>
-
-                        
                     </tr>
                     @endforeach
-                    
-                    
                 </tbody>
+                {{ $products->links() }}
             </table>
         </div>
     </main>
