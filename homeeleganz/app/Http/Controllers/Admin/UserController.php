@@ -87,8 +87,6 @@ class UserController extends Controller
                     'province' => 'required|string|min:1|max:255',
                     'postal_code' => 'required|string|min:1|max:255',
                     'phone_number' => 'required|string|regex:/^(\(?\d{3}\)?[\s-]?\d{3}[\s-]?\d{4})$/',
-                    'password' => 'required|string|min:8|max:255',
-        
                 ]);
 
             $user->update($validData);

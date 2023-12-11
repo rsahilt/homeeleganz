@@ -9,7 +9,7 @@
         </li>
 
         <li class="mb-2 mr-5 rounded hover:bg-blue-700">
-            <a href="#" class="block py-3 px-4 text-white text-lg">Users</a>
+            <a href="/admin/users/" class="block py-3 px-4 text-white text-lg">Users</a>
         </li>
 
         <li class="mb-2 mr-5 rounded hover:bg-blue-700">
