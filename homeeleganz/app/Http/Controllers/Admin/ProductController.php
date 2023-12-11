@@ -18,7 +18,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::latest()->get();
+        $products = Product::latest()->paginate(30);
         $title = "List of all products";
         return view('/admin/products/index', compact('products', 'title'));
     }
@@ -81,8 +81,6 @@ class ProductController extends Controller
             ];
             return redirect('/admin/products/create')->with(['flash' => $flash]);
         }
-
-
     }
 
     /**
