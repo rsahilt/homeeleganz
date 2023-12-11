@@ -34,7 +34,7 @@ class ProductController extends Controller
     // }
     public function show(string $id)
     {
-        $information = Product::with('reviews.user')->find($id);
+        $information = Product::with(['reviews.user', 'categories'])->find($id);
         $title = 'About the Product';
         return view('details', compact('information', 'title'));
     }
