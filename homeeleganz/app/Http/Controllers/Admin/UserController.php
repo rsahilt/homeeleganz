@@ -36,7 +36,7 @@ class UserController extends Controller
             'city' => 'required|string|min:1|max:255',
             'province' => 'required|string|min:1|max:255',
             'postal_code' => 'required|string|min:1|max:255',
-            'phone_number' => 'required|string|regex:/^\(\d{3}\) \d{3}-\d{4}$/',
+            'phone_number' => 'required|string|regex:/^(\(?\d{3}\)?[\s-]?\d{3}[\s-]?\d{4})$/',
             'password' => 'required|string|min:8|max:255',
 
         ]);
@@ -61,4 +61,41 @@ class UserController extends Controller
 
 
     }
+
+    public function edit($id) {
+        $user = User::find($id);
+        $title = 'Edit User';
+        if ($user) {
+            return view('admin/users/edit', compact('user', 'title'));
+        } else {
+            return redirect('/admin/users/index');
+        }
+    }
+
+    
+    public function update(Request $request, $id)
+    {
+        $user = User::find($id);
+
+        if ($user) {
+            $validData = $request->validate([
+                    'first_name' => 'required|string|min:1|max:255',
+                    'last_name' => 'required|string|min:1|max:255',
+                    'email' => 'required|email|max:255',
+                    'address' => 'required|string|min:1|max:255',
+                    'city' => 'required|string|min:1|max:255',
+                    'province' => 'required|string|min:1|max:255',
+                    'postal_code' => 'required|string|min:1|max:255',
+                    'phone_number' => 'required|string|regex:/^(\(?\d{3}\)?[\s-]?\d{3}[\s-]?\d{4})$/',
+                    'password' => 'required|string|min:8|max:255',
+        
+                ]);
+
+            $user->update($validData);
+            return redirect()->route('userlist');
+        } else {
+            return redirect('/admin/users/edit');
+        }
+    }
+
 }
