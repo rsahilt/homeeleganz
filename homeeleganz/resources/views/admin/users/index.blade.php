@@ -4,7 +4,7 @@
 @section('content')
 <div class="container">
     <h1>Users List</h1>
-    <a href="#" class="btn btn-primary">Add New User</a>
+    <a href="/admin/users/create" class="btn btn-primary">Add New User</a>
 
     @if(session('success'))
         <div class="alert alert-success">

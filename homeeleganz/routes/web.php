@@ -82,3 +82,7 @@ Route::get('/details', function(){
 Route::get('/admin/users/', [UserController::class, 'index'])
         ->name('userlist')->middleware('auth');
 
+Route::get('/admin/users/create', [UserController::class, 'create'])
+        ->name('createuser')->middleware('auth');
+
+

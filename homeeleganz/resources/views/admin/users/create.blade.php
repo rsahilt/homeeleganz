@@ -1,11 +1,9 @@
-
-
-@extends('layouts.app') <!-- Assuming you have a main layout file -->
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
     <h1>Add New User</h1>
-    <form action="{{ route('users.store') }}" method="POST">
+    <form action="#" method="POST">
         @csrf
 
         <div class="form-group">
@@ -33,7 +31,7 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Create User</button>
-        <a href="{{ route('users.index') }}" class="btn btn-default">Cancel</a>
+        <a href="#" class="btn btn-default">Cancel</a>
     </form>
 </div>
 @endsection
