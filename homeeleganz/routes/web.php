@@ -88,15 +88,9 @@ Route::get('/admin/users/', [UserController::class, 'index'])
 Route::get('/admin/users/create', [UserController::class, 'create'])
         ->name('createuser')->middleware('auth');
 
-Route::get('/admin/users/', [UserController::class, 'store'])
+ Route::post('/admin/users/', [UserController::class, 'store'])
         ->name('storeuser')->middleware('auth');
-        
- Route::get('/admin/users/{user}/edit', [UserController::class, 'edit'])
-        ->name('edituser')->middleware('auth');
 
-Route::put('/admin/users/{user}', [UserController::class, 'update'])
-        ->name('updateuser')->middleware('auth');
-    
 
 
 
