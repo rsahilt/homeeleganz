@@ -96,8 +96,10 @@ class ProductController extends Controller
         $product = Product::find($id);
         $title = 'Edit Product';
         $categories = Category::all();
+        $selectedCategories = $product->categories->pluck('id')->toArray();
+        dd($selectedCategories);
         if ($product) {
-            return view('admin/products/edit', compact('product', 'title', 'categories'));
+            return view('admin/products/edit', compact('product', 'title', 'categories','selectedcategories'));
         } else {
             return redirect('/admin/products/index');
         }
