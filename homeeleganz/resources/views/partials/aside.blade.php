@@ -1,7 +1,7 @@
 <aside>
     <ul class="pl-5 pt-5">
         <li class="mb-2 mr-5 rounded hover:bg-blue-700">
-            <a href="/admin" class="block py-3 px-4 text-white text-lg">Dashboard</a>
+            <a href="/admin" class="block py-3 px-4 rounded text-white text-lg {{ $slug === 'dashboard' ? 'bg-blue-700' : '' }}">Dashboard</a>
         </li>
 
         <li class="mb-2 mr-5 rounded hover:bg-blue-700">
