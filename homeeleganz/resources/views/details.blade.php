@@ -18,7 +18,7 @@
         </div>
         <div class="details">
             <h1>{{ $information->name }}</h1>
-            <p class="cat-text">Categories: @foreach($information->categories as $cat) 
+            <p class="cat-text">Categories: @foreach($information->categories as $cat)
                 {{ $cat->name}},
                 @endforeach
             </p>
