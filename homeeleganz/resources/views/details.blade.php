@@ -18,7 +18,10 @@
         </div>
         <div class="details">
             <h1>{{ $information->name }}</h1>
-            <p class="cat-text">Category: {{ $information->category_id }}</p>
+            <p class="cat-text">Categories: @foreach($information->categories as $cat)
+                {{ $cat->name}},
+                @endforeach
+            </p>
             <hr>
             <p class="prod-info"><strong>Price:</strong> ${{ $information->unit_price }} </p>
             <p class="prod-info"><strong>Brand:</strong> {{ $information->brand }}</p>

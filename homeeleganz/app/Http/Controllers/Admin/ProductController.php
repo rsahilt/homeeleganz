@@ -18,7 +18,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::latest()->get();
+        $products = Product::latest()->paginate(30);
         $title = "List of all products";
         return view('/admin/products/index', compact('products', 'title'));
     }
@@ -81,8 +81,6 @@ class ProductController extends Controller
             ];
             return redirect('/admin/products/create')->with(['flash' => $flash]);
         }
-
-
     }
 
     /**
@@ -96,8 +94,10 @@ class ProductController extends Controller
         $product = Product::find($id);
         $title = 'Edit Product';
         $categories = Category::all();
+        $selectedCategories = $product->categories->pluck('id')->toArray();
+        dd($selectedCategories);
         if ($product) {
-            return view('admin/products/edit', compact('product', 'title', 'categories'));
+            return view('admin/products/edit', compact('product', 'title', 'categories','selectedcategories'));
         } else {
             return redirect('/admin/products/index');
         }
