@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Message;
 use App\Models\User;
 use App\Models\Review;
+use App\Models\Product;
 
 
 class ControllerAdmin extends Controller
@@ -21,6 +22,7 @@ class ControllerAdmin extends Controller
         $reviews = Review::latest()->get();
         $reviewcount = Review::count();
         $slug="dashboard";
-        return view('admin.dashboard', compact('title', 'messages', 'usercount', 'messagecount', 'reviewcount','slug'));
+        $products = Product::latest()->take(5)->get();
+        return view('admin.dashboard', compact('title', 'messages', 'usercount', 'messagecount', 'reviewcount','slug','products'));
     }
 }
