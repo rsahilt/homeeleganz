@@ -49,11 +49,11 @@
 
                             </th>
                         <td class="px-6 py-4 ">
-                            {{ $review->product_id }}
+                            {{ $review->product->name }}
 
                             </th>
                         <td class="px-6 py-4">
-                            {{ $review->user_id }}
+                            {{ $review->user->first_name }} {{ $review->user->last_name }}
                         </td>
                         <td class="px-6 py-4">
                             {{ $review->created_at->format('m/d/Y') }}

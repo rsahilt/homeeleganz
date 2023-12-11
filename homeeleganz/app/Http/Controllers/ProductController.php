@@ -18,7 +18,7 @@ class ProductController extends Controller
     public function index()
     {
         $categories = Category::latest()->get();
-        $products = Product::latest()->paginate(12);
+        $products = Product::latest()->paginate(8);
         $title = "All Collection";
         return view('products', compact('products', 'title', 'categories')); 
     }
@@ -42,7 +42,7 @@ class ProductController extends Controller
     public function category($categoryName)
     {
         $category = Category::where('name', $categoryName)->firstOrFail();
-        $products = Product::where('category_id', $category->id)->paginate(12);
+        $products = Product::where('category_id', $category->id)->paginate(8);
         $title = 'All Collection';
 
         // Retrieve all categories

@@ -12,7 +12,7 @@
                 <a href="/admin/users/" class="mb-5 inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-blue-600 transition-all">
                     Back
                 </a>
-    <form action="{{ route('updateuser', ['id' => $user->id]) }}" novalidate 
+                <form action="{{ route('updateuser', ['id' => $user->id]) }}" novalidate 
                     method="POST" 
                     enctype="multipart/form-data">
                     @csrf
@@ -42,16 +42,6 @@
                                 <span class="text-red-500">{{ $message }}</span>
                             @enderror
                         </div>
-
-                        <div class="sm:col-span-2">
-                            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                            <input type="password" name="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Password" value="{{ old('password',  $user->password) }}">
-                            @error('password')
-                                <span class="text-red-500">{{ $message }}</span>
-                            @enderror
-                        </div> 
-
-                        
 
                         <div class="w-full">
                             <label for="address" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Country</label>
@@ -92,15 +82,14 @@
                                 <span class="text-red-500">{{ $message }}</span>
                             @enderror
                         </div> 
+                    </div>
 
-                        <button type="submit" class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-green-600 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-green-700 transition-all">
+                    <button type="submit" class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-green-600 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-green-700 transition-all">
                         Save Changes
                     </button>
-
-        
-    </form>
-
-</div>
-</main>
+                </form>
+            </div>
+        </section>
+    </main>
 </div>
 @endsection

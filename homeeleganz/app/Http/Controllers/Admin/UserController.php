@@ -16,14 +16,16 @@ class UserController extends Controller
     {
         $users = User::all(); 
         $title = "List of Registered Users";
-        return view('/admin/users/index', compact('users','title'));
+        $slug = 'userdashboard';
+        return view('/admin/users/index', compact('users','title','slug'));
     }
 
     // Show the form for creating a new user
     public function create()
     {
         $title = "Add a new user";
-        return view('admin/users/create', compact('title'));
+        $slug = 'userdashboard';
+        return view('admin/users/create', compact('title','slug'));
     }
 
     public function store(Request $request)
@@ -65,8 +67,9 @@ class UserController extends Controller
     public function edit($id) {
         $user = User::find($id);
         $title = 'Edit User';
+        $slug = 'userdashboard';
         if ($user) {
-            return view('admin/users/edit', compact('user', 'title'));
+            return view('admin/users/edit', compact('user', 'title','slug'));
         } else {
             return redirect('/admin/users/index');
         }
@@ -87,8 +90,6 @@ class UserController extends Controller
                     'province' => 'required|string|min:1|max:255',
                     'postal_code' => 'required|string|min:1|max:255',
                     'phone_number' => 'required|string|regex:/^(\(?\d{3}\)?[\s-]?\d{3}[\s-]?\d{4})$/',
-                    'password' => 'required|string|min:8|max:255',
-        
                 ]);
 
             $user->update($validData);
