@@ -88,18 +88,18 @@ class ProductController extends Controller
         return redirect()->back()->with('success', 'Review successfully submitted!');
     }
 
+    /**
+     * Search cartoons based on the provided search term.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Contracts\View\View
+     */
     public function search(Request $request)
     {
-        $query = $request->input('query');
-
-        $products = Product::where('name', 'like', '%' . $query . '%')
-                            ->orWhere('description', 'like', '%' . $query . '%')
-                            ->paginate(8);
-
-        return view('products', [
-            'title' => 'Search Results',
-            'products' => $products,
-        ]);
+        $search = $request->input('search');
+        $products = Product::where('name', 'LIKE', "%$search%")->paginate(8);
+        $title = "Showing results for: $search";
+        return view('products', compact('title', 'products'));
     }
     
 }
