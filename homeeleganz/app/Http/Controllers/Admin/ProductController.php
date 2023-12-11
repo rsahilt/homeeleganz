@@ -20,7 +20,8 @@ class ProductController extends Controller
     {
         $products = Product::latest()->paginate(30);
         $title = "List of all products";
-        return view('/admin/products/index', compact('products', 'title'));
+        $slug="productdashboard";
+        return view('/admin/products/index', compact('products', 'title','slug'));
     }
 
 
@@ -33,7 +34,8 @@ class ProductController extends Controller
     {
         $title = "Upload New Cartoon";
         $categories = Category::all();
-        return view('/admin/products/create', compact('title','categories'));
+        $slug="productdashboard";
+        return view('/admin/products/create', compact('title','categories','slug'));
     }
 
     /**
@@ -94,10 +96,11 @@ class ProductController extends Controller
         $product = Product::find($id);
         $title = 'Edit Product';
         $categories = Category::all();
+        $slug="productdashboard";
         $selectedCategories = $product->categories->pluck('id')->toArray();
         dd($selectedCategories);
         if ($product) {
-            return view('admin/products/edit', compact('product', 'title', 'categories','selectedcategories'));
+            return view('admin/products/edit', compact('product', 'title', 'categories','selectedcategories','slug'));
         } else {
             return redirect('/admin/products/index');
         }

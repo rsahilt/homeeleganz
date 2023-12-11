@@ -13,9 +13,9 @@ class ReviewController extends Controller
     {
         // $reviews = Review::all();
         $reviews = Review::with('product', 'user')->get();
+        $slug = "reviewdashboard";
         $title = "List of Reviews";
-
-        return view('/admin/reviews/index', compact('reviews', 'title'));
+        return view('/admin/reviews/index', compact('reviews', 'title','slug'));
     }
 
     public function destroy($id)
