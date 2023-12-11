@@ -99,7 +99,8 @@ class ProductController extends Controller
         $search = $request->input('search');
         $products = Product::where('name', 'LIKE', "%$search%")->paginate(8);
         $title = "Showing results for: $search";
-        return view('products', compact('title', 'products'));
+        $categories = Category::latest()->get();
+        return view('products', compact('title', 'products','categories'));
     }
     
 }
