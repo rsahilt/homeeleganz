@@ -87,5 +87,19 @@ class ProductController extends Controller
 
         return redirect()->back()->with('success', 'Review successfully submitted!');
     }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+
+        $products = Product::where('name', 'like', '%' . $query . '%')
+                            ->orWhere('description', 'like', '%' . $query . '%')
+                            ->paginate(8);
+
+        return view('products', [
+            'title' => 'Search Results',
+            'products' => $products,
+        ]);
+    }
     
 }
