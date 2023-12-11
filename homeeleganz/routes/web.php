@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\ControllerAdmin;
 use App\Http\Controllers\ProductController;
 
 use App\Http\Controllers\Admin\ProductController as AdminController;
+use App\Http\Controllers\Admin\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,3 +80,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/details', function(){
     return view('details');
 });
+
+// CRUD FOR USERS TABLE
+Route::get('/admin/users/', [UserController::class, 'index'])
+        ->name('userlist')->middleware('auth');
+
+Route::get('/admin/users/create', [UserController::class, 'create'])
+        ->name('createuser')->middleware('auth');
+
+
