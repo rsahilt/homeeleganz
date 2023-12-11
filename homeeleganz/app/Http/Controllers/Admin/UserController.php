@@ -98,4 +98,27 @@ class UserController extends Controller
         }
     }
 
+    public function destroy($id)
+    {
+        $user = User::find($id);
+
+        // if id exists
+        if($user){
+            $user->delete();
+            //set success flash message
+            $flash = [
+                'type'=>'success',
+                'message'=>'User succesfully deleted!'
+            ];
+            return redirect('/admin/users/')->with(['flash' => $flash]);
+        }else{
+            //set error flash message
+            $flash = [
+                'type'=>'danger',
+                'message'=>'No matching record to delete!'
+            ];
+            return redirect('/admin/users')->with(['flash' => $flash]);
+        }
+    }
+
 }

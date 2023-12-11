@@ -96,6 +96,9 @@ Route::get('/admin/users/create', [UserController::class, 'create'])
     
  Route::put('/admin/users/{id}', [UserController::class, 'update'])
         ->name('updateuser')->middleware('auth');
+
+Route::delete('/admin/users/{id}', [Usercontroller::class, 'destroy'])
+        ->name('delete')->middleware('auth');
     
 
 
