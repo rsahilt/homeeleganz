@@ -5,7 +5,9 @@ use App\Http\Controllers\Admin\ControllerAdmin;
 use App\Http\Controllers\ProductController;
 
 use App\Http\Controllers\Admin\ProductController as AdminController;
+use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\UserController;
+use App\Models\Review;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +21,7 @@ use App\Http\Controllers\Admin\UserController;
 */
 
 Route::get('/', function () {
-    return view('index');
+        return view('index');
 });
 
 Route::get('/products', [ProductController::class, 'index']);
@@ -54,31 +56,37 @@ Route::put('/admin/products/{id}', [AdminController::class, 'update'])
 Route::delete('/admin/products/{id}', [AdminController::class, 'destroy'])
         ->name('delete')->middleware('auth');
 
+Route::get('/admin/reviews/', [ReviewController::class, 'index'])
+        ->name('reviews')->middleware('auth');
+
+Route::delete('/admin/reviews/{id}', [ReviewController::class, 'destroy'])
+        ->name('delete-reviews')->middleware('auth');
+
 
 Route::get('/checkout', function () {
-    return view('checkout');
+        return view('checkout');
 });
 
 Route::get('/cart', function () {
-    return view('cart');
+        return view('cart');
 });
 
 Route::get('/about', function () {
-    return view('about');
+        return view('about');
 });
 
 Route::get('/contact', function () {
-    return view('contact');
+        return view('contact');
 });
 
 Route::get('/admin', [ControllerAdmin::class, 'dashboard'])->name('admin.dashboard')
-        ->middleware('auth','admin'); //Route to Admin Dashboard
+        ->middleware('auth', 'admin'); //Route to Admin Dashboard
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
-Route::get('/details', function(){
-    return view('details');
+Route::get('/details', function () {
+        return view('details');
 });
 
 // CRUD FOR USERS TABLE
@@ -87,5 +95,3 @@ Route::get('/admin/users/', [UserController::class, 'index'])
 
 Route::get('/admin/users/create', [UserController::class, 'create'])
         ->name('createuser')->middleware('auth');
-
-
