@@ -12,7 +12,7 @@
                     Back
                 </a>
                 
-                <form action="#" novalidate 
+                <form action="{{ route('storeuser') }}" novalidate 
                     method="POST" 
                     enctype="multipart/form-data">
                     @csrf
@@ -91,14 +91,6 @@
                                 <span class="text-red-500">{{ $message }}</span>
                             @enderror
                         </div> 
-
-                       
-
-                        
-
-                        
-
-                       
                             
                     </div>
                     <button class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-green-600 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-green-700 transition-all">
