@@ -95,3 +95,20 @@ Route::get('/admin/users/', [UserController::class, 'index'])
 
 Route::get('/admin/users/create', [UserController::class, 'create'])
         ->name('createuser')->middleware('auth');
+
+ Route::post('/admin/users/', [UserController::class, 'store'])
+        ->name('storeuser')->middleware('auth');
+
+ Route::get('/admin/users/{id}/edit', [UserController::class, 'edit'])
+        ->name('edituser')->middleware('auth');
+    
+ Route::put('/admin/users/{id}', [UserController::class, 'update'])
+        ->name('updateuser')->middleware('auth');
+
+Route::delete('/admin/users/{id}', [Usercontroller::class, 'destroy'])
+        ->name('delete')->middleware('auth');
+    
+
+
+
+
