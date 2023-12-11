@@ -29,7 +29,7 @@ class ProductFactory extends Factory
             'brand' => fake()->company(),
             'weight' => fake()->numberBetween(1, 10) . 'lbs',
             'dimensions' => fake()->numberBetween(1, 10) . 'x' . fake()->numberBetween(1, 10) . 'x' . fake()->numberBetween(1, 10) . ' inches',
-            'category_id' => fake()->numberBetween(1, 5),
+            // 'category_id' => fake()->numberBetween(1, 5),
         ];
     }
 }
