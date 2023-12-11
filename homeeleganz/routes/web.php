@@ -24,9 +24,13 @@ Route::get('/', function () {
         return view('index');
 });
 
+//for search
+Route::post('/products/search', [ProductController::class, 'search'])
+        ->name('products.search');
+
 Route::get('/products', [ProductController::class, 'index']);
 
-Route::get('/products/{id}', [ProductController::class, 'show'])->name('product.details');;
+Route::get('/products/{id}', [ProductController::class, 'show'])->name('product.details');
 
 Route::get('/category/{categoryName}', [ProductController::class, 'category'])->name('category.view');
 

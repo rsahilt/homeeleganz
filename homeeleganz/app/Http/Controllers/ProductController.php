@@ -87,5 +87,20 @@ class ProductController extends Controller
 
         return redirect()->back()->with('success', 'Review successfully submitted!');
     }
+
+    /**
+     * Search cartoons based on the provided search term.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Contracts\View\View
+     */
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+        $products = Product::where('name', 'LIKE', "%$search%")->paginate(8);
+        $title = "Showing results for: $search";
+        $categories = Category::latest()->get();
+        return view('products', compact('title', 'products','categories'));
+    }
     
 }
