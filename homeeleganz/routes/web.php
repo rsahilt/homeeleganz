@@ -42,7 +42,9 @@ Route::post('/submit-message', [ProductController::class, 'store'])->name('submi
 
 Route::post('/submit-review', [ProductController::class, 'storeReview'])->name('submit.review');
 
-Route::post('/add-to-cart', [ProductController::class, 'addToCart'])->name('addtocart');
+Route::get('/products/{id}/add-to-cart', [ProductController::class, 'addToCart'])->name('addtocart');
+
+Route::get('/cart', [ProductController::class, 'addToCart'])->name('showcart');
 
 //CRUD FOR PRODUCTS TABLE
 
@@ -73,10 +75,6 @@ Route::delete('/admin/reviews/{id}', [ReviewController::class, 'destroy'])
 
 Route::get('/checkout', function () {
         return view('checkout');
-});
-
-Route::get('/cart', function () {
-        return view('cart');
 });
 
 Route::get('/about', function () {
