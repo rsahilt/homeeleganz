@@ -19,7 +19,10 @@
         <div class="details">
             <h1>{{ $information->name }}</h1>
             <p class="cat-text">Categories: @foreach($information->categories as $cat)
-                {{ $cat->name}},
+                {{ $cat->name}}
+                    @if(!$loop->last)
+                        {{ ',' }}
+                    @endif
                 @endforeach
             </p>
             <hr>

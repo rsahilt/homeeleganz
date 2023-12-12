@@ -31,5 +31,5 @@ class ProductFactory extends Factory
             'dimensions' => fake()->numberBetween(1, 10) . 'x' . fake()->numberBetween(1, 10) . 'x' . fake()->numberBetween(1, 10) . ' inches',
             // 'category_id' => fake()->numberBetween(1, 5),
         ];
-    }
+    } 
 }

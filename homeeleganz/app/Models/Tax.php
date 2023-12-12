@@ -10,4 +10,9 @@ class Tax extends Model
     use HasFactory;
 
     protected $fillable = ['province', 'pst', 'gst', 'hst'];
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
 }
