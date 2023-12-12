@@ -29,11 +29,11 @@
 
             <div class="space-x-8 flex justify-between mt-32 md:mt-0 md:justify-center">
                 <button class="text-white py-2 px-4 uppercase rounded bg-blue-400 hover:bg-blue-500 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
-                    <a href="/home-edit"> Edit </a>
+                    <a href="{{ route('home-edit', ['id' => $user->id]) }}"> Edit </a>
                 </button>
                 <button class=" text-white py-2 px-4 uppercase rounded bg-gray-700 hover:bg-gray-800 shadow hover:shadow-lg
                         font-medium transition transform hover:-translate-y-0.5">
-                    Message
+                    <a href="{{ route('userReviews', ['id' => $user->id]) }}"> Reviews</a>
                 </button>
             </div>
         </div>
