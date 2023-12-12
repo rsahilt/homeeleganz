@@ -31,4 +31,10 @@ class HomeController extends Controller
         // Pass the user data to the view
         return view('home', compact('user'));
     }
+
+    public function edit()
+    {
+        $user = Auth::user();
+        return view('home-edit', compact('user'));
+    }
 }

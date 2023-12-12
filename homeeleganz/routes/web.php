@@ -7,6 +7,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Admin\ProductController as AdminController;
 use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\HomeController;
 use App\Models\Review;
 
 /*
@@ -92,6 +93,11 @@ Route::get('/admin', [ControllerAdmin::class, 'dashboard'])->name('admin.dashboa
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
+Route::get('/home-edit', [HomeController::class, 'edit'])->name('home-edit')->middleware('auth');
+
+Route::put('/users/{id}', [UserController::class, 'updateProfile'])
+        ->name('updateProfile')->middleware('auth');
+
 Route::get('/details', function () {
         return view('details');
 });
@@ -103,19 +109,14 @@ Route::get('/admin/users/', [UserController::class, 'index'])
 Route::get('/admin/users/create', [UserController::class, 'create'])
         ->name('createuser')->middleware('auth');
 
- Route::post('/admin/users/', [UserController::class, 'store'])
+Route::post('/admin/users/', [UserController::class, 'store'])
         ->name('storeuser')->middleware('auth');
 
- Route::get('/admin/users/{id}/edit', [UserController::class, 'edit'])
+Route::get('/admin/users/{id}/edit', [UserController::class, 'edit'])
         ->name('edituser')->middleware('auth');
-    
- Route::put('/admin/users/{id}', [UserController::class, 'update'])
+
+Route::put('/admin/users/{id}', [UserController::class, 'update'])
         ->name('updateuser')->middleware('auth');
 
 Route::delete('/admin/users/{id}', [Usercontroller::class, 'destroy'])
         ->name('delete')->middleware('auth');
-    
-
-
-
-
