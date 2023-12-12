@@ -9,6 +9,7 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Models\Review as Review;
 use App\Models\Message;
+use App\Models\Tax;
 
 class ProductController extends Controller
 {
@@ -121,8 +122,43 @@ class ProductController extends Controller
     public function viewCart(Request $request)
     {
         $cart = $request->session()->get('cart', []);
-        // dd($cart);
-        return view('cart', compact('cart'));
+
+        $user = Auth::user();
+        $userProvince = $user ? $user->province : null;
+        
+        $taxes = [
+            'gst' => 0,
+            'pst' => 0,
+            'hst' => 0,
+        ];
+    
+        if ($userProvince) {
+            $tax = Tax::where('province', $userProvince)->first();
+            if ($tax) {
+                $taxes['gst'] = $tax->gst;
+                $taxes['pst'] = $tax->pst;
+                $taxes['hst'] = $tax->hst;
+            }
+        }
+    
+        $totalPrice = 0;
+        foreach ($cart as $item) {
+            
+            $totalPrice += $item->unit_price;
+        }
+    
+        // Calculate tax amount for each tax type
+        $totalGST = $totalPrice * $taxes['gst'];
+        $totalPST = $totalPrice * $taxes['pst'];
+        $totalHST = $totalPrice * $taxes['hst'];
+    
+        $totalTaxes = $totalGST + $totalPST + $totalHST;
+    
+        $totalPriceWithTaxes = $totalPrice + $totalTaxes;
+    
+        return view('cart', compact('cart', 'totalPrice', 'totalGST', 'totalPST', 'totalHST', 'totalTaxes', 'totalPriceWithTaxes'));
     }
+    
+    
 
 }
