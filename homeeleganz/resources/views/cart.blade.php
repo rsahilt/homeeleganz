@@ -8,10 +8,13 @@
             @foreach($cart as $cartItem)
                 <!-- Cart item -->
                 <div class="cart-item">
-                    <div class="cart-item-image-box">{{ $cartItem['image'] }}</div>
+                    <div class="cart-item-image-box">
+                        <img src="/images/{{ $cartItem['image'] }}" alt="{{ $cartItem['name'] }}" >
+                    </div>
                     <div class="cart-item-details">
                         <div class="room">
                             <p class="item-name">{{ $cartItem['name'] }}</p>
+                            <span>Quantity: 1</span>
                         </div>
                         <div class="price">
                             <p class="item-price">${{ $cartItem['unit_price'] }}</p>
