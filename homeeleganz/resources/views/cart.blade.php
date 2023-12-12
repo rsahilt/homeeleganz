@@ -3,6 +3,8 @@
 
     <main class="main-container">
         <h1 class="cart-title">My Cart</h1>
+
+        @if(count($cart) > 0)
         <div class="cart-container bg-gray-100 w-[40%] mx-auto">
             <?php $totalPrice = 0; ?>
             @foreach($cart as $productId => $cartItem)
@@ -49,6 +51,12 @@
                 </form>
             </div>
         </div>
+        @else
+            <div class="empty-cart-message">
+                <p>Your cart is empty.</p>
+                <a href="/products">Continue Shopping</a>
+            </div>
+        @endif
     </main>
 
     @include('partials.footer')
