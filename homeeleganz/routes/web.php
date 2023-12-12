@@ -50,6 +50,8 @@ Route::get('/cart', [ProductController::class, 'viewCart'])->name('cart.view');
 
 Route::post('/checkout', [ProductController::class, 'viewCheckout'])->name('checkout');
 
+Route::get('/cart/remove/{productId}', [ProductController::class, 'removeFromCart'])->name('cart.remove');
+
 //CRUD FOR PRODUCTS TABLE
 
 Route::get('/admin/products/', [AdminController::class, 'index'])
@@ -75,6 +77,8 @@ Route::get('/admin/reviews/', [ReviewController::class, 'index'])
 
 Route::delete('/admin/reviews/{id}', [ReviewController::class, 'destroy'])
         ->name('delete-reviews')->middleware('auth');
+
+        
 
 Route::get('/about', function () {
         return view('about');
