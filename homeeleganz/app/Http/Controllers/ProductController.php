@@ -198,6 +198,20 @@ class ProductController extends Controller
 
         return view('checkout', compact('title','cart', 'totalPrice', 'totalGST', 'totalPST', 'totalHST', 'totalTaxes', 'totalPriceWithTaxes'));
     }
+
+
+    public function removeFromCart(Request $request, $productId)
+    {
+        $cart = $request->session()->get('cart', []);
+
+        if (array_key_exists($productId, $cart)) {
+            unset($cart[$productId]);
+            $request->session()->put('cart', $cart);
+            return redirect()->back()->with('success', 'Product removed from cart');
+        }
+
+        return redirect()->back()->with('error', 'Product not found in cart');
+    }
     
     
 

@@ -3,9 +3,11 @@
 
     <main class="main-container">
         <h1 class="cart-title">My Cart</h1>
+
+        @if(count($cart) > 0)
         <div class="cart-container bg-gray-100 w-[40%] mx-auto">
             <?php $totalPrice = 0; ?>
-            @foreach($cart as $cartItem)
+            @foreach($cart as $productId => $cartItem)
                 <!-- Cart item -->
                 <div class="cart-item">
                     <div class="cart-item-image-box">
@@ -18,7 +20,10 @@
                         </div>
                         <div class="price">
                             <p class="item-price">${{ $cartItem['unit_price'] }}</p>
-                            <button class="item-remove">Remove</button>
+                            <form action="{{ route('cart.remove', ['productId' => $productId]) }}" method="GET">
+                                @csrf
+                                <button type="submit" class="item-remove">Remove</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -46,6 +51,12 @@
                 </form>
             </div>
         </div>
+        @else
+            <div class="empty-cart-message">
+                <p>Your cart is empty.</p>
+                <a href="/products">Continue Shopping</a>
+            </div>
+        @endif
     </main>
 
     @include('partials.footer')

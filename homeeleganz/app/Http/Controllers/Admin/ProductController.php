@@ -86,8 +86,6 @@ class ProductController extends Controller
         $title = 'Edit Product';
         $categories = Category::all();
         $slug="productdashboard";
-        // $selectedCategories = $product->categories->pluck('id')->toArray();
-        // dd($selectedCategories);
         if ($product) {
             return view('admin/products/edit', compact('product', 'title', 'categories','slug'));
         } else {
