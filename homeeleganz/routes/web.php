@@ -44,6 +44,7 @@ Route::post('/submit-review', [ProductController::class, 'storeReview'])->name('
 
 Route::post('/add-to-cart', [ProductController::class, 'addToCart'])->name('cart.add');
 
+Route::get('/cart', [ProductController::class, 'viewCart'])->name('cart.view');
 
 
 //CRUD FOR PRODUCTS TABLE
