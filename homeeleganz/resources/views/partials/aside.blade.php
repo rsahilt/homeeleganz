@@ -16,7 +16,7 @@
             <a href="/admin/products" class="block py-3 px-4 text-white text-lg">Products</a>
         </li>
 
-        <li class="mb-2 mr-5 rounded hover:bg-blue-700">
+        <li class="mb-2 mr-5 rounded hover:bg-blue-700 {{ $slug === 'taxdashboard' ? 'bg-blue-700' : '' }}">
             <a href="#" class="block py-3 px-4 text-white text-lg">Taxes</a>
         </li>
 

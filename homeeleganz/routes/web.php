@@ -7,6 +7,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Admin\ProductController as AdminController;
 use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\TaxController;
 use App\Http\Controllers\HomeController;
 use App\Models\Review;
 
@@ -121,3 +122,8 @@ Route::put('/admin/users/{id}', [UserController::class, 'update'])
 
 Route::delete('/admin/users/{id}', [Usercontroller::class, 'destroy'])
         ->name('delete')->middleware('auth');
+
+//CRUD FOR TAXES TABLE
+
+Route::get('/admin/taxes/', [TaxController::class, 'index'])
+        ->name('taxlist')->middleware('auth', 'admin');
