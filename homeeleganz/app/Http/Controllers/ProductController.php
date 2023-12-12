@@ -102,5 +102,15 @@ class ProductController extends Controller
         $categories = Category::latest()->get();
         return view('products', compact('title', 'products','categories'));
     }
+
+
+    public function addToCart(Request $request)
+    {
+        $productId = $request->input('product_id');
+        $cart = session()->get('cart', []);
+        $cart[$productId] = $productId;
+        session()->put('cart', $cart);
+        return redirect()->route('cart');
+    }
     
 }
