@@ -15,81 +15,81 @@ class TaxesSeeder extends Seeder
     {
         DB::table('taxes')->insert([
             'province' => 'Alberta',
-            'pst' => '0.00',
+            'pst' => '0',
             'gst' => '0.05',
-            'hst' => '0.00',
+            'hst' => '0',
         ]);
         DB::table('taxes')->insert([
             'province' => 'British Columbia',
             'pst' => '0.07',
             'gst' => '0.05',
-            'hst' => '0.00',
+            'hst' => '0',
         ]);
         DB::table('taxes')->insert([
             'province' => 'Manitoba',
             'pst' => '0.07',
             'gst' => '0.05',
-            'hst' => '0.00',
+            'hst' => '0',
         ]);
         DB::table('taxes')->insert([
             'province' => 'New Brunswick',
-            'pst' => '0.00',
-            'gst' => '0.00',
+            'pst' => '0',
+            'gst' => '0',
             'hst' => '0.15',
         ]);
         DB::table('taxes')->insert([
             'province' => 'Newfoundland and Labrador',
-            'pst' => '0.00',
-            'gst' => '0.00',
+            'pst' => '0',
+            'gst' => '0',
             'hst' => '0.15',
         ]);
         DB::table('taxes')->insert([
             'province' => 'Northwest Territories',
-            'pst' => '0.00',
+            'pst' => '0',
             'gst' => '0.05',
-            'hst' => '0.00',
+            'hst' => '0',
         ]);
         DB::table('taxes')->insert([
             'province' => 'Nova Scotia',
-            'pst' => '0.00',
-            'gst' => '0.00',
+            'pst' => '0',
+            'gst' => '0',
             'hst' => '0.15',
         ]);
         DB::table('taxes')->insert([
             'province' => 'Nunavut',
-            'pst' => '0.00',
+            'pst' => '0',
             'gst' => '0.05',
-            'hst' => '0.00',
+            'hst' => '0',
         ]);
         DB::table('taxes')->insert([
             'province' => 'Ontario',
-            'pst' => '0.00',
-            'gst' => '0.00',
+            'pst' => '0',
+            'gst' => '0',
             'hst' => '0.13',
         ]);
         DB::table('taxes')->insert([
             'province' => 'Prince Edward Island',
-            'pst' => '0.00',
-            'gst' => '0.00',
+            'pst' => '0',
+            'gst' => '0',
             'hst' => '0.15',
         ]);
         DB::table('taxes')->insert([
             'province' => 'Quebec',
-            'pst' => '0.975',
+            'pst' => '0.0975',
             'gst' => '0.05',
-            'hst' => '0.00',
+            'hst' => '0',
         ]);
         DB::table('taxes')->insert([
             'province' => 'Saskatchewan',
             'pst' => '0.06',
             'gst' => '0.05',
-            'hst' => '0.00',
+            'hst' => '0',
         ]);
         DB::table('taxes')->insert([
             'province' => 'Yukon',
-            'pst' => '0.975',
+            'pst' => '0',
             'gst' => '0.05',
-            'hst' => '0.00',
+            'hst' => '0',
         ]);
 
         

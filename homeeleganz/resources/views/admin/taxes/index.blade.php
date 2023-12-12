@@ -13,7 +13,6 @@
                         Add New Province Tax Details
                     </a>
                 </caption>
-
                 
                 
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -39,24 +38,24 @@
                     </tr>
                 </thead>
                 <tbody>
-                  
+                  @foreach ($taxes as $tax)
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                         <td class="px-6 py-4">
-                            
+                            {{ $tax->id }}
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap dark:text-white">
-                           
+                           {{ $tax->province }}
                         </th>
                         <td class="px-6 py-4">
-                           
+                           {{ $tax->pst }}
                         </td>
                         <td class="px-6 py-4">
-                           
+                           {{ $tax->gst }}
                         </td>
                         <td class="px-6 py-4">
-                           
+                           {{ $tax->hst }}
                         </td>
-                        <td class="px-6 py-4 text-right">
+                        <td class="px-6 py-4 text-left">
                             <div class="inline-block">
                                 <a href="" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
                                 &nbsp; &nbsp; | &nbsp; &nbsp;
@@ -64,12 +63,12 @@
                                 <form action="" method="POST" novalidate class="inline-block">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="font-medium text-blue-600 dark:text-blue-500 hover:underline" onclick="return confirm('Do you really want to remove the product?')">Delete</button>
+                                    <button type="submit" class="font-medium text-blue-600 dark:text-blue-500 hover:underline" onclick="return confirm('Do you really want to remove this province tax rates?')">Delete</button>
                                 </form>
                             </div>
                         </td>
                     </tr>
-                    
+                  @endforeach
                 </tbody>
                
             </table>
