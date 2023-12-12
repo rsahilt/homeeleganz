@@ -34,6 +34,9 @@
                             Registered Date
                         </th>
                         <th scope="col" class="px-6 py-3">
+                            Is Admin+
+                        </th>
+                        <th scope="col" class="px-6 py-3">
                             Action
                         </th>
                     </tr>
@@ -55,6 +58,13 @@
                         </td>
                         <td class="px-6 py-4">
                             {{ $user->created_at->format('m/d/Y') }}
+                        </td>
+                        <td class="px-6 py-4">
+                            @if($user->is_admin == true)
+                            Yes
+                            @else
+                            No
+                            @endif
                         </td>
                         <td class="px-6 py-4 text-right">
                             <div class="inline-block">

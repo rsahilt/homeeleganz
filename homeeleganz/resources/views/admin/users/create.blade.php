@@ -91,11 +91,20 @@
                                 <span class="text-red-500">{{ $message }}</span>
                             @enderror
                         </div> 
-                            
+                          
+                        
+                    <div class="flex items-center mb-4">
+                        <input id="is_admin" name="is_admin" type="checkbox"  class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" checked>
+                        <label for="default-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Is Admin</label>
+                    </div>
+                    
+
+                        
                     </div>
                     <button class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-green-600 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-green-700 transition-all">
                         Add user
                     </button>
+
 
                     
                 </form>
