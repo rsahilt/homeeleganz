@@ -42,7 +42,7 @@ Route::post('/submit-message', [ProductController::class, 'store'])->name('submi
 
 Route::post('/submit-review', [ProductController::class, 'storeReview'])->name('submit.review');
 
-Route::post('/add-to-cart', [ProductController::class, 'storeReview'])->name('cart.add');
+Route::post('/add-to-cart', [ProductController::class, 'addToCart'])->name('cart.add');
 
 
 
