@@ -118,4 +118,11 @@ class ProductController extends Controller
         return redirect()->back()->with('success', 'Product added to cart!');
     }
 
+    public function viewCart(Request $request)
+    {
+        $cart = $request->session()->get('cart', []);
+        dd($cart);
+        return view('cart', compact('cart'));
+    }
+
 }
