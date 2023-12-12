@@ -172,6 +172,15 @@ class ProductController extends Controller
             'pst' => 0,
             'hst' => 0,
         ];
+
+        if ($userProvince) {
+            $tax = Tax::where('province', $userProvince)->first();
+            if ($tax) {
+                $taxes['gst'] = $tax->gst;
+                $taxes['pst'] = $tax->pst;
+                $taxes['hst'] = $tax->hst;
+            }
+        }
     
         $totalPrice = 0;
         foreach ($cart as $item) {

@@ -34,6 +34,7 @@
                 <p>GST: ${{ $totalGST }}</p>
                 <p>PST: ${{ $totalPST }}</p>
                 <p>HST: ${{ $totalHST }}</p>
+                <p>Total Taxes: ${{ $totalTaxes }}</p>
                 <strong><p>Total: ${{ $totalPriceWithTaxes }}</p></strong>
                 <form action="{{ route('checkout') }}" method="POST" novalidate>
                     @csrf

@@ -30,28 +30,35 @@
 
             <span>GST</span>
 
-            <span>${{ $totalGST }}</span>
+            <span>${{ number_format($totalGST, 2) }}</span>
 
         </div>
         <div class="flex justify-between">
 
             <span>PST</span>
 
-            <span>${{ $totalPST }}</span>
+            <span>${{ number_format($totalPST, 2) }}</span>
 
         </div>
         <div class="flex justify-between">
 
             <span>HST</span>
 
-            <span>${{ $totalHST }}</span>
+            <span>${{ number_format($totalHST,2) }}</span>
+        </div>
+
+        <div class="flex justify-between">
+
+            <span>Total Taxes</span>
+
+            <span>${{ number_format($totalTaxes, 2) }}</span>
         </div>
         <hr class="my-[1rem]">
         <div class="flex justify-between items-center">
 
             <span class="uppercase tracking-wider"><b>Final amount to pay</b></span>
 
-            <span><b>${{ $totalPriceWithTaxes }}</b></span>
+            <span><b>${{ number_format($totalPriceWithTaxes, 2) }}</b></span>
         </div>
     
         <a href="/cart" class="mt-2 mb-5 inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-blue-600 transition-all">
