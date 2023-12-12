@@ -8,7 +8,7 @@
             @foreach($cart as $cartItem)
                 <!-- Cart item -->
                 <div class="cart-item">
-                    <div class="cart-item-image-box"></div>
+                    <div class="cart-item-image-box">{{ $cartItem['image'] }}</div>
                     <div class="cart-item-details">
                         <div class="room">
                             <p class="item-name">{{ $cartItem['name'] }}</p>
@@ -30,7 +30,7 @@
             </div>
             <div class="total">
                 <!-- Display the calculated total price -->
-                <p class="summary-total">Sub Total: ${{ $totalPrice }}</p>
+                <p class="summary-total">Total: ${{ $totalPrice }}</p>
                 <button class="summary-checkout">Checkout</button>
             </div>
         </div>
