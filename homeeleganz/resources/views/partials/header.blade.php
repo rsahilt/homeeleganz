@@ -74,8 +74,17 @@
                     </a>
                 @endguest
                 <li>|</li>
+                @php
+                    $cartCount = count(session('cart', []));
+                @endphp
+
                 <li>
-                    <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                    <a href="#">
+                        <i class="fas fa-shopping-cart"></i>
+                        @if($cartCount > 0)
+                            <span class="cart-count">{{ $cartCount }}</span>
+                        @endif
+                    </a>
                 </li>
             </ul>
         </div>
