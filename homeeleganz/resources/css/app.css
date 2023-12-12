@@ -452,3 +452,34 @@ main{
     height: 100vh;
     background-color: #e8e8f2;
 }
+
+/* dashboard */
+.dashboardbody{
+    background-color: #152e4d;
+}
+
+.dash-header{
+    background-color:#e7eaed;
+    border-bottom: black 1px solid;
+    display: flex;
+    flex-direction: row;
+}
+
+.dashleft,
+.dashright{
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+
+.dashleft h1{
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.dashright{
+    background-color: green;
+    justify-content: end;
+    padding-right: 20px;
+}
