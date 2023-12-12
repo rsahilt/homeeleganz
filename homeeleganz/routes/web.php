@@ -28,6 +28,8 @@ Route::get('/', function () {
 Route::post('/products/search', [ProductController::class, 'search'])
         ->name('products.search');
 
+// frontend routes
+
 Route::get('/products', [ProductController::class, 'index']);
 
 Route::get('/products/{id}', [ProductController::class, 'show'])->name('product.details');
@@ -39,6 +41,11 @@ Route::get('/brands', [ProductController::class, 'brands'])->name('brands');
 Route::post('/submit-message', [ProductController::class, 'store'])->name('submit.message');
 
 Route::post('/submit-review', [ProductController::class, 'storeReview'])->name('submit.review');
+
+Route::post('/add-to-cart', [ProductController::class, 'addToCart'])->name('cart.add');
+
+Route::get('/cart', [ProductController::class, 'viewCart'])->name('cart.view');
+
 
 //CRUD FOR PRODUCTS TABLE
 
@@ -69,10 +76,6 @@ Route::delete('/admin/reviews/{id}', [ReviewController::class, 'destroy'])
 
 Route::get('/checkout', function () {
         return view('checkout');
-});
-
-Route::get('/cart', function () {
-        return view('cart');
 });
 
 Route::get('/about', function () {
