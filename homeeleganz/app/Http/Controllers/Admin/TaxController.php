@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Tax;
 
 class TaxController extends Controller
 {
@@ -12,7 +13,10 @@ class TaxController extends Controller
      */
     public function index()
     {
-        //
+        $taxes = Tax::all();
+        $slug = "taxdashboard";
+        $title = "List of Tax Rates by Province";
+        return view('/admin/taxes/index', compact('taxes', 'title', 'slug'));
     }
 
     /**
