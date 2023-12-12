@@ -2,49 +2,54 @@
 @section('content')
 
     <div id="checkout" class="font-lato text-center text-[1.5em] mt-[1rem] tracking-wider">
-        <h1>CHECKOUT</h1>
+        <h1>{{ $title }}</h1>
 
     </div>
 
     <div id="items" class="w-[40%] h-auto mx-auto my-[3rem] p-6 bg-gray-100 ">
-        <div class="flex justify-between">
-            <span>Sofa set <br>x3</span>
+        @foreach($cart as $cartItem)
+            <div class="flex justify-between">
+                <span>{{ $cartItem['name'] }}</span>
 
-            <span>$150</span>
-        </div>
+                <span>${{ $cartItem['unit_price'] }}</span>
+            </div>
+        <hr class="my-[1rem]">
+        @endforeach
+        
         <hr class="my-[1rem]">
         <div class="flex justify-between">
-            <span>Sofa set<br>x3</span>
 
-            <span>$150</span>
-        </div>
-        <hr class="my-[1rem]">
-        <div class="flex justify-between">
-
-            <span>Total</span>
-            <span>$300</span>
+            <span>Sub Total</span>
+            <span>${{ $totalPrice }}</span>
 
         </div>
 
         <div class="flex justify-between">
 
-            <span>HST</span>
+            <span>GST</span>
 
-            <span>$30</span>
+            <span>${{ $totalGST }}</span>
 
         </div>
         <div class="flex justify-between">
 
             <span>PST</span>
 
-            <span>$20</span>
+            <span>${{ $totalPST }}</span>
+
+        </div>
+        <div class="flex justify-between">
+
+            <span>HST</span>
+
+            <span>${{ $totalHST }}</span>
         </div>
         <hr class="my-[1rem]">
         <div class="flex justify-between items-center">
 
             <span class="uppercase tracking-wider"><b>Final amount to pay</b></span>
 
-            <span><b>$350</b></span>
+            <span><b>${{ $totalPriceWithTaxes }}</b></span>
         </div>
     </div>
 

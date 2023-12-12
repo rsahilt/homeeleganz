@@ -75,11 +75,6 @@ Route::get('/admin/reviews/', [ReviewController::class, 'index'])
 Route::delete('/admin/reviews/{id}', [ReviewController::class, 'destroy'])
         ->name('delete-reviews')->middleware('auth');
 
-
-Route::get('/checkout', function () {
-        return view('checkout');
-});
-
 Route::get('/about', function () {
         return view('about');
 });

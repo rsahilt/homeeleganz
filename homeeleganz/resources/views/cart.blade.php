@@ -35,9 +35,11 @@
                 <p>PST: ${{ $totalPST }}</p>
                 <p>HST: ${{ $totalHST }}</p>
                 <strong><p>Total: ${{ $totalPriceWithTaxes }}</p></strong>
-                <a href="#" class="summary-checkout">
-                    Checkout
-                </a>
+                <form action="{{ route('checkout') }}" method="POST" novalidate>
+                    @csrf
+                    <input type="hidden" name="cart" value="{{ json_encode($cart) }}">
+                    <button type="submit" class="summary-checkout">Checkout</button>
+                </form>
             </div>
         </div>
     </main>
