@@ -158,6 +158,37 @@ class ProductController extends Controller
     
         return view('cart', compact('cart', 'totalPrice', 'totalGST', 'totalPST', 'totalHST', 'totalTaxes', 'totalPriceWithTaxes'));
     }
+
+
+    public function viewCheckout(Request $request){
+        $title = "Checkout";
+        $cart = $request->session()->get('cart', []);
+    
+        $user = Auth::user();
+        $userProvince = $user ? $user->province : null;
+    
+        $taxes = [
+            'gst' => 0,
+            'pst' => 0,
+            'hst' => 0,
+        ];
+    
+        $totalPrice = 0;
+        foreach ($cart as $item) {
+            $totalPrice += $item['unit_price'];
+        }
+    
+        // Calculate tax amount for each tax type
+        $totalGST = $totalPrice * $taxes['gst'];
+        $totalPST = $totalPrice * $taxes['pst'];
+        $totalHST = $totalPrice * $taxes['hst'];
+    
+        $totalTaxes = $totalGST + $totalPST + $totalHST;
+    
+        $totalPriceWithTaxes = $totalPrice + $totalTaxes;
+
+        return view('checkout', compact('title','cart', 'totalPrice', 'totalGST', 'totalPST', 'totalHST', 'totalTaxes', 'totalPriceWithTaxes'));
+    }
     
     
 
