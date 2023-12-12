@@ -9,6 +9,7 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Models\Review as Review;
 use App\Models\Message;
+use App\Models\Tax;
 
 class ProductController extends Controller
 {
@@ -18,7 +19,7 @@ class ProductController extends Controller
     public function index()
     {
         $categories = Category::latest()->get();
-        $products = Product::latest()->paginate(12);
+        $products = Product::latest()->paginate(8);
         $title = "All Collection";
         return view('products', compact('products', 'title', 'categories')); 
     }
@@ -42,7 +43,7 @@ class ProductController extends Controller
     public function category($categoryName)
     {
         $category = Category::where('name', $categoryName)->firstOrFail();
-        $products = Product::where('category_id', $category->id)->paginate(12);
+        $products = Product::where('category_id', $category->id)->paginate(8);
         $title = 'All Collection';
 
         // Retrieve all categories
@@ -87,5 +88,77 @@ class ProductController extends Controller
 
         return redirect()->back()->with('success', 'Review successfully submitted!');
     }
+
+    /**
+     * Search cartoons based on the provided search term.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Contracts\View\View
+     */
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+        $products = Product::where('name', 'LIKE', "%$search%")->paginate(8);
+        $title = "Showing results for: $search";
+        $categories = Category::latest()->get();
+        return view('products', compact('title', 'products','categories'));
+    }    
+
+    public function addToCart(Request $request)
+    {
+        $product = Product::find($request->product_id);
+
+        if (!$product) {
+            return redirect()->back()->with('error', 'Product not found!');
+        }
+
+        $cart = $request->session()->get('cart', []);
+        $cart[$product->id] = $product; 
+        $request->session()->put('cart', $cart);
+
+        return redirect()->back()->with('success', 'Product added to cart!');
+    }
+
+    public function viewCart(Request $request)
+    {
+        $cart = $request->session()->get('cart', []);
+
+        $user = Auth::user();
+        $userProvince = $user ? $user->province : null;
+        
+        $taxes = [
+            'gst' => 0,
+            'pst' => 0,
+            'hst' => 0,
+        ];
     
+        if ($userProvince) {
+            $tax = Tax::where('province', $userProvince)->first();
+            if ($tax) {
+                $taxes['gst'] = $tax->gst;
+                $taxes['pst'] = $tax->pst;
+                $taxes['hst'] = $tax->hst;
+            }
+        }
+    
+        $totalPrice = 0;
+        foreach ($cart as $item) {
+            
+            $totalPrice += $item->unit_price;
+        }
+    
+        // Calculate tax amount for each tax type
+        $totalGST = $totalPrice * $taxes['gst'];
+        $totalPST = $totalPrice * $taxes['pst'];
+        $totalHST = $totalPrice * $taxes['hst'];
+    
+        $totalTaxes = $totalGST + $totalPST + $totalHST;
+    
+        $totalPriceWithTaxes = $totalPrice + $totalTaxes;
+    
+        return view('cart', compact('cart', 'totalPrice', 'totalGST', 'totalPST', 'totalHST', 'totalTaxes', 'totalPriceWithTaxes'));
+    }
+    
+    
+
 }

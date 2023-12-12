@@ -5,7 +5,10 @@ use App\Http\Controllers\Admin\ControllerAdmin;
 use App\Http\Controllers\ProductController;
 
 use App\Http\Controllers\Admin\ProductController as AdminController;
+use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\HomeController;
+use App\Models\Review;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,12 +22,18 @@ use App\Http\Controllers\Admin\UserController;
 */
 
 Route::get('/', function () {
-    return view('index');
+        return view('index');
 });
+
+//for search
+Route::post('/products/search', [ProductController::class, 'search'])
+        ->name('products.search');
+
+// frontend routes
 
 Route::get('/products', [ProductController::class, 'index']);
 
-Route::get('/products/{id}', [ProductController::class, 'show'])->name('product.details');;
+Route::get('/products/{id}', [ProductController::class, 'show'])->name('product.details');
 
 Route::get('/category/{categoryName}', [ProductController::class, 'category'])->name('category.view');
 
@@ -33,6 +42,11 @@ Route::get('/brands', [ProductController::class, 'brands'])->name('brands');
 Route::post('/submit-message', [ProductController::class, 'store'])->name('submit.message');
 
 Route::post('/submit-review', [ProductController::class, 'storeReview'])->name('submit.review');
+
+Route::post('/add-to-cart', [ProductController::class, 'addToCart'])->name('cart.add');
+
+Route::get('/cart', [ProductController::class, 'viewCart'])->name('cart.view');
+
 
 //CRUD FOR PRODUCTS TABLE
 
@@ -54,31 +68,39 @@ Route::put('/admin/products/{id}', [AdminController::class, 'update'])
 Route::delete('/admin/products/{id}', [AdminController::class, 'destroy'])
         ->name('delete')->middleware('auth');
 
+Route::get('/admin/reviews/', [ReviewController::class, 'index'])
+        ->name('reviews')->middleware('auth');
+
+Route::delete('/admin/reviews/{id}', [ReviewController::class, 'destroy'])
+        ->name('delete-reviews')->middleware('auth');
+
 
 Route::get('/checkout', function () {
-    return view('checkout');
-});
-
-Route::get('/cart', function () {
-    return view('cart');
+        return view('checkout');
 });
 
 Route::get('/about', function () {
-    return view('about');
+        return view('about');
 });
 
 Route::get('/contact', function () {
-    return view('contact');
+        return view('contact');
 });
 
 Route::get('/admin', [ControllerAdmin::class, 'dashboard'])->name('admin.dashboard')
-        ->middleware('auth','admin'); //Route to Admin Dashboard
+        ->middleware('auth', 'admin'); //Route to Admin Dashboard
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
-Route::get('/details', function(){
-    return view('details');
+Route::get('/home-edit', [HomeController::class, 'edit'])->name('home-edit')->middleware('auth');
+Route::get('/user-reviews/{id}', [UserController::class, 'userReviews'])->name('userReviews')->middleware('auth');
+
+Route::put('/users/{id}', [UserController::class, 'updateProfile'])
+        ->name('updateProfile')->middleware('auth');
+
+Route::get('/details', function () {
+        return view('details');
 });
 
 // CRUD FOR USERS TABLE
@@ -88,4 +110,14 @@ Route::get('/admin/users/', [UserController::class, 'index'])
 Route::get('/admin/users/create', [UserController::class, 'create'])
         ->name('createuser')->middleware('auth');
 
+Route::post('/admin/users/', [UserController::class, 'store'])
+        ->name('storeuser')->middleware('auth');
 
+Route::get('/admin/users/{id}/edit', [UserController::class, 'edit'])
+        ->name('edituser')->middleware('auth');
+
+Route::put('/admin/users/{id}', [UserController::class, 'update'])
+        ->name('updateuser')->middleware('auth');
+
+Route::delete('/admin/users/{id}', [Usercontroller::class, 'destroy'])
+        ->name('delete')->middleware('auth');

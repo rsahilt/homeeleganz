@@ -7,12 +7,12 @@
     <main>
         <section class="bg-white dark:bg-gray-900">
             <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16">
-                <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">Add a new user</h2>
+                <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">{{ $title }}</h2>
                 <a href="/admin/users/" class="mb-5 inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-blue-600 transition-all">
                     Back
                 </a>
                 
-                <form action="#" novalidate 
+                <form action="{{ route('storeuser') }}" novalidate 
                     method="POST" 
                     enctype="multipart/form-data">
                     @csrf
@@ -91,14 +91,6 @@
                                 <span class="text-red-500">{{ $message }}</span>
                             @enderror
                         </div> 
-
-                       
-
-                        
-
-                        
-
-                       
                             
                     </div>
                     <button class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-green-600 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-green-700 transition-all">
