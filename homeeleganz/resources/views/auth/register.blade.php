@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('content')
-<div class="bg-gray-100 flex items-center justify-center h-screen">
-    <div class="bg-white p-4 rounded-lg shadow-lg max-w-sm w-full">
+<div class="bg-gray-80 min-h-screen flex items-center justify-center">
+    <div class="bg-white p-4 rounded-lg shadow-lg max-w-lg w-full">
         <div class="flex justify-center mb-4">
             <span class="inline-block bg-gray-200 rounded-full p-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M12 4a4 4 0 0 1 4 4a4 4 0 0 1-4 4a4 4 0 0 1-4-4a4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"/></svg>
