@@ -30,7 +30,11 @@
             </div>
             <div class="total">
                 <!-- Display the calculated total price -->
-                <p class="summary-total">Total: ${{ $totalPrice }}</p>
+                <p class="summary-total">Sub Total: ${{ $totalPrice }}</p>
+                <p>GST: ${{ $totalGST }}</p>
+                <p>PST: ${{ $totalPST }}</p>
+                <p>HST: ${{ $totalHST }}</p>
+                <strong><p>Total: ${{ $totalPriceWithTaxes }}</p></strong>
                 <button class="summary-checkout">Checkout</button>
             </div>
         </div>
