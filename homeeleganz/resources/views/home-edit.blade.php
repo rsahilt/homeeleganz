@@ -2,6 +2,9 @@
 @section('content')
 
 <div class="p-16">
+    <h2 class="mx-auto p-5 text-lg font-semibold text-left rtl:text-right text-gray-900 bg-white dark:text-white dark:bg-gray-800">
+        Edit profile
+    </h2>
     <div class="p-8 bg-white shadow">
         <a href="/home" class="mb-5 inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-blue-600 transition-all">
             Back

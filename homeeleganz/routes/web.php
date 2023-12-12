@@ -94,6 +94,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
 Route::get('/home-edit', [HomeController::class, 'edit'])->name('home-edit')->middleware('auth');
+Route::get('/user-reviews/{id}', [UserController::class, 'userReviews'])->name('userReviews')->middleware('auth');
 
 Route::put('/users/{id}', [UserController::class, 'updateProfile'])
         ->name('updateProfile')->middleware('auth');

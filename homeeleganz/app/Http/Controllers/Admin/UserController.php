@@ -4,6 +4,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Review;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -151,5 +152,13 @@ class UserController extends Controller
             ];
             return redirect('/admin/users')->with(['flash' => $flash]);
         }
+    }
+
+
+    public function userReviews(Request $request, $id)
+    {
+        $reviews = Review::with('user')->get();
+
+        return view('user-reviews', compact("reviews"));
     }
 }
