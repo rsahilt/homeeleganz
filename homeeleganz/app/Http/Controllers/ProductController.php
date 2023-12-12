@@ -101,7 +101,21 @@ class ProductController extends Controller
         $title = "Showing results for: $search";
         $categories = Category::latest()->get();
         return view('products', compact('title', 'products','categories'));
+    }    
+
+    public function addToCart(Request $request)
+    {
+        $product = Product::find($request->product_id);
+
+        if (!$product) {
+            return redirect()->back()->with('error', 'Product not found!');
+        }
+
+        $cart = $request->session()->get('cart', []);
+        $cart[$product->id] = $product; 
+        $request->session()->put('cart', $cart);
+
+        return redirect()->back()->with('success', 'Product added to cart!');
     }
 
-    
 }

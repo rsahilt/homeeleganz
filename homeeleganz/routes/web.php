@@ -42,9 +42,9 @@ Route::post('/submit-message', [ProductController::class, 'store'])->name('submi
 
 Route::post('/submit-review', [ProductController::class, 'storeReview'])->name('submit.review');
 
-Route::get('/products/{id}/add-to-cart', [ProductController::class, 'addToCart'])->name('addtocart');
+Route::post('/add-to-cart', [ProductController::class, 'storeReview'])->name('cart.add');
 
-Route::get('/cart', [ProductController::class, 'addToCart'])->name('showcart');
+
 
 //CRUD FOR PRODUCTS TABLE
 
