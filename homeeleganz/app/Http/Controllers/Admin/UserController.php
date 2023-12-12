@@ -98,8 +98,16 @@ class UserController extends Controller
                 'province' => 'required|string|min:1|max:255',
                 'postal_code' => 'required|string|min:1|max:255',
                 'phone_number' => 'required|string|regex:/^(\(?\d{3}\)?[\s-]?\d{3}[\s-]?\d{4})$/',
+                'is_admin' => 'nullable'
+
             ]);
 
+            $isAdmin = false;
+            if(isset($validData['is_admin'])){
+                $isAdmin = ($validData['is_admin']==="on") ? 1 :0;
+            }
+
+            $validData=array_merge($validData,['is_admin' => $isAdmin]);
             $user->update($validData);
             return redirect()->route('userlist');
         } else {
