@@ -4,16 +4,7 @@
     <div class="prod-details-container">
         <div class="prod-desc-image">
             <div class="main-img box-shadow-details">
-                <!-- <img src="/images/{{ $information->image }}" alt="sofa image"> -->
-                <img src="/images/sofa.jpeg" alt="sofa image">
-            </div>
-            <div class="small-img">
-                <div class="img1 box-shadow-details">
-                    <img src="/images/img-1.jpg" alt="sofa image">
-                </div>
-                <div class="img2 box-shadow-details">
-                    <img src="/images/img-2.jpg" alt="sofa image">
-                </div>
+                <img src="/images/{{ $information->image }}" alt="sofa image">
             </div>
         </div>
         <div class="details">
