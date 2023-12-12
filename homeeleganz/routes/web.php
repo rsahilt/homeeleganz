@@ -68,7 +68,7 @@ Route::put('/admin/products/{id}', [AdminController::class, 'update'])
         ->name('update')->middleware('auth');
 
 Route::delete('/admin/products/{id}', [AdminController::class, 'destroy'])
-        ->name('delete')->middleware('auth');
+        ->name('deleteproducts')->middleware('auth');
 
 Route::get('/admin/reviews/', [ReviewController::class, 'index'])
         ->name('reviews')->middleware('auth');
