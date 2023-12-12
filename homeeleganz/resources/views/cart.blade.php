@@ -35,7 +35,9 @@
                 <p>PST: ${{ $totalPST }}</p>
                 <p>HST: ${{ $totalHST }}</p>
                 <strong><p>Total: ${{ $totalPriceWithTaxes }}</p></strong>
-                <button class="summary-checkout">Checkout</button>
+                <a href="#" class="summary-checkout">
+                    Checkout
+                </a>
             </div>
         </div>
     </main>

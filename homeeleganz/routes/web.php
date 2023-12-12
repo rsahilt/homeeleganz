@@ -47,6 +47,7 @@ Route::post('/add-to-cart', [ProductController::class, 'addToCart'])->name('cart
 
 Route::get('/cart', [ProductController::class, 'viewCart'])->name('cart.view');
 
+Route::post('/checkout', [ProductController::class, 'viewCheckout'])->name('checkout');
 
 //CRUD FOR PRODUCTS TABLE
 
