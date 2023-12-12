@@ -51,7 +51,6 @@ class ProductController extends Controller
             'summary' => 'required|string|min:1|max:255',
             'color' => 'required|string|min:1|max:255',
             'image' => 'required|image',
-            // 'image' => 'required|string',
             'material' => 'required|string|min:1|max:255',
             'unit_price' => 'required|numeric|min:20|max:100000',
             'description' => 'string|min:10',
@@ -112,8 +111,7 @@ class ProductController extends Controller
                 'name' => 'required|string|min:1|max:255',
                 'summary' => 'string|min:1|max:255',
                 'color' => 'required|string|min:1|max:255',
-                'image' => 'required|image',
-                // 'image' => 'required|string',
+                'image' => 'image',
                 'material' => 'required|string|min:1|max:255',
                 'unit_price' => 'required|numeric|min:20|max:100000',
                 'description' => 'string|min:10',
@@ -122,13 +120,15 @@ class ProductController extends Controller
                 'dimensions' => 'required|string|min:1|max:255',
                 'category_id' => 'string|min:1|max:255',
             ]);
-
+            $product->update($validatedData);
             if($file = $request->file('image')){
+                
                 $filename = uniqid() . '_' . $file->getClientOriginalName();
                 Storage::disk('images')->put($filename,File::get($file));
                 $product->image=$filename;
-                $product->update($validatedData);
+                $product->save();
             }
+            
             return redirect()->route('productlist');
         } else {
             return redirect('/admin/product/edit');
@@ -148,19 +148,9 @@ class ProductController extends Controller
         // if id exists
         if($product){
             $product->delete();
-            //set success flash message
-            $flash = [
-                'type'=>'success',
-                'message'=>'Cartoon succesfully deleted!'
-            ];
-            return redirect('/admin/products/')->with(['flash' => $flash]);
+            return redirect()->route('productlist');
         }else{
-            //set error flash message
-            $flash = [
-                'type'=>'danger',
-                'message'=>'No matching record to delete!'
-            ];
-            return redirect('/admin/products')->with(['flash' => $flash]);
+            return redirect()->route('productlist');
         }
     }
 }

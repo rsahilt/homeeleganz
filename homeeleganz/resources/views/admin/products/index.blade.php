@@ -66,7 +66,7 @@
                                 <a href="{{ route('editproduct', ['id' => $product->id]) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
                                 &nbsp; &nbsp; | &nbsp; &nbsp;
                                 <!-- asking the user if they really want to delete, in the form of an alert -->
-                                <form action="{{ route('delete', $product->id) }}" method="POST" novalidate class="inline-block">
+                                <form action="{{ route('deleteproducts', $product->id) }}" method="POST" novalidate class="inline-block">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="font-medium text-blue-600 dark:text-blue-500 hover:underline" onclick="return confirm('Do you really want to remove the product?')">Delete</button>
