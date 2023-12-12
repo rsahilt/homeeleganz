@@ -6,7 +6,9 @@
 
     </div>
 
+    
     <div id="items" class="w-[40%] h-auto mx-auto my-[3rem] p-6 bg-gray-100 ">
+    
         @foreach($cart as $cartItem)
             <div class="flex justify-between">
                 <span>{{ $cartItem['name'] }}</span>
@@ -51,6 +53,10 @@
 
             <span><b>${{ $totalPriceWithTaxes }}</b></span>
         </div>
+    
+        <a href="/cart" class="mt-2 mb-5 inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-blue-600 transition-all">
+            Back
+        </a>
     </div>
 
     <div id="payment" class="w-2/5 mx-auto my-12 p-6 bg-gray-100 rounded-lg shadow-md">
