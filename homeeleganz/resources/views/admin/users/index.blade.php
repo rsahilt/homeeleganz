@@ -60,7 +60,7 @@
                             {{ $user->created_at->format('m/d/Y') }}
                         </td>
                         <td class="px-6 py-4">
-                            @if($user->is_admin == true)
+                            @if($user->is_admin == 1)
                             Yes
                             @else
                             No

@@ -48,10 +48,10 @@ class UserController extends Controller
         ]);
         $isAdmin = false;
         if(isset($valid['is_admin'])){
-            $isAdmin = ($valid['is_admin']==="on") ? true :false;
+            $isAdmin = ($valid['is_admin']==="on") ? 1 :0;
         }
         $valid=array_merge($valid,['is_admin' => $isAdmin]); 
-        
+    
         $user = User::create($valid);
         $user->save();
 
