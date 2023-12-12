@@ -121,7 +121,7 @@ class ProductController extends Controller
     public function viewCart(Request $request)
     {
         $cart = $request->session()->get('cart', []);
-        dd($cart);
+        // dd($cart);
         return view('cart', compact('cart'));
     }
 

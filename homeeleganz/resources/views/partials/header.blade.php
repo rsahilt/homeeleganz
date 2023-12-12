@@ -79,10 +79,12 @@
                 @endphp
 
                 <li>
-                    <a href="#">
-                        <i class="fas fa-shopping-cart"></i>
+                    <a href="/cart" class="relative flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19c0 1.104.896 2 2 2s2-.896 2-2M5 8h14l-1.5 7H6L5 8z"/>
+                        </svg>
                         @if($cartCount > 0)
-                            <span class="cart-count">{{ $cartCount }}</span>
+                            <span class="absolute -top-1 -right-1 h-4 w-4 flex items-center justify-center rounded-full bg-red-500 text-xs text-white">{{ $cartCount }}</span>
                         @endif
                     </a>
                 </li>
