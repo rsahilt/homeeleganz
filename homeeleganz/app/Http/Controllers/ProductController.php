@@ -160,8 +160,13 @@ class ProductController extends Controller
     }
 
 
-    public function viewCheckout(Request $request)
-    {
+    public function viewCheckout(Request $request){
+        if (!Auth::check()) {
+            // Store the intended URL (cart page)
+            $request->session()->put('url.intended', route('cart.view'));
+            // Redirect to login page
+            return redirect()->route('login');
+        }
         $title = "Checkout";
         $cart = $request->session()->get('cart', []);
 
