@@ -1,11 +1,13 @@
 @extends('layouts.main')
 @section('content')
 
-<div class="mt-[4rem] py-3    w-[60%] mx-auto">
+<main class="main-container bg-white mt-6">
     <h1 class="cart-title">My Cart</h1>
-    <div class="cart-container bg-gray-100 mx-auto">
+
+    @if(count($cart) > 0)
+    <div class="cart-container bg-gray-100 w-[75%] mx-auto">
         <?php $totalPrice = 0; ?>
-        @foreach($cart as $cartItem)
+        @foreach($cart as $productId => $cartItem)
         <!-- Cart item -->
         <div class="cart-item">
             <div class="cart-item-image-box">
@@ -18,7 +20,10 @@
                 </div>
                 <div class="price">
                     <p class="item-price">${{ $cartItem['unit_price'] }}</p>
-                    <button class="item-remove">Remove</button>
+                    <form action="{{ route('cart.remove', ['productId' => $productId]) }}" method="GET">
+                        @csrf
+                        <button type="submit" class="item-remove">Remove</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -27,11 +32,7 @@
         @endforeach
     </div>
 
-
-    </main>
-
-
-    <div class="flex flex-col items-end">
+    <div class="flex flex-col items-end  w-[75%] mx-auto mt-6">
 
         <div class="text-right">
             <!-- Display the calculated total price -->
@@ -69,7 +70,14 @@
             </form>
         </div>
     </div>
-</div>
+    @else
+    <div class="w-3/4 mx-auto text-center mt-4">
+        <p class="text-2xl font-semibold mb-8">Your cart is empty.</p>
+        <a href="/products" class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-700">Continue Shopping</a>
+    </div>
+
+    @endif
+</main>
 
 @include('partials.footer')
 @endsection
