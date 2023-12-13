@@ -41,12 +41,13 @@ class DatabaseSeeder extends Seeder
             'is_admin' => true
         ]);
 
-        \App\Models\Product::factory(50)->create();
+        // \App\Models\Product::factory(50)->create();
 
         $this->call([
             CategoriesSeeder::class,
             TaxesSeeder::class,
-            CategoryProductSeeder::class
+            CategoryProductSeeder::class,
+            ProductsSeeder::class
         ]);
 
     }
