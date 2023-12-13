@@ -21,7 +21,7 @@ class ProductController extends Controller
         $categories = Category::latest()->get();
         $products = Product::latest()->paginate(8);
         $title = "All Collection";
-        return view('products', compact('products', 'title', 'categories')); 
+        return view('products', compact('products', 'title', 'categories'));
     }
 
     /**
@@ -57,7 +57,7 @@ class ProductController extends Controller
     {
         $brands = ['Molteni&C', 'Palliser', 'Dufresne', 'Us & Coutumes', 'Mobilia'];
         $title = 'Our Partner Brands';
-        return view('brands', compact('brands','title'));
+        return view('brands', compact('brands', 'title'));
     }
 
     public function store(Request $request)
@@ -83,7 +83,7 @@ class ProductController extends Controller
         $review->user_id = \Auth::user()->id;
         $review->product_id = $request->prod_id;
         $review->comment = $request->comment;
-        
+
         $review->save();
 
         return redirect()->back()->with('success', 'Review successfully submitted!');
@@ -101,8 +101,8 @@ class ProductController extends Controller
         $products = Product::where('name', 'LIKE', "%$search%")->paginate(8);
         $title = "Showing results for: $search";
         $categories = Category::latest()->get();
-        return view('products', compact('title', 'products','categories'));
-    }    
+        return view('products', compact('title', 'products', 'categories'));
+    }
 
     public function addToCart(Request $request)
     {
@@ -113,7 +113,7 @@ class ProductController extends Controller
         }
 
         $cart = $request->session()->get('cart', []);
-        $cart[$product->id] = $product; 
+        $cart[$product->id] = $product;
         $request->session()->put('cart', $cart);
 
         return redirect()->back()->with('success', 'Product added to cart!');
@@ -125,13 +125,13 @@ class ProductController extends Controller
 
         $user = Auth::user();
         $userProvince = $user ? $user->province : null;
-        
+
         $taxes = [
             'gst' => 0,
             'pst' => 0,
             'hst' => 0,
         ];
-    
+
         if ($userProvince) {
             $tax = Tax::where('province', $userProvince)->first();
             if ($tax) {
@@ -140,33 +140,39 @@ class ProductController extends Controller
                 $taxes['hst'] = $tax->hst;
             }
         }
-    
+
         $totalPrice = 0;
         foreach ($cart as $item) {
-            
+
             $totalPrice += $item->unit_price;
         }
-    
+
         // Calculate tax amount for each tax type
         $totalGST = $totalPrice * $taxes['gst'];
         $totalPST = $totalPrice * $taxes['pst'];
         $totalHST = $totalPrice * $taxes['hst'];
-    
+
         $totalTaxes = $totalGST + $totalPST + $totalHST;
-    
+
         $totalPriceWithTaxes = $totalPrice + $totalTaxes;
-    
+
         return view('cart', compact('cart', 'totalPrice', 'totalGST', 'totalPST', 'totalHST', 'totalTaxes', 'totalPriceWithTaxes'));
     }
 
 
     public function viewCheckout(Request $request){
+        if (!Auth::check()) {
+            // Store the intended URL (cart page)
+            $request->session()->put('url.intended', route('cart.view'));
+            // Redirect to login page
+            return redirect()->route('login');
+        }
         $title = "Checkout";
         $cart = $request->session()->get('cart', []);
-    
+
         $user = Auth::user();
         $userProvince = $user ? $user->province : null;
-    
+
         $taxes = [
             'gst' => 0,
             'pst' => 0,
@@ -181,22 +187,22 @@ class ProductController extends Controller
                 $taxes['hst'] = $tax->hst;
             }
         }
-    
+
         $totalPrice = 0;
         foreach ($cart as $item) {
             $totalPrice += $item['unit_price'];
         }
-    
+
         // Calculate tax amount for each tax type
         $totalGST = $totalPrice * $taxes['gst'];
         $totalPST = $totalPrice * $taxes['pst'];
         $totalHST = $totalPrice * $taxes['hst'];
-    
+
         $totalTaxes = $totalGST + $totalPST + $totalHST;
-    
+
         $totalPriceWithTaxes = $totalPrice + $totalTaxes;
 
-        return view('checkout', compact('title','cart', 'totalPrice', 'totalGST', 'totalPST', 'totalHST', 'totalTaxes', 'totalPriceWithTaxes'));
+        return view('checkout', compact('title', 'cart', 'totalPrice', 'totalGST', 'totalPST', 'totalHST', 'totalTaxes', 'totalPriceWithTaxes'));
     }
 
 
@@ -212,7 +218,4 @@ class ProductController extends Controller
 
         return redirect()->back()->with('error', 'Product not found in cart');
     }
-    
-    
-
 }

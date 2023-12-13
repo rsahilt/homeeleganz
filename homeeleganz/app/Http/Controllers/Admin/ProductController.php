@@ -50,7 +50,7 @@ class ProductController extends Controller
             'name' => 'required|string|min:1|max:255',
             'summary' => 'required|string|min:1|max:255',
             'color' => 'required|string|min:1|max:255',
-            'image' => 'required|image',
+            'image' => 'image',
             'material' => 'required|string|min:1|max:255',
             'unit_price' => 'required|numeric|min:20|max:100000',
             'description' => 'string|min:10',
