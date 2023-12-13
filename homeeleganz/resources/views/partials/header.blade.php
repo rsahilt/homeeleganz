@@ -1,11 +1,11 @@
-<header class="w-[100%] mt-[2rem] border-b bg-white">
+<header class="w-[100%] pt-4 border-b bg-white">
     <div id="utilities" class="flex justify-between items-center mb-3">
 
-        <div id="logo" class="pl-5">
-            <img src="/images/logo.png" alt="" width="60px" height="50px">
+        <div id="logo" class="pl-5 pb-4">
+            <!-- <img src="/images/logo.png" alt="" width="60px" height="50px"> -->
             <h1><span>Home</span>Eleganz</h1>
         </div>
-        
+
         <div class="mb-3" style="width: 50%;">
             <form action="{{ route('products.search') }}" method="POST" novalidate>
                 @csrf
@@ -16,7 +16,7 @@
                                 <path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clip-rule="evenodd" />
                             </svg>
                         </span>
-                        <input type="search" name="search" class="h-[50px] w-full rounded-3xl border border-solid border-neutral-300 bg-transparent bg-clip-padding pl-10 pr-12 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary" placeholder="Search for your dream decoration items" aria-label="Search" aria-describedby="button-addon2" />
+                        <input type="search" name="search" class="search h-[50px] w-full rounded-3xl border border-solid border-neutral-300 bg-transparent bg-clip-padding pl-10 pr-12 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary" placeholder="Search for your dream decoration items" aria-label="Search" aria-describedby="button-addon2" />
                     </div>
                     
                 </div>
@@ -29,41 +29,41 @@
             <ul class="flex space-x-2">
                 @guest
                 @if (Route::has('login'))
-                <li><a href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                <li><a href="{{ route('login') }}" class="authli">{{ __('Login') }}</a></li>
                 @endif
 
                 <li>|</li>
 
                 @if (Route::has('register'))
-                <li><a href="{{ route('register') }}">{{ __('Register') }}</a></li>
+                <li><a href="{{ route('register') }}" class="authli">{{ __('Register') }}</a></li>
                 @endif
 
                 @elseif (Auth::check())
 
                 @if(Auth::user()->is_admin)
-                <li><a href="/admin">Admin Dashboard</a></li>
+                <li><a href="/admin" class="authli">Admin Dashboard</a></li>
                 @else
-                <li><a href="/home"> {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</a></li>
+                <li><a href="/home" class="authli"> {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</a></li>
                 @endif
 
-                <li>|</li>
+                <li class="authli">|</li>
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
                 </form>
                 <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();">
+                            document.getElementById('logout-form').submit();" class="authli">
                     {{ __('Logout') }}
                 </a>
                 @endguest
-                <li>|</li>
+                <li class="authli">|</li>
                 @php
                 $cartCount = count(session('cart', []));
                 @endphp
 
                 <li>
-                    <a href="/cart" class="relative flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <a href="/cart" class="authli relative flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="gray" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19c0 1.104.896 2 2 2s2-.896 2-2M5 8h14l-1.5 7H6L5 8z" />
                         </svg>
                         @if($cartCount > 0)
@@ -106,9 +106,4 @@
 
         </div>
     </nav>
-
-
-
-
-
 </header>

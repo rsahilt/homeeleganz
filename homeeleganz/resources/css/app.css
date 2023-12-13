@@ -7,6 +7,10 @@
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
+header{
+    background-image: linear-gradient(to bottom, #333351, #5b5b92);
+}
+
 /* For list-view */
 
 .category {
@@ -46,7 +50,7 @@
 
 footer{
     width: 100vw;
-    background: linear-gradient(#555161, #3d3a45);
+    /* background: linear-gradient(#555161, #3d3a45); */
     color: white;
 }
 
@@ -135,8 +139,10 @@ justify-content: space-between;
 
 footer{
     width: 100vw;
-    background: linear-gradient(#555161, #3d3a45);
-    color: white;
+    /* background: linear-gradient(#555161, #3d3a45); */
+    background: linear-gradient(#333351,#474772);
+    /* color: white; */
+    color: black;
     margin-top: 20px;
 }
 
@@ -236,12 +242,11 @@ footer{
 #logo h1{
     font-size: 2.6em;
     font-weight: bold;
-    font-family: 'Caveat', cursive;
-    color: #0c4d66 !important;
+    color: #6666b2 !important;
 }
 
 #logo h1 span{
-    color: #137ca3;
+    color: #b2b2d8;
 }
 
 .reviewh2{
@@ -250,8 +255,16 @@ footer{
 }
 
 /* navbar */
+.authli{
+    color: white;
+    font-size: 1.1em;
+}
+
 #navigation{
-    background: linear-gradient(#cff0ed,#abe5e0);
+    background-color: #474772;
+    /* background: linear-gradient(#cff0ed,#abe5e0); */
+    /* background: linear-gradient(#7f7fbf,#9999cc,#b2b2d8); */
+    /* background-image: linear-gradient(to bottom, #ff0000, #0000ff); */
 }
 
 #navbar-default ul li
@@ -269,8 +282,10 @@ footer{
 #navbar-default ul li a
 {
     position: relative;
-    color: black;
-    font-size: 16px;
+    /* color: black; */
+    color: white;
+    text-shadow: 1px 1px black;
+    font-size: 19px;
     /* -webkit-transition: background-color 1000ms linear;
     transition: background-color 1000ms linear; */
     -webkit-transition: 0.4s all ease-in-out;
@@ -493,4 +508,6 @@ main{
     text-shadow: 1px 1px 1px white;
 }
 
-
+.search{
+    background-color: white;
+}
