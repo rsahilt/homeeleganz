@@ -78,7 +78,7 @@
                             @endforeach
                         </td>
                         <td class="px-6 py-4">
-                            {{ $product->created_at->format('m/d/Y') }}
+                            {{ $product->created_at ? $product->created_at->format('m/d/Y') : 'N/A' }}
                         </td>
                         <td class="px-6 py-4 text-right">
                             <div class="inline-block">
