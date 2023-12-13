@@ -42,15 +42,15 @@ class ProductController extends Controller
 
     public function category($categoryName)
     {
-        $category = Category::where('name', $categoryName)->firstOrFail();
-        $products = Product::where('category_id', $category->id)->paginate(8);
+        $category = Category::where('name', $categoryName)->with('products')->firstOrFail();
+        // $products = Product::where('category_id', $category->id)->paginate(8);
         $title = 'All Collection';
-
+    
         // Retrieve all categories
         $allCategories = Category::all();
 
         // Pass active category and all categories to the view
-        return view('category', compact('category', 'products', 'categoryName', 'allCategories', 'title'));
+        return view('category', compact('category', 'categoryName', 'allCategories', 'title'));
     }
 
     public function brands()

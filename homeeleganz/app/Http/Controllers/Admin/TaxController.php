@@ -47,14 +47,6 @@ class TaxController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      */
     public function edit($id)
@@ -108,6 +100,6 @@ class TaxController extends Controller
     {
         $tax = Tax::find($id);
         $tax->delete();
-        return redirect(route('taxlist'))->with('warning', 'Province Tax rate deleted successfully!');
+        return redirect(route('taxlist'))->with('danger', 'Province Tax rate deleted successfully!');
     }
 }
