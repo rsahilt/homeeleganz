@@ -22,8 +22,9 @@ class ProductsSeeder extends Seeder
             'unit_price' => '299.99',
             'description' => 'The ErgoComfort Office Chair features adjustable lumbar support, padded armrests, and a breathable mesh back for optimal comfort during extended periods of sitting. The PU leather seat adds a touch of elegance while ensuring durability. Its ergonomic design promotes proper posture and reduces strain on the back and neck.',
             'brand' => 'ComfortMax',
-            'weight' => '35 lbs',
-            'dimensions' => '24x26x45 inches'
+            'weight' => '35',
+            'dimensions' => '24x26x45 inches',
+            'created_at' => date('m/d/Y'),
         ]);
     }
 }
