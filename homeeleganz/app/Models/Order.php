@@ -20,10 +20,6 @@ class Order extends Model
         return $this->hasMany(LineItem::class);
     }
 
-    public function tax()
-    {
-        return $this->belongsTo(Tax::class);
-    }
 
     public function transactions()
     {

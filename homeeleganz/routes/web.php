@@ -119,7 +119,15 @@ Route::put('/admin/users/{id}', [UserController::class, 'update'])
 Route::delete('/admin/users/{id}', [Usercontroller::class, 'destroy'])
         ->name('delete')->middleware('auth');
 
-//CRUD FOR TAXES TABLE
 
+        
+//CRUD FOR TAXES TABLE
 Route::get('/admin/taxes/', [TaxController::class, 'index'])
         ->name('taxlist')->middleware('auth', 'admin');
+
+Route::get('/admin/taxes/{id}/edit', [TaxController::class, 'edit'])
+        ->name('edittax')->middleware('auth', 'admin');
+
+
+    
+
