@@ -207,7 +207,7 @@ class ProductController extends Controller
         if (array_key_exists($productId, $cart)) {
             unset($cart[$productId]);
             $request->session()->put('cart', $cart);
-            return redirect()->back()->with('success', 'Product removed from cart');
+            return redirect()->back()->with('danger', 'Product removed from cart');
         }
 
         return redirect()->back()->with('error', 'Product not found in cart');

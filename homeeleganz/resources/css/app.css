@@ -417,7 +417,9 @@ footer{
   }
 
   /* flash message */
-  .alert-success{
+  .alert-success,
+  .alert-danger,
+  .alert-error{
     text-align: center;
     padding: 10px 0;
     margin:2% auto;
@@ -451,4 +453,34 @@ main{
     width: 80%;
     height: 100vh;
     background-color: #e8e8f2;
+}
+
+/* dashboard */
+.dashboardbody{
+    background-color: #152e4d;
+}
+
+.dash-header{
+    background-color:#e7eaed;
+    border-bottom: black 1px solid;
+    display: flex;
+    flex-direction: row;
+}
+
+.dashleft,
+.dashright{
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+
+.dashleft h1{
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.dashright{
+    justify-content: end;
+    padding-right: 20px;
 }

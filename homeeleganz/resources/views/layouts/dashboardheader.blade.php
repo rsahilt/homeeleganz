@@ -26,27 +26,48 @@
 </head>
 
 
-<body class="font-lato overflow-x-hidden" data-aos-easing="ease" data-aos-duration="400" data-aos-delay="0">
-    @include('partials.header')
-    <!-- flash message -->
-    @if (session('success'))
-        <div class="alert alert-success mt-7 rounded-lg bg-green-200">
-            {{ session('success') }}
+<body class="font-lato overflow-x-hidden dashboardbody" data-aos-easing="ease" data-aos-duration="400" data-aos-delay="0">
+    <header class="w-[100%] h-[50px] dash-header pl-5">
+        <div class="dashleft">
+            <a href="/admin"><h1>HomeEleganz</h1></a>
         </div>
-    @endif
+        <div class="dashright">
+        <div id="login" class="flex pr-10">
+            <ul class="flex space-x-2">
+                @guest
+                    @if (Route::has('login'))
+                        <li><a href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                    @endif
 
-    @if (session('error'))
-        <div class="alert alert-error mt-7 rounded-lg bg-green-200">
-            {{ session('error') }}
+                    <li>|</li>
+
+                    @if (Route::has('register'))
+                    <li><a href="{{ route('register') }}">{{ __('Register') }}</a></li>
+                    @endif
+
+                @elseif (Auth::check())
+
+                    @if(Auth::user()->is_admin)
+                        <li><a href="/home"> {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</a></li>
+                        <li>|</li>
+                    @endif
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                    <a href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                    </a>
+                @endguest
+            </ul>
         </div>
-    @endif
 
-    @if (session('danger'))
-        <div class="alert alert-danger mt-7 rounded-lg bg-red-200">
-            {{ session('danger') }}
+            
         </div>
-    @endif
-
+    </header>
+    
     @yield('content')
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>

@@ -56,18 +56,9 @@ class UserController extends Controller
         $user->save();
 
         if ($user) {
-            //set success flash message
-            $flash = [
-                'type' => 'success',
-                'message' => 'New user succesfully added'
-            ];
-            return redirect()->route('storeuser');
+            return redirect()->route('storeuser')->with('success', 'New user created successfully');
         } else {
-            $flash = [
-                'type' => 'danger',
-                'message' => 'Failed to add the user! Try Again'
-            ];
-            return redirect('/admin/users/create')->with(['flash' => $flash]);
+            return redirect('/admin/users/create');
         }
     }
 
@@ -109,7 +100,7 @@ class UserController extends Controller
 
             $validData=array_merge($validData,['is_admin' => $isAdmin]);
             $user->update($validData);
-            return redirect()->route('userlist');
+            return redirect()->route('userlist')->with('success', 'User information updated successfully');
         } else {
 
             if (isset($route)) {
@@ -153,19 +144,9 @@ class UserController extends Controller
         // if id exists
         if ($user) {
             $user->delete();
-            //set success flash message
-            $flash = [
-                'type' => 'success',
-                'message' => 'User succesfully deleted!'
-            ];
-            return redirect('/admin/users/')->with(['flash' => $flash]);
+            return redirect('/admin/users/')->with('danger', 'User Deleted from record');
         } else {
-            //set error flash message
-            $flash = [
-                'type' => 'danger',
-                'message' => 'No matching record to delete!'
-            ];
-            return redirect('/admin/users')->with(['flash' => $flash]);
+            return redirect('/admin/users');
         }
     }
 
