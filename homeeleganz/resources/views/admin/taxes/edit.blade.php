@@ -11,7 +11,7 @@
                 <a href="/admin/taxes/" class="mb-5 inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-blue-600 transition-all">
                     Back
                 </a>
-                <form action=""
+                <form action="{{ route('updatetax', ['id' => $tax->id]) }}"
                     method="POST" 
                     enctype="multipart/form-data" novalidate>
                     @csrf
@@ -22,7 +22,7 @@
                             <select id="province" name="province" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                                 <option selected disabled>Select province</option>
                                     @foreach($provinces as $province)
-                                        <option value="{{ $province->id }}" 
+                                        <option value="{{ $province->province }}" 
                                                 @if($tax->province === $province->province) selected @endif>{{ $province->province }}</option>
                                     @endforeach
                             </select>
