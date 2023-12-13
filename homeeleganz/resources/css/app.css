@@ -485,3 +485,10 @@ main{
     justify-content: end;
     padding-right: 20px;
 }
+
+.page2home {
+    background-color: #d9e2d1;
+    color: black;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px white;
+}
