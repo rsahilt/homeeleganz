@@ -68,7 +68,7 @@ class ProductController extends Controller
         }
 
         if ($product) {
-            return redirect()->route('storeproducts');
+            return redirect()->route('storeproducts')->with('success', 'Product added successfully');
         } else {
             return redirect('/admin/products/create');
         }
@@ -127,7 +127,7 @@ class ProductController extends Controller
                 $product->save();
             }
             
-            return redirect()->route('productlist');
+            return redirect()->route('productlist')->with('success','Changes Saved');
         } else {
             return redirect('/admin/product/edit');
         }
@@ -146,7 +146,7 @@ class ProductController extends Controller
         // if id exists
         if($product){
             $product->delete();
-            return redirect()->route('productlist');
+            return redirect()->route('productlist')->with('danger', 'Product removed permanently');
         }else{
             return redirect()->route('productlist');
         }

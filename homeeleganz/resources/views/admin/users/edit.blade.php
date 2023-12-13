@@ -1,5 +1,5 @@
 
-@extends('layouts.app')
+@extends('layouts.dashboardheader')
 @section('content')
 
 <div class="dashboard w-full">
