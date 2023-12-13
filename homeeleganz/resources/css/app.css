@@ -417,7 +417,9 @@ footer{
   }
 
   /* flash message */
-  .alert-success{
+  .alert-success,
+  .alert-danger,
+  .alert-error{
     text-align: center;
     padding: 10px 0;
     margin:2% auto;
@@ -479,7 +481,6 @@ main{
 }
 
 .dashright{
-    background-color: green;
     justify-content: end;
     padding-right: 20px;
 }

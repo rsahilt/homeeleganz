@@ -48,12 +48,9 @@
                 @elseif (Auth::check())
 
                     @if(Auth::user()->is_admin)
-                        <li><a href="/admin">Admin Dashboard</a></li>
-                    @else
                         <li><a href="/home"> {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</a></li>
+                        <li>|</li>
                     @endif
-
-                    <li>|</li>
 
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
@@ -71,7 +68,6 @@
         </div>
     </header>
     
-
     @yield('content')
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>

@@ -41,6 +41,12 @@
         </div>
     @endif
 
+    @if (session('danger'))
+        <div class="alert alert-danger mt-7 rounded-lg bg-red-200">
+            {{ session('danger') }}
+        </div>
+    @endif
+
     @yield('content')
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
