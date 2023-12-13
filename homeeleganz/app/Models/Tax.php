@@ -11,8 +11,4 @@ class Tax extends Model
 
     protected $fillable = ['province', 'pst', 'gst', 'hst'];
 
-    public function orders()
-    {
-        return $this->hasMany(Order::class);
-    }
 }

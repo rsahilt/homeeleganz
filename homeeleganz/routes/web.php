@@ -123,7 +123,28 @@ Route::put('/admin/users/{id}', [UserController::class, 'update'])
 Route::delete('/admin/users/{id}', [Usercontroller::class, 'destroy'])
         ->name('delete')->middleware('auth','admin');
 
-//CRUD FOR TAXES TABLE
 
+        
+//CRUD FOR TAXES TABLE
 Route::get('/admin/taxes/', [TaxController::class, 'index'])
         ->name('taxlist')->middleware('auth', 'admin');
+
+Route::get('/admin/taxes/create', [TaxController::class, 'create'])
+        ->name('createtax')->middleware('auth', 'admin');
+
+Route::post('/admin/taxes/', [TaxController::class, 'store'])
+        ->name('storetax')->middleware('auth', 'admin');
+
+Route::get('/admin/taxes/{id}/edit', [TaxController::class, 'edit'])
+        ->name('edittax')->middleware('auth', 'admin');
+
+Route::put('/admin/taxes/{id}', [TaxController::class, 'update'])
+        ->name('updatetax')->middleware('auth', 'admin');
+
+Route::delete('/admin/taxes/{id}', [TaxController::class, 'destroy'])
+    ->name('deletetax')->middleware('auth', 'admin');
+
+
+
+    
+
