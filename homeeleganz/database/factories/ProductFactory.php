@@ -18,18 +18,18 @@ class ProductFactory extends Factory
      */
     public function definition(): array
     {
-        return [
-            'name' => fake()->name(),
-            'image' => 'default.jpg',
-            'color' => fake()->safeColorName(),
-            'summary' => fake()->sentence(),
-            'material' => fake()->word(),
-            'unit_price' => fake()->randomFloat(2, 10, 1000),
-            'description' => fake()->realText($maxNbChars = 200, $indexSize = 2),
-            'brand' => fake()->company(),
-            'weight' => fake()->numberBetween(1, 10) . 'lbs',
-            'dimensions' => fake()->numberBetween(1, 10) . 'x' . fake()->numberBetween(1, 10) . 'x' . fake()->numberBetween(1, 10) . ' inches',
-            // 'category_id' => fake()->numberBetween(1, 5),
-        ];
+        // return [
+        //     'name' => fake()->name(),
+        //     'image' => 'default.jpg',
+        //     'color' => fake()->safeColorName(),
+        //     'summary' => fake()->sentence(),
+        //     'material' => fake()->word(),
+        //     'unit_price' => fake()->randomFloat(2, 10, 1000),
+        //     'description' => fake()->realText($maxNbChars = 200, $indexSize = 2),
+        //     'brand' => fake()->company(),
+        //     'weight' => fake()->numberBetween(1, 10) . 'lbs',
+        //     'dimensions' => fake()->numberBetween(1, 10) . 'x' . fake()->numberBetween(1, 10) . 'x' . fake()->numberBetween(1, 10) . ' inches',
+        //     // 'category_id' => fake()->numberBetween(1, 5),
+        // ];
     } 
 }
