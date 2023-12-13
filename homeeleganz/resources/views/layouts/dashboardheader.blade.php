@@ -32,7 +32,42 @@
             <a href="/admin"><h1>HomeEleganz</h1></a>
         </div>
         <div class="dashright">
-            {{ Auth::user()->first_name }}  {{ Auth::user()->last_name }}
+        <div id="login" class="flex pr-10">
+            <ul class="flex space-x-2">
+                @guest
+                    @if (Route::has('login'))
+                        <li><a href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                    @endif
+
+                    <li>|</li>
+
+                    @if (Route::has('register'))
+                    <li><a href="{{ route('register') }}">{{ __('Register') }}</a></li>
+                    @endif
+
+                @elseif (Auth::check())
+
+                    @if(Auth::user()->is_admin)
+                        <li><a href="/admin">Admin Dashboard</a></li>
+                    @else
+                        <li><a href="/home"> {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</a></li>
+                    @endif
+
+                    <li>|</li>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                    <a href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                    </a>
+                @endguest
+            </ul>
+        </div>
+
+            
         </div>
     </header>
     
