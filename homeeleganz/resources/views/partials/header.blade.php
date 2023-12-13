@@ -5,21 +5,20 @@
             <img src="/images/logo.png" alt="" width="60px" height="50px">
             <h1><span>Home</span>Eleganz</h1>
         </div>
-        <!-- TW Elements is free under AGPL, with commercial license required for specific uses. See more details: https://tw-elements.com/license/ and contact us for queries at tailwind@mdbootstrap.com -->
-        <div class="mb-3">
+        
+        <div class="mb-3" style="width: 50%;">
             <form action="{{ route('products.search') }}" method="POST" novalidate>
                 @csrf
-                <div class="relative mb-4 flex w-full flex-wrap items-stretch pl-10">
-                    <input type="search" name="search" class="relative m-0 block min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary" placeholder="Search" aria-label="Search" aria-describedby="button-addon2" />
-
-                    <!--Search icon-->
-                    <button>
-                        <span class="input-group-text flex items-center whitespace-nowrap rounded px-3 py-1.5 text-center text-base font-normal text-neutral-700 dark:text-neutral-200" id="basic-addon2">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
+                <div class="relative flex w-full flex-wrap items-stretch">
+                    <div class="relative w-full">
+                        <span class="absolute inset-y-0 left-3 flex items-center pointer-events-none">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5 text-neutral-700 dark:text-neutral-200">
                                 <path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clip-rule="evenodd" />
                             </svg>
                         </span>
-                    </button>
+                        <input type="search" name="search" class="h-[50px] w-full rounded-3xl border border-solid border-neutral-300 bg-transparent bg-clip-padding pl-10 pr-12 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary" placeholder="Search for your dream decoration items" aria-label="Search" aria-describedby="button-addon2" />
+                    </div>
+                    
                 </div>
             </form>
         </div>
