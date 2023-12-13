@@ -26,5 +26,6 @@ class ProductsSeeder extends Seeder
             'dimensions' => '24x26x45 inches',
             'created_at' => date('m/d/Y'),
         ]);
+        
     }
 }
