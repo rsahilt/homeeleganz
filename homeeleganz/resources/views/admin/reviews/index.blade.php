@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.dashboardheader')
 @section('content')
 
 <div class="dashboard w-full">
@@ -10,6 +10,12 @@
                     class="p-5 text-lg font-semibold text-left rtl:text-right text-gray-900 bg-white dark:text-white dark:bg-gray-800">
                     {{ $title }}
                     <br>
+
+                    @if (session('danger'))
+                        <div class="alert alert-danger mt-7 rounded-lg bg-red-200">
+                            {{ session('danger') }}
+                        </div>
+                    @endif
 
                 </caption>
 
@@ -44,24 +50,25 @@
                         <td class="px-6 py-4">
                             {{ $review->id }}
                         </td>
+
                         <td class="px-6 py-4 ">
                             {{ $review->comment }}
+                        </td>
 
-                            </th>
                         <td class="px-6 py-4 ">
                             {{ $review->product->name }}
+                        </td>
 
-                            </th>
                         <td class="px-6 py-4">
                             {{ $review->user->first_name }} {{ $review->user->last_name }}
                         </td>
+
                         <td class="px-6 py-4">
                             {{ $review->created_at->format('m/d/Y') }}
                         </td>
+
                         <td class="px-6 py-4">
                             <div class="inline-block">
-
-
                                 <form action="{{ route('delete-reviews', $review->id) }}" method="POST" novalidate
                                     class="inline-block">
                                     @csrf

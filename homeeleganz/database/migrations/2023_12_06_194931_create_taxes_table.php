@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('taxes', function (Blueprint $table) {
             $table->id();
             $table->string('province');
-            $table->decimal('pst', 8, 2)->nullable();
-            $table->decimal('gst', 8, 2)->nullable();
-            $table->decimal('hst', 8, 2)->nullable();
+            $table->decimal('pst', 5, 3)->default(0);
+            $table->decimal('gst', 5, 3)->default(0);
+            $table->decimal('hst', 5, 3)->default(0);
             $table->timestamps();
         });
     }

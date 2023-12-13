@@ -28,19 +28,9 @@ class ReviewController extends Controller
         // if id exists
         if ($review) {
             $review->delete();
-            //set success flash message
-            $flash = [
-                'type' => 'success',
-                'message' => 'review succesfully deleted!'
-            ];
-            return redirect('/admin/reviews/')->with(['flash' => $flash]);
+            return redirect('/admin/reviews/')->with('danger', 'Review deleted successfully');
         } else {
-            //set error flash message
-            $flash = [
-                'type' => 'danger',
-                'message' => 'No matching record to delete!'
-            ];
-            return redirect('/admin/reviews')->with(['flash' => $flash]);
+            return redirect('/admin/reviews');
         }
     }
 }

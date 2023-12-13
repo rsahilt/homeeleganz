@@ -15,10 +15,9 @@ return new class extends Migration
             $table->id();
             $table->date('order_date');
             $table->decimal('sub_total', 10, 2);
-            $table->decimal('pst', 10, 2);
-            $table->decimal('gst', 10, 2);
-            $table->decimal('hst', 10, 2);
-            $table->bigInteger('tax_id')->nullable();
+            $table->decimal('pst', 10, 2)->nullable();
+            $table->decimal('gst', 10, 2)->nullable();
+            $table->decimal('hst', 10, 2)->nullable();
             $table->decimal('total', 10, 2);
             $table->string('address');
             $table->string('city');

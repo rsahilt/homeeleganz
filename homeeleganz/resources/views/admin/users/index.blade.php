@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.dashboardheader')
 @section('content')
 
 <div class="dashboard w-full">
@@ -12,6 +12,23 @@
                     <a href="/admin/users/create" class="mb-5 inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-blue-600 transition-all mt-3">
                         Add New User
                     </a>
+                    @if (session('success'))
+                        <div class="alert alert-success mt-7 rounded-lg bg-green-200">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+
+                    @if (session('error'))
+                        <div class="alert alert-error mt-7 rounded-lg bg-green-200">
+                            {{ session('error') }}
+                        </div>
+                    @endif
+
+                    @if (session('danger'))
+                        <div class="alert alert-danger mt-7 rounded-lg bg-red-200">
+                            {{ session('danger') }}
+                        </div>
+                    @endif
                 </caption>
 
                 
@@ -32,6 +49,9 @@
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Registered Date
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Is Admin+
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Action
@@ -55,6 +75,13 @@
                         </td>
                         <td class="px-6 py-4">
                             {{ $user->created_at->format('m/d/Y') }}
+                        </td>
+                        <td class="px-6 py-4">
+                            @if($user->is_admin == 1)
+                            Yes
+                            @else
+                            No
+                            @endif
                         </td>
                         <td class="px-6 py-4 text-right">
                             <div class="inline-block">

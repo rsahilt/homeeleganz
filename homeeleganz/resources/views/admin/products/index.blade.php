@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.dashboardheader')
 @section('content')
 
 <div class="dashboard w-full">
@@ -12,7 +12,26 @@
                     <a href="/admin/products/create" class="mb-5 inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-blue-600 transition-all mt-3">
                         Add New Product
                     </a>
+                    @if (session('success'))
+                        <div class="alert alert-success mt-7 rounded-lg bg-green-200">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+
+                    @if (session('error'))
+                        <div class="alert alert-error mt-7 rounded-lg bg-green-200">
+                            {{ session('error') }}
+                        </div>
+                    @endif
+
+                    @if (session('danger'))
+                        <div class="alert alert-danger mt-7 rounded-lg bg-red-200">
+                            {{ session('danger') }}
+                        </div>
+                    @endif
                 </caption>
+
+                
 
                 
                 
@@ -66,7 +85,7 @@
                                 <a href="{{ route('editproduct', ['id' => $product->id]) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
                                 &nbsp; &nbsp; | &nbsp; &nbsp;
                                 <!-- asking the user if they really want to delete, in the form of an alert -->
-                                <form action="{{ route('delete', $product->id) }}" method="POST" novalidate class="inline-block">
+                                <form action="{{ route('deleteproducts', $product->id) }}" method="POST" novalidate class="inline-block">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="font-medium text-blue-600 dark:text-blue-500 hover:underline" onclick="return confirm('Do you really want to remove the product?')">Delete</button>

@@ -30,7 +30,7 @@
 
         <div id="shop-by-category" data-aos="slide-up" data-aos-duration="1000">
             <h1 class="text-[1.5em] my-[1rem] ml-[1rem] tracking-wider">Shop by category</h1>
-            <div class="flex justify-around">
+            <div class="flex md:flex-row md:gap-0 flex-col gap-[2rem] justify-around">
                 @include('components.card')
                 @include('components.card')
                 @include('components.card')

@@ -50,31 +50,35 @@ Route::get('/cart', [ProductController::class, 'viewCart'])->name('cart.view');
 
 Route::post('/checkout', [ProductController::class, 'viewCheckout'])->name('checkout');
 
+Route::get('/cart/remove/{productId}', [ProductController::class, 'removeFromCart'])->name('cart.remove');
+
 //CRUD FOR PRODUCTS TABLE
 
 Route::get('/admin/products/', [AdminController::class, 'index'])
-        ->name('productlist')->middleware('auth');
+        ->name('productlist')->middleware('auth', 'admin');
 
 Route::get('/admin/products/create', [AdminController::class, 'create'])
-        ->name('create')->middleware('auth');
+        ->name('create')->middleware('auth', 'admin');
 
 Route::post('/admin/products/', [AdminController::class, 'store'])
-        ->name('storeproducts')->middleware('auth');
+        ->name('storeproducts')->middleware('auth', 'admin');
 
 Route::get('/admin/products/{id}/edit', [AdminController::class, 'edit'])
-        ->name('editproduct')->middleware('auth');
+        ->name('editproduct')->middleware('auth', 'admin');
 
 Route::put('/admin/products/{id}', [AdminController::class, 'update'])
-        ->name('update')->middleware('auth');
+        ->name('update')->middleware('auth', 'admin');
 
 Route::delete('/admin/products/{id}', [AdminController::class, 'destroy'])
-        ->name('delete')->middleware('auth');
+        ->name('deleteproducts')->middleware('auth', 'admin');
 
 Route::get('/admin/reviews/', [ReviewController::class, 'index'])
-        ->name('reviews')->middleware('auth');
+        ->name('reviews')->middleware('auth', 'admin');
 
 Route::delete('/admin/reviews/{id}', [ReviewController::class, 'destroy'])
-        ->name('delete-reviews')->middleware('auth');
+        ->name('delete-reviews')->middleware('auth', 'admin');
+
+
 
 Route::get('/about', function () {
         return view('about');
@@ -89,9 +93,9 @@ Route::get('/admin', [ControllerAdmin::class, 'dashboard'])->name('admin.dashboa
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
-Route::get('/home-edit', [HomeController::class, 'edit'])->name('home-edit')->middleware('auth');
-Route::get('/user-reviews/{id}', [UserController::class, 'userReviews'])->name('userReviews')->middleware('auth');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth', 'admin');
+Route::get('/home-edit', [HomeController::class, 'edit'])->name('home-edit')->middleware('auth', 'admin');
+Route::get('/user-reviews/{id}', [UserController::class, 'userReviews'])->name('userReviews')->middleware('auth', 'admin');
 
 Route::put('/users/{id}', [UserController::class, 'updateProfile'])
         ->name('updateProfile')->middleware('auth');
@@ -102,24 +106,40 @@ Route::get('/details', function () {
 
 // CRUD FOR USERS TABLE
 Route::get('/admin/users/', [UserController::class, 'index'])
-        ->name('userlist')->middleware('auth');
+        ->name('userlist')->middleware('auth', 'admin');
 
 Route::get('/admin/users/create', [UserController::class, 'create'])
-        ->name('createuser')->middleware('auth');
+        ->name('createuser')->middleware('auth', 'admin');
 
 Route::post('/admin/users/', [UserController::class, 'store'])
-        ->name('storeuser')->middleware('auth');
+        ->name('storeuser')->middleware('auth', 'admin');
 
 Route::get('/admin/users/{id}/edit', [UserController::class, 'edit'])
-        ->name('edituser')->middleware('auth');
+        ->name('edituser')->middleware('auth', 'admin');
 
 Route::put('/admin/users/{id}', [UserController::class, 'update'])
-        ->name('updateuser')->middleware('auth');
+        ->name('updateuser')->middleware('auth', 'admin');
 
 Route::delete('/admin/users/{id}', [Usercontroller::class, 'destroy'])
-        ->name('delete')->middleware('auth');
+        ->name('delete')->middleware('auth', 'admin');
+
+
 
 //CRUD FOR TAXES TABLE
-
 Route::get('/admin/taxes/', [TaxController::class, 'index'])
         ->name('taxlist')->middleware('auth', 'admin');
+
+Route::get('/admin/taxes/create', [TaxController::class, 'create'])
+        ->name('createtax')->middleware('auth', 'admin');
+
+Route::post('/admin/taxes/', [TaxController::class, 'store'])
+        ->name('storetax')->middleware('auth', 'admin');
+
+Route::get('/admin/taxes/{id}/edit', [TaxController::class, 'edit'])
+        ->name('edittax')->middleware('auth', 'admin');
+
+Route::put('/admin/taxes/{id}', [TaxController::class, 'update'])
+        ->name('updatetax')->middleware('auth', 'admin');
+
+Route::delete('/admin/taxes/{id}', [TaxController::class, 'destroy'])
+        ->name('deletetax')->middleware('auth', 'admin');

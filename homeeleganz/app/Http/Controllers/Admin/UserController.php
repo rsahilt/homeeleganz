@@ -32,6 +32,7 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
+        $user = new User();
         $valid = $request->validate([
             'first_name' => 'required|string|min:1|max:255',
             'last_name' => 'required|string|min:1|max:255',
@@ -42,25 +43,22 @@ class UserController extends Controller
             'postal_code' => 'required|string|min:1|max:255',
             'phone_number' => 'required|string|regex:/^(\(?\d{3}\)?[\s-]?\d{3}[\s-]?\d{4})$/',
             'password' => 'required|string|min:8|max:255',
+            'is_admin' => 'nullable'
 
         ]);
+        $isAdmin = false;
+        if(isset($valid['is_admin'])){
+            $isAdmin = ($valid['is_admin']==="on") ? 1 :0;
+        }
+        $valid=array_merge($valid,['is_admin' => $isAdmin]); 
+    
         $user = User::create($valid);
-
         $user->save();
 
         if ($user) {
-            //set success flash message
-            $flash = [
-                'type' => 'success',
-                'message' => 'New user succesfully added'
-            ];
-            return redirect()->route('storeuser');
+            return redirect()->route('storeuser')->with('success', 'New user created successfully');
         } else {
-            $flash = [
-                'type' => 'danger',
-                'message' => 'Failed to add the user! Try Again'
-            ];
-            return redirect('/admin/users/create')->with(['flash' => $flash]);
+            return redirect('/admin/users/create');
         }
     }
 
@@ -91,10 +89,18 @@ class UserController extends Controller
                 'province' => 'required|string|min:1|max:255',
                 'postal_code' => 'required|string|min:1|max:255',
                 'phone_number' => 'required|string|regex:/^(\(?\d{3}\)?[\s-]?\d{3}[\s-]?\d{4})$/',
+                'is_admin' => 'nullable'
+
             ]);
 
+            $isAdmin = false;
+            if(isset($validData['is_admin'])){
+                $isAdmin = ($validData['is_admin']==="on") ? 1 :0;
+            }
+
+            $validData=array_merge($validData,['is_admin' => $isAdmin]);
             $user->update($validData);
-            return redirect()->route('userlist');
+            return redirect()->route('userlist')->with('success', 'User information updated successfully');
         } else {
 
             if (isset($route)) {
@@ -138,19 +144,9 @@ class UserController extends Controller
         // if id exists
         if ($user) {
             $user->delete();
-            //set success flash message
-            $flash = [
-                'type' => 'success',
-                'message' => 'User succesfully deleted!'
-            ];
-            return redirect('/admin/users/')->with(['flash' => $flash]);
+            return redirect('/admin/users/')->with('danger', 'User Deleted from record');
         } else {
-            //set error flash message
-            $flash = [
-                'type' => 'danger',
-                'message' => 'No matching record to delete!'
-            ];
-            return redirect('/admin/users')->with(['flash' => $flash]);
+            return redirect('/admin/users');
         }
     }
 
