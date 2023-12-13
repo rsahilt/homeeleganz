@@ -21,7 +21,7 @@
     
     <div class="grid lg:grid-cols-4 md:grid-cols-3   gap-9">
 
-        @foreach($products as $product)
+        @foreach($category->products as $product)
         <div class="w-[250px] min-h-[400px] border-[1px] rounded-[35px] mx-auto relative">
 
             <img src="/images/sofa.jpeg" class="flex flex-col rounded-t-[35px]" />
@@ -30,7 +30,7 @@
                     <span><b>{{ $product->name }}</b></span>
                     <span class="text-red-600">${{ $product->unit_price }}</span>
                 </div>
-                <p class="text-[.8em] my-1 text-[#8A8A8A]">{{ $product->category->name }}</p>
+                
                 <p class="text-[.8em] my-1 text-[#8A8A8A]">{{ $product->dimensions }}</p>
                 <p class=" text-[.8em] my-1 mx-auto">{{ $product->summary }}</p>
             </div>
@@ -44,7 +44,6 @@
 
     </div>
 
-    <div class="pagination">{{ $products->links() }}</div>
 
     @include('partials.footer')
 @endsection
