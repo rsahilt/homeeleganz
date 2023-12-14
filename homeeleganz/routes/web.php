@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ProductController as AdminController;
 use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\TaxController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Models\Review;
 
@@ -140,3 +141,22 @@ Route::put('/admin/taxes/{id}', [TaxController::class, 'update'])
 
 Route::delete('/admin/taxes/{id}', [TaxController::class, 'destroy'])
         ->name('deletetax')->middleware('auth', 'admin');
+
+//CRUD FOR Categories
+Route::get('/admin/categories', [CategoryController::class, 'index'])
+        ->name('categorieslist')->middleware('auth','admin');
+
+ Route::get('/admin/categories/create', [CategoryController::class, 'create'])
+        ->name('createcategory')->middleware('auth', 'admin');
+
+ Route::post('/admin/categories/', [CategoryController::class, 'store'])
+        ->name('storecategory')->middleware('auth', 'admin');
+
+Route::delete('/admin/categories/{id}', [CategoryController::class, 'destroy'])
+        ->name('deletecategory')->middleware('auth', 'admin');      
+        
+Route::get('/admin/categories/{id}/edit', [CategoryController::class, 'edit'])
+        ->name('editcategory')->middleware('auth', 'admin');
+
+Route::put('/admin/categories/{id}', [CategoryController::class, 'update'])
+        ->name('updatecategory')->middleware('auth', 'admin');
