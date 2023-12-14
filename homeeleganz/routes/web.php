@@ -81,7 +81,6 @@ Route::delete('/admin/reviews/{id}', [ReviewController::class, 'destroy'])
         ->name('delete-reviews')->middleware('auth', 'admin');
 
 
-<<<<<<< HEAD
 Route::get('/invoice', [App\Http\Controllers\InvoiceController::class, 'show'])
         ->name('invoice.show')->middleware('auth');
    
@@ -89,9 +88,7 @@ Route::get('/invoice', [App\Http\Controllers\InvoiceController::class, 'show'])
 Route::get('/about', function () {
         return view('about');
 });
-=======
 Route::get('/about', [ProductController::class, 'aboutmethod'])->name('aboutpage');
->>>>>>> main
 
 Route::get('/contact', function () {
         return view('contact');
