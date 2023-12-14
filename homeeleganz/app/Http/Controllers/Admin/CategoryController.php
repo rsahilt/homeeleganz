@@ -12,7 +12,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $title='List of categories';
+        return view('/admin/categories/index', compact('title'));
     }
 
     /**
