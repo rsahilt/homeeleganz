@@ -5,14 +5,14 @@
     }
 </script>
 <header class="w-[100%] pt-4 border-b bg-white">
-    <div id="utilities" class="flex justify-between items-center mb-3">
+    <div id="utilities" class="flex flex-col md:flex-row justify-between items-center mb-3">
 
-        <div id="logo" class="pl-5 pb-4">
+        <div id="logo" class="pl-0 pb-0 md:pl-5 md:pb-4">
             <!-- <img src="/images/logo.png" alt="" width="60px" height="50px"> -->
             <h1><span>Home</span>Eleganz</h1>
         </div>
 
-        <div class="mb-3" style="width: 50%;">
+        <div class="mb-3 w-[40%] text-center">
             <form action="{{ route('products.search') }}" method="POST" novalidate>
                 @csrf
                 <div class="relative flex w-full flex-wrap items-stretch">
@@ -31,7 +31,7 @@
 
 
 
-        <div id="login" class="flex pr-10">
+        <div id="login" class="flex pr-0 md:pr-10">
             <ul class="flex space-x-2">
                 @guest
                 @if (Route::has('login'))
