@@ -39,6 +39,8 @@ class UserController extends Controller
             'email' => 'required|email|max:255',
             'address' => 'required|string|min:1|max:255',
             'city' => 'required|string|min:1|max:255',
+            'street' => 'required|string|min:1|max:255',
+            'country' => 'required|string|min:1|max:255',
             'province' => 'required|string|min:1|max:255',
             'postal_code' => 'required|string|min:1|max:255',
             'phone_number' => 'required|string|regex:/^(\(?\d{3}\)?[\s-]?\d{3}[\s-]?\d{4})$/',
