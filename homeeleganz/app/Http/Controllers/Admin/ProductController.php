@@ -32,7 +32,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $title = "Upload New Cartoon";
+        $title = "Upload New Product";
         $categories = Category::all();
         $slug="productdashboard";
         return view('/admin/products/create', compact('title','categories','slug'));
@@ -57,9 +57,12 @@ class ProductController extends Controller
             'brand' => 'required|string|min:1|max:255',
             'weight' => 'required|numeric|min:5|max:5000',
             'dimensions' => 'required|string|min:1|max:255',
-            'category_id' => 'string|min:1|max:255',
+            'category_id' => 'required|array|min:1',
         ]);
         $product = Product::create($valid);
+        
+        $product->categories()->attach($valid['category_id']);
+        
         if($file = $request->file('image')){
             $filename = uniqid() . '_' . $file->getClientOriginalName();
             Storage::disk('images')->put($filename,File::get($file));
@@ -116,9 +119,19 @@ class ProductController extends Controller
                 'brand' => 'required|string|min:1|max:255',
                 'weight' => 'required|numeric|min:5|max:5000',
                 'dimensions' => 'required|string|min:1|max:255',
-                'category_id' => 'string|min:1|max:255',
+                'category_id' => 'required|array|min:1',
             ]);
             $product->update($validatedData);
+
+            // Sync the categories
+            if ($request->has('category_id')) {
+                $product->categories()->sync($request->input('category_id'));
+            } else {
+                // If no categories are selected, detach all categories
+                $product->categories()->detach();
+            }
+
+            //Handle image uploads
             if($file = $request->file('image')){
                 
                 $filename = uniqid() . '_' . $file->getClientOriginalName();

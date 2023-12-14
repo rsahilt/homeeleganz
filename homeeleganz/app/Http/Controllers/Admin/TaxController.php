@@ -43,7 +43,7 @@ class TaxController extends Controller
         ]);
 
         $taxes = Tax::create($valid);
-        return redirect(route('taxlist'))->with('success','New Province Tax record created!');
+        return redirect(route('taxlist'))->with('success','New Province Tax Record created!');
     }
 
     /**
@@ -90,7 +90,7 @@ class TaxController extends Controller
         $tax = Tax::find($id);
         $tax->update($valid);
 
-        return redirect(route('taxlist'))->with('success', 'Province Tax record updated successfully!');
+        return redirect(route('taxlist'))->with('success', 'Province Tax Record updated successfully!');
     }
 
     /**
@@ -100,6 +100,6 @@ class TaxController extends Controller
     {
         $tax = Tax::find($id);
         $tax->delete();
-        return redirect(route('taxlist'))->with('danger', 'Province Tax rate deleted successfully!');
+        return redirect(route('taxlist'))->with('danger', 'Province Tax Record deleted successfully!');
     }
 }
