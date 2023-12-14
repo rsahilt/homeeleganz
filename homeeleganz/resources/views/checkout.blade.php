@@ -68,27 +68,29 @@
 
     <div id="payment" class="w-2/5 mx-auto my-12 p-6 bg-gray-100 rounded-lg shadow-md">
         <h1 class="text-2xl font-semibold mb-6">Add Card Details</h1>
+        <form action="">
+            <div class="mb-4">
+                <label for="cardName" class="block text-sm font-medium text-gray-600">Name on the Card</label>
+                <input type="text" id="cardName" name="cardName" placeholder="Name on the Card"
+                    class="mt-1 p-2 w-full border rounded-md">
+            </div>
 
-        <div class="mb-4">
-            <label for="cardName" class="block text-sm font-medium text-gray-600">Name on the Card</label>
-            <input type="text" id="cardName" name="cardName" placeholder="Name on the Card"
-                class="mt-1 p-2 w-full border rounded-md">
-        </div>
+            <div class="mb-4">
+                <label for="cardNumber" class="block text-sm font-medium text-gray-600">Card Number</label>
+                <input type="text" id="cardNumber" name="cardNumber" placeholder="Card Number"
+                    class="mt-1 p-2 w-full border rounded-md">
+            </div>
 
-        <div class="mb-4">
-            <label for="cardNumber" class="block text-sm font-medium text-gray-600">Card Number</label>
-            <input type="text" id="cardNumber" name="cardNumber" placeholder="Card Number"
-                class="mt-1 p-2 w-full border rounded-md">
-        </div>
-
-        <div class="mb-4">
-            <label for="cvv" class="block text-sm font-medium text-gray-600">CVV</label>
-            <input type="text" id="cvv" name="cvv" placeholder="CVV" class="mt-1 p-2 w-full border rounded-md">
-        </div>
-        <div class="flex justify-end">
-            <button class="bg-blue-500 text-white font-semibold py-2 px-12 rounded-md">Pay</button>
-        </div>
+            <div class="mb-4">
+                <label for="cvv" class="block text-sm font-medium text-gray-600">CVV</label>
+                <input type="text" id="cvv" name="cvv" placeholder="CVV" class="mt-1 p-2 w-full border rounded-md">
+            </div>
+            <div class="flex justify-end">
+                <button class="bg-blue-500 text-white font-semibold py-2 px-12 rounded-md">Pay</button>
+            </div>
+        </form>
     </div>
+        
     @else
     <div class="text-center my-10">
         <p class="mb-4">Please login to view your cart.</p>

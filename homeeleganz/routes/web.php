@@ -168,3 +168,6 @@ Route::get('/admin/categories/{id}/edit', [CategoryController::class, 'edit'])
 
 Route::put('/admin/categories/{id}', [CategoryController::class, 'update'])
         ->name('updatecategory')->middleware('auth', 'admin');
+
+Route::post('/transactionprocess', [ApiController::class, 'index'])
+        ->name('transaction')->middleware('auth');
