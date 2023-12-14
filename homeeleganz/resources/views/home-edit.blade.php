@@ -6,11 +6,7 @@
         Edit profile
     </h2>
     <div class="p-8 bg-white shadow">
-        <a href="/home" class="mb-5 inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-blue-600 transition-all">
-            Back
-        </a>
         <div class="flex justify-center">
-
             <form action="{{ route('updateProfile', ['id' => $user->id]) }}" novalidate method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
@@ -86,6 +82,9 @@
                     <button type="submit" class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-green-600 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-green-700 transition-all">
                         Save Changes
                     </button>
+                    <a href="/home" class="mb-5 inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-blue-600 transition-all">
+                        Back
+                    </a>
                 </div>
             </form>
         </div>

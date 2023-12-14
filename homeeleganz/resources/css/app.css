@@ -416,7 +416,7 @@ footer{
     position: relative;
     margin: auto;
     overflow: hidden;
-    height: 650px;
+    height: 700px;
   }
   .mySlides {
     display: none;
@@ -427,7 +427,7 @@ footer{
   }
   .mySlides,
   .slides{
-      height: 600px;
+      height: 700px;
       width: 100%;
   }
   
