@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ControllerAdmin;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ApiController;
 
 use App\Http\Controllers\Admin\ProductController as AdminController;
 use App\Http\Controllers\Admin\ReviewController;
