@@ -12,7 +12,7 @@
                     Back
                 </a>
                 
-                <form action="#" novalidate 
+                <form action="{{ route('storecategory') }}" novalidate 
                     method="POST" 
                     enctype="multipart/form-data">
                     @csrf
