@@ -18,8 +18,8 @@ class CategoryController extends Controller
     {
         $title='List of categories';
         $slug='categorydashboard';
-        $categories=Category::latest()->all();
-        return view('/admin/categories/index', compact('title','slug'));
+        $categories=Category::latest()->paginate(30);
+        return view('/admin/categories/index', compact('title','slug','categories'));
     }
 
     /**
