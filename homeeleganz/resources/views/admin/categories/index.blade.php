@@ -65,7 +65,7 @@
                         </td>
                         <td class="px-6 py-4 text-right">
                             <div class="inline-block">
-                                <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                <a href="{{ route('editcategory', ['id'=>$category->id]) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
                                 &nbsp; &nbsp; | &nbsp; &nbsp;
                                 <!-- asking the user if they really want to delete, in the form of an alert -->
                                 <form action="{{ route('deletecategory', $category->id) }}" method="POST" novalidate class="inline-block">
