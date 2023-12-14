@@ -62,7 +62,6 @@ class ProductController extends Controller
         $product = Product::create($valid);
         
         $product->categories()->attach($valid['category_id']);
-        dd($product->categories);
         
         if($file = $request->file('image')){
             $filename = uniqid() . '_' . $file->getClientOriginalName();

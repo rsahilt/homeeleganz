@@ -404,13 +404,13 @@ class ProductsSeeder extends Seeder
             'created_at' => date('m/d/Y'),
         ]);
         DB::table('products')->insert([
-            'name' => 'Marble Top Round Side Table',
+            'name' => 'Green Top Side Table',
             'image' => 'resized_living_1.jpg',
-            'summary' => 'A stylish marble top round side table for modern living rooms.',
+            'summary' => 'A stylish green top  side table for modern living rooms.',
             'color' => 'Green',
-            'material' => 'Marble, Wood',
+            'material' => 'Wood',
             'unit_price' => '299.99',
-            'description' => 'The Marble Top Round Side Table exudes elegance with its marble tabletop and gold-finished metal base. Its sleek design and luxurious materials make it a focal point in modern living rooms. The rectangular shape and compact size make it a functional and stylish addition to your home decor.',
+            'description' => 'The Wooden Top Side Table exudes elegance with its marble tabletop and gold-finished metal base. Its sleek design and luxurious materials make it a focal point in modern living rooms. The rectangular shape and compact size make it a functional and stylish addition to your home decor.',
             'brand' => 'LuxLiving',
             'weight' => '15',
             'dimensions' => '18x18x22 inches',
@@ -518,6 +518,19 @@ class ProductsSeeder extends Seeder
             'brand' => 'ClassicHome',
             'weight' => '40',
             'dimensions' => '48x24x18 inches',
+            'created_at' => date('m/d/Y'),
+        ]);
+        DB::table('products')->insert([
+            'name' => 'Aurora Steel Curve Lamp',
+            'image' => 'resized_living_6.jpg',
+            'summary' => 'Illuminate your space with elegance using our sleek steel overhead lamp featuring a beautifully curved stand',
+            'color' => 'Silver',
+            'material' => 'Stainless Steel',
+            'unit_price' => '129.99',
+            'description' => 'Crafted with durable stainless steel, this lamp adds a modern touch to any room. Its curved stand provides a unique design element while casting a soft, ambient light.',
+            'brand' => 'LuminaLux',
+            'weight' => '5',
+            'dimensions' => '160x24x18',
             'created_at' => date('m/d/Y'),
         ]);
         DB::table('products')->insert([
