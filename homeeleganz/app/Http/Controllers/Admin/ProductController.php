@@ -119,6 +119,16 @@ class ProductController extends Controller
                 'category_id' => 'string|min:1|max:255',
             ]);
             $product->update($validatedData);
+
+            // Sync the categories
+            if ($request->has('category_ids')) {
+                $product->categories()->sync($request->input('category_ids'));
+            } else {
+                // If no categories are selected, detach all categories
+                $product->categories()->detach();
+            }
+
+            //Handle image uploads
             if($file = $request->file('image')){
                 
                 $filename = uniqid() . '_' . $file->getClientOriginalName();
