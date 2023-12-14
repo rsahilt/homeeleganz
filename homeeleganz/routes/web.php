@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\TaxController;
 use App\Http\Controllers\HomeController;
 use App\Models\Review;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -79,6 +80,9 @@ Route::delete('/admin/reviews/{id}', [ReviewController::class, 'destroy'])
         ->name('delete-reviews')->middleware('auth', 'admin');
 
 
+Route::get('/invoice', [App\Http\Controllers\InvoiceController::class, 'show'])
+        ->name('invoice.show')->middleware('auth');
+   
 
 Route::get('/about', function () {
         return view('about');
