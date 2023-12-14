@@ -98,7 +98,7 @@
                                 </svg>
                                 </span>
                             </div>
-                            <p class="mt-4 mb-2 text-3xl font-bold text-gray-900">200097</p>
+                            <p class="mt-4 mb-2 text-3xl font-bold text-gray-900">{{ $productcount }}</p>
                             <h2 class="text-sm text-gray-600">Inventory</h2>
                         </div>
                     </div>
@@ -117,7 +117,7 @@
                                 </svg>
 
                             </div>
-                            <p class="mt-4 mb-2 text-3xl font-bold text-gray-900">31,590</p>
+                            <p class="mt-4 mb-2 text-3xl font-bold text-gray-900">{{ $usercount }}</p>
                             <h2 class="text-sm text-gray-600">Happy Customers</h2>
                         </div>
                     </div>

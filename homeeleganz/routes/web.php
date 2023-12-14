@@ -79,10 +79,7 @@ Route::delete('/admin/reviews/{id}', [ReviewController::class, 'destroy'])
         ->name('delete-reviews')->middleware('auth', 'admin');
 
 
-
-Route::get('/about', function () {
-        return view('about');
-});
+Route::get('/about', [ProductController::class, 'aboutmethod'])->name('aboutpage');
 
 Route::get('/contact', function () {
         return view('contact');
@@ -93,9 +90,9 @@ Route::get('/admin', [ControllerAdmin::class, 'dashboard'])->name('admin.dashboa
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth', 'admin');
-Route::get('/home-edit', [HomeController::class, 'edit'])->name('home-edit')->middleware('auth', 'admin');
-Route::get('/user-reviews/{id}', [UserController::class, 'userReviews'])->name('userReviews')->middleware('auth', 'admin');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
+Route::get('/home-edit', [HomeController::class, 'edit'])->name('home-edit')->middleware('auth');
+Route::get('/user-reviews/{id}', [UserController::class, 'userReviews'])->name('userReviews')->middleware('auth');
 
 Route::put('/users/{id}', [UserController::class, 'updateProfile'])
         ->name('updateProfile')->middleware('auth');

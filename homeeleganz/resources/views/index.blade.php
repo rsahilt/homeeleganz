@@ -8,7 +8,7 @@
 @endif
 
 
-    <div id=" hero-image" class="w-[100%] h-650">
+    <div id="hero-image" class="w-[100%] h-700">
         <!-- <img src="/images/hero-image.png" class="mx-auto"> -->
         <div class="slideshow-container">
   			<div class="mySlides fade">
