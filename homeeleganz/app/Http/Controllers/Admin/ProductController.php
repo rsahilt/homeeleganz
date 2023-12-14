@@ -60,6 +60,11 @@ class ProductController extends Controller
             'category_id' => 'string|min:1|max:255',
         ]);
         $product = Product::create($valid);
+
+        if ($request->has('category_ids')) {
+            $product->categories()->attach($request->input('category_ids'));
+        }
+        
         if($file = $request->file('image')){
             $filename = uniqid() . '_' . $file->getClientOriginalName();
             Storage::disk('images')->put($filename,File::get($file));
