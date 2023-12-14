@@ -1,3 +1,9 @@
+<script>
+    function toggleMenu() {
+        var menu = document.getElementById('menu');
+        menu.classList.toggle('hidden');
+    }
+</script>
 <header class="w-[100%] pt-4 border-b bg-white">
     <div id="utilities" class="flex justify-between items-center mb-3">
 
@@ -18,7 +24,7 @@
                         </span>
                         <input type="search" name="search" class="search h-[50px] w-full rounded-3xl border border-solid border-neutral-300 bg-transparent bg-clip-padding pl-10 pr-12 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary" placeholder="Search for your dream decoration items" aria-label="Search" aria-describedby="button-addon2" />
                     </div>
-                    
+
                 </div>
             </form>
         </div>
@@ -43,7 +49,8 @@
                 @if(Auth::user()->is_admin)
                 <li><a href="/admin" class="authli">Admin Dashboard</a></li>
                 @else
-                <li><a href="/home" class="authli"> {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</a></li>
+                <li><a href="/home" class="authli"> {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</a>
+                </li>
                 @endif
 
                 <li class="authli">|</li>
@@ -80,8 +87,47 @@
         <!-- <div class="max-w-screen-xl flex items-center justify-between mx-auto p-4"> -->
 
 
-        <div class="w-full md:w-auto" id="navbar-default">
-            <ul class="navbar font-medium flex flex-col md:flex-row md:justify-center md:space-x-8 mt-4 md:mt-0">
+        <div class="w-full md:w-auto " id="navbar-default">
+
+            <div class="relative block md:hidden">
+                <div class="flex items-center" onclick="toggleMenu()">
+                    <button class="text-gray-500 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Hidden menu -->
+                <div id="menu" class="absolute left-0 mt-2 w-48 bg-white border rounded-md shadow-lg z-10">
+                    <ul class="navbar font-medium flex flex-col justify-center  z-10">
+                        <li>
+                            <a href="/" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">Home</a>
+                        </li>
+
+                        <li>
+                            <a href="/about" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>
+                        </li>
+
+                        <li>
+                            <a href="/products" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Products</a>
+                        </li>
+
+                        <li>
+                            <a href="/brands" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Brands</a>
+                        </li>
+
+                        <li>
+                            <a href="/contact" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact
+                                Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+            <ul class="navbar font-medium md:flex hidden md:flex-row md:justify-center md:space-x-8 mt-4 md:mt-0">
                 <li>
                     <a href="/" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">Home</a>
                 </li>
