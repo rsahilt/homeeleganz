@@ -153,4 +153,7 @@ Route::get('/admin/categories', [CategoryController::class, 'index'])
         ->name('storecategory')->middleware('auth', 'admin');
 
 Route::delete('/admin/categories/{id}', [CategoryController::class, 'destroy'])
-        ->name('deletecategory')->middleware('auth', 'admin');       
+        ->name('deletecategory')->middleware('auth', 'admin');      
+        
+Route::get('/admin/categories/{id}/edit', [CategoryController::class, 'edit'])
+        ->name('editcategory')->middleware('auth', 'admin');
