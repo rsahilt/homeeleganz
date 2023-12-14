@@ -63,7 +63,15 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $categories = Category::find($id);
+        $title = 'Edit Category';
+        $slug="categorydashboard";
+        if ($categories) {
+            return view('/admin/categories/edit', compact('categories', 'title','slug'));
+        } else {
+            return redirect('/admin/categories/index');
+        }
+        
     }
 
     /**
