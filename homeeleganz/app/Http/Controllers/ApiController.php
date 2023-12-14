@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 
 use Pacewdd\Bx\_5bx;
 
+use Auth;
+
 class ApiController extends Controller
 {
     public function index(Request $request)
@@ -22,13 +24,12 @@ class ApiController extends Controller
 
         $response = $transaction->authorize_and_capture(); // returns JSON object
 
-        dd($response);
+        $userdetails = Auth::user();
 
-        // dd($response->transaction_response->errors);
         if($response->transaction_response->errors){
             return redirect()->back()->withErrors($response->transaction_response->errors);
         }
-        return view('/invoice', compact('response'));
+        return view('/invoice', compact('response','userdetails'));
         
     }
     

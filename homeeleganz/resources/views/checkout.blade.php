@@ -106,23 +106,23 @@
                 @enderror
             </div>
 
-    <div class="mb-4">
-        <label class="block text-sm font-medium text-gray-600">Card Type</label>
-        <div class="mt-1">
-            <label class="inline-flex items-center">
-                <input type="radio" name="cardType" value="visa" class="form-radio">
-                <span class="ml-2">Visa</span>
-            </label>
-            <label class="inline-flex items-center ml-4">
-                <input type="radio" name="cardType" value="credit" class="form-radio">
-                <span class="ml-2">Amex</span>
-            </label>
-            <label class="inline-flex items-center ml-4">
-                <input type="radio" name="cardType" value="master" class="form-radio">
-                <span class="ml-2">Master</span>
-            </label>
-        </div>
-    </div>
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-600">Card Type</label>
+                <div class="mt-1">
+                    <label class="inline-flex items-center">
+                        <input type="radio" name="cardType" value="visa" class="form-radio">
+                        <span class="ml-2">Visa</span>
+                    </label>
+                    <label class="inline-flex items-center ml-4">
+                        <input type="radio" name="cardType" value="credit" class="form-radio">
+                        <span class="ml-2">Amex</span>
+                    </label>
+                    <label class="inline-flex items-center ml-4">
+                        <input type="radio" name="cardType" value="master" class="form-radio">
+                        <span class="ml-2">Master</span>
+                    </label>
+                </div>
+            </div>
 
             <div class="mb-4">
                 <label for="expiry" class="block text-sm font-medium text-gray-600">Expiry Date</label>

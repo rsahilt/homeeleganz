@@ -16,15 +16,16 @@
         </div>
         <div class="border-b-2 border-gray-300 pb-8 mb-8">
             <h2 class="text-2xl font-bold mb-4">Bill To:</h2>
-            <div class="text-gray-700 mb-2">John Doe</div>
-            <div class="text-gray-700 mb-2">123 Main St.</div>
-            <div class="text-gray-700 mb-2">Anytown, USA 12345</div>
-            <div class="text-gray-700">johndoe@example.com</div>
+            <div class="text-gray-700 mb-2">{{ $userdetails->first_name }} {{ $userdetails->last_name }}</div>
+            <div class="text-gray-700 mb-2">{{ $userdetails->address}}-{{ $userdetails->street }}</div>
+            <div class="text-gray-700 mb-2">{{ $userdetails->city }}, {{ $userdetails->province }}</div>
+            <div class="text-gray-700 mb-2">{{ $userdetails->country }}</div>
+            <div class="text-gray-700">{{ $userdetails->email }}</div>
         </div>
         <table class="w-full text-left mb-8">
             <thead>
                 <tr>
-                    <th class="text-gray-700 font-bold uppercase py-2">Description</th>
+                    <th class="text-gray-700 font-bold uppercase py-2">Items</th>
                     <th class="text-gray-700 font-bold uppercase py-2">Quantity</th>
                     <th class="text-gray-700 font-bold uppercase py-2">Price</th>
                     <th class="text-gray-700 font-bold uppercase py-2">Total</th>
