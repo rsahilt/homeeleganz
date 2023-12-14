@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use App\Models\Category;
+use Illuminate\Support\Facades\Storage;
+
 
 class CategoryController extends Controller
 {
@@ -13,7 +17,9 @@ class CategoryController extends Controller
     public function index()
     {
         $title='List of categories';
-        return view('/admin/categories/index', compact('title'));
+        $slug='categorydashboard';
+        $categories=Category::latest()->all();
+        return view('/admin/categories/index', compact('title','slug'));
     }
 
     /**
