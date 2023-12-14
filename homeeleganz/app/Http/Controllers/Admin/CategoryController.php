@@ -79,7 +79,19 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $categories = Category::find($id);
+
+        if ($categories) {
+            $validatedData = $request->validate([
+                'name' => 'required|string|min:1|max:255',
+            ]);
+            $categories->update($validatedData);
+            $categories->save();
+            
+            return redirect()->route('categorieslist')->with('success','Changes Saved');
+        } else {
+            return redirect('/admin/categories/edit');
+        }
     }
 
     /**
