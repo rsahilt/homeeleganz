@@ -145,3 +145,6 @@ Route::delete('/admin/taxes/{id}', [TaxController::class, 'destroy'])
 //CRUD FOR Categories
 Route::get('/admin/categories', [CategoryController::class, 'index'])
         ->name('categorieslist')->middleware('auth','admin');
+
+ Route::get('/admin/categories/create', [CategoryController::class, 'create'])
+        ->name('createcategory')->middleware('auth', 'admin');
