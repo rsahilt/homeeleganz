@@ -24,7 +24,7 @@
         @foreach($category->products as $product)
         <div class="w-[250px] min-h-[400px] border-[1px] rounded-[35px] mx-auto relative">
 
-            <img src="/images/sofa.jpeg" class="flex flex-col rounded-t-[35px]" />
+            <img src="/images/{{ $product->image }}" class="flex flex-col rounded-t-[35px]" />
             <div class="px-2 my-2 ">
                 <div class="w-[100%] flex justify-between items-center text-[1.1em]">
                     <span><b>{{ $product->name }}</b></span>

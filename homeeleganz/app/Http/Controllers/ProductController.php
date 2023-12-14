@@ -9,6 +9,7 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Models\Review as Review;
 use App\Models\Message;
+use App\Models\User;
 use App\Models\Tax;
 
 class ProductController extends Controller
@@ -160,8 +161,13 @@ class ProductController extends Controller
     }
 
 
-    public function viewCheckout(Request $request)
-    {
+    public function viewCheckout(Request $request){
+        if (!Auth::check()) {
+            // Store the intended URL (cart page)
+            $request->session()->put('url.intended', route('cart.view'));
+            // Redirect to login page
+            return redirect()->route('login');
+        }
         $title = "Checkout";
         $cart = $request->session()->get('cart', []);
 
@@ -212,5 +218,13 @@ class ProductController extends Controller
         }
 
         return redirect()->back()->with('error', 'Product not found in cart');
+    }
+
+    public function aboutmethod()
+    {
+        $usercount = User::count();
+        $productcount = Product::count();
+        $title = "All Collection";
+        return view('about', compact('usercount', 'title', 'productcount'));
     }
 }

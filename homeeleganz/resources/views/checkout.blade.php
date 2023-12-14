@@ -6,7 +6,7 @@
 
     </div>
 
-    
+    @auth
     <div id="items" class="w-[40%] h-auto mx-auto my-[3rem] p-6 bg-gray-100 ">
     
         @foreach($cart as $cartItem)
@@ -89,6 +89,14 @@
             <button class="bg-blue-500 text-white font-semibold py-2 px-12 rounded-md">Pay</button>
         </div>
     </div>
+    @else
+    <div class="text-center my-10">
+        <p class="mb-4">Please login to view your cart.</p>
+        <a href="{{ route('login') }}" class="inline-block bg-blue-500 text-white font-semibold py-2 px-12 rounded-md">Login</a>
+    </div>
+@endauth
+
+    
 
 
 
