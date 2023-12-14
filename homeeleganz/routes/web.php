@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Models\Review;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -80,6 +81,13 @@ Route::delete('/admin/reviews/{id}', [ReviewController::class, 'destroy'])
         ->name('delete-reviews')->middleware('auth', 'admin');
 
 
+Route::get('/invoice', [App\Http\Controllers\InvoiceController::class, 'show'])
+        ->name('invoice.show')->middleware('auth');
+   
+
+Route::get('/about', function () {
+        return view('about');
+});
 Route::get('/about', [ProductController::class, 'aboutmethod'])->name('aboutpage');
 
 Route::get('/contact', function () {
