@@ -79,6 +79,16 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $categories = Category::find($id);
+
+        // if id exists
+        if($categories){
+            $categories->delete();
+            return redirect()->route('categorieslist')->with('danger', 'Category removed permanently');
+        }else{
+            return redirect()->route('categoriestlist');
+        }
+    
+    
     }
 }
