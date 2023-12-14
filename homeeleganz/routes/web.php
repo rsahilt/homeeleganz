@@ -148,3 +148,6 @@ Route::get('/admin/categories', [CategoryController::class, 'index'])
 
  Route::get('/admin/categories/create', [CategoryController::class, 'create'])
         ->name('createcategory')->middleware('auth', 'admin');
+
+ Route::post('/admin/categories/', [TCategoryController::class, 'store'])
+        ->name('storecategory')->middleware('auth', 'admin');
