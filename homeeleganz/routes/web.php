@@ -140,3 +140,7 @@ Route::put('/admin/taxes/{id}', [TaxController::class, 'update'])
 
 Route::delete('/admin/taxes/{id}', [TaxController::class, 'destroy'])
         ->name('deletetax')->middleware('auth', 'admin');
+
+//CRUD FOR Categories
+Route::get('/admin/categories', [CategoryController::class, 'index'])
+        ->name('categorieslist')->middleware('auth','admin');
