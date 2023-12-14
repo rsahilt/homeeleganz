@@ -32,7 +32,7 @@
                 <li><a href="{{ route('login') }}" class="authli">{{ __('Login') }}</a></li>
                 @endif
 
-                <li>|</li>
+                <li class="authli">|</li>
 
                 @if (Route::has('register'))
                 <li><a href="{{ route('register') }}" class="authli">{{ __('Register') }}</a></li>

@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ProductController as AdminController;
 use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\TaxController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Models\Review;
 
@@ -80,6 +81,7 @@ Route::delete('/admin/reviews/{id}', [ReviewController::class, 'destroy'])
         ->name('delete-reviews')->middleware('auth', 'admin');
 
 
+<<<<<<< HEAD
 Route::get('/invoice', [App\Http\Controllers\InvoiceController::class, 'show'])
         ->name('invoice.show')->middleware('auth');
    
@@ -87,6 +89,9 @@ Route::get('/invoice', [App\Http\Controllers\InvoiceController::class, 'show'])
 Route::get('/about', function () {
         return view('about');
 });
+=======
+Route::get('/about', [ProductController::class, 'aboutmethod'])->name('aboutpage');
+>>>>>>> main
 
 Route::get('/contact', function () {
         return view('contact');
@@ -97,9 +102,9 @@ Route::get('/admin', [ControllerAdmin::class, 'dashboard'])->name('admin.dashboa
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth', 'admin');
-Route::get('/home-edit', [HomeController::class, 'edit'])->name('home-edit')->middleware('auth', 'admin');
-Route::get('/user-reviews/{id}', [UserController::class, 'userReviews'])->name('userReviews')->middleware('auth', 'admin');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
+Route::get('/home-edit', [HomeController::class, 'edit'])->name('home-edit')->middleware('auth');
+Route::get('/user-reviews/{id}', [UserController::class, 'userReviews'])->name('userReviews')->middleware('auth');
 
 Route::put('/users/{id}', [UserController::class, 'updateProfile'])
         ->name('updateProfile')->middleware('auth');
@@ -147,3 +152,22 @@ Route::put('/admin/taxes/{id}', [TaxController::class, 'update'])
 
 Route::delete('/admin/taxes/{id}', [TaxController::class, 'destroy'])
         ->name('deletetax')->middleware('auth', 'admin');
+
+//CRUD FOR Categories
+Route::get('/admin/categories', [CategoryController::class, 'index'])
+        ->name('categorieslist')->middleware('auth','admin');
+
+ Route::get('/admin/categories/create', [CategoryController::class, 'create'])
+        ->name('createcategory')->middleware('auth', 'admin');
+
+ Route::post('/admin/categories/', [CategoryController::class, 'store'])
+        ->name('storecategory')->middleware('auth', 'admin');
+
+Route::delete('/admin/categories/{id}', [CategoryController::class, 'destroy'])
+        ->name('deletecategory')->middleware('auth', 'admin');      
+        
+Route::get('/admin/categories/{id}/edit', [CategoryController::class, 'edit'])
+        ->name('editcategory')->middleware('auth', 'admin');
+
+Route::put('/admin/categories/{id}', [CategoryController::class, 'update'])
+        ->name('updatecategory')->middleware('auth', 'admin');

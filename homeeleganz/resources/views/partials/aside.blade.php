@@ -20,8 +20,8 @@
             <a href="/admin/taxes" class="block py-3 px-4 text-white text-lg">Taxes</a>
         </li>
 
-        <li class="mb-2 mr-5 rounded hover:bg-blue-700">
-            <a href="#" class="block py-3 px-4 text-white text-lg">Categories</a>
+        <li class="mb-2 mr-5 rounded hover:bg-blue-700 {{ $slug === 'categorydashboard' ? 'bg-blue-700' : '' }}">
+            <a href="/admin/categories" class="block py-3 px-4 text-white text-lg">Categories</a>
         </li>
 
         <li class="mb-2 mr-5 rounded hover:bg-blue-700 {{ $slug === 'reviewdashboard' ? 'bg-blue-700' : '' }}">

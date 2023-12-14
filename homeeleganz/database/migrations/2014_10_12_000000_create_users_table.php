@@ -18,8 +18,10 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('address');
+            $table->string('street');
             $table->string('city');
             $table->string('province');
+            $table->string('country');
             $table->string('postal_code');
             $table->string('phone_number');
             $table->string('password');

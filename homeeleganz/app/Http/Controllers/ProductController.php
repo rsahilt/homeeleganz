@@ -9,6 +9,7 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Models\Review as Review;
 use App\Models\Message;
+use App\Models\User;
 use App\Models\Tax;
 
 class ProductController extends Controller
@@ -217,5 +218,13 @@ class ProductController extends Controller
         }
 
         return redirect()->back()->with('error', 'Product not found in cart');
+    }
+
+    public function aboutmethod()
+    {
+        $usercount = User::count();
+        $productcount = Product::count();
+        $title = "All Collection";
+        return view('about', compact('usercount', 'title', 'productcount'));
     }
 }

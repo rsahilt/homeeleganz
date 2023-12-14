@@ -42,6 +42,7 @@
             <h1 class="text-4xl font-medium text-gray-700">{{ $user->first_name }} {{ $user->last_name }}, <span class="font-light text-gray-500">27</span></h1>
             <p class="font-light text-gray-600 mt-3">{{ $user->postal_code }}, {{ $user->city }}</p>
             <p class="font-light text-gray-600 mt-3">{{ $user->province }}</p>
+            <p class="font-light text-gray-600 mt-3">{{ $user->address }}</p>
         </div>
 
         <div class="mt-12 flex flex-col justify-center">
