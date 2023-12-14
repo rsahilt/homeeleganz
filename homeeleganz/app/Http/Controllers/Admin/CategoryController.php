@@ -86,7 +86,6 @@ class CategoryController extends Controller
                 'name' => 'required|string|min:1|max:255',
             ]);
             $categories->update($validatedData);
-            $categories->save();
             
             return redirect()->route('categorieslist')->with('success','Changes Saved');
         } else {

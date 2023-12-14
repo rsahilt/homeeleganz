@@ -158,5 +158,5 @@ Route::delete('/admin/categories/{id}', [CategoryController::class, 'destroy'])
 Route::get('/admin/categories/{id}/edit', [CategoryController::class, 'edit'])
         ->name('editcategory')->middleware('auth', 'admin');
 
-Route::put('/admin/categories/{id}', [TaxController::class, 'update'])
+Route::put('/admin/categories/{id}', [CategoryController::class, 'update'])
         ->name('updatecategory')->middleware('auth', 'admin');
