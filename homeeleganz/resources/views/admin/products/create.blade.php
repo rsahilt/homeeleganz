@@ -75,14 +75,15 @@
                         </div> 
 
                         <div class="sm:col-span-2">
-                            <label for="category_ids" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Categories</label>
+                            <label for="category_id" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Categories</label>
                             @foreach ($categories as $category)
                                 <div>
-                                    <input type="checkbox" id="category_{{ $category->id }}" name="category_ids[]" value="{{ $category->id }}" class="mr-2">
+                                    <input type="checkbox" id="category_{{ $category->id }}" name="category_id[]" value="{{ $category->id }}" class="mr-2" 
+                                    {{ in_array($category->id, old('category_id',[])) ? 'checked' : '' }}>
                                     <label for="category_{{ $category->id }}">{{ $category->name }}</label>
                                 </div>
                             @endforeach
-                            @error('category_ids')
+                            @error('category_id')
                                 <span class="text-red-500">{{ $message }}</span>
                             @enderror
                         </div>

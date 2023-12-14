@@ -32,7 +32,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $title = "Upload New Cartoon";
+        $title = "Upload New Product";
         $categories = Category::all();
         $slug="productdashboard";
         return view('/admin/products/create', compact('title','categories','slug'));
@@ -57,13 +57,12 @@ class ProductController extends Controller
             'brand' => 'required|string|min:1|max:255',
             'weight' => 'required|numeric|min:5|max:5000',
             'dimensions' => 'required|string|min:1|max:255',
-            'category_id' => 'string|min:1|max:255',
+            'category_id' => 'required|array|min:1',
         ]);
         $product = Product::create($valid);
-
-        if ($request->has('category_ids')) {
-            $product->categories()->attach($request->input('category_ids'));
-        }
+        
+        $product->categories()->attach($valid['category_id']);
+        dd($product->categories);
         
         if($file = $request->file('image')){
             $filename = uniqid() . '_' . $file->getClientOriginalName();
