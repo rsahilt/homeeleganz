@@ -26,11 +26,14 @@ class ApiController extends Controller
         $response = $transaction->authorize_and_capture(); // returns JSON object
 
         $userdetails = Auth::user();
+        
+       
 
         if($response->transaction_response->errors){
             return redirect()->back()->withErrors($response->transaction_response->errors);
         }
-        return view('/invoice', compact('response','userdetails'));
+        $cart = $request->session()->forget('cart');
+        return view('/invoice', compact('response','userdetails','cart'));
         
     }
     
