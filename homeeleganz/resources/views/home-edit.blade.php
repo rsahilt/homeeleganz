@@ -38,8 +38,16 @@
                     </div>
 
                     <div class="w-full">
-                        <label for="address" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Country</label>
+                        <label for="address" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">House/Unit/Suite
+                            no.</label>
                         <input type="text" name="address" id="address" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Country" value="{{ old('address',  $user->address) }}">
+                        @error('address')
+                        <span class="text-red-500">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="w-full">
+                        <label for="street" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Street</label>
+                        <input type="text" name="street" id="street" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="street" value="{{ old('street',  $user->street) }}">
                         @error('address')
                         <span class="text-red-500">{{ $message }}</span>
                         @enderror
