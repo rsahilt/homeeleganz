@@ -52,7 +52,7 @@ Route::post('/add-to-cart', [ProductController::class, 'addToCart'])->name('cart
 
 Route::get('/cart', [ProductController::class, 'viewCart'])->name('cart.view');
 
-Route::post('/checkout', [ProductController::class, 'viewCheckout'])->name('checkout');
+Route::get('/checkout', [ProductController::class, 'viewCheckout'])->name('checkout');
 
 Route::get('/cart/remove/{productId}', [ProductController::class, 'removeFromCart'])->name('cart.remove');
 
@@ -181,7 +181,8 @@ Route::get('/admin/orders', [OrderController::class, 'index'])
         ->name('orders.index')->middleware('auth', 'admin');
 
 Route::delete('/admin/orders/{id}', [OrderController::class, 'destroy'])
-        ->name('orders.destroy')->middleware('auth', 'admin');
+        ->name('orders.destroy')->middleware('auth', 'admin');;
 
+// transaction/payment
 Route::post('/transactionprocess', [ApiController::class, 'index'])
         ->name('transaction')->middleware('auth');
