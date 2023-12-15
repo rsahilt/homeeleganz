@@ -33,7 +33,7 @@ class ApiController extends Controller
             return redirect()->back()->withErrors($response->transaction_response->errors);
         }
         $cart = $request->session()->forget('cart');
-        return view('/invoice', compact('response','userdetails','cart'));
+        return view('/invoice', compact('response','userdetails'));
         
     }
     

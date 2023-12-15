@@ -164,4 +164,13 @@ class ProductController extends Controller
             return redirect()->route('productlist');
         }
     }
+
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+        $products = Product::where('name', 'LIKE', "%$search%")
+                            ->orWhere('description', 'LIKE', "%$search%")
+                            ->paginate(10);
+        return view('admin.products.index', compact('products'));
+    }
 }
