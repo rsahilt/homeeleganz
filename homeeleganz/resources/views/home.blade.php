@@ -20,15 +20,18 @@
             </div>
 
             <div class="relative">
-                <div class="w-48 h-48 bg-indigo-100 mx-auto rounded-full shadow-2xl absolute inset-x-0 top-0 -mt-24 flex items-center justify-center text-indigo-500">
+                <div
+                    class="w-48 h-48 bg-indigo-100 mx-auto rounded-full shadow-2xl absolute inset-x-0 top-0 -mt-24 flex items-center justify-center text-indigo-500">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                        <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                            clip-rule="evenodd" />
                     </svg>
                 </div>
             </div>
 
             <div class="space-x-8 flex justify-between mt-32 md:mt-0 md:justify-center">
-                <button class="text-white py-2 px-4 uppercase rounded bg-blue-400 hover:bg-blue-500 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
+                <button
+                    class="text-white py-2 px-4 uppercase rounded bg-blue-400 hover:bg-blue-500 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
                     <a href="{{ route('home-edit', ['id' => $user->id]) }}"> Edit </a>
                 </button>
                 <button class=" text-white py-2 px-4 uppercase rounded bg-gray-700 hover:bg-gray-800 shadow hover:shadow-lg
@@ -39,10 +42,16 @@
         </div>
 
         <div class="mt-20 text-center border-b pb-12">
-            <h1 class="text-4xl font-medium text-gray-700">{{ $user->first_name }} {{ $user->last_name }}, <span class="font-light text-gray-500">27</span></h1>
-            <p class="font-light text-gray-600 mt-3">{{ $user->postal_code }}, {{ $user->city }}</p>
-            <p class="font-light text-gray-600 mt-3">{{ $user->province }}</p>
-            <p class="font-light text-gray-600 mt-3">{{ $user->address }}</p>
+            <h1 class="text-4xl font-medium text-gray-700">{{ $user->first_name }} {{ $user->last_name }}, <span
+                    class="font-light text-gray-500">27</span></h1>
+            <p class="font-light text-gray-600 mt-3">{{ $user->address }}
+            </p>
+            <p class="font-light text-gray-600 mt-3"> {{ $user->street }}
+                {{ $user->postal_code }}
+
+            </p>
+            <p class="font-light text-gray-600 mt-3"> {{ $user->city }}, {{ $user->province }}</p>
+            <p class="font-light text-gray-600 mt-3">{{ $user->country }}</p>
         </div>
 
         <div class="mt-12 flex flex-col justify-center">

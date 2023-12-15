@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\TaxController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\HomeController;
 use App\Models\Review;
 
@@ -51,11 +52,16 @@ Route::post('/add-to-cart', [ProductController::class, 'addToCart'])->name('cart
 
 Route::get('/cart', [ProductController::class, 'viewCart'])->name('cart.view');
 
-Route::post('/checkout', [ProductController::class, 'viewCheckout'])->name('checkout');
+Route::get('/checkout', [ProductController::class, 'viewCheckout'])->name('checkout');
 
 Route::get('/cart/remove/{productId}', [ProductController::class, 'removeFromCart'])->name('cart.remove');
 
+// Admin Dashboard search
+Route::post('/admin/products/search', [AdminController::class, 'search'])
+    ->name('admin.products.search')->middleware('auth', 'admin');
+
 //CRUD FOR PRODUCTS TABLE
+
 
 Route::get('/admin/products/', [AdminController::class, 'index'])
         ->name('productlist')->middleware('auth', 'admin');
@@ -170,5 +176,13 @@ Route::get('/admin/categories/{id}/edit', [CategoryController::class, 'edit'])
 Route::put('/admin/categories/{id}', [CategoryController::class, 'update'])
         ->name('updatecategory')->middleware('auth', 'admin');
 
+// CRUD for Orders
+Route::get('/admin/orders', [OrderController::class, 'index'])
+        ->name('orders.index')->middleware('auth', 'admin');
+
+Route::delete('/admin/orders/{id}', [OrderController::class, 'destroy'])
+        ->name('orders.destroy')->middleware('auth', 'admin');;
+
+// transaction/payment
 Route::post('/transactionprocess', [ApiController::class, 'index'])
         ->name('transaction')->middleware('auth');

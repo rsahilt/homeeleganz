@@ -63,15 +63,13 @@
                 <span class="total-value text-xl">${{ number_format($totalPriceWithTaxes,2) }}</span>
             </div>
 
-            <form action="{{ route('checkout') }}" method="POST" novalidate>
-                @csrf
+            <div>
                 <a href="/products" class="inline-flex items-center justify-center px-5 py-2 text-sm font-medium text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800 transition duration-300">
                 Continue Shopping
                 </a>
 
-                <input type="hidden" name="cart" value="{{ json_encode($cart) }}">
-                <button type="submit" class="inline-flex items-center justify-center px-5 py-2 text-sm font-medium text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800 transition duration-300">Checkout</button>
-            </form>
+                <a href="/checkout?cart={{ urlencode(json_encode($cart)) }}" class="inline-flex items-center justify-center px-5 py-2 text-sm font-medium text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800 transition duration-300">Checkout</a>
+            </div>
             
         </div>
     </div>
