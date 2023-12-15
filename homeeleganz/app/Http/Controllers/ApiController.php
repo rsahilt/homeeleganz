@@ -14,6 +14,7 @@ class ApiController extends Controller
 {
     public function index(Request $request)
     {
+        
         $transaction = new _5bx(2257811, 'a88c8843898e4daad5646322ca06f22d');
         $transaction->amount($request->totalamount); 
         $transaction->card_num($request->cardNumber);
