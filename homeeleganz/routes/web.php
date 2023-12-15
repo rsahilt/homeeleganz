@@ -173,7 +173,7 @@ Route::put('/admin/categories/{id}', [CategoryController::class, 'update'])
 
 // CRUD for Orders
 Route::get('/admin/orders', [OrderController::class, 'index'])
-        ->name('orders.index')->middleware('auth', 'admin');;
+        ->name('orders.index')->middleware('auth', 'admin');
 
 Route::delete('/admin/orders/{id}', [OrderController::class, 'destroy'])
         ->name('orders.destroy')->middleware('auth', 'admin');;

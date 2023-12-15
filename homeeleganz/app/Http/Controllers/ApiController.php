@@ -66,6 +66,9 @@ class ApiController extends Controller
         
             return view('invoice', compact('response', 'userdetails'));
         }
+
+        $cart = $request->session()->forget('cart');
+        return view('/invoice', compact('response','userdetails','cart'));
         
     }
     
