@@ -73,10 +73,14 @@ class ApiController extends Controller
         
             $userdetails = Auth::user();
         
+            // return view('invoice', compact('response', 'userdetails'));
+
+            $request->session()->forget('cart');
+        
             return view('invoice', compact('response', 'userdetails'));
         }
 
-        $cart = $request->session()->forget('cart');
+        // $cart = $request->session()->forget('cart');
         // return view('/invoice', compact('response','userdetails','cart'));
         
     }
