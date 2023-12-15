@@ -56,7 +56,7 @@ Route::post('/checkout', [ProductController::class, 'viewCheckout'])->name('chec
 
 Route::get('/cart/remove/{productId}', [ProductController::class, 'removeFromCart'])->name('cart.remove');
 
-Route::post('/admin/products', [ProductController::class, 'search'])
+Route::post('/admin/products/search', [AdminController::class, 'search'])
     ->name('admin.products.search')->middleware('auth', 'admin');
 
 //CRUD FOR PRODUCTS TABLE

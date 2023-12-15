@@ -168,9 +168,11 @@ class ProductController extends Controller
     public function search(Request $request)
     {
         $search = $request->input('search');
+        $slug="productdashboard";
+        $title="Search Results";
         $products = Product::where('name', 'LIKE', "%$search%")
                             ->orWhere('description', 'LIKE', "%$search%")
                             ->paginate(10);
-        return view('admin.products.index', compact('products'));
+        return view('admin.products.index', compact('products', 'slug', 'title'));
     }
 }

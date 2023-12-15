@@ -35,7 +35,7 @@
         <div id="login" class="flex pr-10">
 
             <ul class="flex space-x-2">
-            <form action="{{ route('admin.products.search') }}" method="GET" novalidate>
+            <form action="{{ route('admin.products.search') }}" method="POST" novalidate>
                 
         @csrf
         <div class="relative flex w-full flex-wrap items-stretch">
