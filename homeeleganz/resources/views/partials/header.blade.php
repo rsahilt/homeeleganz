@@ -91,7 +91,7 @@
 
             <div class="relative block md:hidden">
                 <div class="flex items-center" onclick="toggleMenu()">
-                    <button class="text-gray-500 focus:outline-none">
+                    <button class="text-white focus:outline-none">
                         <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                         </svg>
@@ -99,29 +99,25 @@
                 </div>
 
                 <!-- Hidden menu -->
-                <div id="menu" class="absolute left-0 mt-2 w-48 bg-white border rounded-md shadow-lg z-10">
-                    <ul class="navbar font-medium flex flex-col justify-center  z-10">
+                <div id="menu" class="hidden absolute left-0 w-48 bg-white border rounded-md shadow-lg z-10">
+                    <ul class="navbar flex flex-col justify-center z-10 bg-[#474772]">
                         <li>
-                            <a href="/" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">Home</a>
+                            <a href="/" aria-current="page" style="">Home</a>
                         </li>
-
                         <li>
-                            <a href="/about" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>
+                            <a href="/about">About</a>
                         </li>
-
                         <li>
-                            <a href="/products" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Products</a>
+                            <a href="/products">Products</a>
                         </li>
-
                         <li>
-                            <a href="/brands" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Brands</a>
+                            <a href="/brands">Brands</a>
                         </li>
-
                         <li>
-                            <a href="/contact" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact
-                                Us</a>
+                            <a href="/contact">Contact Us</a>
                         </li>
                     </ul>
+
                 </div>
             </div>
 
