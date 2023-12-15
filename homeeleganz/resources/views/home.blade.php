@@ -40,7 +40,10 @@
 
         <div class="mt-20 text-center border-b pb-12">
             <h1 class="text-4xl font-medium text-gray-700">{{ $user->first_name }} {{ $user->last_name }}, <span class="font-light text-gray-500">27</span></h1>
-            <p class="font-light text-gray-600 mt-3">{{ $user->postal_code }}, {{ $user->city }}</p>
+            <p class="font-light text-gray-600 mt-3">{{ $user->address }}, {{ $user->street }}
+                {{ $user->postal_code }},
+                {{ $user->city }}
+            </p>
             <p class="font-light text-gray-600 mt-3">{{ $user->province }}</p>
             <p class="font-light text-gray-600 mt-3">{{ $user->address }}</p>
         </div>

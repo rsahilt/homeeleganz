@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ControllerAdmin;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ApiController;
 
 use App\Http\Controllers\Admin\ProductController as AdminController;
 use App\Http\Controllers\Admin\ReviewController;
@@ -176,3 +177,5 @@ Route::get('/admin/orders', [OrderController::class, 'index'])
 
 Route::delete('/admin/orders/{id}', [OrderController::class, 'destroy'])
         ->name('orders.destroy')->middleware('auth', 'admin');;
+Route::post('/transactionprocess', [ApiController::class, 'index'])
+        ->name('transaction')->middleware('auth');

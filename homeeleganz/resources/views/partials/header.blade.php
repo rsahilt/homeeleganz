@@ -1,12 +1,18 @@
+<script>
+    function toggleMenu() {
+        var menu = document.getElementById('menu');
+        menu.classList.toggle('hidden');
+    }
+</script>
 <header class="w-[100%] pt-4 border-b bg-white">
-    <div id="utilities" class="flex justify-between items-center mb-3">
+    <div id="utilities" class="flex flex-col md:flex-row justify-between items-center mb-3">
 
-        <div id="logo" class="pl-5 pb-4">
+        <div id="logo" class="pl-0 pb-0 md:pl-5 md:pb-4">
             <!-- <img src="/images/logo.png" alt="" width="60px" height="50px"> -->
             <h1><span>Home</span>Eleganz</h1>
         </div>
 
-        <div class="mb-3" style="width: 50%;">
+        <div class="mb-3 w-[40%] text-center">
             <form action="{{ route('products.search') }}" method="POST" novalidate>
                 @csrf
                 <div class="relative flex w-full flex-wrap items-stretch">
@@ -18,14 +24,14 @@
                         </span>
                         <input type="search" name="search" class="search h-[50px] w-full rounded-3xl border border-solid border-neutral-300 bg-transparent bg-clip-padding pl-10 pr-12 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary" placeholder="Search for your dream decoration items" aria-label="Search" aria-describedby="button-addon2" />
                     </div>
-                    
+
                 </div>
             </form>
         </div>
 
 
 
-        <div id="login" class="flex pr-10">
+        <div id="login" class="flex pr-0 md:pr-10">
             <ul class="flex space-x-2">
                 @guest
                 @if (Route::has('login'))
@@ -43,7 +49,8 @@
                 @if(Auth::user()->is_admin)
                 <li><a href="/admin" class="authli">Admin Dashboard</a></li>
                 @else
-                <li><a href="/home" class="authli"> {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</a></li>
+                <li><a href="/home" class="authli"> {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</a>
+                </li>
                 @endif
 
                 <li class="authli">|</li>
@@ -80,8 +87,43 @@
         <!-- <div class="max-w-screen-xl flex items-center justify-between mx-auto p-4"> -->
 
 
-        <div class="w-full md:w-auto" id="navbar-default">
-            <ul class="navbar font-medium flex flex-col md:flex-row md:justify-center md:space-x-8 mt-4 md:mt-0">
+        <div class="w-full md:w-auto " id="navbar-default">
+
+            <div class="relative block md:hidden">
+                <div class="flex items-center" onclick="toggleMenu()">
+                    <button class="text-white focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Hidden menu -->
+                <div id="menu" class="hidden absolute left-0 w-48 bg-white border rounded-md shadow-lg z-10">
+                    <ul class="navbar flex flex-col justify-center z-10 bg-[#474772]">
+                        <li>
+                            <a href="/" aria-current="page" style="">Home</a>
+                        </li>
+                        <li>
+                            <a href="/about">About</a>
+                        </li>
+                        <li>
+                            <a href="/products">Products</a>
+                        </li>
+                        <li>
+                            <a href="/brands">Brands</a>
+                        </li>
+                        <li>
+                            <a href="/contact">Contact Us</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+
+
+
+            <ul class="navbar font-medium md:flex hidden md:flex-row md:justify-center md:space-x-8 mt-4 md:mt-0">
                 <li>
                     <a href="/" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">Home</a>
                 </li>
