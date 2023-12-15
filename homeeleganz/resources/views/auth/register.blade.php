@@ -10,75 +10,76 @@
                 <form method="POST" action="{{ route('register') }}" class="space-y-4">
                     @csrf
 
+                    <!-- First Name -->
                     <div class="mb-4">
                         <label for="first_name" class="block text-sm font-semibold text-gray-600">{{ __('First Name') }} <span class="text-red-600">*</span></label>
-                        <input id="first_name" type="text" class="form-input h-10 w-full px-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-500" name="first_name" required value="John">
+                        <input id="first_name" type="text" class="form-input h-10 w-full px-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-500" name="first_name" required autocomplete="first_name" autofocus>
                     </div>
 
                     <!-- Last Name -->
                     <div class="mb-4">
                         <label for="last_name" class="block text-sm font-semibold text-gray-600">{{ __('Last Name') }} <span class="text-red-600">*</span></label>
-                        <input id="last_name" type="text" class="form-input h-10 w-full px-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-500" name="last_name" required value="Doe">
+                        <input id="last_name" type="text" class="form-input h-10 w-full px-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-500" name="last_name" required autocomplete="last_name">
                     </div>
 
                     <!-- Email Address -->
                     <div class="mb-4">
                         <label for="email" class="block text-sm font-semibold text-gray-600">{{ __('Email Address') }} <span class="text-red-600">*</span></label>
-                        <input id="email" type="email" class="form-input h-10 w-full px-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-500" name="email" required value="johndoe@example.com">
+                        <input id="email" type="email" class="form-input h-10 w-full px-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-500" name="email" required autocomplete="email">
                     </div>
 
                     <!-- Password -->
                     <div class="mb-4">
                         <label for="password" class="block text-sm font-semibold text-gray-600">{{ __('Password') }} <span class="text-red-600">*</span></label>
-                        <input id="password" type="password" class="form-input h-10 w-full px-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-500" name="password" required>
+                        <input id="password" type="password" class="form-input h-10 w-full px-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-500" name="password" required autocomplete="new-password">
                     </div>
 
                     <!-- Confirm Password -->
                     <div class="mb-4">
                         <label for="password_confirmation" class="block text-sm font-semibold text-gray-600">{{ __('Confirm Password') }} <span class="text-red-600">*</span></label>
-                        <input id="password_confirmation" type="password" class="form-input h-10 w-full px-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-500" name="password_confirmation" required>
+                        <input id="password_confirmation" type="password" class="form-input h-10 w-full px-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-500" name="password_confirmation" required autocomplete="new-password">
                     </div>
 
                     <!-- Address -->
                     <div class="mb-4">
                         <label for="address" class="block text-sm font-semibold text-gray-600">{{ __('Address') }} <span class="text-red-600">*</span></label>
-                        <input id="address" type="text" class="form-input h-10 w-full px-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-500" name="address" required value="123 Street">
+                        <input id="address" type="text" class="form-input h-10 w-full px-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-500" name="address" required>
                     </div>
 
                     <!-- Street -->
                     <div class="mb-4">
                         <label for="street" class="block text-sm font-semibold text-gray-600">{{ __('Street') }} <span class="text-red-600">*</span></label>
-                        <input id="street" type="text" class="form-input h-10 w-full px-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-500" name="street" required value="Main St">
+                        <input id="street" type="text" class="form-input h-10 w-full px-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-500" name="street" required>
                     </div>
 
                     <!-- City -->
                     <div class="mb-4">
                         <label for="city" class="block text-sm font-semibold text-gray-600">{{ __('City') }} <span class="text-red-600">*</span></label>
-                        <input id="city" type="text" class="form-input h-10 w-full px-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-500" name="city" required value="Anytown">
+                        <input id="city" type="text" class="form-input h-10 w-full px-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-500" name="city" required>
                     </div>
 
                     <!-- Province -->
                     <div class="mb-4">
                         <label for="province" class="block text-sm font-semibold text-gray-600">{{ __('Province') }} <span class="text-red-600">*</span></label>
-                        <input id="province" type="text" class="form-input h-10 w-full px-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-500" name="province" required value="Province">
+                        <input id="province" type="text" class="form-input h-10 w-full px-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-500" name="province" required>
                     </div>
 
                     <!-- Country -->
                     <div class="mb-4">
                         <label for="country" class="block text-sm font-semibold text-gray-600">{{ __('Country') }} <span class="text-red-600">*</span></label>
-                        <input id="country" type="text" class="form-input h-10 w-full px-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-500" name="country" required value="Country">
+                        <input id="country" type="text" class="form-input h-10 w-full px-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-500" name="country" required>
                     </div>
 
                     <!-- Postal Code -->
                     <div class="mb-4">
                         <label for="postal_code" class="block text-sm font-semibold text-gray-600">{{ __('Postal Code') }} <span class="text-red-600">*</span></label>
-                        <input id="postal_code" type="text" class="form-input h-10 w-full px-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-500" name="postal_code" required value="12345">
+                        <input id="postal_code" type="text" class="form-input h-10 w-full px-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-500" name="postal_code" required>
                     </div>
 
                     <!-- Phone Number -->
                     <div class="mb-4">
                         <label for="phone_number" class="block text-sm font-semibold text-gray-600">{{ __('Phone Number') }} <span class="text-red-600">*</span></label>
-                        <input id="phone_number" type="tel" class="form-input h-10 w-full px-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-500" name="phone_number" required value="123-456-7890">
+                        <input id="phone_number" type="tel" class="form-input h-10 w-full px-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-500" name="phone_number" required>
                     </div>
 
                     <!-- Register as Admin -->
