@@ -60,6 +60,18 @@
 
             <span><b>${{ number_format($totalPriceWithTaxes, 2) }}</b></span>
         </div>
+
+        @php
+            session(['cartItems' => $cart]);
+            session(['totalPrice' => $totalPrice]);
+            session([
+                'totalGST' => $totalGST,
+                'totalPST' => $totalPST,
+                'totalHST' => $totalHST,
+                'totalTaxes' => $totalTaxes,
+                'totalPriceWithTaxes' => $totalPriceWithTaxes
+            ]);
+        @endphp
     
         <a href="/cart" class="mt-2 mb-5 inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-blue-600 transition-all">
             Back
