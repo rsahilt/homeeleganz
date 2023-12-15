@@ -1,9 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use App\Models\Order;
+use Illuminate\Support\Facades\Storage;
 
 class OrderController extends Controller
 {
@@ -14,8 +17,9 @@ class OrderController extends Controller
      */
     public function index()
     {
+        $title = 'List of orders';
         $orders = Order::all();
-        return view('orders.index', compact('orders'));
+        return view('admin.orders.index', compact('orders', 'title'));
     }
 
     /**
@@ -29,10 +33,10 @@ class OrderController extends Controller
         $order = Order::find($id);
 
         if (!$order) {
-            return redirect()->route('orders.index')->with('error', 'Order not found.');
+            return redirect()->route('admin.orders.index')->with('error', 'Order not found.');
         }
 
         $order->delete();
-        return redirect()->route('orders.index')->with('success', 'Order deleted successfully.');
+        return redirect()->route('admin.orders.index')->with('success', 'Order deleted successfully.');
     }
 }
