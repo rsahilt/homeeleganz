@@ -14,9 +14,9 @@ class ApiController extends Controller
 {
     public function index(Request $request)
     {
-        $request->validate([
+        $valid = $request->validate([
             'cardName' => 'required|string|min:1|min:255',
-            'cardNumber' => 'required|numeric|digits:16',
+            'cardNumber' => 'required|numeric|digits:16', //14 to 18 make it
             'cvv' => 'required|numeric|digits:3',
             'ref' => 'required|numeric|digits:5',
             'cardType' => 'required|string',

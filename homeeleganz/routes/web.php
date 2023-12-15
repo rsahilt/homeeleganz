@@ -52,7 +52,7 @@ Route::post('/add-to-cart', [ProductController::class, 'addToCart'])->name('cart
 
 Route::get('/cart', [ProductController::class, 'viewCart'])->name('cart.view');
 
-Route::post('/checkout', [ProductController::class, 'viewCheckout'])->name('checkout');
+Route::get('/checkout', [ProductController::class, 'viewCheckout'])->name('checkout');
 
 Route::get('/cart/remove/{productId}', [ProductController::class, 'removeFromCart'])->name('cart.remove');
 
