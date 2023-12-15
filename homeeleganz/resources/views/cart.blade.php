@@ -46,21 +46,21 @@
             </div>
 
             <div class="flex justify-between gap-7  mb-3 tax-line">
-                <span class="tax-label"><strong>GST:</strong> </span> <span class="tax-value">${{ $totalGST }}</span>
+                <span class="tax-label"><strong>GST:</strong> </span> <span class="tax-value">${{ number_format($totalGST,2) }}</span>
             </div>
             <div class="flex justify-between gap-7  mb-3 tax-line">
-                <span class="tax-label"><strong>PST:</strong></span> <span class="tax-value">${{ $totalPST }}</span>
+                <span class="tax-label"><strong>PST:</strong></span> <span class="tax-value">${{ number_format($totalPST,2) }}</span>
             </div>
             <div class="flex justify-between gap-7  mb-3 tax-line">
-                <span class="tax-label"><strong>HST:</strong></span> <span class="tax-value">${{ $totalHST }}</span>
+                <span class="tax-label"><strong>HST:</strong></span> <span class="tax-value">${{ number_format($totalHST,2) }}</span>
             </div>
             <div class="flex justify-between gap-7  mb-3">
-                <span class="tax-label"><strong>Total Taxes:</strong></span> <span class="tax-value">${{ $totalTaxes }}</span>
+                <span class="tax-label"><strong>Total Taxes:</strong></span> <span class="tax-value">${{ number_format($totalTaxes,2) }}</span>
             </div>
 
             <div class="flex justify-between my-3">
                 <span class="total-label font-bold text-xl">Total:</span> 
-                <span class="total-value text-xl">${{ $totalPriceWithTaxes }}</span>
+                <span class="total-value text-xl">${{ number_format($totalPriceWithTaxes,2) }}</span>
             </div>
 
             <form action="{{ route('checkout') }}" method="POST" novalidate>

@@ -1,9 +1,9 @@
 @extends('layouts.main')
 @section('content')
 
-<main class="main-container bg-white mt-6 px-4 sm:px-6 lg:px-8" style="width: 70%; margin: auto;">
+<div class="main-container bg-white mt-6 px-4 sm:px-6 lg:px-8" style="width: 70%; margin: auto;">
 
-    <h1 class="font-bold text-3xl text-center pt-5">Thank you for shopping with us! You shipment is on the way!</h1>
+    <h1 class="font-bold text-3xl text-center pt-5">Thank you for shopping with us. You shipment is on the way!</h1>
     <div class="bg-white rounded-lg shadow-lg px-8 py-10 mx-auto">
         <div class="flex items-center justify-between mb-8">
             <div id="logo" class="pb-4">
@@ -11,18 +11,26 @@
             </div>
             <div class="text-gray-700">
                 <div class="font-bold text-xl mb-2">INVOICE</div>
-                <div class="text-sm">Date: 01/05/2023</div>
-                <div class="text-sm">Invoice #: INV12345</div>
+                <div class="text-sm">Date: {{ date('m/d/Y') }}</div>
+                <div class="text-sm">Invoice #: INV{{ str_pad(rand(1, 99999), 5, '0', STR_PAD_LEFT) }}</div>
             </div>
         </div>
         <div class="border-b-2 border-gray-300 pb-8 mb-8">
-            <h2 class="text-2xl font-bold mb-4">Billing Address</h2>
+            <h2 class="text-2xl font-bold mb-4">ShippingAddress</h2>
             <div class="text-gray-700 mb-2">{{ $userdetails->first_name }} {{ $userdetails->last_name }}</div>
             <div class="text-gray-700 mb-2">{{ $userdetails->address}}-{{ $userdetails->street }}</div>
             <div class="text-gray-700 mb-2">{{ $userdetails->city }}, {{ $userdetails->province }}</div>
             <div class="text-gray-700 mb-2">{{ $userdetails->country }}</div>
             <div class="text-gray-700">{{ $userdetails->email }}</div>
         </div>
+
+        <div class="border-b-2 border-gray-300 pb-8 mb-8">
+            <h2 class="text-2xl font-bold mb-4">Payment Details</h2>
+            <div class="text-gray-700 mb-2">Cardholder Name: </div>
+            <div class="text-gray-700 mb-2">Card Number: </div>
+        </div>
+        
+
         <table class="w-full text-left mb-8">
             @php
                 $cartItems = session('cartItems');
@@ -84,7 +92,8 @@
         </div>
     </div>
 
-</main>
+</div>
 
 @include('partials.footer')
+
 @endsection
