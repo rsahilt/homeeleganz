@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\TaxController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\HomeController;
 use App\Models\Review;
 
@@ -168,3 +169,6 @@ Route::get('/admin/categories/{id}/edit', [CategoryController::class, 'edit'])
 
 Route::put('/admin/categories/{id}', [CategoryController::class, 'update'])
         ->name('updatecategory')->middleware('auth', 'admin');
+
+// CRUD for Orders
+Route::resource('orders', OrderController::class)->except(['create', 'store', 'show', 'edit', 'update']);
