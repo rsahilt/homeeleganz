@@ -15,10 +15,10 @@ class ApiController extends Controller
     public function index(Request $request)
     {
         $valid = $request->validate([
-            'cardName' => 'required|string|min:1|min:255',
-            'cardNumber' => 'required|numeric|digits:16', //14 to 18 make it
+            'cardName' => 'required|string|min:1|max:255',
+            'cardNumber' => 'required|numeric|digits_between:14,18',
             'cvv' => 'required|numeric|digits:3',
-            'ref' => 'required|numeric|digits:5',
+            'ref' => 'required|numeric|digits:7',
             'cardType' => 'required|string',
             'expiry' => 'required|numeric|digits:4',
         ]);
