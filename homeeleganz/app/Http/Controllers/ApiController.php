@@ -23,22 +23,21 @@ class ApiController extends Controller
             'expiry' => 'required|numeric|digits:4',
         ]);
         
-        $transaction = new _5bx(2257811, 'a88c8843898e4daad5646322ca06f22d');
-        $transaction->amount($request->totalamount); 
-        $transaction->card_num($request->cardNumber);
-        $transaction->exp_date ($request->expiry);
-        $transaction->cvv($request->cvv);
-        $transaction->card_type($request->cardType);
-        $transaction->ref_num($request->ref);
-
-        $response = $transaction->authorize_and_capture(); // returns JSON object
-
-        $userdetails = Auth::user();
-
-        if($response->transaction_response->errors){
-            return redirect()->back()->withErrors($response->transaction_response->errors);
+        if ($valid) {
+            $transaction = new _5bx(2257811, 'a88c8843898e4daad5646322ca06f22d');
+            // $transaction->amount($valid['totalamount']); // Example if you have 'totalamount' in the request
+            $transaction->card_num($valid['cardNumber']);
+            $transaction->exp_date($valid['expiry']);
+            $transaction->cvv($valid['cvv']);
+            $transaction->card_type($valid['cardType']);
+            $transaction->ref_num($valid['ref']);
+        
+            $response = $transaction->authorize_and_capture(); // returns JSON object
+        
+            $userdetails = Auth::user();
+        
+            return view('invoice', compact('response', 'userdetails'));
         }
-        return view('/invoice', compact('response','userdetails'));
         
     }
     
