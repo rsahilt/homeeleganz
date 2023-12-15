@@ -25,7 +25,7 @@ class ApiController extends Controller
         
         if ($valid) {
             $transaction = new _5bx(2257811, 'a88c8843898e4daad5646322ca06f22d');
-            // $transaction->amount($valid['totalamount']); // Example if you have 'totalamount' in the request
+            // $transaction->amount($valid['totalamount']);
             $transaction->card_num($valid['cardNumber']);
             $transaction->exp_date($valid['expiry']);
             $transaction->cvv($valid['cvv']);
