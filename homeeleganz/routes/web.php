@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\TaxController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\HomeController;
 use App\Models\Review;
 
@@ -170,5 +171,11 @@ Route::get('/admin/categories/{id}/edit', [CategoryController::class, 'edit'])
 Route::put('/admin/categories/{id}', [CategoryController::class, 'update'])
         ->name('updatecategory')->middleware('auth', 'admin');
 
+// CRUD for Orders
+Route::get('/admin/orders', [OrderController::class, 'index'])
+        ->name('orders.index')->middleware('auth', 'admin');;
+
+Route::delete('/admin/orders/{id}', [OrderController::class, 'destroy'])
+        ->name('orders.destroy')->middleware('auth', 'admin');;
 Route::post('/transactionprocess', [ApiController::class, 'index'])
         ->name('transaction')->middleware('auth');
