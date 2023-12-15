@@ -49,11 +49,11 @@ class UserController extends Controller
 
         ]);
         $isAdmin = false;
-        if(isset($valid['is_admin'])){
-            $isAdmin = ($valid['is_admin']==="on") ? 1 :0;
+        if (isset($valid['is_admin'])) {
+            $isAdmin = ($valid['is_admin'] === "on") ? 1 : 0;
         }
-        $valid=array_merge($valid,['is_admin' => $isAdmin]); 
-    
+        $valid = array_merge($valid, ['is_admin' => $isAdmin]);
+
         $user = User::create($valid);
         $user->save();
 
@@ -96,11 +96,11 @@ class UserController extends Controller
             ]);
 
             $isAdmin = false;
-            if(isset($validData['is_admin'])){
-                $isAdmin = ($validData['is_admin']==="on") ? 1 :0;
+            if (isset($validData['is_admin'])) {
+                $isAdmin = ($validData['is_admin'] === "on") ? 1 : 0;
             }
 
-            $validData=array_merge($validData,['is_admin' => $isAdmin]);
+            $validData = array_merge($validData, ['is_admin' => $isAdmin]);
             $user->update($validData);
             return redirect()->route('userlist')->with('success', 'User information updated successfully');
         } else {
@@ -127,6 +127,7 @@ class UserController extends Controller
                 'province' => 'required|string|min:1|max:255',
                 'postal_code' => 'required|string|min:1|max:255',
                 'phone_number' => 'required|string|regex:/^(\(?\d{3}\)?[\s-]?\d{3}[\s-]?\d{4})$/',
+                'country' => 'required|string|min:1|max:255',
             ]);
 
             $user->update($validData);
@@ -159,6 +160,4 @@ class UserController extends Controller
 
         return view('user-reviews', compact("reviews"));
     }
-
-    
 }
