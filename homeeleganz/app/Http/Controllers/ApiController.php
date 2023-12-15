@@ -24,6 +24,34 @@ class ApiController extends Controller
         ]);
         
         if ($valid) {
+            ///inserting into order table
+            $order = new Order();
+            $order->order_date = now();
+            $order->sub_total = $valid['sub_total'];
+            $order->pst = $valid['pst']; 
+            $order->gst = $valid['gst'];
+            $order->hst = $valid['hst'];
+            $order->total = $valid['total'];
+            $order->user_id = Auth::id();
+            $order->address = $valid['address'];
+            $order->city = $valid['city'];
+            $order->province = $valid['province'];
+            $order->postal_code = $valid['postal_code'];
+            
+            $order->save(); //save order
+
+            //inserting into line_items
+            $lineItem = new LineItem();
+            $lineItem->order_id = $order->id;
+            $lineItem->product_id = $valid['product_id']; 
+            $lineItem->name = $valid['name'];
+            $lineItem->quantity = $valid['quantity']; 
+            $lineItem->unit_price = $valid['unit_price']; 
+            
+            $lineItem->save(); //save line_items
+
+            
+            //transaction vbox
             $transaction = new _5bx(2257811, 'a88c8843898e4daad5646322ca06f22d');
             // $transaction->amount($valid['totalamount']);
             $transaction->card_num($valid['cardNumber']);
