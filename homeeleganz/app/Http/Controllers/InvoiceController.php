@@ -9,6 +9,7 @@ class InvoiceController extends Controller
 {
     public function show()
     {
+        
 
         return view('invoice');
     }
