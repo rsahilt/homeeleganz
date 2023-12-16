@@ -143,7 +143,7 @@
                                 {{ $user->first_name }} {{ $user->last_name }}
                             </th>
                             <td class="px-6 py-4">
-                                {{ $user->address }}
+                                {{ $user->country }}
                             </td>
 
                             <td class="px-6 py-4">
