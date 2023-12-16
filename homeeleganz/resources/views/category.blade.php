@@ -33,7 +33,16 @@
                         <p class="text-[.9em] my-1 text-[#8A8A8A]">{{ $product->category_id }}</p>
                         <p class="text-[.8em] my-1 text-[#8A8A8A]">{{ $product->dimensions }}</p>
                         <p class="text-[.8em] my-1 text-[#8A8A8A]">{{ $product->catgeory_id }}</p>
-                        <p class=" text-[.8em] my-1 mx-auto">{{ $product->summary }}</p>
+                        <p class=" text-[.8em] my-1 mx-auto">
+                            <?php
+                                $summary = explode(' ', $product->summary);
+                                $limitedSummary = implode(' ', array_slice($summary, 0, 15));
+                                echo $limitedSummary;
+                                if (count($summary) > 15) {
+                                    echo '...';
+                                }
+                            ?>
+                        </p>
                     </div>
                     <div class=" absolute bottom-1 right-0 left-0 flex justify-center">  
                         <form action="{{ route('cart.add') }}" method="POST" novalidate>
