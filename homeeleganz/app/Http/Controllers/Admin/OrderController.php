@@ -19,7 +19,8 @@ class OrderController extends Controller
     {
         $title = 'List of orders';
         $orders = Order::all();
-        return view('admin.orders.index', compact('orders', 'title'));
+        $slug="productdashboard";
+        return view('admin/orders/index', compact('orders', 'title', 'slug'));
     }
 
     /**
@@ -28,15 +29,15 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        $order = Order::find($id);
+    // public function destroy($id)
+    // {
+    //     $order = Order::find($id);
 
-        if (!$order) {
-            return redirect()->route('admin.orders.index')->with('error', 'Order not found.');
-        }
+    //     if (!$order) {
+    //         return redirect()->route('admin.orders.index')->with('error', 'Order not found.');
+    //     }
 
-        $order->delete();
-        return redirect()->route('admin.orders.index')->with('success', 'Order deleted successfully.');
-    }
+    //     $order->delete();
+    //     return redirect()->route('admin.orders.index')->with('success', 'Order deleted successfully.');
+    // }
 }
