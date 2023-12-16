@@ -28,8 +28,8 @@
             <a href="/admin/reviews" class="block py-3 px-4 text-white text-lg">Reviews</a>
         </li>
 
-        <li class="mb-2 mr-5 rounded hover:bg-blue-700">
-            <a href="#" class="block py-3 px-4 text-white text-lg">Orders</a>
+        <li class="mb-2 mr-5 rounded hover:bg-blue-700 {{ $slug === 'orderdashboard' ? 'bg-blue-700' : '' }}">
+            <a href="/admin/orders" class="block py-3 px-4 text-white text-lg">Orders</a>
         </li>
     </ul>
 </aside>
