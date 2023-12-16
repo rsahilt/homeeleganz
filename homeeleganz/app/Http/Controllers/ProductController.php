@@ -22,23 +22,16 @@ class ProductController extends Controller
         $categories = Category::latest()->get();
         $products = Product::latest()->paginate(8);
         $title = "All Collection";
-        return view('products', compact('products', 'title', 'categories'));
+        $slug = "products";
+        return view('products', compact('products', 'title', 'categories','slug'));
     }
 
-    /**
-     * Display the specified resource.
-     */
-    // public function show(string $id)
-    // {
-    //     $information = Product::find($id);
-    //     $title = 'About the Product';
-    //     return view('details', compact('information', 'title'));
-    // }
     public function show(string $id)
     {
         $information = Product::with(['reviews.user', 'categories'])->find($id);
         $title = 'About the Product';
-        return view('details', compact('information', 'title'));
+        $slug = "products";
+        return view('details', compact('information', 'title','slug'));
     }
 
     public function category($categoryName)
@@ -58,7 +51,15 @@ class ProductController extends Controller
     {
         $brands = ['Molteni&C', 'Palliser', 'Dufresne', 'Us & Coutumes', 'Mobilia'];
         $title = 'Our Partner Brands';
-        return view('brands', compact('brands', 'title'));
+        $slug = "brands";
+        return view('brands', compact('brands', 'title','slug'));
+    }
+
+    public function contactmethod()
+    {
+        $title = 'Get in touch';
+        $slug = "contact";
+        return view('contact', compact('title','slug'));
     }
 
     public function store(Request $request)
@@ -224,7 +225,8 @@ class ProductController extends Controller
     {
         $usercount = User::count();
         $productcount = Product::count();
-        $title = "All Collection";
-        return view('about', compact('usercount', 'title', 'productcount'));
+        $slug="about";
+        $title = "About Us";
+        return view('about', compact('usercount', 'title', 'productcount','slug'));
     }
 }

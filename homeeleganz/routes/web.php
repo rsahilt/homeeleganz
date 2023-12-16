@@ -34,34 +34,57 @@ Route::get('/', function () {
 Route::post('/products/search', [ProductController::class, 'search'])
         ->name('products.search');
 
-// frontend routes
-
-Route::get('/products', [ProductController::class, 'index']);
-
-Route::get('/products/{id}', [ProductController::class, 'show'])->name('product.details');
-
-Route::get('/category/{categoryName}', [ProductController::class, 'category'])->name('category.view');
-
-Route::get('/brands', [ProductController::class, 'brands'])->name('brands');
-
-Route::post('/submit-message', [ProductController::class, 'store'])->name('submit.message');
-
-Route::post('/submit-review', [ProductController::class, 'storeReview'])->name('submit.review');
-
-Route::post('/add-to-cart', [ProductController::class, 'addToCart'])->name('cart.add');
-
-Route::get('/cart', [ProductController::class, 'viewCart'])->name('cart.view');
-
-Route::get('/checkout', [ProductController::class, 'viewCheckout'])->name('checkout');
-
-Route::get('/cart/remove/{productId}', [ProductController::class, 'removeFromCart'])->name('cart.remove');
 
 // Admin Dashboard search
 Route::post('/admin/products/search', [AdminController::class, 'search'])
-    ->name('admin.products.search')->middleware('auth', 'admin');
+->name('admin.products.search')->middleware('auth', 'admin');
+
+
+// frontend routes
+Route::get('/about', [ProductController::class, 'aboutmethod'])
+        ->name('aboutpage');
+
+Route::get('/contact', [ProductController::class, 'contactmethod'])
+        ->name('contactpage');
+
+Route::get('/products', [ProductController::class, 'index'])
+        ->name('productslistfrontend');
+
+Route::get('/products/{id}', [ProductController::class, 'show'])
+        ->name('product.details');
+
+Route::get('/category/{categoryName}', [ProductController::class, 'category'])
+        ->name('category.view');
+
+Route::get('/brands', [ProductController::class, 'brands'])
+        ->name('brands');
+
+Route::post('/submit-message', [ProductController::class, 'store'])
+        ->name('submit.message');
+
+Route::post('/submit-review', [ProductController::class, 'storeReview'])
+        ->name('submit.review');
+
+Route::post('/add-to-cart', [ProductController::class, 'addToCart'])
+        ->name('cart.add');
+
+Route::get('/cart', [ProductController::class, 'viewCart'])
+        ->name('cart.view');
+
+Route::get('/checkout', [ProductController::class, 'viewCheckout'])
+        ->name('checkout');
+
+Route::get('/cart/remove/{productId}', [ProductController::class, 'removeFromCart'])
+        ->name('cart.remove');
+
+Route::get('/invoice', [App\Http\Controllers\InvoiceController::class, 'show'])
+        ->name('invoice.show')->middleware('auth');
+
+//Admin Dashboard
+Route::get('/admin', [ControllerAdmin::class, 'dashboard'])->name('admin.dashboard')
+->middleware('auth', 'admin');
 
 //CRUD FOR PRODUCTS TABLE
-
 
 Route::get('/admin/products/', [AdminController::class, 'index'])
         ->name('productlist')->middleware('auth', 'admin');
@@ -88,21 +111,7 @@ Route::delete('/admin/reviews/{id}', [ReviewController::class, 'destroy'])
         ->name('delete-reviews')->middleware('auth', 'admin');
 
 
-Route::get('/invoice', [App\Http\Controllers\InvoiceController::class, 'show'])
-        ->name('invoice.show')->middleware('auth');
-   
 
-Route::get('/about', function () {
-        return view('about');
-});
-Route::get('/about', [ProductController::class, 'aboutmethod'])->name('aboutpage');
-
-Route::get('/contact', function () {
-        return view('contact');
-});
-
-Route::get('/admin', [ControllerAdmin::class, 'dashboard'])->name('admin.dashboard')
-        ->middleware('auth', 'admin'); //Route to Admin Dashboard
 
 Auth::routes();
 
