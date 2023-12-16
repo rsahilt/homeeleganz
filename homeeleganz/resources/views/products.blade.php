@@ -7,8 +7,8 @@
 
     <div class="categories-list mb-10">
         <ul class="h-[inherit]">
-            <li class="hover:cursor-pointer">
-                <a href="#">All Furnitures</a>
+            <li class="hover:cursor-pointer {{ empty($slug) ? 'active' : '' }}">
+                <a href="/products">All Furnitures</a>
             </li>
        
              @foreach($categories as $category)

@@ -368,6 +368,12 @@ footer{
 	transition: 0.4s ease-out;
 	margin-top: 10px;
 }
+
+.categories-list ul li.active a::after {
+    left: 0;
+    width: 100%;
+}
+
 .categories-list ul li a:hover::after{
 	left: 0;
 	width: 100%;
