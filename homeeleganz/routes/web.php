@@ -39,8 +39,8 @@ Route::post('/admin/products/search', [AdminController::class, 'search'])
 
 
 // frontend routes
-Route::get('/login', [ProductController::class, 'loginmethod'])
-        ->name('loginmethod');
+Route::get('/maintenance', [ProductController::class, 'maintenance'])
+        ->name('maintenance');
 
 Route::get('/about', [ProductController::class, 'aboutmethod'])
         ->name('aboutpage');

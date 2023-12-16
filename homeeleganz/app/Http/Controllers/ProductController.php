@@ -231,4 +231,10 @@ class ProductController extends Controller
         $title = "About Us";
         return view('about', compact('usercount', 'title', 'productcount'));
     }
+
+    public function maintenance()
+    {
+        $title = "Maintenance"
+        return view('about', compact('title'));
+    }
 }
