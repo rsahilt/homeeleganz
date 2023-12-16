@@ -368,6 +368,12 @@ footer{
 	transition: 0.4s ease-out;
 	margin-top: 10px;
 }
+
+.categories-list ul li.active a::after {
+    left: 0;
+    width: 100%;
+}
+
 .categories-list ul li a:hover::after{
 	left: 0;
 	width: 100%;
@@ -451,8 +457,8 @@ main{
 }
 
 .dash-header{
-    background-color:#e7eaed;
-    border-bottom: black 1px solid;
+    background-color:152e4d;
+    /* border-bottom: black 1px solid; */
     display: flex;
     flex-direction: row;
 }
@@ -490,4 +496,9 @@ main{
 .activefront{
     background-color: white;
     /* color: #474772; */
+}
+
+.whitedash{
+    color: white;
+    font-size: 16px;
 }

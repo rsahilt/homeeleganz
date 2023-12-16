@@ -7,8 +7,8 @@
 
     <div class="categories-list mb-10">
         <ul class="h-[inherit]">
-            <li class="hover:cursor-pointer">
-                <a href="#">All Furnitures</a>
+            <li class="hover:cursor-pointer {{ empty($slug) ? 'active' : '' }}">
+                <a href="/products">All Furnitures</a>
             </li>
        
              @foreach($categories as $category)
@@ -25,7 +25,7 @@
         @else
             @foreach($products as $product)
             
-            <div class="w-[250px] min-h-[400px] border-[1px] rounded-[35px] mx-auto relative" data-aos="slide-up" data-aos-duration="1000">
+            <div class="w-[250px] min-h-[450px] border-[1px] rounded-[35px] mx-auto relative" data-aos="slide-up" data-aos-duration="1000">
                 <a href="{{ route('product.details', ['id' => $product->id]) }}" class="block">
                     <img src="/images/{{ $product->image }}" alt="{{ $product->image }}" class="rounded-t-[35px] h-[200px] w-[250px]"/>
                     <div class="px-2 my-2 ">
@@ -36,7 +36,16 @@
                         <p class="text-[.9em] my-1 text-[#8A8A8A]">{{ $product->category_id }}</p>
                         <p class="text-[.8em] my-1 text-[#8A8A8A]">{{ $product->dimensions }}</p>
                         <p class="text-[.8em] my-1 text-[#8A8A8A]">{{ $product->catgeory_id }}</p>
-                        <p class=" text-[.8em] my-1 mx-auto">{{ $product->summary }}</p>
+                        <p class=" text-[.8em] my-1 mx-auto">
+                            <?php
+                                $summary = explode(' ', $product->summary);
+                                $limitedSummary = implode(' ', array_slice($summary, 0, 15));
+                                echo $limitedSummary;
+                                if (count($summary) > 15) {
+                                    echo '...';
+                                }
+                            ?>
+                        </p>
                     </div>
                     <div class=" absolute bottom-1 right-0 left-0 flex justify-center">  
                         <form action="{{ route('cart.add') }}" method="POST" novalidate>

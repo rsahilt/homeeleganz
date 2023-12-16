@@ -20,6 +20,7 @@
             <p class="prod-info"><strong>Price:</strong> ${{ $information->unit_price }} </p>
             <p class="prod-info"><strong>Brand:</strong> {{ $information->brand }}</p>
             <p class="prod-info"><strong>Colour:</strong> {{ $information->color }}</p>
+            <p class="prod-info"><strong>Dimensions:</strong> {{ $information->dimensions }}</p>
             <p class="prod-info"><strong>Material:</strong> {{ $information->material }}</p>
             <p class="prod-info"><strong>Weight:</strong> {{ $information->weight }}</p>
             <p class="prod-info"><strong>Summary:</strong> {!! $information->summary !!}</p>
