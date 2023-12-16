@@ -263,9 +263,6 @@ footer{
 
 #navigation{
     background-color: #474772;
-    /* background: linear-gradient(#cff0ed,#abe5e0); */
-    /* background: linear-gradient(#7f7fbf,#9999cc,#b2b2d8); */
-    /* background-image: linear-gradient(to bottom, #ff0000, #0000ff); */
 }
 
 #navbar-default ul li
@@ -283,42 +280,18 @@ footer{
 #navbar-default ul li a
 {
     position: relative;
-    /* color: black; */
     color: white;
     text-shadow: 1px 1px black;
     font-size: 19px;
-    /* -webkit-transition: background-color 1000ms linear;
-    transition: background-color 1000ms linear; */
     -webkit-transition: 0.4s all ease-in-out;
     transition: all 0.4s ease-in-out;
     font-weight: bold;
 }
-/* #navbar-default ul li a::after{
-	content: '';
-	position: absolute;
-	bottom: -2px;
-	width: 0;
-	left: 50%;
-	height: 2px;
-	background: red;
-	transition: 0.4s ease-out;
-	margin-top: 10px;
-} */
-/* #navbar-default ul li a:hover::after{
-	left: 0;
-	width: 100%;
-} */
-
-/* #navbar-default ul li:hover a
-{
-    color: black;
-} */
 
 #navbar-default ul li:hover
 {
-    background-color: #714e8e;
+    background-color: white;
     cursor: pointer;
-    color: red;
 }
 
 /* active category */
@@ -512,4 +485,9 @@ main{
 
 .search{
     background-color: white;
+}
+
+.activefront{
+    background-color: white;
+    /* color: #474772; */
 }

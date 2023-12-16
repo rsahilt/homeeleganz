@@ -19,7 +19,7 @@ class ApiController extends Controller
             'cardName' => 'required|string|min:1|max:255',
             'cardNumber' => 'required|numeric|digits_between:14,18',
             'cvv' => 'required|numeric|digits:3',
-            'ref' => 'required|numeric|digits:7',
+            'ref' => 'required|numeric',
             'cardType' => 'required|string',
             'expiry' => 'required|numeric|digits:4',
         ]);
