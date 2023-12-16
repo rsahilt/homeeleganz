@@ -25,10 +25,8 @@ use App\Models\Review;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/', function () {
-        return view('index');
-});
+Route::get('/', [ProductController::class, 'homepage'])
+        ->name('homepage');
 
 //for search
 Route::post('/products/search', [ProductController::class, 'search'])
@@ -41,6 +39,9 @@ Route::post('/admin/products/search', [AdminController::class, 'search'])
 
 
 // frontend routes
+Route::get('/login', [ProductController::class, 'loginmethod'])
+        ->name('loginmethod');
+
 Route::get('/about', [ProductController::class, 'aboutmethod'])
         ->name('aboutpage');
 

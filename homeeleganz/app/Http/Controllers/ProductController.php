@@ -14,6 +14,13 @@ use App\Models\Tax;
 
 class ProductController extends Controller
 {
+    public function homepage()
+    {
+        $title="Home";
+        // $slug="homepage";
+        return view('index', compact('title'));
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -22,28 +29,23 @@ class ProductController extends Controller
         $categories = Category::latest()->get();
         $products = Product::latest()->paginate(8);
         $title = "All Collection";
-        $slug = "products";
-        return view('products', compact('products', 'title', 'categories','slug'));
+        // $slug = "products";
+        return view('products', compact('products', 'title', 'categories'));
     }
 
     public function show(string $id)
     {
         $information = Product::with(['reviews.user', 'categories'])->find($id);
         $title = 'About the Product';
-        $slug = "products";
-        return view('details', compact('information', 'title','slug'));
+        // $slug = "products";
+        return view('details', compact('information', 'title'));
     }
 
     public function category($categoryName)
     {
         $category = Category::where('name', $categoryName)->with('products')->firstOrFail();
-        // $products = Product::where('category_id', $category->id)->paginate(8);
         $title = 'All Collection';
-    
-        // Retrieve all categories
         $allCategories = Category::all();
-
-        // Pass active category and all categories to the view
         return view('category', compact('category', 'categoryName', 'allCategories', 'title'));
     }
 
@@ -51,15 +53,15 @@ class ProductController extends Controller
     {
         $brands = ['Molteni&C', 'Palliser', 'Dufresne', 'Us & Coutumes', 'Mobilia'];
         $title = 'Our Partner Brands';
-        $slug = "brands";
-        return view('brands', compact('brands', 'title','slug'));
+        // $slug = "brands";
+        return view('brands', compact('brands', 'title'));
     }
 
     public function contactmethod()
     {
         $title = 'Get in touch';
-        $slug = "contact";
-        return view('contact', compact('title','slug'));
+        // $slug = "contact";
+        return view('contact', compact('title'));
     }
 
     public function store(Request $request)
@@ -124,7 +126,7 @@ class ProductController extends Controller
     public function viewCart(Request $request)
     {
         $cart = $request->session()->get('cart', []);
-
+        // $slug = "cart";
         $user = Auth::user();
         $userProvince = $user ? $user->province : null;
 
@@ -171,7 +173,7 @@ class ProductController extends Controller
         }
         $title = "Checkout";
         $cart = $request->session()->get('cart', []);
-
+        // $slug = "checkout";
         $user = Auth::user();
         $userProvince = $user ? $user->province : null;
 
@@ -225,8 +227,8 @@ class ProductController extends Controller
     {
         $usercount = User::count();
         $productcount = Product::count();
-        $slug="about";
+        // $slug="about";
         $title = "About Us";
-        return view('about', compact('usercount', 'title', 'productcount','slug'));
+        return view('about', compact('usercount', 'title', 'productcount'));
     }
 }
