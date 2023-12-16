@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('province');
             $table->string('postal_code');
             $table->bigInteger('user_id');
+            $table->boolean('status')->default(false);
             $table->timestamps();
         });
     }
