@@ -27,16 +27,16 @@
                 <div>
                     <ul class="text-gray-300 font-medium">
                         <li>
-                            <a href="#" class="hover:underline ">Gift Cards</a>
+                            <a href="/maintenance" class="hover:underline ">Gift Cards</a>
                         </li>
                         <li>
-                            <a href="#" class="hover:underline ">Coupons</a>
+                            <a href="/maintenance" class="hover:underline ">Coupons</a>
                         </li>
                         <li>
-                            <a href="#" class="hover:underline ">Offers</a>
+                            <a href="/maintenance" class="hover:underline ">Offers</a>
                         </li>
                         <li>
-                            <a href="#" class="hover:underline ">Membership</a>
+                            <a href="/maintenance" class="hover:underline ">Membership</a>
                         </li>
                     </ul>
                 </div>
