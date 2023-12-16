@@ -19,7 +19,7 @@ class OrderController extends Controller
     {
         $title = 'List of orders';
         $orders = Order::all();
-        $slug="productdashboard";
+        $slug="orderdashboard";
         return view('admin/orders/index', compact('orders', 'title', 'slug'));
     }
 
