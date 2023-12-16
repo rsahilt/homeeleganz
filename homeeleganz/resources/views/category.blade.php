@@ -21,8 +21,7 @@
     
     <div class="grid lg:grid-cols-4 md:grid-cols-3   gap-9">
 
-    @foreach($category->products as $product)
-            
+        @foreach($category->products as $product)
             <div class="w-[250px] min-h-[400px] border-[1px] rounded-[35px] mx-auto relative" data-aos="slide-up" data-aos-duration="1000">
                 <a href="{{ route('product.details', ['id' => $product->id]) }}" class="block">
                     <img src="/images/{{ $product->image }}" alt="{{ $product->image }}" class="rounded-t-[35px] h-[200px] w-[250px]"/>
@@ -47,7 +46,7 @@
                     </div>
                 </a>
             </div>
-            @endforeach
+        @endforeach
     </div>
 
 
