@@ -2,6 +2,7 @@
 @section('content')
     <div class="dashboard w-full">
         @include('partials.aside')
+       
         <main>
             <div class="grid grid-cols-1 gap-4 px-4 mt-8 sm:grid-cols-4 sm:px-8">
                 <div class="flex items-center bg-white border rounded-sm overflow-hidden shadow">

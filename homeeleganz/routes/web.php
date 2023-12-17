@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\TaxController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\HomeController;
 use App\Models\Review;
 
@@ -196,3 +197,11 @@ Route::delete('/admin/orders/{id}', [OrderController::class, 'destroy'])
 // transaction/payment
 Route::post('/transactionprocess', [ApiController::class, 'index'])
         ->name('transaction')->middleware('auth');
+
+
+// For inbox
+Route::get('/admin/inbox', [MessageController::class, 'index'])
+     ->name('admin.inbox.index');
+
+Route::delete('/admin/inbox/{id}', [MessageController::class, 'destroy'])
+     ->name('admin.inbox.destroy')->middleware('auth', 'admin');
