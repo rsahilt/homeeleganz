@@ -243,7 +243,7 @@ class ProductController extends Controller
 
     public function termsandconditions()
     {
-        $title = "Terms and Conditions";
-        return view('termsandconditions');
+        $title = 'Terms and Conditions'; 
+        return view('termsandconditions', compact('title'));
     }
 }
