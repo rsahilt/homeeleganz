@@ -4,8 +4,8 @@
             <a href="/admin" class="block py-3 px-4 rounded text-white text-lg {{ $slug === 'dashboard' ? 'bg-blue-700' : '' }}">Dashboard</a>
         </li>
 
-        <li class="mb-2 mr-5 rounded hover:bg-blue-700">
-            <a href="admin/inbox" class="block py-3 px-4 text-white text-lg">Inbox</a>
+        <li class="mb-2 mr-5 rounded hover:bg-blue-700 {{ $slug === 'inboxdashboard' ? 'bg-blue-700' : '' }}">
+            <a href="/admin/inbox" class="block py-3 px-4 text-white text-lg">Inbox</a>
         </li>
 
         <li class="mb-2 mr-5 rounded hover:bg-blue-700 {{ $slug === 'userdashboard' ? 'bg-blue-700' : '' }}">

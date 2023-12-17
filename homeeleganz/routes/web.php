@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\TaxController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\HomeController;
 use App\Models\Review;
 
@@ -199,10 +200,8 @@ Route::post('/transactionprocess', [ApiController::class, 'index'])
 
 
 // For inbox
-Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function() {
-Route::get('/messages', [App\Http\Controllers\Admin\MessageController::class, 'index'])
-->name('messages.index');
+Route::get('/admin/inbox', [MessageController::class, 'index'])
+     ->name('admin.inbox.index');
 
-Route::delete('/messages/{id}', [App\Http\Controllers\Admin\MessageController::class, 'destroy'])
-->name('messages.destroy');
-});
+Route::delete('/admin/inbox/{id}', [MessageController::class, 'destroy'])
+     ->name('admin.inbox.destroy')->middleware('auth', 'admin');
