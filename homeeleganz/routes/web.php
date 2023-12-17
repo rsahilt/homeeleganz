@@ -196,3 +196,4 @@ Route::delete('/admin/orders/{id}', [OrderController::class, 'destroy'])
 // transaction/payment
 Route::post('/transactionprocess', [ApiController::class, 'index'])
         ->name('transaction')->middleware('auth');
+
