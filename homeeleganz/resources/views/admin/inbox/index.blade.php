@@ -24,7 +24,7 @@
                         <td class="px-6 py-4">{{ $message->name }}</td>
                         <td class="px-6 py-4">{{ $message->email }}</td>
                         <td class="px-6 py-4">{{ $message->message }}</td>
-                        <td class="px-6 py-4 text-right">
+                        <td class="px-6 py-4">
                             <form action="{{ route('admin.inbox.destroy', $message->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
