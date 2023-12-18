@@ -57,9 +57,6 @@ class ApiController extends Controller
             $lineItem->save(); //save line_items
         }
         
-        if(!$valid){
-            return redirect()->back()->withErrors($valid)->withInput($request->except('cardNumber', 'cvv', 'expiry'));
-        }
 
         //transaction vbox
         $transaction = new _5bx(2257811, 'a88c8843898e4daad5646322ca06f22d');
@@ -74,23 +71,32 @@ class ApiController extends Controller
         $response = $transaction->authorize_and_capture(); // returns JSON object
         // dd($response);
         //save in transacation tables
+       
+        //default status is false
         $newTransaction = new Transaction();
-
         $newTransaction->order_id = $order->id;
-        $newTransaction->status = false; // Set the status as needed
         $newTransaction->transaction = json_encode($transaction->authorize_and_capture());
+        $newTransaction->save();
 
-        $newTransaction->save(); // Save the new transaction data to the database
 
-        // Associate the transaction with its order
-        $order->transaction()->save($newTransaction);
+        if($response->transaction_response->response_code !=1){
+            $error = '';
+            foreach($response->transaction_response->errors as $key=>$value){
+                $error.= "$value";
+                break;
+            }
+            return redirect()->back()->with('danger', $error);
+        }
 
+        $order->status = true;
+        $order->save();
     
         $userdetails = Auth::user();
 
         $request->session()->forget('cart');
     
         return view('invoice', compact('response', 'userdetails'));
+
     
 
         // $cart = $request->session()->forget('cart');
