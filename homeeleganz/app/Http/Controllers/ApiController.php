@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Pacewdd\Bx\_5bx;
 use App\Models\Order;
 use App\Models\LineItem;
+use App\Models\Transaction;
 
 
 use Auth;
@@ -19,7 +20,6 @@ class ApiController extends Controller
             'cardName' => 'required|string|min:1|max:255',
             'cardNumber' => 'required|numeric|digits_between:14,18',
             'cvv' => 'required|numeric|digits:3',
-            'ref' => 'required|numeric',
             'cardType' => 'required|string',
             'expiry' => 'required|numeric|digits:4',
         ]);
@@ -57,7 +57,7 @@ class ApiController extends Controller
             $lineItem->save(); //save line_items
         }
         
-        if(!valid){
+        if(!$valid){
             return redirect()->back()->withErrors($valid)->withInput($request->except('cardNumber', 'cvv', 'expiry'));
         }
 
@@ -69,10 +69,21 @@ class ApiController extends Controller
         $transaction->cvv($valid['cvv']);
         $transaction->card_type($valid['cardType']);
         $transaction->ref_num($order->id);
-    
+
+        //dd($order->id);
         $response = $transaction->authorize_and_capture(); // returns JSON object
         // dd($response);
-        //save in transacation tables.
+        //save in transacation tables
+        $newTransaction = new Transaction();
+
+        $newTransaction->order_id = $order->id;
+        $newTransaction->status = false; // Set the status as needed
+        $newTransaction->transaction = json_encode($transaction->authorize_and_capture());
+
+        $newTransaction->save(); // Save the new transaction data to the database
+
+        // Associate the transaction with its order
+        $order->transaction()->save($newTransaction);
 
     
         $userdetails = Auth::user();
