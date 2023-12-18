@@ -80,7 +80,7 @@
                         <td class="px-6 py-4">
                             {{ $product->created_at ? $product->created_at->format('m/d/Y') : 'N/A' }}
                         </td>
-                        <td class="px-6 py-4 text-right">
+                        <td class="px-6 py-4 text-left">
                             <div class="inline-block">
                                 <a href="{{ route('editproduct', ['id' => $product->id]) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
                                 &nbsp; &nbsp; | &nbsp; &nbsp;
