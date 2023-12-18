@@ -502,6 +502,46 @@ main{
     color: white;
     font-size: 16px;
 }
+<<<<<<< HEAD
+
+
+/* Base Styles */
+#shop-by-category .flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    align-items: center;
+}
+
+.group {
+    margin: 10px;
+    height: 96; /* Adjust height as needed */
+    width: 300px; 
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+
+/* Responsive Styles */
+
+/* For tablets */
+@media screen and (max-width: 768px) {
+    .group {
+        width: calc(50% - 20px); /* 2 items per row with margin */
+    }
+}
+
+/* For mobile phones */
+@media screen and (max-width: 480px) {
+    .group {
+        width: 80%; /* Full width for small screens */
+
+    }
+}
+=======
 .termsandconditions {
     h1 {
         font-size: 24px; /* Adjust the font size */
@@ -543,3 +583,4 @@ main{
         width: 35px;
     }
 }
+>>>>>>> 1edbc845345ab27e6ae2536d8dbaa8901cc670bc
