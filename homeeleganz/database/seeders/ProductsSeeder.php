@@ -24,7 +24,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Molteni&C',
             'weight' => '35',
             'dimensions' => '24x26x45 inches',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([
             'name' => 'Cozy Bedroom Chair',
@@ -37,7 +37,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Palliser',
             'weight' => '15',
             'dimensions' => '3025x35 inches',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([   
             'name' => 'Elegant Bedroom Chair',
@@ -50,7 +50,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Dufresne',
             'weight' => '18',
             'dimensions' => '28x22x38 inches',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([  
             'name' => 'Modern Bedroom Chair',
@@ -63,7 +63,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Us & Coutumes',
             'weight' => '12',
             'dimensions' => '32x24x30 inches',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([
             'name' => 'Classic Bedside Table',
@@ -76,7 +76,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Mobilia',
             'weight' => '7',
             'dimensions' => '20x18x25 inches',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);  
         DB::table('products')->insert([
             'name' => 'Comfy Living Room Sofa Set',
@@ -89,7 +89,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Mobilia',
             'weight' => '45',
             'dimensions' => '80x32x35 inches',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([
             'name' => 'Modern Leather Sofa Set',
@@ -102,7 +102,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Palliser',
             'weight' => '55',
             'dimensions' => '78x34x32 inches',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([
             'name' => 'Elegant Upholstered Bed',
@@ -115,7 +115,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Dufresne',
             'weight' => '40 kg',
             'dimensions' => '65x85x45 inches',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([
             'name' => 'Modern Platform Bed',
@@ -128,7 +128,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Dufresne',
             'weight' => '35',
             'dimensions' => '60x80x12 inches',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([
             'name' => 'Modern Upholstered Stool',
@@ -141,7 +141,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Molteni&C',
             'weight' => '5',
             'dimensions' => '16x16x18 inches',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([
             'name' => 'Modern Standing Clothing Rack',
@@ -154,7 +154,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Us & Coutumes',
             'weight' => '7',
             'dimensions' => '48x18x60 inches',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([
             'name' => 'Wooden Farmhouse Dining Table',
@@ -167,7 +167,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Rustic Living',
             'weight' => '20',
             'dimensions' => '72x36x30 inches',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([
             'name' => 'Glass Round Dining Table',
@@ -180,7 +180,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Molteni&C',
             'weight' => '15',
             'dimensions' => '48x30 inches',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([
             'name' => 'Modern Glass Top Dining Table',
@@ -193,7 +193,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Molteni&C',
             'weight' => '30',
             'dimensions' => '60x36x30 inches',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([
             'name' => 'Small Wooden Coffee Table',
@@ -206,7 +206,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Dufresne',
             'weight' => '8',
             'dimensions' => '36x18x18 inches',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([
             'name' => 'Small Wooden Stool',
@@ -219,7 +219,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Us & Coutumes',
             'weight' => '5',
             'dimensions' => '12x12x18 inches',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([
             'name' => 'Small Wooden Dining Table',
@@ -232,7 +232,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Mobilia',
             'weight' => '15',
             'dimensions' => '48x30x30 inches',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([
             'name' => 'Small Wooden Coffee Table',
@@ -245,7 +245,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Us & Coutumes',
             'weight' => '10',
             'dimensions' => '36x24x18 inches',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([
             'name' => 'Modern Upholstered Dining Chair',
@@ -258,7 +258,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Dufresne',
             'weight' => '6',
             'dimensions' => '20x22x32 inhes',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([
             'name' => 'Classic Dining Chairs',
@@ -271,7 +271,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Molteni&C',
             'weight' => '8',
             'dimensions' => '18x18x36 inches',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([
             'name' => 'Marble Top Rectangular Dining Table',
@@ -284,7 +284,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Palliser',
             'weight' => '30',
             'dimensions' => '72x42x30 inches',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([
             'name' => 'ErgoComfort Office Chair set',
@@ -297,7 +297,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Mobilia',
             'weight' => '35',
             'dimensions' => '24x26x45 inches',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([
             'name' => 'Modern Geometric Hanging Lamp set',
@@ -310,7 +310,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Us & Coutumes',
             'weight' => '4',
             'dimensions' => '14x14x20 inches',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([
             'name' => 'Vintage Industrial Pendant Light',
@@ -323,7 +323,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Dufresne',
             'weight' => '5',
             'dimensions' => '12x12x16 inches',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([
             'name' => 'Modern Leather Office Sofa',
@@ -336,7 +336,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Palliser',
             'weight' => '80',
             'dimensions' => '72x30x32 inches',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([
             'name' => 'Contemporary Fabric Office Sofa',
@@ -349,7 +349,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Dufresne',
             'weight' => '65',
             'dimensions' => '68x32x34 inches',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([
             'name' => 'Ergonomic Reclining Office Sofa',
@@ -362,7 +362,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Molteni&C',
             'weight' => '75',
             'dimensions' => '70x35x30 inches',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([
             'name' => 'Wooden Mid-Century Side Table',
@@ -375,7 +375,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Molteni&C',
             'weight' => '10',
             'dimensions' => '16x16x22 inches',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([
             'name' => 'Modern Mesh Back Side Chair',
@@ -388,7 +388,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Mobilia',
             'weight' => '12',
             'dimensions' => '20x20x32 inches',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([
             'name' => 'Executive Metal Side Chair',
@@ -401,7 +401,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Dufresne',
             'weight' => '18',
             'dimensions' => '22x24x30 inches',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([
             'name' => 'Green Top Side Table',
@@ -414,7 +414,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Us & Coutumes',
             'weight' => '15',
             'dimensions' => '18x18x22 inches',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([
             'name' => 'Classic Wingback Chair',
@@ -427,7 +427,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Palliser',
             'weight' => '30',
             'dimensions' => '28x32x38 inches',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([
             'name' => 'Modern Leather chair',
@@ -440,7 +440,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Us & Coutumes',
             'weight' => '28',
             'dimensions' => '30x34x36 inches',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([
             'name' => 'Modern Leather Armchair',
@@ -453,7 +453,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Dufresne',
             'weight' => '26',
             'dimensions' => '29x32x30 inches',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([
             'name' => 'Mid-Century Modern Accent Chair',
@@ -466,7 +466,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Palliser',
             'weight' => '25',
             'dimensions' => '26x30x32 inches',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([
             'name' => 'Compact Loveseat Sofa',
@@ -479,7 +479,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Mobilia',
             'weight' => '65',
             'dimensions' => '60x32x34 inches',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([
             'name' => 'Mid-Century Modern Sleeper Sofa',
@@ -492,7 +492,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Molteni&C',
             'weight' => '85',
             'dimensions' => '80x36x32 inches',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([
             'name' => 'Sectional Chaise Sofa',
@@ -505,7 +505,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Mobilia',
             'weight' => '100',
             'dimensions' => '96x64x36 inches',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([
             'name' => 'Wooden Rectangular Coffee Table',
@@ -518,7 +518,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Us & Coutumes',
             'weight' => '40',
             'dimensions' => '48x24x18 inches',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([
             'name' => 'Aurora Steel Curve Lamp',
@@ -531,7 +531,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Palliser',
             'weight' => '5',
             'dimensions' => '160x24x18',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([
             'name' => 'Ceramic Glazed Flower Pot',
@@ -544,7 +544,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Dufresne',
             'weight' => '5',
             'dimensions' => '10x10x10 inches',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([
             'name' => 'Terracotta Round Flower Pot',
@@ -557,7 +557,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Palliser',
             'weight' => '3',
             'dimensions' => '8x8x8 inches',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([
             'name' => 'Rattan Decorative Plants Pot',
@@ -570,7 +570,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Us & Coutumes',
             'weight' => '4',
             'dimensions' => '9x9x9 inches',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([
             'name' => 'Plastic Stackable Flower Pot Set',
@@ -583,7 +583,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Mobilia',
             'weight' => '1',
             'dimensions' => '6x6x6 inches each',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([
             'name' => 'Garden Small Stool',
@@ -596,7 +596,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Molteni&C',
             'weight' => '2',
             'dimensions' => '12x12x12 inches',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([
             'name' => 'Weatherproof Garden Chair',
@@ -609,7 +609,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Dufresne',
             'weight' => '5',
             'dimensions' => '24x24x36 inches',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([
             'name' => 'Compact Indoor Coffee Set',
@@ -622,7 +622,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Dufresne',
             'weight' => '15',
             'dimensions' => '36x20x18 inches (table), 16x16x18 inches (stools)',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([
             'name' => 'Indoor Plant Pot Table',
@@ -635,7 +635,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Molteni&C',
             'weight' => '10',
             'dimensions' => '30x12x36 inches',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([
             'name' => 'Indoor Plant Pot Area Divider',
@@ -648,7 +648,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Palliser',
             'weight' => '20',
             'dimensions' => '60x12x72 inches',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
         DB::table('products')->insert([
             'name' => 'Handmade Dreamcatcher Wall Decor',
@@ -661,7 +661,7 @@ class ProductsSeeder extends Seeder
             'brand' => 'Us & Coutumes',
             'weight' => '1',
             'dimensions' => '12-inch diameter, 24-inch length (including hanging string)',
-            'created_at' => date('m/d/Y'),
+            'created_at' => now(),
         ]);
 
     }

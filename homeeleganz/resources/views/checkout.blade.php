@@ -110,18 +110,6 @@
             </div>
 
             <div class="mb-4">
-                <label for="ref" class="block text-sm font-medium text-gray-600">Reference Number</label>
-                @php
-                    $randomNumber = str_pad(rand(1, 9999999), 7, '0', STR_PAD_LEFT);
-                @endphp
-                <input type="text" id="ref" name="ref" placeholder="Card Number" value="{{ $randomNumber }}"
-                    class="mt-1 p-2 w-full border rounded-md" readonly>
-                @error('ref')
-                    <span class="text-red-500">{{ $message }}</span>
-                @enderror
-            </div>
-
-            <div class="mb-4">
                 <label class="block text-sm font-medium text-gray-600">Card Type</label>
                 <div class="mt-1">
                     <label class="inline-flex items-center">
