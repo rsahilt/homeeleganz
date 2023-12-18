@@ -12,7 +12,7 @@
             <h1><span>Home</span>Eleganz</h1>
         </div>
 
-        <div class="mb-3 w-[40%] text-center">
+        <div class="mb-3 w-[40%] text-center searchbarfrontend">
             <form action="{{ route('products.search') }}" method="POST" novalidate>
                 @csrf
                 <div class="relative flex w-full flex-wrap items-stretch">
@@ -90,9 +90,9 @@
         <div class="w-full md:w-auto " id="navbar-default">
 
             <div class="relative block md:hidden">
-                <div class="flex items-center" onclick="toggleMenu()">
+                <div class="flex items-center hidden-navbar" onclick="toggleMenu()">
                     <button class="text-white focus:outline-none">
-                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="hamburger-hidden h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                         </svg>
                     </button>

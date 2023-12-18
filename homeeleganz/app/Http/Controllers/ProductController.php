@@ -64,6 +64,9 @@ class ProductController extends Controller
         return view('contact', compact('title'));
     }
 
+    
+
+
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -236,5 +239,11 @@ class ProductController extends Controller
     {
         $title = "Maintenance";
         return view('maintenance', compact('title'));
+    }
+
+    public function termsandconditions()
+    {
+        $title = 'Terms and Conditions'; 
+        return view('termsandconditions', compact('title'));
     }
 }
