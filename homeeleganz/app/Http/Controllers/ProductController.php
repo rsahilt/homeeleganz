@@ -11,6 +11,7 @@ use App\Models\Review as Review;
 use App\Models\Message;
 use App\Models\User;
 use App\Models\Tax;
+use App\Models\Order;
 
 class ProductController extends Controller
 {
