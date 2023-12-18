@@ -581,9 +581,31 @@ main{
         width: 35px;
     }
     
+    /* mobile menu list */
     #menu{
         width: 100vw;
         border: none;
         text-align: center;
     }
+
+    /* details view */
+    .prod-details-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .prod-desc-image{
+        width: 100%;
+        height: auto;
+    }
+    .details{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .details h1{
+        font-size: 24px;
+    }
+
 }
