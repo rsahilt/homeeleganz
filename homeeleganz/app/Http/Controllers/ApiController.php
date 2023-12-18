@@ -70,6 +70,8 @@ class ApiController extends Controller
             $transaction->ref_num($order->id);
         
             $response = $transaction->authorize_and_capture(); // returns JSON object
+
+            //save in transacation tables.
         
             $userdetails = Auth::user();
         
