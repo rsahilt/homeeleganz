@@ -11,6 +11,7 @@ use App\Models\Review as Review;
 use App\Models\Message;
 use App\Models\User;
 use App\Models\Tax;
+use App\Models\Order;
 
 class ProductController extends Controller
 {
@@ -245,5 +246,12 @@ class ProductController extends Controller
     {
         $title = 'Terms and Conditions'; 
         return view('termsandconditions', compact('title'));
+    }
+
+    public function vieworders()
+    {
+        $title = "My Orders";
+        $orders = Order::where('user_id', auth()->id())->get();
+        return view('myorders', compact('title', 'orders'));
     }
 }
