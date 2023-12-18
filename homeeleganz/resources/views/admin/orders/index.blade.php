@@ -70,6 +70,8 @@
                         <td class="px-6 py-4">
                             {{ $order->total }}
                         </td>
+                        <td class="px-6 py-4">
+                           
 
                         <td class="px-6 py-4 text-right">
 
