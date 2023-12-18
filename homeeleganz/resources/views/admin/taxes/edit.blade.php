@@ -40,18 +40,9 @@
                             @enderror
                         </div>
 
-
                         <div class="sm:col-span-2">
                             <label for="gst" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">GST</label>
-                            <select id="gst" name="gst" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                <option selected disabled>Select GST tax rate</option>
-                                @foreach($filteredGstValues as $gstValue)
-                                        <option value="{{ $gstValue }}" 
-                                            @if($tax->gst === $gstValue) selected @endif>
-                                            {{ $gstValue }}
-                                        </option>
-                                @endforeach
-                            </select>
+                            <input type="number" step="0.01" name="gst" id="gst" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="GST Rate" value="{{ old('gst', $tax->gst) }}">
                             @error('gst')
                                 <span class="text-red-500">{{ $message }}</span>
                             @enderror
@@ -59,15 +50,7 @@
 
                         <div class="sm:col-span-2">
                             <label for="hst" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">HST</label>
-                            <select id="hst" name="hst" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                <option selected disabled>Select HST tax rate</option>
-                                @foreach($filteredHstValues as $hstValue)
-                                        <option value="{{ $hstValue }}" 
-                                            @if($tax->hst === $hstValue) selected @endif>
-                                            {{ $hstValue }}
-                                        </option>
-                                @endforeach
-                            </select>
+                            <input type="number" step="0.01" name="hst" id="hst" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="HST Rate" value="{{ old('hst', $tax->hst) }}">
                             @error('hst')
                                 <span class="text-red-500">{{ $message }}</span>
                             @enderror
