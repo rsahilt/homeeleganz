@@ -182,7 +182,7 @@ footer{
     padding-left: 25px;
     padding-top: 20px;
     width: 70%;
-    height: 500px;
+    /* height: 500px; */
 }
 
 .details h2{
@@ -554,7 +554,7 @@ main{
 --------------------------------------------------------------------*/
 
 /* mobile view */
-@media screen and (max-width: 500px){
+@media screen and (max-width: 768px){
     /* slider */
     #hero-image,
     .slideshow-container,
@@ -580,4 +580,32 @@ main{
         height: 35px;
         width: 35px;
     }
+    
+    /* mobile menu list */
+    #menu{
+        width: 100vw;
+        border: none;
+        text-align: center;
+    }
+
+    /* details view */
+    .prod-details-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .prod-desc-image{
+        width: 100%;
+        height: auto;
+    }
+    .details{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .details h1{
+        font-size: 24px;
+    }
+
 }
