@@ -69,4 +69,5 @@
     
 
     @include('partials.footer')
+
 @endsection

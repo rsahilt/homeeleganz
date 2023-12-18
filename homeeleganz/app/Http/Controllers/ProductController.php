@@ -11,6 +11,7 @@ use App\Models\Review as Review;
 use App\Models\Message;
 use App\Models\User;
 use App\Models\Tax;
+use App\Models\Order;
 
 class ProductController extends Controller
 {
@@ -63,6 +64,9 @@ class ProductController extends Controller
         // $slug = "contact";
         return view('contact', compact('title'));
     }
+
+    
+
 
     public function store(Request $request)
     {
@@ -236,5 +240,18 @@ class ProductController extends Controller
     {
         $title = "Maintenance";
         return view('maintenance', compact('title'));
+    }
+
+    public function termsandconditions()
+    {
+        $title = 'Terms and Conditions'; 
+        return view('termsandconditions', compact('title'));
+    }
+
+    public function vieworders()
+    {
+        $title = "My Orders";
+        $orders = Order::where('user_id', auth()->id())->get();
+        return view('myorders', compact('title', 'orders'));
     }
 }
