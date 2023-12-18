@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\LineItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use App\Models\Order;
@@ -25,11 +26,25 @@ class OrderController extends Controller
 
     public function viewOrder(Request $request, $id)
     {
-        $title = 'List of orders';
-        $orders = Order::all();
+        // Find the order by ID
+        $order = Order::find($id);
+        $items = LineItem::where('order_id', $id)->get();
         $slug = "orderdashboard";
-        return view('admin/orders/index', compact('orders', 'title', 'slug'));
+
+        // Check if the order exists
+        if (!$order) {
+            // You may want to handle the case where the order is not found, for example, redirect to an error page.
+            return redirect()->route('error')->with('error', 'Order not found.');
+        }
+
+
+
+
+
+        // Pass the order data to the view
+        return view('admin/orders.viewOrder', compact('order', 'items', 'slug'));
     }
+
 
     /**
      * Remove the specified order from storage.

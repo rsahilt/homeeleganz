@@ -178,7 +178,7 @@
 
         
         </div><!-- Container for the Testimonials Closed-->
-
+        
     </div>
 
     @include('partials.footer')

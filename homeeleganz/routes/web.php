@@ -201,6 +201,8 @@ Route::delete('/admin/orders/{id}', [OrderController::class, 'destroy'])
 Route::post('/transactionprocess', [ApiController::class, 'index'])
         ->name('transaction')->middleware('auth');
 
+Route::get('/termsandconditions', [ProductController::class, 'termsandconditions'])
+        ->name('termsandconditions');
 
 // For inbox
 Route::get('/admin/inbox', [MessageController::class, 'index'])
