@@ -38,6 +38,10 @@
                         font-medium transition transform hover:-translate-y-0.5">
                     <a href="{{ route('userReviews', ['id' => $user->id]) }}"> Reviews</a>
                 </button>
+                <button class=" text-white py-2 px-4 uppercase rounded bg-gray-700 hover:bg-gray-800 shadow hover:shadow-lg
+                        font-medium transition transform hover:-translate-y-0.5">
+                    <a href="{{ route('userReviews', ['id' => $user->id]) }}"> My Orders</a>
+                </button>
             </div>
         </div>
 
