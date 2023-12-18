@@ -43,7 +43,7 @@
                 <div>
                     <ul class="text-gray-300 font-medium">
                         <li>
-                            <a href="#" class="hover:underline">Privacy Policy</a>
+                            <a href="{{ route('policy') }}" class="hover:underline">Privacy Policy</a>
                         </li>
                         <li>
                             <a href="#" class="hover:underline">Terms &amp; Conditions</a>

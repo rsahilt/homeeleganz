@@ -83,6 +83,10 @@ Route::get('/cart/remove/{productId}', [ProductController::class, 'removeFromCar
 Route::get('/invoice', [App\Http\Controllers\InvoiceController::class, 'show'])
         ->name('invoice.show')->middleware('auth');
 
+Route::get('/policy', function () {
+        return view('policy');
+})->name('policy');
+
 //Admin Dashboard
 Route::get('/admin', [ControllerAdmin::class, 'dashboard'])->name('admin.dashboard')
         ->middleware('auth', 'admin');
