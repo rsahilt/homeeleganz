@@ -182,7 +182,7 @@ footer{
     padding-left: 25px;
     padding-top: 20px;
     width: 70%;
-    height: 500px;
+    /* height: 500px; */
 }
 
 .details h2{
@@ -554,7 +554,7 @@ main{
 --------------------------------------------------------------------*/
 
 /* mobile view */
-@media screen and (max-width: 500px){
+@media screen and (max-width: 768px){
     /* slider */
     #hero-image,
     .slideshow-container,
