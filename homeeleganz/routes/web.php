@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\TaxController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\HomeController;
 use App\Models\Review;
 
@@ -199,3 +200,10 @@ Route::post('/transactionprocess', [ApiController::class, 'index'])
 
 Route::get('/termsandconditions', [ProductController::class, 'termsandconditions'])
         ->name('termsandconditions');
+
+// For inbox
+Route::get('/admin/inbox', [MessageController::class, 'index'])
+     ->name('admin.inbox.index');
+
+Route::delete('/admin/inbox/{id}', [MessageController::class, 'destroy'])
+     ->name('admin.inbox.destroy')->middleware('auth', 'admin');
