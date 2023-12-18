@@ -580,4 +580,10 @@ main{
         height: 35px;
         width: 35px;
     }
+    
+    #menu{
+        width: 100vw;
+        border: none;
+        text-align: center;
+    }
 }
