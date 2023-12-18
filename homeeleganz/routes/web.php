@@ -217,4 +217,3 @@ Route::delete('/admin/inbox/{id}', [MessageController::class, 'destroy'])
 
 Route::get('/my-orders', [ProductController::class, 'vieworders'])
         ->name('myorders');
-        ->name('admin.inbox.destroy')->middleware('auth', 'admin');
