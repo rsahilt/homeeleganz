@@ -26,6 +26,7 @@ use App\Models\Review;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 Route::get('/', [ProductController::class, 'homepage'])
         ->name('homepage');
 
@@ -36,7 +37,7 @@ Route::post('/products/search', [ProductController::class, 'search'])
 
 // Admin Dashboard search
 Route::post('/admin/products/search', [AdminController::class, 'search'])
-->name('admin.products.search')->middleware('auth', 'admin');
+        ->name('admin.products.search')->middleware('auth', 'admin');
 
 
 // frontend routes
@@ -84,7 +85,7 @@ Route::get('/invoice', [App\Http\Controllers\InvoiceController::class, 'show'])
 
 //Admin Dashboard
 Route::get('/admin', [ControllerAdmin::class, 'dashboard'])->name('admin.dashboard')
-->middleware('auth', 'admin');
+        ->middleware('auth', 'admin');
 
 //CRUD FOR PRODUCTS TABLE
 
@@ -170,17 +171,17 @@ Route::delete('/admin/taxes/{id}', [TaxController::class, 'destroy'])
 
 //CRUD FOR Categories
 Route::get('/admin/categories', [CategoryController::class, 'index'])
-        ->name('categorieslist')->middleware('auth','admin');
+        ->name('categorieslist')->middleware('auth', 'admin');
 
- Route::get('/admin/categories/create', [CategoryController::class, 'create'])
+Route::get('/admin/categories/create', [CategoryController::class, 'create'])
         ->name('createcategory')->middleware('auth', 'admin');
 
- Route::post('/admin/categories/', [CategoryController::class, 'store'])
+Route::post('/admin/categories/', [CategoryController::class, 'store'])
         ->name('storecategory')->middleware('auth', 'admin');
 
 Route::delete('/admin/categories/{id}', [CategoryController::class, 'destroy'])
-        ->name('deletecategory')->middleware('auth', 'admin');      
-        
+        ->name('deletecategory')->middleware('auth', 'admin');
+
 Route::get('/admin/categories/{id}/edit', [CategoryController::class, 'edit'])
         ->name('editcategory')->middleware('auth', 'admin');
 
@@ -190,6 +191,8 @@ Route::put('/admin/categories/{id}', [CategoryController::class, 'update'])
 // CRUD for Orders
 Route::get('/admin/orders', [OrderController::class, 'index'])
         ->name('orders.index')->middleware('auth', 'admin');
+Route::get('/admin/orders/{id}', [OrderController::class, 'viewOrder'])
+        ->name('orders.viewOrder')->middleware('auth', 'admin');
 
 Route::delete('/admin/orders/{id}', [OrderController::class, 'destroy'])
         ->name('orders.destroy')->middleware('auth', 'admin');;
@@ -201,7 +204,7 @@ Route::post('/transactionprocess', [ApiController::class, 'index'])
 
 // For inbox
 Route::get('/admin/inbox', [MessageController::class, 'index'])
-     ->name('admin.inbox.index');
+        ->name('admin.inbox.index');
 
 Route::delete('/admin/inbox/{id}', [MessageController::class, 'destroy'])
-     ->name('admin.inbox.destroy')->middleware('auth', 'admin');
+        ->name('admin.inbox.destroy')->middleware('auth', 'admin');

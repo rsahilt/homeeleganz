@@ -45,9 +45,7 @@
                         <th scope="col" class="px-6 py-3">
                             Order date
                         </th>
-                        <th scope="col" class="px-6 py-3">
-                            Products
-                        </th>
+
                         <th scope="col" class="px-6 py-3">
                             Total
                         </th>
@@ -69,15 +67,28 @@
                             {{ $order->created_at ? $order->created_at->format('m/d/Y') : 'N/A' }}
                             </th>
                         <td class="px-6 py-4">
-                            {{ $order->brand }}
-                        </td>
-                        <td class="px-6 py-4">
                             {{ $order->total }}
                         </td>
                         <td class="px-6 py-4">
-
+                            {{ $order->status }}
                         </td>
+
                         <td class="px-6 py-4 text-right">
+                            <div class="inline-block">
+                                <a href="{{ route('edituser', $user->id) }}"
+                                    class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+
+                                &nbsp; &nbsp; | &nbsp; &nbsp;
+                                <!-- asking the user if they really want to delete, in the form of an alert -->
+                                <form action="{{ route('delete', $user->id) }}" method="POST" novalidate
+                                    class="inline-block">
+                                    @csrf
+                                    @method('GET')
+                                    <button type="submit"
+                                        class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                                        onclick="return confirm('Do you really want to remove the user?')">View</button>
+                                </form>
+                            </div>
 
                         </td>
                     </tr>
