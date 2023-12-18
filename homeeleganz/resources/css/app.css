@@ -509,3 +509,37 @@ main{
         text-align: center;
 }
 }
+
+
+/* -----------------------------------------------------------------
+----------------------------Media Queries----------------------------
+--------------------------------------------------------------------*/
+
+/* mobile view */
+@media screen and (max-width: 500px){
+    /* slider */
+    #hero-image,
+    .slideshow-container,
+    .mySlides,
+    .slides,
+    .fade{
+        height: 300px;
+        max-width: 100%;
+    }
+
+    /* searchbar */
+    .searchbarfrontend{
+        width: 70%;
+    }
+
+    /* navbar */
+    #navbar-default{
+        height: 40px;
+    }
+
+    /* hamburger icon */
+    .hamburger-hidden{
+        height: 35px;
+        width: 35px;
+    }
+}

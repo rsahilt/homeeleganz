@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('order_id');
-            $table->boolean('status');
+            $table->boolean('status')->default(false);
             $table->text('transaction');
             $table->timestamps();
         });
