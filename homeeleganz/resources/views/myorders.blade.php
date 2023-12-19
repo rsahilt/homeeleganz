@@ -13,7 +13,7 @@
                 <ul>
                     @foreach($order->lineItems as $lineItem)
                         <li class="pt-2">
-                            <img src="/images/{{ $lineItem->product->image }}" width="200px" alt="{{ $lineItem->product->name }}">
+                            <img class="order-pr-image" src="/images/{{ $lineItem->product->image }}" width="200px" alt="{{ $lineItem->product->name }}">
                         </li>
                         <li class="pt-2">
                             <strong>Product Name:</strong> {{ $lineItem->product->name }}
