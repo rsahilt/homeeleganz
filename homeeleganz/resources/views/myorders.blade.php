@@ -2,23 +2,28 @@
 @section('content')
 
 <div class="order-container">
-<h1 class="font-bold">Your Orders</h1>
+<h1 class="font-bold pl-5 py-5 text-xl">Your Orders</h1>
 @if($orders->count() > 0)
     <ul>
         @foreach($orders as $order)
+            <div class="order-card">
             <li>
-                Order ID: {{ $order->id }}
+                <div class="order-box">
+                <strong>Order ID:</strong> {{ $order->id }}
                 <ul>
                     @foreach($order->lineItems as $lineItem)
-                        <li>
+                        <li class="pt-2">
                             <img src="/images/{{ $lineItem->product->image }}" width="200px" alt="{{ $lineItem->product->name }}">
                         </li>
-                        <li>
-                            Product Name: {{ $lineItem->product->name }}
+                        <li class="pt-2">
+                            <strong>Product Name:</strong> {{ $lineItem->product->name }}
                         </li>
+                        <hr>
                     @endforeach
                 </ul>
+                </div
             </li>
+            </div>
         @endforeach
     </ul>
 @else
