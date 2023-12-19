@@ -45,16 +45,14 @@
                 </tr>
             </thead>
             <tbody>
-            @foreach($cartItems as $cartItem)
-    <tr>
-        
-        <td class="py-4 text-gray-700">{{ $cartItem['product']['name'] ?? 'Default Product Name' }}</td>
-        <td class="py-4 text-gray-700">1</td> 
-        <td class="py-4 text-gray-700">${{ $cartItem['product']['unit_price'] ?? '0.00' }}</td>
-        <td class="py-4 text-gray-700">${{ $cartItem['product']['unit_price'] ?? '0.00' }}</td>
-    </tr>
-@endforeach
-
+                @foreach($cartItems as $cartItem)
+                <tr>
+                    <td class="py-4 text-gray-700">{{ $cartItem['product']['name'] ?? 'Product Name' }}</td>
+                    <td class="py-4 text-gray-700">{{ $cartItem['quantity'] }}</td>
+                    <td class="py-4 text-gray-700">${{ $cartItem['product']['unit_price'] ?? '0.00' }}</td>
+                    <td class="py-4 text-gray-700">${{ $cartItem['product']['unit_price'] ?? '0.00' }}</td>
+                </tr>
+                @endforeach
             </tbody>
         </table>
         <div class="flex justify-end mb-3">

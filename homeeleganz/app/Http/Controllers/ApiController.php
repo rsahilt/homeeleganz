@@ -52,14 +52,13 @@ class ApiController extends Controller
                 $lineItem->order_id = $order->id;
                 $lineItem->product_id = $cartItem['product']['id'];
         
+                
                 $lineItem->name = $cartItem['product']['name'];
+                $lineItem->quantity = $cartItem['quantity'];
                 $lineItem->unit_price = $cartItem['product']['unit_price'];
         
                 $lineItem->save(); // Save line_items
-            } else {
-                // Handle the case where product_id is not available
-                // Log error or handle accordingly
-            }
+            } 
         }
         
         
@@ -105,15 +104,13 @@ class ApiController extends Controller
     
         $userdetails = Auth::user();
 
+        //FORGET THE SESSION
         $request->session()->forget('cart');
     
         return view('invoice', compact('response', 'userdetails'));
 
-    
-
         // $cart = $request->session()->forget('cart');
         // return view('/invoice', compact('response','userdetails','cart'));
-        
     }
     
     

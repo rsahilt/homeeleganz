@@ -12,7 +12,7 @@
         @foreach($cart as $cartItem)
             <div class="flex justify-between">
             <span>{{ $cartItem['product']['name'] ?? 'Default Product Name' }}</span>
-
+            <span>x {{ $cartItem['quantity'] }}</span>
 
             <span>${{ $cartItem['product']['unit_price'] ?? '0.00' }}</span>
 
