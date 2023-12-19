@@ -1,13 +1,13 @@
 @extends('layouts.main')
 @section('content')
 
-<div class="main-container bg-white mt-6 px-4 sm:px-6 lg:px-8" style="width: 70%; margin: auto;">
+<div class="main-container bg-white mt-6 px-4 sm:px-6 lg:px-8" style="width:70%; margin: auto;">
 
-    <h1 class="font-bold text-3xl text-center pt-5">Thank you for shopping with us. You shipment is on the way!</h1>
+    <h1 class="font-bold text-3xl text-center pt-5">Thank you for shopping with us. Your shipment is on the way!</h1>
     <div class="bg-white rounded-lg shadow-lg px-8 py-10 mx-auto">
         <div class="flex items-center justify-between mb-8">
             <div id="logo" class="pb-4">
-                <h1><span>Home</span>Eleganz</h1>
+                <h1 class="invoice-logo"><span>Home</span>Eleganz</h1>
             </div>
             <div class="text-gray-700">
                 <div class="font-bold text-xl mb-2">INVOICE</div>
