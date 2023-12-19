@@ -31,18 +31,18 @@
                     @endif
                 </caption>
 
-
-
-
-
-
             </table>
 
+            <a href="/admin/orders" class="mt-2 ml-2 inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-blue-600 transition-all">
+                Back
+             </a>
             <div class="w-full flex text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                <div id="items" class="w-[40%] h-auto mx-auto my-[3rem] p-6 bg-gray-100 ">
-                    <a href="/admin/orders" class="mt-2 mb-5 inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-blue-600 transition-all">
-                        Back
-                    </a>
+            
+            <div id="items" class="w-[40%] h-auto mx-auto my-[3rem] p-6 bg-gray-100 ">
+                <div class="text-center mb-2">
+
+                    <h1 class="text-[1.5rem] font-semibold">Order</h1>
+                </div>
 
                     @foreach($items as $item)
                     <div class="flex items-center justify-between p-4  border-gray-300">
@@ -72,18 +72,41 @@
                             <span class="text-gray-600 mb-1">${{ number_format($order->pst, 2) }}</span>
                             <span class="text-gray-600 mb-1">${{ number_format($order->hst, 2) }}</span>
                             <span class="text-gray-600 mb-1">${{ number_format($order->total, 2) }}</span>
-
-
                         </div>
                     </div>
 
                 </div>
-                <div id="transactions" class="w-[40%] h-auto mx-auto my-[3rem] p-6 bg-gray-100 ">
+
+                <div id="shipping" class="w-[30%] h-auto mx-auto my-[3rem] p-6 bg-gray-100 ">
+                    <div class="text-center mb-2">
+                        <h1 class="text-[1.5rem] font-semibold">Shipping Address</h1>
+                    </div>
+
+                    <div class="w-100 flex flex-col items-center justify-between p-4  border-gray-300">
+                        <div class="w-[100%] flex justify-between items-center mb-3">
+                            <span class="text-lg font-semibold">{{ $order->user->first_name }} {{ $order->user->last_name }}</span>
+                        </div>
+                        <div class="w-[100%] flex justify-between items-center mb-3">
+                            <span class="text-lg font-semibold"> {{ $order->user->address }} - {{ $order->user->street }}</span>
+                        </div>
+                        <div class="w-[100%] flex justify-between items-center mb-3">
+                            <span class="text-lg font-semibold"> {{ $order->user->city }}, {{ $order->user->postal_code }}</span>
+                        </div>
+                        <div class="w-[100%] flex justify-between items-center mb-3">
+                            <span class="text-lg font-semibold"> {{ $order->user->province }}, {{ $order->user->country }}</span>
+                        </div>
+                    </div>
+                
+                </div>
+
+
+                <div id="transactions" class="w-[30%] h-auto mx-auto my-[3rem] p-6 bg-gray-100 ">
                     <div class="text-center mb-2">
 
                         <h1 class="text-[1.5rem] font-semibold">Transactions</h1>
                     </div>
                     @foreach($transactions as $transaction)
+                    
                     <div class="w-100 flex flex-col items-center justify-between p-4  border-gray-300">
                         <div class="w-[100%] flex justify-between items-center mb-3">
                             <span class="text-lg font-semibold">Transaction id:
@@ -141,21 +164,13 @@
                     <hr class="my-[1rem]">
                     @endforeach
 
-
-
-
-
-
-
                 </div>
 
-
+                
 
             </div>
 
         </div>
-
-
     </main>
 </div>
 
