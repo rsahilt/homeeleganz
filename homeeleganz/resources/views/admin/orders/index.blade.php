@@ -8,10 +8,7 @@
             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                 <caption class="p-5 text-lg font-semibold text-left rtl:text-right text-gray-900 bg-white dark:text-white dark:bg-gray-800">
                     {{ $title }}
-                    <br>
-                    <a href="/admin/products/create" class="mb-5 inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-blue-600 transition-all mt-3">
-                        ALL ORDERS
-                    </a>
+                    
                     @if (session('success'))
                     <div class="alert alert-success mt-7 rounded-lg bg-green-200">
                         {{ session('success') }}
@@ -91,6 +88,7 @@
                         </td>
                     </tr>
                     @endforeach
+                    {{ $orders->links() }}
 
 
                 </tbody>

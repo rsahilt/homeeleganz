@@ -31,11 +31,6 @@
                     @endif
                 </caption>
 
-
-
-
-
-
             </table>
 
             <a href="/admin/orders" class="mt-2 ml-2 inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-blue-600 transition-all">
@@ -77,8 +72,6 @@
                             <span class="text-gray-600 mb-1">${{ number_format($order->pst, 2) }}</span>
                             <span class="text-gray-600 mb-1">${{ number_format($order->hst, 2) }}</span>
                             <span class="text-gray-600 mb-1">${{ number_format($order->total, 2) }}</span>
-
-
                         </div>
                     </div>
 
@@ -113,6 +106,7 @@
                         <h1 class="text-[1.5rem] font-semibold">Transactions</h1>
                     </div>
                     @foreach($transactions as $transaction)
+                    
                     <div class="w-100 flex flex-col items-center justify-between p-4  border-gray-300">
                         <div class="w-[100%] flex justify-between items-center mb-3">
                             <span class="text-lg font-semibold">Transaction id:

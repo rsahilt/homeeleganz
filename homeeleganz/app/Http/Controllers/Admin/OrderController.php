@@ -20,7 +20,7 @@ class OrderController extends Controller
     public function index()
     {
         $title = 'List of orders';
-        $orders = Order::all();
+        $orders = Order::latest()->paginate(10);
         $slug = "orderdashboard";
         return view('admin/orders/index', compact('orders', 'title', 'slug'));
     }
@@ -31,19 +31,12 @@ class OrderController extends Controller
         $order = Order::find($id);
         $items = LineItem::where('order_id', $id)->get();
         $transactions = Transaction::where('order_id', $id)->get();
-
         $slug = "orderdashboard";
-
-
-
         // Check if the order exists
         if (!$order) {
-            // You may want to handle the case where the order is not found, for example, redirect to an error page.
+            // handle the case where the order is not found, for example, redirect to an error page.
             return redirect()->route('error')->with('error', 'Order not found.');
         }
-
-
-
 
 
         // Pass the order data to the view
