@@ -217,9 +217,11 @@ class ProductController extends Controller
         }
 
         $totalPrice = 0;
-        foreach ($cart as $item) {
-            $totalPrice += $item['unit_price'];
-        }
+foreach ($cart as $item) {
+    $unitPrice = isset($item['product']['unit_price']) ? $item['product']['unit_price'] : 0;
+    $quantity = $item['quantity'] ?? 0; // Default to 0 if 'quantity' is not set
+    $totalPrice += $unitPrice * $quantity;
+}
 
         // Calculate tax amount for each tax type
         $totalGST = $totalPrice * $taxes['gst'];

@@ -11,9 +11,11 @@
     
         @foreach($cart as $cartItem)
             <div class="flex justify-between">
-                <span>{{ $cartItem['name'] }}</span>
+            <span>{{ $cartItem['product']['name'] ?? 'Default Product Name' }}</span>
 
-                <span>${{ $cartItem['unit_price'] }}</span>
+
+            <span>${{ $cartItem['product']['unit_price'] ?? '0.00' }}</span>
+
             </div>
         <hr class="my-[1rem]">
         @endforeach

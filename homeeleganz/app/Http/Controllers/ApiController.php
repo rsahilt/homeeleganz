@@ -46,16 +46,26 @@ class ApiController extends Controller
 
 
         $cartItems = session('cartItems');
-        foreach($cartItems as $cartItem){
-            // //inserting into line_items
-            $lineItem = new LineItem();
-            $lineItem->order_id = $order->id;
-            $lineItem->product_id = $cartItem->id; 
-            $lineItem->name = $cartItem->name;
-            $lineItem->quantity = 1; 
-            $lineItem->unit_price = $cartItem->unit_price;
-            $lineItem->save(); //save line_items
+        foreach ($cartItems as $cartItem) {
+            if (isset($cartItem['product']) && is_array($cartItem['product']) && isset($cartItem['product']['id'])) {
+                $lineItem = new LineItem();
+                $lineItem->order_id = $order->id;
+                $lineItem->product_id = $cartItem['product']['id'];
+        
+                // Assuming 'name' and 'unit_price' are directly in $cartItem array.
+                // Adjust as necessary if they are inside $cartItem['product']
+                $lineItem->name = $cartItem['name'] ?? 'Default Product Name';
+                $lineItem->quantity = 1; // Adjust as necessary
+                $lineItem->unit_price = $cartItem['unit_price'] ?? 0;
+        
+                $lineItem->save(); // Save line_items
+            } else {
+                // Handle the case where product_id is not available
+                // Log error or handle accordingly
+            }
         }
+        
+        
         
 
         //transaction vbox
@@ -76,6 +86,11 @@ class ApiController extends Controller
         $newTransaction = new Transaction();
         $newTransaction->order_id = $order->id;
         $newTransaction->transaction = json_encode($transaction->authorize_and_capture());
+        
+        // Set the default status value. Adjust this based on your application's logic.
+        // For example, you might set it based on the response from your payment gateway.
+        $newTransaction->status = 'default_status'; // Replace 'default_status' with the appropriate default status value for your application.
+        
         $newTransaction->save();
 
 

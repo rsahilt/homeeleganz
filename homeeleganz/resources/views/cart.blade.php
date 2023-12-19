@@ -43,6 +43,11 @@
                 <span class="total-label font-bold text-xl">Total:</span> 
                 <span class="total-value text-xl">${{ number_format($totalPrice, 2) }}</span>
             </div>
+
+            <div>
+                <a href="/products" class="inline-flex items-center justify-center px-5 py-2 text-sm font-medium text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800 transition duration-300">Continue Shopping</a>
+                <a href="/checkout" class="inline-flex items-center justify-center px-5 py-2 text-sm font-medium text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800 transition duration-300">Checkout</a>
+            </div>
         </div>
     @else
         <div class="w-full max-w-lg mx-auto text-center mt-4">
@@ -50,16 +55,6 @@
             <a href="/products" class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition duration-300">Continue Shopping</a>
         </div>
     @endif
-    <div>
-                <a href="/products" class="inline-flex items-center justify-center px-5 py-2 text-sm font-medium text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800 transition duration-300">
-                Continue Shopping
-                </a>
-
-                <!-- <a href="/checkout?cart={{ urlencode(json_encode($cart)) }}" class="inline-flex items-center justify-center px-5 py-2 text-sm font-medium text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800 transition duration-300">Checkout</a> -->
-                <a href="/checkout" class="inline-flex items-center justify-center px-5 py-2 text-sm font-medium text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800 transition duration-300">Checkout</a>
-            </div>
-
-
 </main>
 
 @include('partials.footer')
