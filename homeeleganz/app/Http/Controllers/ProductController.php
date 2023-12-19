@@ -113,24 +113,46 @@ class ProductController extends Controller
     }
 
     public function addToCart(Request $request)
-    {
-        $product = Product::find($request->product_id);
+{
+    $productId = $request->product_id;
+    $product = Product::find($productId);
 
-        if (!$product) {
-            return redirect()->back()->with('error', 'Product not found!');
-        }
-
-        $cart = $request->session()->get('cart', []);
-        $cart[$product->id] = $product;
-        $request->session()->put('cart', $cart);
-
-        return redirect()->back()->with('success', 'Product added to cart!');
+    if (!$product) {
+        return redirect()->back()->with('error', 'Product not found!');
     }
+
+    $cart = $request->session()->get('cart', []);
+
+    if (isset($cart[$productId])) {
+        // Increment quantity if product exists
+        $cart[$productId]['quantity'] += 1;
+    } else {
+        // Add product with quantity 1 if not exists
+        $cart[$productId] = [
+            "product" => $product->toArray(), // Store product data as an array
+            "quantity" => 1
+        ];
+    }
+
+    $request->session()->put('cart', $cart);
+
+    return redirect()->back()->with('success', 'Product added to cart!');
+}
+
 
     public function viewCart(Request $request)
     {
         $cart = $request->session()->get('cart', []);
+<<<<<<< HEAD
+        
+    if (!is_array($cart)) {
+        $cart = []; // Ensure $cart is always an array
+    }
+
+        // $slug = "cart";
+=======
         $slug = "cart";
+>>>>>>> 81e1bbb1d50b51cf72f392c5db49a3c86aeeada3
         $user = Auth::user();
         $userProvince = $user ? $user->province : null;
 
@@ -151,9 +173,11 @@ class ProductController extends Controller
 
         $totalPrice = 0;
         foreach ($cart as $item) {
-
-            $totalPrice += $item->unit_price;
+            $unitPrice = $item['product']['unit_price'] ?? 0;
+            $quantity = $item['quantity'] ?? 0;
+            $totalPrice += $unitPrice * $quantity;
         }
+        
 
         // Calculate tax amount for each tax type
         $totalGST = $totalPrice * $taxes['gst'];
@@ -197,9 +221,11 @@ class ProductController extends Controller
         }
 
         $totalPrice = 0;
-        foreach ($cart as $item) {
-            $totalPrice += $item['unit_price'];
-        }
+foreach ($cart as $item) {
+    $unitPrice = isset($item['product']['unit_price']) ? $item['product']['unit_price'] : 0;
+    $quantity = $item['quantity'] ?? 0; // Default to 0 if 'quantity' is not set
+    $totalPrice += $unitPrice * $quantity;
+}
 
         // Calculate tax amount for each tax type
         $totalGST = $totalPrice * $taxes['gst'];
@@ -217,15 +243,22 @@ class ProductController extends Controller
     public function removeFromCart(Request $request, $productId)
     {
         $cart = $request->session()->get('cart', []);
-
-        if (array_key_exists($productId, $cart)) {
-            unset($cart[$productId]);
+    
+        if (isset($cart[$productId])) {
+            // Decrease quantity or remove the product
+            if ($cart[$productId]['quantity'] > 1) {
+                $cart[$productId]['quantity'] -= 1;
+            } else {
+                unset($cart[$productId]);
+            }
+            
             $request->session()->put('cart', $cart);
-            return redirect()->back()->with('danger', 'Product removed from cart');
+            return redirect()->back()->with('success', 'Product updated in cart');
         }
-
+    
         return redirect()->back()->with('error', 'Product not found in cart');
     }
+    
 
     public function aboutmethod()
     {
