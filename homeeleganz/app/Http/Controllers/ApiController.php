@@ -53,9 +53,9 @@ class ApiController extends Controller
                 $lineItem->product_id = $cartItem['product']['id'];
         
                 
-                $lineItem->name = $cartItem['product']['name'] ?? 'Default Product Name';
+                $lineItem->name = $cartItem['product']['name'];
                 $lineItem->quantity = $cartItem['quantity'];
-                $lineItem->unit_price = $cartItem['unit_price'] ?? 0;
+                $lineItem->unit_price = $cartItem['product']['unit_price'];
         
                 $lineItem->save(); // Save line_items
             } 
