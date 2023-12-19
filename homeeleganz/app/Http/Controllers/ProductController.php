@@ -143,16 +143,13 @@ class ProductController extends Controller
     public function viewCart(Request $request)
     {
         $cart = $request->session()->get('cart', []);
-<<<<<<< HEAD
         
-    if (!is_array($cart)) {
-        $cart = []; // Ensure $cart is always an array
-    }
+        if (!is_array($cart)) {
+            $cart = []; // Ensure $cart is always an array
+        }
 
         // $slug = "cart";
-=======
         $slug = "cart";
->>>>>>> 81e1bbb1d50b51cf72f392c5db49a3c86aeeada3
         $user = Auth::user();
         $userProvince = $user ? $user->province : null;
 
