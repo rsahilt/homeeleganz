@@ -239,11 +239,13 @@ footer{
 #logo h1{
     font-size: 2.6em;
     font-weight: bold;
-    color: #6666b2 !important;
+    color: #dedef0 !important;
+    font-family: serif;
+    padding-left: 5px;
 }
 
 #logo h1 span{
-    color: #b2b2d8;
+    color: rgb(174, 203, 217);
 }
 
 .reviewh2{
@@ -540,16 +542,23 @@ main{
 
     }
 }
-.termsandconditions {
-    h1 {
-        font-size: 24px; /* Adjust the font size */
-        color: #333;
-        text-align: center;
+
+
+.order-card{
+    margin-left:10px;
+    background-color: #fff;
+    margin: 0 auto 30px auto;
+    max-width: 400px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    border-radius: 10px;
+    padding: 10px;
 }
+
+img.order-pr-image{
+    margin: 0 auto;
+    width: 80%;
+    height: auto;
 }
-
-
-
 /* -----------------------------------------------------------------
 ----------------------------Media Queries----------------------------
 --------------------------------------------------------------------*/

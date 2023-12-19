@@ -7,6 +7,7 @@ use App\Models\LineItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use App\Models\Order;
+use App\Models\Transaction;
 use Illuminate\Support\Facades\Storage;
 
 class OrderController extends Controller
@@ -29,7 +30,11 @@ class OrderController extends Controller
         // Find the order by ID
         $order = Order::find($id);
         $items = LineItem::where('order_id', $id)->get();
+        $transactions = Transaction::where('order_id', $id)->get();
+
         $slug = "orderdashboard";
+
+
 
         // Check if the order exists
         if (!$order) {
@@ -42,7 +47,7 @@ class OrderController extends Controller
 
 
         // Pass the order data to the view
-        return view('admin/orders.viewOrder', compact('order', 'items', 'slug'));
+        return view('admin/orders.viewOrder', compact('order', 'items', 'slug', 'transactions'));
     }
 
 

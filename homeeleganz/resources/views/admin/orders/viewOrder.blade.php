@@ -39,8 +39,8 @@
 
             </table>
 
-            <div class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                <div id="items" class="w-[60%] h-auto mx-auto my-[3rem] p-6 bg-gray-100 ">
+            <div class="w-full flex text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <div id="items" class="w-[40%] h-auto mx-auto my-[3rem] p-6 bg-gray-100 ">
                     <a href="/admin/orders"
                         class="mt-2 mb-5 inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-blue-600 transition-all">
                         Back
@@ -69,6 +69,72 @@
                         </div>
                     </div>
 
+                </div>
+                <div id="transactions" class="w-[40%] h-auto mx-auto my-[3rem] p-6 bg-gray-100 ">
+                    <div class="text-center mb-2">
+
+                        <h1 class="text-[1.5rem] font-semibold">Transactions</h1>
+                    </div>
+                    @foreach($transactions as $transaction)
+                    <div class="w-100 flex flex-col items-center justify-between p-4  border-gray-300">
+                        <div class="w-[100%] flex justify-between items-center mb-3">
+                            <span class="text-lg font-semibold">Transaction id:
+                            </span>
+                            <span class="text-gray-600 ml-4"> {{ $transaction->id }}</span>
+                        </div>
+
+                        <div class="w-[100%] flex justify-between items-center mb-3">
+                            <span class="text-lg font-semibold">Transaction status:
+                            </span>
+                            <span class="text-gray-600 ml-4"> {{ $transaction->status }}</span>
+                        </div>
+                        <div class="w-[100%] flex justify-between items-center">
+                            <span class="text-lg font-semibold">Order id:
+                            </span>
+                            <span class="text-gray-600 ml-4"> {{ $transaction->order_id }}</span>
+                        </div>
+                        <div class="w-full bg-gray-100 py-8">
+                            <div class="max-w-2xl mx-auto">
+
+
+                                @php
+                                $decodedTransaction = json_decode($transaction->transaction, true);
+                                @endphp
+
+                                @if (is_array($decodedTransaction) &&
+                                isset($decodedTransaction['transaction_response']['errors']))
+                                @if (count($decodedTransaction['transaction_response']['errors']) > 0)
+                                <div
+                                    class="w-full bg-red-100 text-red-600 p-4 rounded flex justify-between items-center">
+                                    <span class="text-lg font-semibold">Errors:</span>
+                                    <div class="ml-4">
+                                        @foreach ($decodedTransaction['transaction_response']['errors'] as $key =>
+                                        $error)
+                                        <span>{{ $key }}: {{ $error }}</span>
+                                        @endforeach
+                                    </div>
+                                </div>
+                                @else
+                                <div class="w-full bg-green-100 text-green-600 p-4 rounded">
+                                    <span class="text-lg font-semibold">Success:</span>
+                                    <span class="ml-4">Transaction successful</span>
+                                </div>
+                                @endif
+                                @else
+                                <div class="w-full flex justify-between items-center">
+                                    <span class="text-lg font-semibold">Result Message:</span>
+                                    <span class="text-gray-600 ml-4">{{ $transaction->transaction }}</span>
+                                </div>
+                                @endif
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <hr class="my-[1rem]">
+                    @endforeach
+
+
 
 
 
@@ -81,6 +147,8 @@
             </div>
 
         </div>
+
+
     </main>
 </div>
 

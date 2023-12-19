@@ -8,7 +8,6 @@
     <div id="utilities" class="flex flex-col md:flex-row justify-between items-center mb-3">
 
         <div id="logo" class="pl-0 pb-0 md:pl-5 md:pb-4">
-            <!-- <img src="/images/logo.png" alt="" width="60px" height="50px"> -->
             <h1><span>Home</span>Eleganz</h1>
         </div>
 
@@ -33,15 +32,31 @@
 
         <div id="login" class="flex pr-0 md:pr-10">
             <ul class="flex space-x-2">
+                @php
+                    $currentUrl = Request::path(); 
+                    $slug = ''; 
+                    
+                    if ($currentUrl === 'login') {
+                        $slug = 'login';
+                    }
+
+                    if ($currentUrl === 'register') {
+                        $slug = 'register';
+                    }
+                @endphp
                 @guest
                 @if (Route::has('login'))
-                <li><a href="{{ route('login') }}" class="authli">{{ __('Login') }}</a></li>
+                <li class="{{ $slug === 'login' ? 'bg-white' : '' }}">
+                    <a href="{{ route('login') }}" class="authli {{ $slug === 'login' ? 'text-blue-700' : '' }}">{{ __('Login') }}</a>
+                </li>
                 @endif
 
                 <li class="authli">|</li>
 
                 @if (Route::has('register'))
-                <li><a href="{{ route('register') }}" class="authli">{{ __('Register') }}</a></li>
+                <li class="{{ $slug === 'register' ? 'bg-white' : '' }}">
+                    <a href="{{ route('register') }}" class="authli {{ $slug === 'register' ? 'text-blue-700' : '' }}">{{ __('Register') }}</a>
+                </li>
                 @endif
 
                 @elseif (Auth::check())
@@ -129,23 +144,23 @@
 
 
             <ul class="navbar font-medium md:flex hidden md:flex-row md:justify-center md:space-x-8 mt-4 md:mt-0">
-                <li>
+                <li class="{{ $slug === 'homepage' ? 'bg-white' : '' }}">
                     <a href="/" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500">Home</a>
                 </li>
 
-                <li>
+                <li class="{{ $slug === 'about' ? 'bg-white' : '' }}">
                     <a href="/about" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>
                 </li>
 
-                <li>
+                <li class="{{ $slug === 'products' ? 'bg-white' : '' }}">
                     <a href="/products" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Products</a>
                 </li>
 
-                <li>
+                <li class="{{ $slug === 'brands' ? 'bg-white' : '' }}">
                     <a href="/brands" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Brands</a>
                 </li>
 
-                <li>
+                <li class="{{ $slug === 'contact' ? 'bg-white' : '' }}">
                     <a href="/contact" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact
                         Us</a>
                 </li>
