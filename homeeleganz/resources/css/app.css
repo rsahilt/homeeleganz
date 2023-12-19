@@ -549,6 +549,7 @@ main{
 }
 
 
+
 /* -----------------------------------------------------------------
 ----------------------------Media Queries----------------------------
 --------------------------------------------------------------------*/
@@ -606,6 +607,28 @@ main{
     }
     .details h1{
         font-size: 24px;
+    }
+
+    /* checkout */
+    #items,
+    #payment{
+        width: 90%;
+    }
+
+    .main-container{
+        width: 100vw !important;
+    }
+
+    .main-container h1{
+        font-size: 24px;
+    }
+
+    #logo{
+        margin-right: 10px;
+    }
+
+    #logo h1.invoice-logo{
+        font-size: 28px;
     }
 
 }

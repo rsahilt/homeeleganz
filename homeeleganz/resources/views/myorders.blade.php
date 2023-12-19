@@ -2,7 +2,6 @@
 @section('content')
 
 
-<!-- Display Orders Here -->
 @if($orders->count() > 0)
     <h1>Your Orders</h1>
     <ul>
