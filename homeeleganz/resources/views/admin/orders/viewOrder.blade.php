@@ -8,8 +8,7 @@
 
             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
 
-                <caption
-                    class="p-5 text-lg font-semibold text-left rtl:text-right text-gray-900 bg-white dark:text-white dark:bg-gray-800">
+                <caption class="p-5 text-lg font-semibold text-left rtl:text-right text-gray-900 bg-white dark:text-white dark:bg-gray-800">
                     Order id: {{ $order->id }}
                     <br>
 
@@ -41,8 +40,7 @@
 
             <div class="w-full flex text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                 <div id="items" class="w-[40%] h-auto mx-auto my-[3rem] p-6 bg-gray-100 ">
-                    <a href="/admin/orders"
-                        class="mt-2 mb-5 inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-blue-600 transition-all">
+                    <a href="/admin/orders" class="mt-2 mb-5 inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-blue-600 transition-all">
                         Back
                     </a>
 
@@ -53,6 +51,7 @@
                             <span class="text-gray-600 ml-4">x{{ $item->quantity }}</span>
                         </div>
                         <div class="flex flex-col">
+
                             <span class="text-gray-600">${{ number_format($item->unit_price, 2) }}</span>
                             <span class="text-xs text-gray-400">{{ $item->created_at->diffForHumans() }}</span>
                         </div>
@@ -60,11 +59,20 @@
                     <hr class="my-[1rem]">
                     @endforeach
                     <div class="flex items-center justify-between p-4  border-gray-300">
-                        <div class="flex justify-center items-center">
-                            <span class="text-[1.5rem] tracking-wider font-bold text-black">Total: </span>
+                        <div class="flex flex-col justify-betwen items-start text-left">
+                            <span class="text-[1rem] tracking-wider font-bold text-black mb-1">Sub total: </span>
+                            <span class="text-[1rem] tracking-wider font-bold text-black mb-1">GST: </span>
+                            <span class="text-[1rem] tracking-wider font-bold text-black mb-1">PST: </span>
+                            <span class="text-[1rem] tracking-wider font-bold text-black mb-1">HST: </span>
+                            <span class="text-[1rem] tracking-wider font-bold text-black mb-1">Total: </span>
                         </div>
                         <div class="flex flex-col">
-                            <span class="text-gray-600">${{ $order->total }}</span>
+                            <span class="text-gray-600 mb-1">${{ $order->sub_total }}</span>
+                            <span class="text-gray-600 mb-1">${{ number_format($order->gst, 2) }}</span>
+                            <span class="text-gray-600 mb-1">${{ number_format($order->pst, 2) }}</span>
+                            <span class="text-gray-600 mb-1">${{ number_format($order->hst, 2) }}</span>
+                            <span class="text-gray-600 mb-1">${{ number_format($order->total, 2) }}</span>
+
 
                         </div>
                     </div>
@@ -104,8 +112,7 @@
                                 @if (is_array($decodedTransaction) &&
                                 isset($decodedTransaction['transaction_response']['errors']))
                                 @if (count($decodedTransaction['transaction_response']['errors']) > 0)
-                                <div
-                                    class="w-full bg-red-100 text-red-600 p-4 rounded flex justify-between items-center">
+                                <div class="w-full bg-red-100 text-red-600 p-4 rounded flex justify-between items-center">
                                     <span class="text-lg font-semibold">Errors:</span>
                                     <div class="ml-4">
                                         @foreach ($decodedTransaction['transaction_response']['errors'] as $key =>
