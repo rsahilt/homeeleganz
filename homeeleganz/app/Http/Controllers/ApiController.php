@@ -94,6 +94,8 @@ class ApiController extends Controller
         $userdetails = Auth::user();
 
         $request->session()->forget('cart');
+
+        $request->session()->put('cardholder_name', $valid['cardName']);
     
         return view('invoice', compact('response', 'userdetails'));
 

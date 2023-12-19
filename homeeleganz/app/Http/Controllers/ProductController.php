@@ -18,8 +18,8 @@ class ProductController extends Controller
     public function homepage()
     {
         $title="Home";
-        // $slug="homepage";
-        return view('index', compact('title'));
+        $slug="homepage";
+        return view('index', compact('title','slug'));
     }
 
     /**
@@ -30,16 +30,16 @@ class ProductController extends Controller
         $categories = Category::latest()->get();
         $products = Product::latest()->paginate(8);
         $title = "All Collection";
-        // $slug = "products";
-        return view('products', compact('products', 'title', 'categories'));
+        $slug = "products";
+        return view('products', compact('products', 'title', 'categories','slug'));
     }
 
     public function show(string $id)
     {
         $information = Product::with(['reviews.user', 'categories'])->find($id);
         $title = 'About the Product';
-        // $slug = "products";
-        return view('details', compact('information', 'title'));
+        $slug = "products";
+        return view('details', compact('information', 'title','slug'));
     }
 
     public function category($categoryName)
@@ -54,15 +54,15 @@ class ProductController extends Controller
     {
         $brands = ['Molteni&C', 'Palliser', 'Dufresne', 'Us & Coutumes', 'Mobilia'];
         $title = 'Our Partner Brands';
-        // $slug = "brands";
-        return view('brands', compact('brands', 'title'));
+        $slug = "brands";
+        return view('brands', compact('brands', 'title','slug'));
     }
 
     public function contactmethod()
     {
         $title = 'Get in touch';
-        // $slug = "contact";
-        return view('contact', compact('title'));
+        $slug = "contact";
+        return view('contact', compact('title','slug'));
     }
 
     
@@ -130,7 +130,7 @@ class ProductController extends Controller
     public function viewCart(Request $request)
     {
         $cart = $request->session()->get('cart', []);
-        // $slug = "cart";
+        $slug = "cart";
         $user = Auth::user();
         $userProvince = $user ? $user->province : null;
 
@@ -164,7 +164,7 @@ class ProductController extends Controller
 
         $totalPriceWithTaxes = $totalPrice + $totalTaxes;
 
-        return view('cart', compact('cart', 'totalPrice', 'totalGST', 'totalPST', 'totalHST', 'totalTaxes', 'totalPriceWithTaxes'));
+        return view('cart', compact('cart','slug','totalPrice', 'totalGST', 'totalPST', 'totalHST', 'totalTaxes', 'totalPriceWithTaxes'));
     }
 
 
@@ -177,7 +177,7 @@ class ProductController extends Controller
         }
         $title = "Checkout";
         $cart = $request->session()->get('cart', []);
-        // $slug = "checkout";
+        $slug = "checkout";
         $user = Auth::user();
         $userProvince = $user ? $user->province : null;
 
@@ -210,7 +210,7 @@ class ProductController extends Controller
 
         $totalPriceWithTaxes = $totalPrice + $totalTaxes;
 
-        return view('checkout', compact('title', 'cart', 'totalPrice', 'totalGST', 'totalPST', 'totalHST', 'totalTaxes', 'totalPriceWithTaxes'));
+        return view('checkout', compact('title','slug','cart', 'totalPrice', 'totalGST', 'totalPST', 'totalHST', 'totalTaxes', 'totalPriceWithTaxes'));
     }
 
 
@@ -231,9 +231,9 @@ class ProductController extends Controller
     {
         $usercount = User::count();
         $productcount = Product::count();
-        // $slug="about";
+        $slug="about";
         $title = "About Us";
-        return view('about', compact('usercount', 'title', 'productcount'));
+        return view('about', compact('usercount', 'title', 'productcount','slug'));
     }
 
     public function maintenance()
