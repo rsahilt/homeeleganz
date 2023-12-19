@@ -8,7 +8,6 @@
     <div id="utilities" class="flex flex-col md:flex-row justify-between items-center mb-3">
 
         <div id="logo" class="pl-0 pb-0 md:pl-5 md:pb-4">
-            <!-- <img src="/images/logo.png" alt="" width="60px" height="50px"> -->
             <h1><span>Home</span>Eleganz</h1>
         </div>
 
