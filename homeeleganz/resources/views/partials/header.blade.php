@@ -33,15 +33,31 @@
 
         <div id="login" class="flex pr-0 md:pr-10">
             <ul class="flex space-x-2">
+                @php
+                    $currentUrl = Request::path(); 
+                    $slug = ''; 
+                    
+                    if ($currentUrl === 'login') {
+                        $slug = 'login';
+                    }
+
+                    if ($currentUrl === 'register') {
+                        $slug = 'register';
+                    }
+                @endphp
                 @guest
                 @if (Route::has('login'))
-                <li><a href="{{ route('login') }}" class="authli">{{ __('Login') }}</a></li>
+                <li class="{{ $slug === 'login' ? 'bg-white' : '' }}">
+                    <a href="{{ route('login') }}" class="authli {{ $slug === 'login' ? 'text-blue-700' : '' }}">{{ __('Login') }}</a>
+                </li>
                 @endif
 
                 <li class="authli">|</li>
 
                 @if (Route::has('register'))
-                <li><a href="{{ route('register') }}" class="authli">{{ __('Register') }}</a></li>
+                <li class="{{ $slug === 'register' ? 'bg-white' : '' }}">
+                    <a href="{{ route('register') }}" class="authli {{ $slug === 'register' ? 'text-blue-700' : '' }}">{{ __('Register') }}</a>
+                </li>
                 @endif
 
                 @elseif (Auth::check())
