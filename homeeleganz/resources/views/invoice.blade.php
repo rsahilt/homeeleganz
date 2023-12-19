@@ -47,9 +47,9 @@
             <tbody>
             @foreach($cartItems as $cartItem)
     <tr>
-        <!-- Check if 'product' and 'name' are set, then display 'name'. Otherwise, display a default value -->
+        
         <td class="py-4 text-gray-700">{{ $cartItem['product']['name'] ?? 'Default Product Name' }}</td>
-        <td class="py-4 text-gray-700">1</td> <!-- Assuming quantity is always 1, adjust if necessary -->
+        <td class="py-4 text-gray-700">1</td> 
         <td class="py-4 text-gray-700">${{ $cartItem['product']['unit_price'] ?? '0.00' }}</td>
         <td class="py-4 text-gray-700">${{ $cartItem['product']['unit_price'] ?? '0.00' }}</td>
     </tr>
