@@ -171,7 +171,7 @@ class ProductsSeeder extends Seeder
         ]);
         DB::table('products')->insert([
             'name' => 'Glass Round Dining Table',
-            'image' => 'resized_Dining_1.jpg',
+            'image' => 'resized_DIning_1.jpg',
             'summary' => 'A sleek and modern glass dining table for contemporary spaces.',
             'color' => 'Transparent',
             'material' => 'Glass',
