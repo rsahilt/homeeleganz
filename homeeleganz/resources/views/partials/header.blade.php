@@ -123,23 +123,23 @@
 
 
             <ul class="navbar font-medium md:flex hidden md:flex-row md:justify-center md:space-x-8 mt-4 md:mt-0">
-                <li>
+                <li class="{{ $slug === 'homepage' ? 'bg-white' : '' }}">
                     <a href="/" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500">Home</a>
                 </li>
 
-                <li>
+                <li class="{{ $slug === 'about' ? 'bg-white' : '' }}">
                     <a href="/about" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>
                 </li>
 
-                <li>
+                <li class="{{ $slug === 'products' ? 'bg-white' : '' }}">
                     <a href="/products" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Products</a>
                 </li>
 
-                <li>
+                <li class="{{ $slug === 'brands' ? 'bg-white' : '' }}">
                     <a href="/brands" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Brands</a>
                 </li>
 
-                <li>
+                <li class="{{ $slug === 'contact' ? 'bg-white' : '' }}">
                     <a href="/contact" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact
                         Us</a>
                 </li>
