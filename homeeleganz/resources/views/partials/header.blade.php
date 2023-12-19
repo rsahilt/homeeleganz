@@ -8,7 +8,9 @@
     <div id="utilities" class="flex flex-col md:flex-row justify-between items-center mb-3">
 
         <div id="logo" class="pl-0 pb-0 md:pl-5 md:pb-4">
+        <a href="/">
             <h1><span>Home</span>Eleganz</h1>
+        </a>
         </div>
 
         <div class="mb-3 w-[40%] text-center searchbarfrontend">
