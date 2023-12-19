@@ -23,12 +23,6 @@
             <div class="text-gray-700 mb-2">{{ $userdetails->country }}</div>
             <div class="text-gray-700">{{ $userdetails->email }}</div>
         </div>
-
-        <div class="border-b-2 border-gray-300 pb-8 mb-8">
-            <h2 class="text-2xl font-bold mb-4">Payment Details</h2>
-            <div class="text-gray-700 mb-2">Cardholder Name: </div>
-            <div class="text-gray-700 mb-2">Card Number:</div>
-        </div>
         
 
         <table class="w-full text-left mb-8">
