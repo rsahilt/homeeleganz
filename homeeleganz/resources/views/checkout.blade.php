@@ -9,6 +9,7 @@
     @auth
     <div id="items" class="w-[40%] h-auto mx-auto my-[3rem] p-6 bg-gray-100 ">
     
+        <!-- showing all the items in cart in the checkout page -->
         @foreach($cart as $cartItem)
             <div class="flex justify-between">
             <span>{{ $cartItem['product']['name'] ?? 'Default Product Name' }}</span>
@@ -19,7 +20,9 @@
             </div>
         <hr class="my-[1rem]">
         @endforeach
-        
+
+        <!-- showing their price related details, gst, pst, subtotal, hst and total with 
+        two decimal places -->
         <hr class="my-[1rem]">
         <div class="flex justify-between">
 
@@ -63,6 +66,7 @@
             <span><b>${{ number_format($totalPriceWithTaxes, 2) }}</b></span>
         </div>
 
+        <!-- retireving the session from cart -->
         @php
             session(['cartItems' => $cart]);
             session(['totalPrice' => $totalPrice]);
@@ -80,6 +84,7 @@
         </a>
     </div>
 
+    <!-- payment form with error messages -->
     <div id="payment" class="w-2/5 mx-auto my-12 p-6 bg-gray-100 rounded-lg shadow-md">
         <h1 class="text-2xl font-semibold mb-6">Add Card Details</h1>
         <form action="{{ route('transaction') }}" method="POST" novalidate>
@@ -142,18 +147,15 @@
         </form>
     </div>
 
-    
-        
     @else
-    <div class="text-center my-10">
-        <p class="mb-4">Please login to view your cart.</p>
-        <a href="{{ route('login') }}" class="inline-block bg-blue-500 text-white font-semibold py-2 px-12 rounded-md">Login</a>
-    </div>
-@endauth
+        <!-- if the user is not logged in -->
+        <div class="text-center my-10">
+            <p class="mb-4">Please login to view your cart.</p>
+            <a href="{{ route('login') }}" class="inline-block bg-blue-500 text-white font-semibold py-2 px-12 rounded-md">Login</a>
+        </div>
+    
+    @endauth
 
     
-
-
-
-    @include('partials.footer')
+@include('partials.footer')
 @endsection

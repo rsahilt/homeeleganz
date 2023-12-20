@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
+<!-- a static terms and conditions page -->
     <section class="text-gray-600 body-font bg-gray-100 mt-6">
         <div class="container px-5 py-24 mx-auto">
             <div class="flex flex-col text-left w-full mb-20 mt-[-55px]">

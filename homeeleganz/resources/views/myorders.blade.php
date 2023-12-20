@@ -3,6 +3,10 @@
 
 <div class="order-container">
 <h1 class="font-bold pl-5 py-5 text-xl text-center">Your Orders</h1>
+<!-- if the user has 1 or more orders
+carrying out a loop to view all the orders -->
+
+<!-- showing order id, image, quantity and name -->
 @if($orders->count() > 0)
     <ul>
         @foreach($orders as $order)

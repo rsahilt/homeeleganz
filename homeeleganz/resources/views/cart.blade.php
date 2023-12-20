@@ -3,10 +3,12 @@
 @section('content')
 <main class="main-container bg-white mt-6 px-4 sm:px-6 lg:px-8">
     <h1 class="font-lato text-center text-[1.5em] mt-[1rem] tracking-wider">My Cart</h1>
-
+    <!-- if cart has 1 or more items, display them -->
     @if(count($cart) > 0)
         <div class="cart-container bg-gray-100 p-6 rounded-lg shadow-md mx-auto max-w-4xl">
+            <!-- initiating 0 as the totalprice -->
             @php $totalPrice = 0; @endphp
+            <!-- displaying all the items added in cart and their info -->
             @foreach($cart as $productId => $item)
                 @if(is_array($item) && isset($item['product']) && is_array($item['product']))
                     @php

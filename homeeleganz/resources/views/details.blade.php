@@ -4,13 +4,16 @@
     <div class="prod-details-container">
         <div class="prod-desc-image">
             <div class="main-img box-shadow-details">
+                <!-- getting the image of the product user clicked on -->
                 <img src="/images/{{ $information->image }}" alt="sofa image">
             </div>
         </div>
         <div class="details">
+            <!-- getting all the details of the product from the database the user clicked on-->
             <h1>{{ $information->name }}</h1>
             <p class="cat-text">Categories: @foreach($information->categories as $cat)
                 {{ $cat->name}}
+                    <!-- if multiple categories, separating them by ',' -->
                     @if(!$loop->last)
                         {{ ',' }}
                     @endif
@@ -28,9 +31,11 @@
             <strong><h2>About This Item</h2></strong>
             <p>{!! $information->description !!}</p>
             <br>
+            <!-- button to add the item tot the cart -->
             <form action="{{ route('cart.add') }}" method="POST" novalidate>
             @csrf
                 <button class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+                    <!-- passing the product id as hidden field to access the info in cart page -->
                     <input type="hidden" name="product_id" value="{{ $information->id }}">
                     Add to Cart
                 </button>
@@ -40,10 +45,7 @@
 
     <div class="review">
         <h3>Product Reviews</h3>
-        
-        <!-- if no reviews -->
-        
-        <!-- if reviews -->
+        <!-- if there are reviews -->
         @if($information->reviews->count() > 0)
         @foreach($information->reviews as $review)
         <div class="review-box">
@@ -51,6 +53,7 @@
                 <div class="w-[70px] h-[70px] bg-black rounded-[50%]"></div>
             </div>
 
+            <!-- show the name of the user, the review posted date and the review -->
             <div class="user-contents">
                 <strong><p>{{ $review->user->first_name }}  {{ $review->user->last_name }}</p></strong>
                 <p class="cat-text date-text">Posted on: {{ $review->created_at->format('m/d/Y') }}</p>
@@ -59,9 +62,11 @@
         </div>
         @endforeach
         @else
+        <!-- if no reviews -->
         <span>No reviews yet.</span>
         @endif
 
+        <!-- if the user is not logged in ask them to login to view send a review -->
         @guest
         <p>Please <a href="/login"><u>login</u></a> to leave a review.</p>
         @else
@@ -76,6 +81,7 @@
                     class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none dark:text-white dark:placeholder-gray-400 dark:bg-gray-800"
                     placeholder="Leave your review..."></textarea>
             </div>
+            <!-- button to post the review -->
             <button type="submit" class="text-white bg-blue-500 hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
                 Post Review
             </button>
