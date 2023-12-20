@@ -25,7 +25,7 @@
         @else
             @foreach($products as $product)
             
-            <div class="w-[250px] min-h-[450px] border-[1px] rounded-[35px] mx-auto relative" data-aos="slide-up" data-aos-duration="1000">
+            <div class="w-[250px] min-h-[450px] border-[1px] rounded-[35px] mx-auto relative" data-aos="fade-in" data-aos-duration="1000">
                 <a href="{{ route('product.details', ['id' => $product->id]) }}" class="block">
                     <img src="/images/{{ $product->image }}" alt="{{ $product->image }}" class="rounded-t-[35px] h-[200px] w-[250px]"/>
                     <div class="px-2 my-2 ">

@@ -105,7 +105,7 @@
 
             <div class="mb-4">
                 <label for="cvv" class="block text-sm font-medium text-gray-600">CVV</label>
-                <input type="text" id="cvv" name="cvv" placeholder="CVV" class="mt-1 p-2 w-full border rounded-md">
+                <input type="text" id="cvv" name="cvv" placeholder="CVV ex: 123" class="mt-1 p-2 w-full border rounded-md">
                     @error('cvv')
                         <span class="text-red-500">{{ $message }}</span>
                     @enderror
@@ -131,7 +131,7 @@
 
             <div class="mb-4">
                 <label for="expiry" class="block text-sm font-medium text-gray-600">Expiry Date</label>
-                <input type="text" id="expiry" name="expiry" placeholder="xx/xx" class="mt-1 p-2 w-full border rounded-md">
+                <input type="text" id="expiry" name="expiry" placeholder="mmyy" class="mt-1 p-2 w-full border rounded-md">
                 @error('expiry')
                     <span class="text-red-500">{{ $message }}</span>
                 @enderror

@@ -114,11 +114,6 @@
                             <span class="text-gray-600 ml-4"> {{ $transaction->id }}</span>
                         </div>
 
-                        <div class="w-[100%] flex justify-between items-center mb-3">
-                            <span class="text-lg font-semibold">Transaction status:
-                            </span>
-                            <span class="text-gray-600 ml-4"> {{ $transaction->status }}</span>
-                        </div>
                         <div class="w-[100%] flex justify-between items-center">
                             <span class="text-lg font-semibold">Order id:
                             </span>
