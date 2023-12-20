@@ -3,6 +3,7 @@
 
 <div class="dashboard w-full">
     @include('partials.aside')
+    <!-- displaying the list of all categories -->
     <main>
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -12,6 +13,8 @@
                     <a href="/admin/categories/create" class="mb-5 inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-blue-600 transition-all mt-3">
                         Add New Category
                     </a>
+
+                    <!-- flash messages -->
                     @if (session('success'))
                         <div class="alert alert-success mt-7 rounded-lg bg-green-200">
                             {{ session('success') }}
@@ -52,6 +55,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- using for each loop to display all the categories from the table -->
                     @foreach($categories as $category)
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                         <td class="px-6 py-4">
@@ -65,6 +69,7 @@
                         </td>
                         <td class="px-6 py-4 text-left">
                             <div class="inline-block">
+                                <!-- edit button to send to the edit form using the id of the current category -->
                                 <a href="{{ route('editcategory', ['id'=>$category->id]) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
                                 &nbsp; &nbsp; | &nbsp; &nbsp;
                                 <!-- asking the user if they really want to delete, in the form of an alert -->

@@ -12,6 +12,7 @@
                     <a href="/admin/products/create" class="mb-5 inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-blue-600 transition-all mt-3">
                         Add New Product
                     </a>
+                    <!-- flash messages -->
                     @if (session('success'))
                         <div class="alert alert-success mt-7 rounded-lg bg-green-200">
                             {{ session('success') }}
@@ -58,6 +59,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- showing the list of all products from the database -->
                     @foreach($products as $product)
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                         <td class="px-6 py-4">
@@ -72,6 +74,7 @@
                         <td class="px-6 py-4">
                             @foreach ($product->categories as $category)
                                 {{ $category->name }}
+                                <!-- separating the category name by ','  if have multiple categories-->
                                 @if (!$loop->last)
                                     ,
                                 @endif

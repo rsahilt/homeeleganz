@@ -12,6 +12,7 @@
                     <a href="/admin/users/create" class="mb-5 inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-blue-600 transition-all mt-3">
                         Add New User
                     </a>
+                    <!-- flash messages -->
                     @if (session('success'))
                         <div class="alert alert-success mt-7 rounded-lg bg-green-200">
                             {{ session('success') }}
@@ -59,6 +60,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- foreach loop to display the list of all the users from the database -->
                     @foreach($users as $user)
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                         <td class="px-6 py-4">

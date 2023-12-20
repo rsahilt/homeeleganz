@@ -19,6 +19,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- displaying all the feedbacks from the messages table -->
                     @foreach($messages as $message)
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                         <td class="px-6 py-4">{{ $message->name }}</td>

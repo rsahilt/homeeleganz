@@ -11,6 +11,10 @@
                 <a href="/admin/products/" class="mb-5 inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-blue-600 transition-all">
                     Back
                 </a>
+                <!-- form to edit the selected product -->
+                <!-- if the user leaves any field empty, rest of the field will still have the
+                old value so that they won't have to type everything again -->
+                <!-- passing the current id of the product selected -->
                 <form action="{{ route('update', ['id' => $product->id]) }}"
                     method="POST" 
                     enctype="multipart/form-data" novalidate>
