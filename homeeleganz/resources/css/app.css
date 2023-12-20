@@ -56,7 +56,7 @@ footer{
 .main-container {
     width: 100%;
     margin: auto;
-    
+    height: auto;
 }
 
 .cart-title {

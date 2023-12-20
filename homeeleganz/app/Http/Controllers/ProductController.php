@@ -109,7 +109,7 @@ class ProductController extends Controller
 
         Message::create($validatedData);
 
-        return redirect()->back()->with('success', 'Message sent successfully!');
+        return redirect('/products')->with('success', 'Message sent successfully!');
     }
 
     /**
@@ -156,31 +156,31 @@ class ProductController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     public function addToCart(Request $request)
-{
-    $productId = $request->product_id;
-    $product = Product::find($productId);
+    {
+        $productId = $request->product_id;
+        $product = Product::find($productId);
 
-    if (!$product) {
-        return redirect()->back()->with('error', 'Product not found!');
+        if (!$product) {
+            return redirect()->back()->with('error', 'Product not found!');
+        }
+
+        $cart = $request->session()->get('cart', []);
+
+        if (isset($cart[$productId])) {
+            // Increment quantity if product exists
+            $cart[$productId]['quantity'] += 1;
+        } else {
+            // Add product with quantity 1 if not exists
+            $cart[$productId] = [
+                "product" => $product->toArray(), // Store product data as an array
+                "quantity" => 1
+            ];
+        }
+
+        $request->session()->put('cart', $cart);
+
+        return redirect('/products')->with('success', 'Product added to cart!');
     }
-
-    $cart = $request->session()->get('cart', []);
-
-    if (isset($cart[$productId])) {
-        // Increment quantity if product exists
-        $cart[$productId]['quantity'] += 1;
-    } else {
-        // Add product with quantity 1 if not exists
-        $cart[$productId] = [
-            "product" => $product->toArray(), // Store product data as an array
-            "quantity" => 1
-        ];
-    }
-
-    $request->session()->put('cart', $cart);
-
-    return redirect()->back()->with('success', 'Product added to cart!');
-}
 
 
     public function viewCart(Request $request)
