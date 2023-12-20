@@ -14,6 +14,7 @@
 
             <div class="p-8 bg-white shadow w-[70%]">
                 <div class="flex justify-center">
+                    <!-- frontend form for regular user to update their information -->
                     <form action="{{ route('updateProfile', ['id' => $user->id]) }}" novalidate method="POST"
                         enctype="multipart/form-data" class="w-full">
                         @csrf

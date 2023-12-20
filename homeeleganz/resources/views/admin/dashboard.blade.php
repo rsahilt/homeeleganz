@@ -14,6 +14,7 @@
                         </svg></div>
                     <div class="px-4 text-gray-700">
                         <h3 class="text-sm tracking-wider">Registered Users</h3>
+                        <!-- show the total number of registered users -->
                         <p class="text-3xl">{{ $usercount }}</p>
                     </div>
                 </div>
@@ -26,6 +27,7 @@
                         </svg></div>
                     <div class="px-4 text-gray-700">
                         <h3 class="text-sm tracking-wider">Total Reviews</h3>
+                        <!-- showing the total number of reviews posted -->
                         <p class="text-3xl">{{ $reviewcount }}</p>
                     </div>
                 </div>
@@ -38,6 +40,7 @@
                         </svg></div>
                     <div class="px-4 text-gray-700">
                         <h3 class="text-sm tracking-wider">Feedbacks</h3>
+                        <!-- showing the total number of feedbacks recieved -->
                         <p class="text-3xl">{{ $messagecount }}</p>
                     </div>
                 </div>
@@ -75,6 +78,7 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <!-- displaying the latest products -->
                         @foreach($products as $product)
                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                             <td class="px-6 py-4">
@@ -105,7 +109,7 @@
             </div>
 
 
-            <!-- list of latest 5 users -->
+           
 
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-5 mx-8">
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -135,6 +139,7 @@
                         </tr>
                     </thead>
                     <tbody>
+                         <!-- list of latest 5 users -->
                         @foreach($users as $user)
                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                             <td class="px-6 py-4">

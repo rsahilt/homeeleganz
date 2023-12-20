@@ -30,24 +30,27 @@
             </div>
 
             <div class="space-x-8 flex justify-between mt-32 md:mt-0 md:justify-center">
+                <!-- button to edit the user information -->
                 <button
                     class="text-white py-2 px-4 uppercase rounded bg-blue-400 hover:bg-blue-500 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
                     <a href="{{ route('home-edit', ['id' => $user->id]) }}"> Edit </a>
                 </button>
-                <button class=" text-white py-2 px-4 uppercase rounded bg-gray-700 hover:bg-gray-800 shadow hover:shadow-lg
+                <!-- button to see the reviews posted by the user -->
+                <button class=" text-white py-2 px-4 uppercase rounded bg-green-500 hover:bg-green-600 shadow hover:shadow-lg
                         font-medium transition transform hover:-translate-y-0.5">
                     <a href="{{ route('userReviews', ['id' => $user->id]) }}"> Reviews</a>
                 </button>
-                <button class=" text-white py-2 px-4 uppercase rounded bg-gray-700 hover:bg-gray-800 shadow hover:shadow-lg
+                <!-- button to see the orders of the user -->
+                <button class=" text-white py-2 px-4 uppercase rounded bg-orange-400 hover:bg-orange-500 shadow hover:shadow-lg
                         font-medium transition transform hover:-translate-y-0.5">
                     <a href="{{ route('myorders') }}">My Orders</a>
                 </button>
             </div>
         </div>
 
+        <!-- user information are displayed -->
         <div class="mt-20 text-center border-b pb-12">
-            <h1 class="text-4xl font-medium text-gray-700">{{ $user->first_name }} {{ $user->last_name }}, <span
-                    class="font-light text-gray-500">27</span></h1>
+            <h1 class="text-4xl font-medium text-gray-700">{{ $user->first_name }} {{ $user->last_name }}</h1>
             
             </p>
             <p class="font-light text-gray-600 mt-3"> {{ $user->address }} - {{ $user->street }}, 
@@ -58,6 +61,7 @@
             <p class="font-light text-gray-600 mt-3">{{ $user->country }}</p>
         </div>
 
+        <!-- just a static text -->
         <div class="mt-12 flex flex-col justify-center">
             <p class="text-gray-600 text-center font-light lg:px-16">An artist of considerable range, Ryan — the name
                 taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own

@@ -1,13 +1,7 @@
 @extends('layouts.main')
 @section('content')   
 
-@if(session('error'))
-    <div class="bg-red-500 text-white text-center py-2" style="margin-top: 15px;">
-        <div class="mx-auto w-full max-w-xl">{{ session('error') }}</div> 
-    </div>
-@endif
-
-
+    <!-- image slider -->
     <div id="hero-image" class="w-[100%] h-700">
         <!-- <img src="/images/hero-image.png" class="mx-auto"> -->
         <div class="slideshow-container">
@@ -27,7 +21,7 @@
     </div>
     
     <div id="shop" class="mb-[1rem]">
-
+        <!-- a static section -->
         <div id="shop-by-category" data-aos="slide-up" data-aos-duration="1000">
             <h1 class="text-[1.5em] my-[1rem] ml-[1rem] tracking-wider">Shop by category</h1>
             <div class="flex md:flex-row md:gap-0 flex-col gap-[2rem] justify-around">

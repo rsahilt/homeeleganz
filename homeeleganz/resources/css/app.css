@@ -292,7 +292,6 @@ footer{
 
 #navbar-default ul li:hover
 {
-    background-color: white;
     cursor: pointer;
 }
 
@@ -559,6 +558,23 @@ img.order-pr-image{
     width: 80%;
     height: auto;
 }
+
+#shipping
+{
+    border-left: 1px solid #666;
+    border-right: 1px solid #666;
+}
+.utilitynav{
+    color: blue;
+}
+
+#logo h1.invoice-logo,
+#logo h1.invoice-logo span
+{
+    color: black !important;
+}
+
+
 /* -----------------------------------------------------------------
 ----------------------------Media Queries----------------------------
 --------------------------------------------------------------------*/

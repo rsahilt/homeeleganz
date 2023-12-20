@@ -11,6 +11,7 @@
                 <a href="/products">All Furnitures</a>
             </li>
 
+            <!-- showing the list of all the categories in the database -->
             @foreach($allCategories as $allcategory)
                 <li class="hover:cursor-pointer @if($categoryName === $allcategory->name) active-category @endif">
                     <a href="{{ route('category.view', ['categoryName' => $allcategory->name]) }}" class="category-link">{{ $allcategory->name }}</a>
@@ -21,6 +22,7 @@
     
     <div class="grid lg:grid-cols-4 md:grid-cols-3   gap-9">
 
+        <!-- foreach loop to show all the products under thier respective categories -->
         @foreach($category->products as $product)
             <div class="w-[250px] min-h-[400px] border-[1px] rounded-[35px] mx-auto relative" data-aos="slide-up" data-aos-duration="1000">
                 <a href="{{ route('product.details', ['id' => $product->id]) }}" class="block">
@@ -38,6 +40,7 @@
                                 $summary = explode(' ', $product->summary);
                                 $limitedSummary = implode(' ', array_slice($summary, 0, 15));
                                 echo $limitedSummary;
+                                // if the summary has more than 15 words, echo ...
                                 if (count($summary) > 15) {
                                     echo '...';
                                 }
@@ -45,6 +48,7 @@
                         </p>
                     </div>
                     <div class=" absolute bottom-1 right-0 left-0 flex justify-center">  
+                        <!-- button to add a particular item to cart as POST form -->
                         <form action="{{ route('cart.add') }}" method="POST" novalidate>
                         @csrf
                             <button class="bg-black text-white text-[.7em] py-2 px-5 rounded-[20px] my-2 tracking-wider">

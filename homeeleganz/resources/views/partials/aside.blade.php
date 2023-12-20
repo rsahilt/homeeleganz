@@ -1,3 +1,4 @@
+<!-- sidebar for admin dashboard with slug to detect the active page -->
 <aside>
     <ul class="pl-5 pt-5">
         <li class="mb-2 mr-5 rounded hover:bg-blue-700">

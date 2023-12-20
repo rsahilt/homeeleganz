@@ -12,6 +12,9 @@
                     Back
                 </a>
                 
+                <!-- form to add a new product -->
+                <!-- if the user leaves any field empty, rest of the field will still have the
+                old value so that they won't have to type everything again -->
                 <form action="{{ route('storeproducts') }}" novalidate 
                     method="POST" 
                     enctype="multipart/form-data">

@@ -11,14 +11,16 @@
             </div>
             <div class="text-gray-700">
                 <div class="font-bold text-xl mb-2">INVOICE</div>
+                <!-- showing the date of invoice -->
                 <div class="text-sm">Date: {{ date('m/d/Y') }}</div>
-                <div class="text-sm">Invoice #: INV{{ str_pad(rand(1, 99999), 5, '0', STR_PAD_LEFT) }}</div>
+                <div class="text-sm">Invoice #: INV{{ $order['id'] }}</div>
             </div>
         </div>
         <div class="border-b-2 border-gray-300 pb-8 mb-8">
+            <!-- getting the address from auth as the user is loggedin -->
             <h2 class="text-2xl font-bold mb-4">ShippingAddress</h2>
             <div class="text-gray-700 mb-2">{{ $userdetails->first_name }} {{ $userdetails->last_name }}</div>
-            <div class="text-gray-700 mb-2">{{ $userdetails->address}}-{{ $userdetails->street }}</div>
+            <div class="text-gray-700 mb-2">{{ $userdetails->address}}-{{ $userdetails->street }}, {{ $userdetails->postal_code }}</div>
             <div class="text-gray-700 mb-2">{{ $userdetails->city }}, {{ $userdetails->province }}</div>
             <div class="text-gray-700 mb-2">{{ $userdetails->country }}</div>
             <div class="text-gray-700">{{ $userdetails->email }}</div>
@@ -45,6 +47,7 @@
                 </tr>
             </thead>
             <tbody>
+                <!-- carrying out a loop to show all necessary product details in invoice -->
                 @foreach($cartItems as $cartItem)
                 <tr>
                     <td class="py-4 text-gray-700">{{ $cartItem['product']['name'] ?? 'Product Name' }}</td>

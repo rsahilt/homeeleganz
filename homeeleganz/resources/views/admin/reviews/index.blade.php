@@ -45,6 +45,7 @@
                 </thead>
 
                 <tbody>
+                    <!-- foreach loop to display all the reviews posted in the page -->
                     @foreach($reviews as $index => $review)
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                         <td class="px-6 py-4">
@@ -79,9 +80,6 @@
                                 </form>
                             </div>
                         </td>
-
-
-
 
                     </tr>
                     @endforeach

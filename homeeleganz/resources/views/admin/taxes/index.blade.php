@@ -12,6 +12,7 @@
                     <a href="/admin/taxes/create" class="mb-5 inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-blue-600 transition-all mt-3">
                         Add New Province Tax Details
                     </a>
+                    <!-- flash messages -->
                     @if (session('success'))
                         <div class="alert alert-success mt-7 rounded-lg bg-green-200">
                             {{ session('success') }}
@@ -55,6 +56,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- showing the list of all the provinces and their taxes -->
                   @foreach ($taxes as $tax)
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                         <td class="px-6 py-4">
@@ -77,6 +79,7 @@
                                 <a href="{{ route('edittax', ['id' => $tax->id]) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
                                 &nbsp; &nbsp; | &nbsp; &nbsp;
                                 
+                                <!-- delete button to delete the data, but first, asking the user in alert about confirmation -->
                                 <form action="{{ route('deletetax', ['id' => $tax->id]) }}" method="POST" novalidate class="inline-block">
                                     @csrf
                                     @method('DELETE')
