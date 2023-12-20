@@ -109,7 +109,7 @@ class ProductController extends Controller
 
         Message::create($validatedData);
 
-        return redirect()->back()->with('success', 'Message sent successfully!');
+        return redirect('/products')->with('success', 'Message sent successfully!');
     }
 
     /**
