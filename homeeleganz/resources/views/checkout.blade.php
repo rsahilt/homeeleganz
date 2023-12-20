@@ -11,14 +11,16 @@
     
         <!-- showing all the items in cart in the checkout page -->
         @foreach($cart as $cartItem)
+            @php
+                $itemTotal = $cartItem['product']['unit_price'] * $cartItem['quantity'];
+            @endphp
             <div class="flex justify-between">
-            <span>{{ $cartItem['product']['name'] ?? 'Default Product Name' }}</span>
-            <span>x {{ $cartItem['quantity'] }}</span>
-
-            <span>${{ $cartItem['product']['unit_price'] ?? '0.00' }}</span>
-
+                <span>{{ $cartItem['product']['name'] ?? 'Default Product Name' }}</span>
+                <span>x {{ $cartItem['quantity'] }}</span>
+                <span>${{ $cartItem['product']['unit_price'] ?? '0.00' }}</span>
+                <span>${{ number_format($itemTotal, 2) }}</span>
             </div>
-        <hr class="my-[1rem]">
+            <hr class="my-[1rem]">
         @endforeach
 
         <!-- showing their price related details, gst, pst, subtotal, hst and total with 

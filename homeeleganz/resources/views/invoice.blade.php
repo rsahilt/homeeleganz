@@ -49,11 +49,14 @@
             <tbody>
                 <!-- carrying out a loop to show all necessary product details in invoice -->
                 @foreach($cartItems as $cartItem)
+                @php
+                    $itemTotal = $cartItem['product']['unit_price'] * $cartItem['quantity'];
+                @endphp
                 <tr>
                     <td class="py-4 text-gray-700">{{ $cartItem['product']['name'] ?? 'Product Name' }}</td>
                     <td class="py-4 text-gray-700">{{ $cartItem['quantity'] }}</td>
                     <td class="py-4 text-gray-700">${{ $cartItem['product']['unit_price'] ?? '0.00' }}</td>
-                    <td class="py-4 text-gray-700">${{ $cartItem['product']['unit_price'] ?? '0.00' }}</td>
+                    <td class="py-4 text-gray-700">${{ number_format($itemTotal, 2) }}</td>
                 </tr>
                 @endforeach
             </tbody>
