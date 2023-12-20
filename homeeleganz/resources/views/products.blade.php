@@ -23,7 +23,7 @@
     <div class="grid lg:grid-cols-4 md:grid-cols-3  gap-9">
         <!-- if products table is empty -->
         @if($products->isEmpty())
-            <p>No results found.</p>
+            <p class="text-center">No results found.</p>
         @else
         <!-- if there are products, a foreach loop to show all the products with limited info -->
             @foreach($products as $product)

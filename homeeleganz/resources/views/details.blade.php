@@ -5,7 +5,7 @@
         <div class="prod-desc-image">
             <div class="main-img box-shadow-details">
                 <!-- getting the image of the product user clicked on -->
-                <img src="/images/{{ $information->image }}" alt="sofa image">
+                <img src="/images/{{ $information->image }}" alt="{{ $information->name }}">
             </div>
         </div>
         <div class="details">
