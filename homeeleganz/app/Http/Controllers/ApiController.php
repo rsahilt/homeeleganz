@@ -8,12 +8,19 @@ use Pacewdd\Bx\_5bx;
 use App\Models\Order;
 use App\Models\LineItem;
 use App\Models\Transaction;
-
-
 use Auth;
 
 class ApiController extends Controller
 {
+    /**
+     * Handles the creation of a new order and processes payment.
+     *
+     * Validates the card details, creates an order and line items,
+     * processes the payment, and returns an invoice view.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\View\View|\Illuminate\Http\RedirectResponse
+     */
     public function index(Request $request)
     {
         $valid = $request->validate([
@@ -26,9 +33,7 @@ class ApiController extends Controller
         
         ///inserting into order table
         $order = new Order();
-        $order->order_date = now();
-        // $order->sub_total = $valid['sub_total'];
-        //$order->pst = session('totalGST'); 
+        $order->order_date = now(); 
         $order->pst = session('totalPST'); 
         $order->gst = session('totalGST');
         $order->hst = session('totalHST');
@@ -50,9 +55,7 @@ class ApiController extends Controller
             if (isset($cartItem['product']) && is_array($cartItem['product']) && isset($cartItem['product']['id'])) {
                 $lineItem = new LineItem();
                 $lineItem->order_id = $order->id;
-                $lineItem->product_id = $cartItem['product']['id'];
-        
-                
+                $lineItem->product_id = $cartItem['product']['id'];            
                 $lineItem->name = $cartItem['product']['name'];
                 $lineItem->quantity = $cartItem['quantity'];
                 $lineItem->unit_price = $cartItem['product']['unit_price'];
@@ -60,10 +63,7 @@ class ApiController extends Controller
                 $lineItem->save(); // Save line_items
             } 
         }
-        
-        
-        
-
+           
         //transaction vbox
         $transaction = new _5bx(2257811, 'a88c8843898e4daad5646322ca06f22d');
 
