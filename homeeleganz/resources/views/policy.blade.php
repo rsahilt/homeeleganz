@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
-
+    <!-- a static policy page -->
     <section class="bg-gray-100 body-font">
         <div class="container px-5 py-24 mx-auto bg-gray-100" data-aos="slide-up" data-aos-duration="1000">
             <div class="flex flex-col text-center w-full mb-12">

@@ -26,7 +26,7 @@
 
 <body class="font-lato overflow-x-hidden" data-aos-easing="ease" data-aos-duration="400" data-aos-delay="0">
     @include('partials.header')
-    <!-- flash message -->
+    <!-- flash message according to information-->
     @if (session('success'))
         <div class="alert alert-success mt-7 rounded-lg bg-green-200">
             {{ session('success') }}
@@ -47,11 +47,13 @@
 
     @yield('content')
 
+    <!-- js for animation -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   	<script>
     	AOS.init();
   	</script>
 
+    <!-- timeout for flashmessages -->
     <script>
         // Wait for the document to be ready
         document.addEventListener("DOMContentLoaded", function() {

@@ -1,3 +1,4 @@
+<!-- function for showing the hidden navbar on hamburger click -->
 <script>
     function toggleMenu() {
         var menu = document.getElementById('menu');
@@ -34,6 +35,7 @@
 
         <div id="login" class="flex pr-0 md:pr-10">
             <ul class="flex space-x-2">
+                <!-- adding a slug checking the url path to detect the active page -->
                 @php
                     $currentUrl = Request::path(); 
                     $slug = ''; 
@@ -45,19 +47,38 @@
                     if ($currentUrl === 'register') {
                         $slug = 'register';
                     }
+
+                    if ($currentUrl === 'about') {
+                        $slug = 'about';
+                    }
+
+                    if ($currentUrl === 'products') {
+                        $slug = 'products';
+                    }
+
+                    if ($currentUrl === 'brands') {
+                        $slug = 'brands';
+                    }
+
+                    if ($currentUrl === 'contact') {
+                        $slug = 'contact';
+                    }
+                    if ($currentUrl === '/') {
+                        $slug = 'homepage';
+                    }
                 @endphp
                 @guest
                 @if (Route::has('login'))
-                <li class="{{ $slug === 'login' ? 'bg-white' : '' }}">
-                    <a href="{{ route('login') }}" class="authli {{ $slug === 'login' ? 'text-blue-700' : '' }}">{{ __('Login') }}</a>
+                <li class="{{ $slug === 'login' ? 'text-white' : '' }}">
+                    <a href="{{ route('login') }}" class="authli">{{ __('Login') }}</a>
                 </li>
                 @endif
 
                 <li class="authli">|</li>
 
                 @if (Route::has('register'))
-                <li class="{{ $slug === 'register' ? 'bg-white' : '' }}">
-                    <a href="{{ route('register') }}" class="authli {{ $slug === 'register' ? 'text-blue-700' : '' }}">{{ __('Register') }}</a>
+                <li class="{{ $slug === 'register' ? 'text-white' : '' }}">
+                    <a href="{{ route('register') }}" class="authli">{{ __('Register') }}</a>
                 </li>
                 @endif
 
@@ -89,6 +110,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="gray" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19c0 1.104.896 2 2 2s2-.896 2-2M5 8h14l-1.5 7H6L5 8z" />
                 </svg>
+                <!-- increasing the cart counter as the user keeps on adding the items to cart -->
                 @php
                     $cart = session('cart', []);
                     $cartCount = 0;
@@ -113,6 +135,7 @@
         <div class="w-full md:w-auto " id="navbar-default">
 
             <div class="relative block md:hidden">
+                <!-- calling the function to show the hidden navbar for responsive screens -->
                 <div class="flex items-center hidden-navbar" onclick="toggleMenu()">
                     <button class="text-white focus:outline-none">
                         <svg class="hamburger-hidden h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -121,22 +144,22 @@
                     </button>
                 </div>
 
-                <!-- Hidden menu -->
+                <!-- Hidden menu with slug for active page -->
                 <div id="menu" class="hidden absolute left-0 w-48 bg-white border rounded-md shadow-lg z-10">
                     <ul class="navbar flex flex-col justify-center z-10 bg-[#474772]">
-                        <li>
+                        <li class="{{ $slug === 'homepage' ? 'bg-red-500' : '' }} hover:bg-red-500">
                             <a href="/" aria-current="page" style="">Home</a>
                         </li>
-                        <li>
+                        <li class="{{ $slug === 'about' ? 'bg-red-500' : '' }} hover:bg-red-500">
                             <a href="/about">About</a>
                         </li>
-                        <li>
+                        <li class="{{ $slug === 'products' ? 'bg-red-500' : '' }} hover:bg-red-500">
                             <a href="/products">Products</a>
                         </li>
-                        <li>
+                        <li class="{{ $slug === 'brands' ? 'bg-red-500' : '' }} hover:bg-red-500">
                             <a href="/brands">Brands</a>
                         </li>
-                        <li>
+                        <li class="{{ $slug === 'contact' ? 'bg-red-500' : '' }} hover:bg-red-500">
                             <a href="/contact">Contact Us</a>
                         </li>
                     </ul>
@@ -144,25 +167,25 @@
                 </div>
             </div>
 
-
+            <!-- navbar with slug in li for active page  -->
             <ul class="navbar font-medium md:flex hidden md:flex-row md:justify-center md:space-x-8 mt-4 md:mt-0">
-                <li class="{{ $slug === 'homepage' ? 'bg-white' : '' }}">
+                <li class="{{ $slug === 'homepage' ? 'bg-red-500' : '' }} hover:bg-red-500">
                     <a href="/" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500">Home</a>
                 </li>
 
-                <li class="{{ $slug === 'about' ? 'bg-white' : '' }}">
+                <li class="{{ $slug === 'about' ? 'bg-red-500' : '' }} hover:bg-red-500">
                     <a href="/about" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>
                 </li>
 
-                <li class="{{ $slug === 'products' ? 'bg-white' : '' }}">
+                <li class="{{ $slug === 'products' ? 'bg-red-500' : '' }} hover:bg-red-500">
                     <a href="/products" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Products</a>
                 </li>
 
-                <li class="{{ $slug === 'brands' ? 'bg-white' : '' }}">
+                <li class="{{ $slug === 'brands' ? 'bg-red-500' : '' }} hover:bg-red-500">
                     <a href="/brands" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Brands</a>
                 </li>
 
-                <li class="{{ $slug === 'contact' ? 'bg-white' : '' }}">
+                <li class="{{ $slug === 'contact' ? 'bg-red-500' : '' }} hover:bg-red-500">
                     <a href="/contact" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact
                         Us</a>
                 </li>

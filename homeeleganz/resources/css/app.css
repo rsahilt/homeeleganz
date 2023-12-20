@@ -292,7 +292,6 @@ footer{
 
 #navbar-default ul li:hover
 {
-    background-color: white;
     cursor: pointer;
 }
 
@@ -564,6 +563,9 @@ img.order-pr-image{
 {
     border-left: 1px solid #666;
     border-right: 1px solid #666;
+}
+.utilitynav{
+    color: blue;
 }
 /* -----------------------------------------------------------------
 ----------------------------Media Queries----------------------------

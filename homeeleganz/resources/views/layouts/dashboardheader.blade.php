@@ -36,6 +36,7 @@
 
         <div id="login" class="flex pr-10">
             <ul class="flex space-x-2">
+                <!-- admin search bar -->
                 <form action="{{ route('admin.products.search') }}" method="POST" novalidate>
                     @csrf
                     <div class="relative flex w-full flex-wrap items-stretch">

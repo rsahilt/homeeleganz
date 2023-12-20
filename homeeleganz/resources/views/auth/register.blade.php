@@ -14,7 +14,7 @@
                         <!-- First Name -->
                         <div class="w-full md:w-1/2 px-2 mb-4">
                             <label for="first_name" class="block text-sm font-semibold text-gray-600">{{ __('First Name') }} <span class="text-red-600">*</span></label>
-                            <input id="first_name" name="first_name" type="text" class="form-input h-10 w-full px-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-500" name="first_name" autocomplete="first_name" autofocus>
+                            <input id="first_name" name="first_name" type="text" class="form-input h-10 w-full px-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-500" name="first_name" autocomplete="first_name" value="{{ old('first_name') }}" autofocus>
                             @error('first_name')
                                 <span class="text-red-500">{{ $message }}</span>
                             @enderror
@@ -23,7 +23,7 @@
                         <!-- Last Name -->
                         <div class="w-full md:w-1/2 px-2 mb-4">
                             <label for="last_name" class="block text-sm font-semibold text-gray-600">{{ __('Last Name') }} <span class="text-red-600">*</span></label>
-                            <input id="last_name" name="last_name" type="text" class="form-input h-10 w-full px-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-500" name="last_name" autocomplete="last_name">
+                            <input id="last_name" name="last_name" type="text" class="form-input h-10 w-full px-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-500" name="last_name" value="{{ old('last_name') }}" autocomplete="last_name">
                             @error('last_name')
                                 <span class="text-red-500">{{ $message }}</span>
                             @enderror
@@ -33,7 +33,7 @@
                     <!-- Email Address -->
                     <div class="mb-4">
                         <label for="email" class="block text-sm font-semibold text-gray-600">{{ __('Email Address') }} <span class="text-red-600">*</span></label>
-                        <input id="email" name="email" type="email" class="form-input h-10 w-full px-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-500" name="email" autocomplete="email">
+                        <input id="email" name="email" type="email" class="form-input h-10 w-full px-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-500" name="email" value="{{ old('email') }}" autocomplete="email">
                         @error('email')
                             <span class="text-red-500">{{ $message }}</span>
                         @enderror
@@ -42,7 +42,7 @@
                     <!-- Password -->
                     <div class="mb-4">
                         <label for="password" class="block text-sm font-semibold text-gray-600">{{ __('Password') }} <span class="text-red-600">*</span></label>
-                        <input id="password" name="password" type="password" class="form-input h-10 w-full px-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-500" name="password" autocomplete="new-password">
+                        <input id="password" name="password" type="password" class="form-input h-10 w-full px-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-500" name="password"  autocomplete="new-password">
                         @error('password')
                             <span class="text-red-500">{{ $message }}</span>
                         @enderror
@@ -62,7 +62,7 @@
                         <!-- House No -->
                         <div class="w-full md:w-1/2 px-2 mb-4">
                             <label for="address" class="block text-sm font-semibold text-gray-600">{{ __('House/Unit/Suite no.') }} <span class="text-red-600">*</span></label>
-                            <input id="address" name="address" type="text" class="form-input h-10 w-full px-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-500" name="address">
+                            <input id="address" name="address" type="text" class="form-input h-10 w-full px-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-500" value="{{ old('address') }}" name="address">
                             @error('address')
                                 <span class="text-red-500">{{ $message }}</span>
                             @enderror
@@ -71,7 +71,7 @@
                         <!-- Street -->
                         <div class="w-full md:w-1/2 px-2 mb-4">
                             <label for="street" class="block text-sm font-semibold text-gray-600">{{ __('Street') }} <span class="text-red-600">*</span></label>
-                            <input id="street" name="street" type="text" class="form-input h-10 w-full px-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-500" name="street">
+                            <input id="street" name="street" type="text" class="form-input h-10 w-full px-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-500" name="street" value="{{ old('street') }}">
                             @error('street')
                                 <span class="text-red-500">{{ $message }}</span>
                             @enderror
@@ -83,7 +83,7 @@
                         <!-- City -->
                         <div class="w-full md:w-1/2 px-2 mb-4">
                             <label for="city" class="block text-sm font-semibold text-gray-600">{{ __('City') }} <span class="text-red-600">*</span></label>
-                            <input id="city" name="city" type="text" class="form-input h-10 w-full px-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-500" name="city">
+                            <input id="city" name="city" type="text" class="form-input h-10 w-full px-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-500" name="city" value="{{ old('city') }}">
                             @error('city')
                                 <span class="text-red-500">{{ $message }}</span>
                             @enderror
@@ -92,7 +92,7 @@
                         <!-- Province -->
                         <div class="w-full md:w-1/2 px-2 mb-4">
                             <label for="province" class="block text-sm font-semibold text-gray-600">{{ __('Province') }} <span class="text-red-600">*</span></label>
-                            <input id="province" name="province" type="text" class="form-input h-10 w-full px-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-500" name="province">
+                            <input id="province" name="province" type="text" class="form-input h-10 w-full px-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-500" name="province" value="{{ old('province') }}">
                             @error('province')
                                 <span class="text-red-500">{{ $message }}</span>
                             @enderror
@@ -102,7 +102,7 @@
                     <!-- Country -->
                     <div class="mb-4">
                         <label for="country" class="block text-sm font-semibold text-gray-600">{{ __('Country') }} <span class="text-red-600">*</span></label>
-                        <input id="country" name="country" type="text" class="form-input h-10 w-full px-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-500" name="country">
+                        <input id="country" name="country" type="text" class="form-input h-10 w-full px-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-500" name="country" value="{{ old('country') }}">
                         @error('country')
                             <span class="text-red-500">{{ $message }}</span>
                         @enderror
@@ -111,7 +111,7 @@
                     <!-- Postal Code -->
                     <div class="mb-4">
                         <label for="postal_code" class="block text-sm font-semibold text-gray-600">{{ __('Postal Code') }} <span class="text-red-600">*</span></label>
-                        <input id="postal_code" name="postal_code" type="text" class="form-input h-10 w-full px-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-500" name="postal_code">
+                        <input id="postal_code" name="postal_code" type="text" class="form-input h-10 w-full px-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-500" name="postal_code" value="{{ old('postal_code') }}">
                         @error('postal_code')
                             <span class="text-red-500">{{ $message }}</span>
                         @enderror
@@ -120,7 +120,7 @@
                     <!-- Phone Number -->
                     <div class="mb-4">
                         <label for="phone_number" class="block text-sm font-semibold text-gray-600">{{ __('Phone Number') }} <span class="text-red-600">*</span></label>
-                        <input id="phone_number" name="phone_number" type="tel" class="form-input h-10 w-full px-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-500" name="phone_number">
+                        <input id="phone_number" name="phone_number" type="tel" class="form-input h-10 w-full px-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-500" name="phone_number" value="{{ old('phone_number') }}">
                         @error('phone_number')
                             <span class="text-red-500">{{ $message }}</span>
                         @enderror

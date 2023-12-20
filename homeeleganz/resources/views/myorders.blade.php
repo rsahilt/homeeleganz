@@ -2,14 +2,19 @@
 @section('content')
 
 <div class="order-container">
-<h1 class="font-bold pl-5 py-5 text-xl">Your Orders</h1>
+<h1 class="font-bold pl-5 py-5 text-xl text-center">Your Orders</h1>
+<!-- if the user has 1 or more orders
+carrying out a loop to view all the orders -->
+
+<!-- showing order id, image, quantity and name -->
 @if($orders->count() > 0)
     <ul>
         @foreach($orders as $order)
             <div class="order-card">
             <li>
                 <div class="order-box">
-                <strong>Order ID:</strong> {{ $order->id }}
+                <p><strong>Order ID:</strong> {{ $order->id }}</p>
+                <p><strong>Ordered on: {{ $order->created_at->format('Y-m-d') }}</strong></p>
                 <ul>
                     @foreach($order->lineItems as $lineItem)
                         <li class="pt-2">
@@ -17,6 +22,9 @@
                         </li>
                         <li class="pt-2">
                             <strong>Product Name:</strong> {{ $lineItem->product->name }}
+                        </li>
+                        <li class="pt-2">
+                            <strong>Quantity:</strong> {{ $lineItem->quantity }}
                         </li>
                         <hr>
                     @endforeach
@@ -27,7 +35,7 @@
         @endforeach
     </ul>
 @else
-    <p>You have no orders yet.</p>
+    <p class="text-center">You have no orders yet.</p>
 @endif
 </div>
 

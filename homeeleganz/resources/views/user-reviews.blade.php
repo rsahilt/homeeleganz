@@ -19,9 +19,12 @@
 
                 <caption> 
                     <div class="flex flex-col items-center justify-center">
+                        <!-- if the auth user has posted reviews -->
                         @if($reviews->count() > 0)
+                        <!-- foreach loop to display all the reviews posted by them -->
                         @foreach($reviews as $review)
                         <div class="max-w-md w-full bg-white shadow-lg rounded-lg overflow-hidden m-4">
+                            <!-- showing the product name, image, review and date they left the review -->
                             <div class="p-4">
                                 <p class="text-black text-lg font-semibold">Product: {{ $review->product->name }}</p>
                                 <img src="/images/{{ $review->product->image }}" alt="{{ $review->product->name }}" width="150px" height="150px" class="mb-4">
@@ -31,6 +34,7 @@
                             </div>
                         </div>
                         @endforeach
+                        <!-- if the user has not posted any reviews -->
                         @else
                         <p class="text-lg text-gray-700">No reviews available.</p>
                         @endif

@@ -9,9 +9,11 @@
             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
 
                 <caption class="p-5 text-lg font-semibold text-left rtl:text-right text-gray-900 bg-white dark:text-white dark:bg-gray-800">
+                   <!-- getting the order id -->
                     Order id: {{ $order->id }}
                     <br>
 
+                    <!-- flash messages -->
                     @if (session('success'))
                     <div class="alert alert-success mt-7 rounded-lg bg-green-200">
                         {{ session('success') }}
@@ -44,6 +46,7 @@
                     <h1 class="text-[1.5rem] font-semibold">Order</h1>
                 </div>
 
+                    <!-- getting the details of all the items in single order using foreach loop -->
                     @foreach($items as $item)
                     <div class="flex items-center justify-between p-4  border-gray-300">
                         <div class="flex justify-center items-center">
@@ -82,6 +85,7 @@
                         <h1 class="text-[1.5rem] font-semibold">Shipping Address</h1>
                     </div>
 
+                    <!-- getting the user information -->
                     <div class="w-100 flex flex-col items-center justify-between p-4  border-gray-300">
                         <div class="w-[100%] flex justify-between items-center mb-3">
                             <span class="text-lg font-semibold">{{ $order->user->first_name }} {{ $order->user->last_name }}</span>
@@ -105,6 +109,7 @@
 
                         <h1 class="text-[1.5rem] font-semibold">Transactions</h1>
                     </div>
+                    <!-- getting the transaction information for that order from transactions table -->
                     @foreach($transactions as $transaction)
                     
                     <div class="w-100 flex flex-col items-center justify-between p-4  border-gray-300">
@@ -114,11 +119,6 @@
                             <span class="text-gray-600 ml-4"> {{ $transaction->id }}</span>
                         </div>
 
-                        <div class="w-[100%] flex justify-between items-center mb-3">
-                            <span class="text-lg font-semibold">Transaction status:
-                            </span>
-                            <span class="text-gray-600 ml-4"> {{ $transaction->status }}</span>
-                        </div>
                         <div class="w-[100%] flex justify-between items-center">
                             <span class="text-lg font-semibold">Order id:
                             </span>
@@ -127,7 +127,7 @@
                         <div class="w-full bg-gray-100 py-8">
                             <div class="max-w-2xl mx-auto">
 
-
+                                <!-- decoding the api results and showing the transaction results-->
                                 @php
                                 $decodedTransaction = json_decode($transaction->transaction, true);
                                 @endphp

@@ -12,6 +12,7 @@
                     Back
                 </a>
                 
+                <!-- form to create a new category -->
                 <form action="{{ route('storecategory') }}" novalidate 
                     method="POST" 
                     enctype="multipart/form-data">

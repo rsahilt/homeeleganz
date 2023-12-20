@@ -6,6 +6,7 @@
     </div>
 
     <div class="flex flex-wrap justify-center">
+    <!-- getting all the brand names -->
     @foreach ($brands as $brand)
         <div class="group relative m-10 h-96 w-96 overflow-hidden rounded-lg shadow-md">
             <!-- Page1 -->
@@ -16,7 +17,7 @@
             </div>
             <!-- /Page1 -->
 
-            <!-- Page2 -->
+            <!-- Page2 that appears when the user hovers over page1-->
             <div class="absolute left-0 -bottom-96 flex h-full w-full flex-col justify-center transition-all duration-300 ease-in-out group-hover:bottom-0">
                 <h1 class="mb-2 px-8 text-center font-serif text-xl font-semibold text-rose-500">{{ $brand }}</h1>
                 <p class="px-8 text-center">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero deserunt quisquam aperiam, voluptas esse minima. Tenetur odit rem ducimus incidunt quas, voluptates obcaecati, sint amet sit provident quis nam repellat, odio repellendus recusandae. Error, repudiandae?</p>
