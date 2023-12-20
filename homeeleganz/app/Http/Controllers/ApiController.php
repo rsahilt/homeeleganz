@@ -85,7 +85,7 @@ class ApiController extends Controller
         
         // Set the default status value. Adjust this based on your application's logic.
         // For example, you might set it based on the response from your payment gateway.
-        $newTransaction->status = 'default_status'; // Replace 'default_status' with the appropriate default status value for your application.
+        // $newTransaction->status = 'default_status'; 
         
         $newTransaction->save();
 
@@ -107,7 +107,7 @@ class ApiController extends Controller
         //FORGET THE SESSION
         $request->session()->forget('cart');
     
-        return view('invoice', compact('response', 'userdetails'));
+        return view('invoice', compact('response', 'userdetails', 'order'));
 
         // $cart = $request->session()->forget('cart');
         // return view('/invoice', compact('response','userdetails','cart'));
