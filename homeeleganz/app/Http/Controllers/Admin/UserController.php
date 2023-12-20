@@ -1,19 +1,21 @@
 <?php
 
-// app/Http/Controllers/UserController.php
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Review;
 use Illuminate\Http\Request;
 use App\Models\User;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
-    // Display a listing of all users
+    /**
+     * Display a listing of all users.
+     *
+     * Fetches and displays all registered users.
+     *
+     * @return \Illuminate\View\View
+     */
     public function index()
     {
         $users = User::all();
@@ -22,13 +24,26 @@ class UserController extends Controller
         return view('/admin/users/index', compact('users', 'title', 'slug'));
     }
 
-    // Show the form for creating a new user
+    /**
+     * Show the form for creating a new user.
+     *
+     * @return \Illuminate\View\View
+     */
     public function create()
     {
         $title = "Add a new user";
         $slug = 'userdashboard';
         return view('admin/users/create', compact('title', 'slug'));
     }
+
+    /**
+     * Store a newly created user in the database.
+     *
+     * Validates and creates a new user record.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
 
     public function store(Request $request)
     {
@@ -64,6 +79,15 @@ class UserController extends Controller
         }
     }
 
+      /**
+     * Show the form for editing a specific user.
+     *
+     * Retrieves a user by their ID and provides a form for editing.
+     *
+     * @param  string  $id
+     * @return \Illuminate\View\View|\Illuminate\Http\RedirectResponse
+     */
+
     public function edit($id)
     {
         $user = User::find($id);
@@ -76,7 +100,15 @@ class UserController extends Controller
         }
     }
 
-
+  /**
+     * Update a specific user's information in the database.
+     *
+     * Validates and updates the user record.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  string  $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function update(Request $request, $id)
     {
         $user = User::find($id);
@@ -113,6 +145,15 @@ class UserController extends Controller
         }
     }
 
+      /**
+     * Update the profile of a specific user.
+     *
+     * Validates and updates the user's personal profile information.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  string  $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function updateProfile(Request $request, $id)
     {
         $user = User::find($id);
@@ -140,6 +181,14 @@ class UserController extends Controller
         }
     }
 
+      /**
+     * Remove a specific user from the database.
+     *
+     * Deletes the user record by their ID.
+     *
+     * @param  string  $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function destroy($id)
     {
         $user = User::find($id);

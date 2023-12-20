@@ -8,12 +8,19 @@ use Pacewdd\Bx\_5bx;
 use App\Models\Order;
 use App\Models\LineItem;
 use App\Models\Transaction;
-
-
 use Auth;
 
 class ApiController extends Controller
 {
+    /**
+     * Handles the creation of a new order and processes payment.
+     *
+     * Validates the card details, creates an order and line items,
+     * processes the payment, and returns an invoice view.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\View\View|\Illuminate\Http\RedirectResponse
+     */
     public function index(Request $request)
     {
         $valid = $request->validate([

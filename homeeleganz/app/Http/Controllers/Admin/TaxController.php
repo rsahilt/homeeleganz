@@ -5,12 +5,15 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Tax;
-use Illuminate\Support\Facades\Storage;
 
 class TaxController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of tax rates.
+     *
+     * Retrieves and displays a list of all tax rates from the database.
+     *
+     * @return \Illuminate\View\View
      */
     public function index()
     {
@@ -21,7 +24,9 @@ class TaxController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new tax rate.
+     *
+     * @return \Illuminate\View\View
      */
     public function create()
     {
@@ -31,7 +36,12 @@ class TaxController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created tax rate in storage.
+     *
+     * Validates the request and creates a new tax rate in the database.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
@@ -42,12 +52,17 @@ class TaxController extends Controller
             'hst' => 'required|numeric',
         ]);
 
-        $taxes = Tax::create($valid);
-        return redirect(route('taxlist'))->with('success','New Province Tax Record created!');
+        Tax::create($valid);
+        return redirect(route('taxlist'))->with('success', 'New Province Tax Record created!');
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing a specified tax rate.
+     *
+     * Retrieves a specific tax rate by ID for editing.
+     *
+     * @param  string  $id
+     * @return \Illuminate\View\View
      */
     public function edit($id)
     {
@@ -75,7 +90,13 @@ class TaxController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified tax rate in storage.
+     *
+     * Validates the request and updates the specified tax rate in the database.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  string  $id
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, string $id)
     {
@@ -93,8 +114,13 @@ class TaxController extends Controller
         return redirect(route('taxlist'))->with('success', 'Province Tax Record updated successfully!');
     }
 
-    /**
-     * Remove the specified resource from storage.
+     /**
+     * Remove the specified tax rate from storage.
+     *
+     * Deletes a specific tax rate by ID from the database.
+     *
+     * @param  string  $id
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(string $id)
     {
