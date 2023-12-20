@@ -45,19 +45,35 @@
                     if ($currentUrl === 'register') {
                         $slug = 'register';
                     }
+
+                    if ($currentUrl === 'about') {
+                        $slug = 'about';
+                    }
+
+                    if ($currentUrl === 'products') {
+                        $slug = 'products';
+                    }
+
+                    if ($currentUrl === 'brands') {
+                        $slug = 'brands';
+                    }
+
+                    if ($currentUrl === 'contact') {
+                        $slug = 'contact';
+                    }
                 @endphp
                 @guest
                 @if (Route::has('login'))
-                <li class="{{ $slug === 'login' ? 'bg-white' : '' }}">
-                    <a href="{{ route('login') }}" class="authli {{ $slug === 'login' ? 'text-blue-700' : '' }}">{{ __('Login') }}</a>
+                <li class="{{ $slug === 'login' ? 'text-white' : '' }}">
+                    <a href="{{ route('login') }}" class="authli">{{ __('Login') }}</a>
                 </li>
                 @endif
 
                 <li class="authli">|</li>
 
                 @if (Route::has('register'))
-                <li class="{{ $slug === 'register' ? 'bg-white' : '' }}">
-                    <a href="{{ route('register') }}" class="authli {{ $slug === 'register' ? 'text-blue-700' : '' }}">{{ __('Register') }}</a>
+                <li class="{{ $slug === 'register' ? 'text-white' : '' }}">
+                    <a href="{{ route('register') }}" class="authli">{{ __('Register') }}</a>
                 </li>
                 @endif
 
