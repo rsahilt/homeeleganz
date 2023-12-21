@@ -676,4 +676,12 @@ img.order-pr-image{
         display: block;
     }
 
+    .review-container-profile{
+        width: 100%;
+    }
+
+    .review-contents{
+        width: 100%;
+    }
+
 }
