@@ -3,7 +3,7 @@
 
 <div class="p-16 flex justify-center items-center w-full">
 
-    <div class="w-[70%]">
+    <div class="w-[70%] review-container-profile">
 
         <div class="flex flex-col items-center">
             <h2 class="mx-auto p-5 text-2xl font-semibold text-left rtl:text-right text-gray-900 bg-white dark:text-white dark:bg-gray-800">
@@ -18,7 +18,7 @@
 
 
                 <caption> 
-                    <div class="flex flex-col items-center justify-center">
+                    <div class="flex flex-col items-center justify-center review-contents">
                         <!-- if the auth user has posted reviews -->
                         @if($reviews->count() > 0)
                         <!-- foreach loop to display all the reviews posted by them -->

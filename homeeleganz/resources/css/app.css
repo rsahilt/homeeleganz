@@ -574,6 +574,10 @@ img.order-pr-image{
     color: black !important;
 }
 
+.hidden-btn-resp{
+    display: none;
+}
+
 
 /* -----------------------------------------------------------------
 ----------------------------Media Queries----------------------------
@@ -654,6 +658,34 @@ img.order-pr-image{
 
     #logo h1.invoice-logo{
         font-size: 28px;
+    }
+
+    .profile-btns{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .profile-btns button{
+        margin-bottom: 5px;
+    }
+
+    .hidden-btn-fullsize{
+        display: none;
+    }
+    .hidden-btn-resp{
+        display: block;
+    }
+
+    .review-container-profile{
+        width: 100%;
+    }
+
+    .review-contents{
+        width: 100%;
+    }
+    .homeeditform{
+        background-color: red;
+        width: 100%;
     }
 
 }

@@ -29,10 +29,10 @@
                 </div>
             </div>
 
-            <div class="space-x-8 flex justify-between mt-32 md:mt-0 md:justify-center">
+            <div class="profile-btns space-x-8 flex justify-between mt-32 md:mt-0 md:justify-center">
                 <!-- button to edit the user information -->
                 <button
-                    class="text-white py-2 px-4 uppercase rounded bg-blue-400 hover:bg-blue-500 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
+                    class="hidden-btn-fullsize text-white py-2 px-4 uppercase rounded bg-blue-400 hover:bg-blue-500 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
                     <a href="{{ route('home-edit', ['id' => $user->id]) }}"> Edit </a>
                 </button>
                 <!-- button to see the reviews posted by the user -->
@@ -44,6 +44,10 @@
                 <button class=" text-white py-2 px-4 uppercase rounded bg-orange-400 hover:bg-orange-500 shadow hover:shadow-lg
                         font-medium transition transform hover:-translate-y-0.5">
                     <a href="{{ route('myorders') }}">My Orders</a>
+                </button>
+                <button
+                    class="hidden-btn-resp text-white py-2 px-4 uppercase rounded bg-blue-400 hover:bg-blue-500 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
+                    <a href="{{ route('home-edit', ['id' => $user->id]) }}"> Edit </a>
                 </button>
             </div>
         </div>

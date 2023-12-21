@@ -3,7 +3,7 @@
 
 <div class="p-16 flex justify-center items-center w-full">
 
-    <div class="w-[70%]">
+    <div class="w-[70%] homeeditform">
 
         <div class="flex flex-col items-center">
 
